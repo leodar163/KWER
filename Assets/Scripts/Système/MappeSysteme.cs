@@ -9,10 +9,11 @@ static public class MappeSysteme
     private static string cheminDefaut = "Assets/Mappes/";
     private static string extention = ".mappe";
 
-    private static string baliseNom = "<n>";
-    private static string baliseColonne = "<c>";
-    private static string baliseLigne = "<l>";
-    private static string baliseMappeTerrain = "<t>";
+    private const string baliseNom = "<n>";
+    private const string baliseColonne = "<c>";
+    private const string baliseLigne = "<l>";
+    private const string baliseMappeTerrain = "<t>";
+    private const char separateurTerrain  = ':' ;
 
     private static TuileTerrain[] listeTerrains;
 
@@ -40,21 +41,38 @@ static public class MappeSysteme
         listeTerrains = GameObject.FindGameObjectWithTag("ListeTerrains").GetComponents<TuileTerrain>();
 
         DamierGen damierGen = Object.FindObjectOfType<DamierGen>();
+        TuileTerrain[,] damierTerrains = CreerDamierTerrain(damierGen.RecupDamier());
 
-        Mappe mappe = new Mappe(nomMappe, damierGen.colonnes, damierGen.lignes, CreerDamierTerrain(damierGen.RecupDamier()));
+        Mappe mappe = new Mappe(nomMappe, damierGen.colonnes, damierGen.lignes, damierTerrains);
+
+        /* DEBUG
+        int index = 0;
+        for (int y = 0; y < mappe.mappeTerrains.GetLength(1); y++)
+        {
+            for (int x = 0; x < mappe.mappeTerrains.GetLength(0); x++)
+            {
+
+                Debug.Log("tuile" + index + " = " + mappe.mappeTerrains[x, y].nom);
+                index++;
+            }
+        }
+        */
 
         if(nomMappe == "")
         {
             if (EditorUtility.DisplayDialog("Manque le nom", "Rentre un nom pour ta mappe !","Oui Léo..."))
             {
+                if(EditorUtility.DisplayDialog(":3","C'est bien mon grand ^^ !","Ouai ouai... TG..."))
+                {
 
+                }
             }
         }
         else if(CheckerMappeExiste(nomMappe))
         {
             if(EditorUtility.DisplayDialog("La mappe existe déjà", "La mappe existe déjà, tu veux écraser la sauvegarde ?", "Oui", "Non"))
             {
-                SupprimerMappe(cheminMappe);
+                SupprimerMappe(nomMappe);
 
                 CreerFichierMappe(cheminMappe, CreerCodeMappe(mappe));
             }
@@ -92,13 +110,14 @@ static public class MappeSysteme
         {
             for (int x = 0; x < mappeTerrain.GetLength(0); x++)
             {
-                codeMappeTerrain += ':' + mappeTerrain[x, y].nom;
+                codeMappeTerrain += separateurTerrain + mappeTerrain[x, y].nom;
             }
         }
 
         return codeMappeTerrain;
     }
 
+    //Récupère le contenu/code d'un fichier .mappe en fonction du nom de la mappe
     private static string RecupererCodeMappe(string nomMappe)
     {
         string chemin = cheminDefaut + nomMappe + extention;
@@ -112,11 +131,79 @@ static public class MappeSysteme
         return code;
     }
 
-    private static Mappe ConvertirCodeMappe(string code)
+    //Créer un structure Mappe à partir du nom d'un fichier .mappe
+    private static Mappe CreerMappe(string nomMappe)
     {
+        string code = RecupererCodeMappe(nomMappe);
+
+        char[] tableauCode = code.ToCharArray();
+        string balise = "";
+        bool estBalise = false;
+
+        string nom = "";
+        string colonnesTxt ="";
+        string lignesTxt ="";
+        string codeTerrain = "";
+
+        for (int i = 0; i < tableauCode.Length; i++)
+        {
+
+
+            //Détecte et stock les balises.
+            if (estBalise)
+            {
+                balise += tableauCode[i];
+                
+                
+            }
+
+            if (tableauCode[i] == '<')
+            {
+                estBalise = true;
+                balise = "<";
+            }
+            else if (tableauCode[i] == '>')
+            {
+                estBalise = false;
+                continue;
+            }
+
+
+            //Stock le contenu entre les balises.
+            switch (balise)
+            {
+                case baliseNom:
+                    nom += tableauCode[i];
+                    
+                    break;
+                case baliseColonne:
+                    colonnesTxt += tableauCode[i];
+                    
+                    break;
+                case baliseLigne:
+                    lignesTxt += tableauCode[i];
+                    
+                    break;
+                case baliseMappeTerrain:
+                    codeTerrain += tableauCode[i];
+                    
+                    break;
+            }
+        
+        }
+
         
 
-        Mappe mappe = new Mappe();
+        int colonnes = int.Parse(colonnesTxt);
+        int lignes = int.Parse(lignesTxt);
+
+        char[] separateurs = new char[] { separateurTerrain };
+        string[] listeCodeTerrain = codeTerrain.Split(separateurs, System.StringSplitOptions.RemoveEmptyEntries);
+       
+
+        TuileTerrain[,] damierTerrains = CreerDamierTerrain(listeCodeTerrain, colonnes, lignes);
+
+        Mappe mappe = new Mappe(nom, colonnes, lignes, damierTerrains);
 
         return mappe;
     }
@@ -127,11 +214,15 @@ static public class MappeSysteme
     {
         TuileTerrain[,] damierTerrains = new TuileTerrain[damier.GetLength(0),damier.GetLength(1)];
 
+        //int index = 0;
         for (int y = 0; y < damier.GetLength(1); y++)
         {
             for (int x = 0; x < damier.GetLength(0); x++)
             {
                 damierTerrains[x, y] = damier[x, y].terrainTuile;
+
+                //Debug.Log("tuile"+index+" = "+damier[x, y].terrainTuile.nom);
+                //index++;
             }
         }
 
@@ -140,18 +231,19 @@ static public class MappeSysteme
     private static TuileTerrain[,] CreerDamierTerrain(string[] codeTerrain, int colonnes, int lignes)
     {
         TuileTerrain[,] damierTerrains = new TuileTerrain[colonnes, lignes];
+        int index = 0;
 
-        for (int i = 0; i < codeTerrain.Length; i++)
+        for (int y = 0; y < lignes; y++)
         {
-            for (int y = 0; y < lignes; y++)
+            for (int x = 0; x < colonnes; x++)
             {
-                for (int x = 0; x < colonnes; x++)
-                {
-                    damierTerrains[x, y] = ConvertirCodeTerrain(codeTerrain[i]);
-                }
+                damierTerrains[x, y] = ConvertirCodeTerrain(codeTerrain[index]);
+                //Debug.Log("index : " + index + " terrain : " + ConvertirCodeTerrain(codeTerrain[index]).nom);
+                
+                index++;
             }
         }
-
+    
         return damierTerrains;
     }
 
@@ -188,10 +280,10 @@ static public class MappeSysteme
     public static void ChargerMappe(string nomMappe)
     {
         DamierGen damierGen = Object.FindObjectOfType<DamierGen>();
-        listeTerrains = damierGen.GetComponents<TuileTerrain>();
-        //Mappe mappe;
+        listeTerrains = GameObject.FindGameObjectWithTag("ListeTerrains").GetComponents<TuileTerrain>();
+        Mappe mappe = CreerMappe(nomMappe);
 
-        //damierGen.genererEnTuileHexa(mappe);
+        damierGen.GenDamierHexa(mappe);
     }
 
     public static void SupprimerMappe(string nomMappe)
@@ -205,6 +297,7 @@ static public class MappeSysteme
 
     }
 
+    //Récupère le nom de toutes les mappes
     public static List<string> RecuprererNomMappes()
     {
         List<string> listeSauvegardes = new List<string>(Directory.GetFiles(cheminDefaut));

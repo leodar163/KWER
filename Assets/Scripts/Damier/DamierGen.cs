@@ -127,6 +127,7 @@ public class DamierGen : MonoBehaviour
 
     public void GenDamierHexa(MappeSysteme.Mappe mappe)
     {
+        ClearDamier(true);
 
         TuileManager[,] damierTuiles = new TuileManager[mappe.colonnes,mappe.lignes];
 
@@ -239,17 +240,20 @@ public class DamierGen : MonoBehaviour
 
     public TuileManager[,] RecupDamier()//Je suis obligé de recréer la variable parce qu'à chaque fois que j'appuye sur play, damier se reset ! C'est méga chiant ! 
     {
-        TuileManager[,] damier = new TuileManager[colonnes,lignes];
-        TuileManager[] damierRef = FindObjectsOfType<TuileManager>();
+        TuileManager[,] damier = new TuileManager[colonnes, lignes];
+        TuileManager[] damierRef = GetComponentsInChildren<TuileManager>();
 
-            for (int y = 0; y < lignes; y++)
+        int index = 0;
+        for (int y = 0; y < lignes; y++)
+        {
+            for (int x = 0; x < colonnes; x++)
             {
-                for (int x = 0; x < colonnes; x++)
-                {
-                    damier[x, y] = damierRef[x + y];
-                }
+                damier[x, y] = damierRef[index];
+                print(damierRef[index].gameObject.name);
+                index++;
             }
-
+        }
+    
         return damier;
     }
 

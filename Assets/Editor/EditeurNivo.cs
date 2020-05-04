@@ -8,7 +8,7 @@ public class EditeurNiveau : EditorWindow
 {
     string textBoutonActiverModePeinture = "activer mode peinture";
     bool modePeinture = false;
-    string nomMappeSauvegarde = "Nom de la sauvegarde";
+    string nomMappeSauvegarde = "NomSauvegarde";
 
     TuileTerrain[] listeTerrains;
     TuileTerrain terrainSelectionne;
@@ -106,6 +106,7 @@ public class EditeurNiveau : EditorWindow
         if(GUILayout.Button("Sauvegarder Mappe"))
         {
             MappeSysteme.SauvergarderMappe(nomMappeSauvegarde);
+            nomMappeSauvegarde = "NomSauvergarde";
         }
         GUILayout.EndHorizontal();
 
