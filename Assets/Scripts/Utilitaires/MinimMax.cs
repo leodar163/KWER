@@ -174,20 +174,6 @@ public static class MiniMax
         return minim;
     }
 
-    static public Terrains.TypeTerrain TrouverMinimum(List<Terrains.TypeTerrain> liste)
-    {
-        Terrains.TypeTerrain minim = new Terrains.TypeTerrain();
-        minim.hauteur = Mathf.Infinity;
-
-        foreach (Terrains.TypeTerrain terrain in liste)
-        {
-            if (terrain.hauteur < minim.hauteur)
-            {
-                minim = terrain;
-            }
-        }
-        return minim;
-    }
 
     //Maximum
     static public float TrouverMaximum(float[,,] tablo)
@@ -358,19 +344,5 @@ public static class MiniMax
         return maximum;
     }
 
-    static public Terrains.TypeTerrain TrouverMaximum(List<Terrains.TypeTerrain> liste)
-    {
-        Terrains.TypeTerrain maximum = new Terrains.TypeTerrain();
-        maximum.hauteur = -Mathf.Infinity;
-
-        foreach (Terrains.TypeTerrain terrain in liste)
-        {
-            if (terrain.hauteur > maximum.hauteur)
-            {
-                maximum = terrain;
-            }
-        }
-        return maximum;
-    }
 }
 

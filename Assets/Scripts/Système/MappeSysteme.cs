@@ -132,7 +132,7 @@ static public class MappeSysteme
     }
 
     //Créer un structure Mappe à partir du nom d'un fichier .mappe
-    private static Mappe CreerMappe(string nomMappe)
+    public static Mappe CreerMappe(string nomMappe)
     {
         string code = RecupererCodeMappe(nomMappe);
 
@@ -283,7 +283,7 @@ static public class MappeSysteme
         listeTerrains = GameObject.FindGameObjectWithTag("ListeTerrains").GetComponents<TuileTerrain>();
         Mappe mappe = CreerMappe(nomMappe);
 
-        damierGen.GenDamierHexa(mappe);
+        damierGen.GenDamier(mappe);
     }
 
     public static void SupprimerMappe(string nomMappe)

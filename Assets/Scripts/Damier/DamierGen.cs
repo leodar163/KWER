@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class DamierGen : MonoBehaviour
 {
-    [SerializeField] public GameObject tuileCarree;
+    //[SerializeField] public GameObject tuileCarree;
     [SerializeField] public GameObject tuileHexa;
 
 
@@ -13,7 +13,10 @@ public class DamierGen : MonoBehaviour
     [HideInInspector] public bool genererEnTuileHexa = true;
     public TuileManager[,] damier;
 
+    public int colonnes = 1;
+    public int lignes = 1;
 
+    /* OBSOLET
     [Header("Génération Procédurale")]
     [SerializeField] bool genererProceduralement;
     [SerializeField] public int colonnes = 1;
@@ -25,34 +28,35 @@ public class DamierGen : MonoBehaviour
     [SerializeField] public int octaves;
     [SerializeField] public int seed;
     [SerializeField] public Vector2 decalage;
-    
+    */
 
-
-    private void OnValidate()
-    {
-        if(colonnes < 1)
-        {
-            colonnes = 1;
-        }
-        if(lignes < 1)
-        {
-            lignes = 1;
-        }
-        if(zoom < 0)
-        {
-            zoom = 0;
-        }
-        if(lacunarite < 0)
-        {
-            lacunarite = 0;
-        }
-        if(octaves<1)
-        {
-            octaves = 1;
-        }
-
-        
-    }
+    /*OBSOLET
+   private void OnValidate()
+   {
+       
+       if(colonnes < 1)
+       {
+           colonnes = 1;
+       }
+       if(lignes < 1)
+       {
+           lignes = 1;
+       }
+       if(zoom < 0)
+       {
+           zoom = 0;
+       }
+       if(lacunarite < 0)
+       {
+           lacunarite = 0;
+       }
+       if(octaves<1)
+       {
+           octaves = 1;
+       }
+       
+}
+*/
 
     // Start is called before the first frame update
     void Start()
@@ -88,7 +92,7 @@ public class DamierGen : MonoBehaviour
         
     }
 
-
+    /* OBSOLET
     public void GenDamierCarre(int x, int y)
     { 
         int col = 0;
@@ -124,9 +128,14 @@ public class DamierGen : MonoBehaviour
 
         }
     }
+    */
 
-    public void GenDamierHexa(MappeSysteme.Mappe mappe)
+    #region GENERATEUR
+    public void GenDamier(MappeSysteme.Mappe mappe)
     {
+        colonnes = mappe.colonnes;
+        lignes = mappe.lignes;
+
         ClearDamier(true);
 
         TuileManager[,] damierTuiles = new TuileManager[mappe.colonnes,mappe.lignes];
@@ -176,8 +185,12 @@ public class DamierGen : MonoBehaviour
     }
 
 
-    public void GenDamierHexa(int x, int y)
+    public void GenDamier(int x, int y)
     {
+        ClearDamier(true);
+
+        colonnes = x;
+        lignes = y;
 
         TuileManager[,] damierTuiles = new TuileManager[x,y];
 
@@ -190,9 +203,7 @@ public class DamierGen : MonoBehaviour
 
 
         Vector3 positionTuile = new Vector3();
-
-        Terrains terrain = FindObjectOfType<Terrains>();
-        GenerationProcedurale gP = GameObject.FindObjectOfType<GenerationProcedurale>();
+        
 
         for (int i = 0; i < x * y; i++)
         {
@@ -237,6 +248,79 @@ public class DamierGen : MonoBehaviour
         }
         */
     }
+    #endregion
+
+
+    #region MODIFICATEUR
+
+    public void AjouterTuiles(int nbrColonne, int nbrLigne)
+    {
+        
+
+        float tailleTuileX = tuileHexa.GetComponent<SpriteRenderer>().bounds.size.x;
+        float tailleTuileY = tuileHexa.GetComponent<SpriteRenderer>().bounds.size.y;
+
+
+        Vector3 positionTuile = new Vector3();
+
+        
+
+        for (int y = 0; y < lignes + nbrLigne; y++)
+        {
+            for (int x = 0; x < nbrColonne; x++)
+            {
+                positionTuile.x = (colonnes + x + 1) * tailleTuileX + ((tailleTuileX / 2) * (y % 2));
+                positionTuile.y = (lignes + y) * (tailleTuileY / 4 * 3);
+
+                GameObject nvlTuile = Instantiate(tuileHexa, transform);
+
+                nvlTuile.transform.position += positionTuile;
+            }
+        }
+
+        if(nbrLigne > 0)
+        {
+            for (int y = 0; y < nbrLigne; y++)
+            {
+                for (int x = 0; x < colonnes; x++)
+                {
+                    positionTuile.x = x * tailleTuileX + ((tailleTuileX / 2) * (lignes + y % 2));
+                    positionTuile.y = (lignes + y + 1) * (tailleTuileY / 4 * 3);
+
+                    GameObject nvlTuile = Instantiate(tuileHexa, transform);
+
+                    nvlTuile.transform.position += positionTuile;
+                }
+            }
+        }
+
+        damier = RecupDamier();
+
+        colonnes = damier.GetLength(0);
+        lignes = damier.GetLength(1);
+
+        //Renommer les tuiles 
+        int col = 0;
+        int lig = 0;
+        for (int i = 0; i < damier.Length; i++)
+        {
+            col = i % colonnes;
+
+            if(i != 0 && col == 0)
+            {
+                lig++;
+            }
+
+            damier[col, lig].gameObject.name = "Tuile" + i;
+        }
+
+    }
+    public void RetirerTuiles(int nbrColonne, int nbrLigne)
+    {
+
+    }
+
+    #endregion
 
     public TuileManager[,] RecupDamier()//Je suis obligé de recréer la variable parce qu'à chaque fois que j'appuye sur play, damier se reset ! C'est méga chiant ! 
     {
