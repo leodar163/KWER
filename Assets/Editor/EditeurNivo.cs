@@ -46,6 +46,9 @@ public class EditeurNiveau : EditorWindow
     private void Init()
     {
         damierGen = GameObject.FindObjectOfType<DamierGen>();
+        colonnes = damierGen.colonnes;
+        lignes = damierGen.lignes;
+
         listeTerrains = GameObject.FindGameObjectWithTag("ListeTerrains").GetComponents<TuileTerrain>();
     }
 
@@ -104,7 +107,7 @@ public class EditeurNiveau : EditorWindow
 
         GUILayout.Label("Générateur de Damier", texteGauche);
 
-        GUILayout.Space(10);
+        GUILayout.Space(05);
 
         GUILayout.BeginHorizontal();
 
@@ -161,11 +164,19 @@ public class EditeurNiveau : EditorWindow
             {
                 //Ajoute 5 lignes
                 damierGen.AjouterTuiles(0, 5);
+
+                //mise à jour dimensions
+                colonnes = damierGen.colonnes;
+                lignes = damierGen.lignes;
             }
             else
             {
                 //Retire 5 lignes
                 damierGen.RetirerTuiles(0, 5);
+
+                //mise à jour dimensions
+                colonnes = damierGen.colonnes;
+                lignes = damierGen.lignes;
             }
         }
 
@@ -180,11 +191,19 @@ public class EditeurNiveau : EditorWindow
             {
                 //Ajoute 5 colonnes et 5 lignes
                 damierGen.AjouterTuiles(5, 5);
+
+                //mise à jour dimensions
+                colonnes = damierGen.colonnes;
+                lignes = damierGen.lignes;
             }
             else
             {
                 //Retire 5 colonnes et 5 lignes
                 damierGen.RetirerTuiles(5, 5);
+
+                //mise à jour dimensions
+                colonnes = damierGen.colonnes;
+                lignes = damierGen.lignes;
             }
 
         }
@@ -203,11 +222,19 @@ public class EditeurNiveau : EditorWindow
             {
                 //Ajoute 1 ligne
                 damierGen.AjouterTuiles(0, 1);
+
+                //mise à jour dimensions
+                colonnes = damierGen.colonnes;
+                lignes = damierGen.lignes;
             }
             else
             {
                 //Retire 1 ligne
                 damierGen.RetirerTuiles(0, 1);
+
+                //mise à jour dimensions
+                colonnes = damierGen.colonnes;
+                lignes = damierGen.lignes;
             }
         }
 
@@ -220,11 +247,19 @@ public class EditeurNiveau : EditorWindow
             {
                 //Ajoute 1 colonne et 1 ligne
                 damierGen.AjouterTuiles(1, 1);
+
+                //mise à jour dimensions
+                colonnes = damierGen.colonnes;
+                lignes = damierGen.lignes;
             }
             else
             {
                 //Retire 1 colonne et 1 ligne
                 damierGen.RetirerTuiles(1, 1);
+
+                //mise à jour dimensions
+                colonnes = damierGen.colonnes;
+                lignes = damierGen.lignes;
             }
         }
         GUILayout.EndHorizontal();

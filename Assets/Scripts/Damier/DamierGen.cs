@@ -7,7 +7,7 @@ public class DamierGen : MonoBehaviour
 {
     //[SerializeField] public GameObject tuileCarree;
     [SerializeField] public GameObject tuileHexa;
-
+    [SerializeField] DamierFluvGen damierFleuve;
 
     [HideInInspector] public bool genererEnTuileCarree = false;
     [HideInInspector] public bool genererEnTuileHexa = true;
@@ -171,7 +171,6 @@ public class DamierGen : MonoBehaviour
             GameObject nvlTuile = Instantiate(tuileHexa, transform);
 
             nvlTuile.transform.position += positionTuile;
-            nvlTuile.name = "Tuile" + i;
 
             damierTuiles[col, ligne] = nvlTuile.GetComponent<TuileManager>();
             damierTuiles[col, ligne].SetTerrain(mappe.mappeTerrains[col, ligne]);
@@ -182,6 +181,8 @@ public class DamierGen : MonoBehaviour
         {
             tuile.Init();
         }
+
+        RenommerTuilesDamier();
     }
 
 
@@ -228,7 +229,6 @@ public class DamierGen : MonoBehaviour
 
 
             nvlTuile.transform.position += positionTuile;
-            nvlTuile.name = "Tuile" + i;
 
             damierTuiles[col, ligne] = nvlTuile.GetComponent<TuileManager>();
             
@@ -240,6 +240,7 @@ public class DamierGen : MonoBehaviour
             tuile.Init();
         }
 
+        RenommerTuilesDamier();
         /* OBSOLET
         if(genererProceduralement)
         {
@@ -255,8 +256,6 @@ public class DamierGen : MonoBehaviour
 
     public void AjouterTuiles(int nbrColonne, int nbrLigne)
     {
-        
-
         float tailleTuileX = tuileHexa.GetComponent<SpriteRenderer>().bounds.size.x;
         float tailleTuileY = tuileHexa.GetComponent<SpriteRenderer>().bounds.size.y;
 
@@ -269,14 +268,20 @@ public class DamierGen : MonoBehaviour
         {
             for (int x = 0; x < nbrColonne; x++)
             {
-                positionTuile.x = (colonnes + x + 1) * tailleTuileX + ((tailleTuileX / 2) * (y % 2));
-                positionTuile.y = (lignes + y) * (tailleTuileY / 4 * 3);
+                positionTuile.x = (colonnes + x ) * tailleTuileX + ((tailleTuileX / 2) * (y % 2));
+                positionTuile.y =  y * (tailleTuileY / 4 * 3);
 
                 GameObject nvlTuile = Instantiate(tuileHexa, transform);
 
                 nvlTuile.transform.position += positionTuile;
+                
+                //Changer la place dans la hierarchie
+                nvlTuile.transform.SetSiblingIndex(colonnes+x + ((nbrColonne + colonnes)* y));
+
             }
         }
+
+        positionTuile = Vector3.zero;
 
         if(nbrLigne > 0)
         {
@@ -284,20 +289,81 @@ public class DamierGen : MonoBehaviour
             {
                 for (int x = 0; x < colonnes; x++)
                 {
-                    positionTuile.x = x * tailleTuileX + ((tailleTuileX / 2) * (lignes + y % 2));
-                    positionTuile.y = (lignes + y + 1) * (tailleTuileY / 4 * 3);
+                    positionTuile.x = x * tailleTuileX + ((tailleTuileX / 2) * ((lignes + y) % 2));
+                    positionTuile.y = (lignes + y) * (tailleTuileY / 4 * 3);
 
                     GameObject nvlTuile = Instantiate(tuileHexa, transform);
 
                     nvlTuile.transform.position += positionTuile;
+
+                    //Changer la place dans la hierarchie
+                    nvlTuile.transform.SetSiblingIndex(x + ((nbrColonne + colonnes) * (y + lignes)));
+
                 }
             }
         }
 
-        damier = RecupDamier();
+        //On met à jour les dimensions du damier
+        colonnes += nbrColonne;
+        lignes += nbrLigne;
 
-        colonnes = damier.GetLength(0);
-        lignes = damier.GetLength(1);
+
+        RenommerTuilesDamier();
+    }
+
+    public void RetirerTuiles(int nbrColonne, int nbrLigne)
+    {
+        damier = RecupDamier();
+        for (int y = 0; y < damier.GetLength(1); y++)
+        {
+            for (int x = 0; x < damier.GetLength(0); x++)
+            {
+                char[] nomTuile = damier[x, y].gameObject.name.ToCharArray();
+                int col = 0;
+                int lig = 0;
+
+                //Extrait les coordonnées de la tuile en fonction de son nom
+                string actu = "" ;
+                for (int z = 0; z < nomTuile.Length; z++)
+                {
+                    actu += nomTuile[z];
+
+                    if(actu == "Tuile")
+                    {
+                        actu = "";
+                    }
+                    else if(actu.Contains(":"))
+                    {
+                        actu = actu.Remove(actu.IndexOf(':'));
+                        col = int.Parse(actu);
+                        actu = "";
+                    }
+                    else if(z == nomTuile.Length - 1)
+                    {
+                        lig = int.Parse(actu);
+                    }
+                }
+
+                if(col >= colonnes - nbrColonne)
+                {
+                    DestroyImmediate(damier[x, y].gameObject);
+                }
+                else if(lig >= lignes - nbrLigne)
+                {
+                    DestroyImmediate(damier[x, y].gameObject);
+                }
+            }
+        }
+
+        colonnes -= nbrColonne;
+        lignes -= nbrLigne;
+
+        RenommerTuilesDamier();
+    }
+
+    private void RenommerTuilesDamier()
+    {
+        damier = RecupDamier();
 
         //Renommer les tuiles 
         int col = 0;
@@ -306,18 +372,14 @@ public class DamierGen : MonoBehaviour
         {
             col = i % colonnes;
 
-            if(i != 0 && col == 0)
+            if (i != 0 && col == 0)
             {
                 lig++;
             }
 
-            damier[col, lig].gameObject.name = "Tuile" + i;
+            damier[col, lig].gameObject.name = "Tuile" + col + ":" + lig;
+            //print("intération " + i + " : " + damier[col, lig].gameObject.name + " : "+ damier[col, lig].transform.GetSiblingIndex());
         }
-
-    }
-    public void RetirerTuiles(int nbrColonne, int nbrLigne)
-    {
-
     }
 
     #endregion
@@ -333,7 +395,7 @@ public class DamierGen : MonoBehaviour
             for (int x = 0; x < colonnes; x++)
             {
                 damier[x, y] = damierRef[index];
-                print(damierRef[index].gameObject.name);
+                //print(damierRef[index].gameObject.name);
                 index++;
             }
         }
@@ -341,6 +403,7 @@ public class DamierGen : MonoBehaviour
         return damier;
     }
 
+    /* OBSOLET
     //Fonction de débugg
     private void ColorerModuloMappehauteur(float[,] mappeHauteur, TuileManager[,] damier)
     {
@@ -352,7 +415,7 @@ public class DamierGen : MonoBehaviour
             }
         }
     }
-
+    */
 
     
 }
