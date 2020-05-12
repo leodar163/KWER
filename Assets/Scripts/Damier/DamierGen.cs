@@ -183,6 +183,8 @@ public class DamierGen : MonoBehaviour
         }
 
         RenommerTuilesDamier();
+
+        damierFleuve.GenererDamierFleuve(mappe.colonnes, mappe.lignes);
     }
 
 
@@ -241,6 +243,8 @@ public class DamierGen : MonoBehaviour
         }
 
         RenommerTuilesDamier();
+
+        damierFleuve.GenererDamierFleuve(x, y);
         /* OBSOLET
         if(genererProceduralement)
         {
@@ -251,9 +255,7 @@ public class DamierGen : MonoBehaviour
     }
     #endregion
 
-
     #region MODIFICATEUR
-
     public void AjouterTuiles(int nbrColonne, int nbrLigne)
     {
         float tailleTuileX = tuileHexa.GetComponent<SpriteRenderer>().bounds.size.x;
@@ -307,8 +309,9 @@ public class DamierGen : MonoBehaviour
         colonnes += nbrColonne;
         lignes += nbrLigne;
 
-
         RenommerTuilesDamier();
+
+        damierFleuve.AjouterNoeuds(nbrColonne, nbrLigne);
     }
 
     public void RetirerTuiles(int nbrColonne, int nbrLigne)
@@ -384,6 +387,7 @@ public class DamierGen : MonoBehaviour
 
     #endregion
 
+
     public TuileManager[,] RecupDamier()//Je suis obligé de recréer la variable parce qu'à chaque fois que j'appuye sur play, damier se reset ! C'est méga chiant ! 
     {
         TuileManager[,] damier = new TuileManager[colonnes, lignes];
@@ -395,7 +399,8 @@ public class DamierGen : MonoBehaviour
             for (int x = 0; x < colonnes; x++)
             {
                 damier[x, y] = damierRef[index];
-                //print(damierRef[index].gameObject.name);
+                damierRef[index].transform.SetSiblingIndex(index);
+                
                 index++;
             }
         }

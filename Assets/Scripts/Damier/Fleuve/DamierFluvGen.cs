@@ -15,7 +15,7 @@ public class DamierFluvGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,77 +31,57 @@ public class DamierFluvGen : MonoBehaviour
         ClearDamierFleuve();
 
         colonnes = nbrColonne;
-        lignes = nbrLigne;
+        lignes = nbrLigne * 2;
 
-        damierFleuve = new NoeudFleuve[colonnes, lignes * 2];
+        //print("Lignes : " + lignes);
+        //print("colonnes : " + colonnes);
+
+        damierFleuve = new NoeudFleuve[colonnes, lignes];
+
+        //print(damierFleuve.GetLength(1));
 
         float tailleTuileX = damierGen.tuileHexa.GetComponent<SpriteRenderer>().bounds.size.x;
         float tailleTuileY = damierGen.tuileHexa.GetComponent<SpriteRenderer>().bounds.size.y;
 
-        int indexY = -1;
+        Vector3 position = new Vector3();
 
-        for (int y = 0; y < lignes; y++)
+        for (int y = 0; y < damierFleuve.GetLength(1); y++)
         {
-            indexY = -1;
+            position.x = 0;
 
-            for (int x = 0; x < colonnes; x++)
+            if(y !=0)
+                position.y += tailleTuileY / 2;
+
+            for (int x = 0; x < damierFleuve.GetLength(0); x++)
             {
-                indexY += 2;
-
-                Vector3 position1 = new Vector3();
-                Vector3 position2 = new Vector3();
-
-                if (y % 2 == 0)
+                //print(y % 4);
+                if (y != 0 && y != 1)
                 {
-                    if (indexY == 1)
+                    if(x == 0)
                     {
-                        position1.x = tailleTuileX / 2 * x;
-                        position1.y = tailleTuileY * y;
+                        if(y % 4 == 0   )
+                        {
+                            position.y -= tailleTuileY/4;
+                        }
+                        else if (y % 4 == 2 || y % 4 == 3)
+                        {
+                            position.x -= tailleTuileX / 2;
 
-                        position2.x = position1.x;
-                        position2.y = position2.y + tailleTuileY / 2;
+                            if(y % 4 == 2)
+                                position.y -= tailleTuileY / 4;
+                        }
                     }
-                    else
-                    {
-                        position1.x = tailleTuileX * x;
-                        position1.y = tailleTuileY * y;
-
-                        position2.x = position1.x;
-                        position2.y = position2.y + tailleTuileY / 2;
-                    }
-
-
-                    GameObject nvNoeud1 = Instantiate(noeudFleuve, transform);
-                    GameObject nvNoeud2 = Instantiate(noeudFleuve, transform);
-
-
-                    nvNoeud1.transform.position += position1;
-                    nvNoeud2.transform.position += position2;
-
-                    damierFleuve[x, indexY - 1] = nvNoeud1.GetComponent<NoeudFleuve>();
-                    damierFleuve[x, indexY] = nvNoeud2.GetComponent<NoeudFleuve>();
-
                 }
-                else
-                {
-                    position1.x = tailleTuileX * x;
-                    position1.y = tailleTuileY * y;
 
-                    position2.x = position1.x;
-                    position2.y = position2.y + tailleTuileY / 2;
+                position.x += tailleTuileX;
+                
+                GameObject nvNoeud = Instantiate(noeudFleuve, transform);
 
-                    GameObject nvNoeud1 = Instantiate(noeudFleuve, transform);
-                    GameObject nvNoeud2 = Instantiate(noeudFleuve, transform);
-
-
-                    nvNoeud1.transform.position += position1;
-                    nvNoeud2.transform.position += position2;
-
-                    damierFleuve[x, indexY - 1] = nvNoeud1.GetComponent<NoeudFleuve>();
-                    damierFleuve[x, indexY] = nvNoeud2.GetComponent<NoeudFleuve>();
-                }
+                nvNoeud.transform.position += position;
+                //print(nvNoeud.transform.position);   
             }
         }
+        RenommerNoeudsFleuve();
     }
 
     #endregion
@@ -109,24 +89,127 @@ public class DamierFluvGen : MonoBehaviour
 
     #region MODIFICATEUR
 
-    private void RenommerTuilesDamierFleuve()
+    //Ajoute des noeud de fleuve au damier -- ZERO ELEGANCE DANS LE CODE
+    public void AjouterNoeuds(int nbrColonne, int nbrLigne)
+    {
+        int lignesParcourues = 0;
+
+        float tailleTuileX = damierGen.tuileHexa.GetComponent<SpriteRenderer>().bounds.size.x;
+        float tailleTuileY = damierGen.tuileHexa.GetComponent<SpriteRenderer>().bounds.size.y;
+
+        Vector3 position = new Vector3();
+
+        //Génère l'ajout des lignes 
+        for (int i = 0; i < nbrLigne; i++)
+        {
+            for (int y = 0; y < 2; y++)
+            {
+                print(lignesParcourues);
+                position.x = 0;
+
+                position.y = Recupererhauteur(nbrLigne - i) + (tailleTuileY / 2 * y);
+
+
+                for (int x = 0; x < colonnes; x++)
+                {
+                    //Si la ligne à partir de laquelle on ajoute des ligne était impaire
+                    if ((damierGen.lignes - (nbrLigne - i)) % 2 != 0 && x == 0)
+                    {
+                        //On ajoute un décalage vers la gauche
+                        position.x -= tailleTuileX / 2;
+                    }
+
+                    position.x += tailleTuileX;
+                    //print(position);
+
+                    GameObject nvNoeud = Instantiate(noeudFleuve, transform);
+
+                    nvNoeud.transform.position += position;
+
+                    //Changer la place dans la hierarchie
+                    int index = x + (lignesParcourues * damierGen.colonnes) + (lignes * damierGen.colonnes);
+                    nvNoeud.transform.SetSiblingIndex(index);
+
+                    //Color cDef = nvNoeud.GetComponent<SpriteRenderer>().color;
+                    //nvNoeud.GetComponent<SpriteRenderer>().color = new Color(cDef.r , index, cDef.b);
+
+                }
+                lignesParcourues++;
+            }
+           
+        }
+
+        position = Vector3.zero;
+
+        lignesParcourues = 0;
+
+        //Génère l'ajout des colonnes
+        for (int i = 0; i < damierGen.lignes; i++)
+        {
+            position.x = RecupererLargeur(nbrColonne);
+
+            for (int y = 0; y < 2; y++)
+            {
+                
+                position.x = RecupererLargeur(nbrColonne);
+
+                for (int x = 0; x < nbrColonne; x++)
+                {
+
+                    //Si la ligne est paire 
+                    if (i % 2 != 0  && x == 0)
+                    {
+                        //On décale sur la droite et vers la bas
+                        if(y == 0)
+                        {
+                            position.y -= tailleTuileY / 4;
+                        }
+                        position.x -= tailleTuileX / 2;
+                    }
+                    else if(i % 2 == 0 && i != 0 && y == 0 && x == 0)
+                    {
+                        position.y -= tailleTuileY / 4;
+                    }
+
+                    position.x += tailleTuileX;
+
+                    GameObject nvNoeud = Instantiate(noeudFleuve, transform);
+
+                    nvNoeud.transform.position += position;
+
+                    //Changer la place dans la hierarchie
+                    nvNoeud.transform.SetSiblingIndex(colonnes + x + lignesParcourues * damierGen.colonnes);
+                }
+
+                position.y += tailleTuileY / 2;
+                lignesParcourues++;
+            }
+        }
+        
+
+        
+        
+
+    
+        //On met à jour les dimensions du damier
+        colonnes += nbrColonne;
+        lignes += nbrLigne * 2;
+
+
+        RenommerNoeudsFleuve();
+    }
+
+
+    private void RenommerNoeudsFleuve()
     {
         damierFleuve = RecupDamierFleuve();
 
-        //Renommer les tuiles 
-        int x = 0;
-        int y = 0;
-        for (int i = 0; i < damierFleuve.Length; i++)
+        for (int y = 0; y < damierFleuve.GetLength(1); y++)
         {
-            x = i % colonnes;
-
-            if (i != 0 && x == 0)
+            for (int x = 0; x < damierFleuve.GetLength(0); x++)
             {
-                y += 2;
+                damierFleuve[x, y].gameObject.name = "NoeudTuile" + x + ":" + y;
             }
-
-            damierFleuve[x, y].gameObject.name = "Tuile" + x + ":" + y;
-            //print("intération " + i + " : " + damier[col, lig].gameObject.name + " : "+ damier[col, lig].transform.GetSiblingIndex());
         }
     }
 
@@ -138,32 +221,77 @@ public class DamierFluvGen : MonoBehaviour
 
         foreach(NoeudFleuve noeud in damier)
         {
-            DestroyImmediate(noeud);
+            DestroyImmediate(noeud.gameObject);
         }
     }
 
     private NoeudFleuve[,] RecupDamierFleuve()
     {
-        NoeudFleuve[,] damier = new NoeudFleuve[colonnes, lignes * 2];
+        NoeudFleuve[,] damier = new NoeudFleuve[colonnes, lignes];
         NoeudFleuve[] damierRef = GetComponentsInChildren<NoeudFleuve>();
 
-        int index = -1;
 
+        int index = 0;
         for (int y = 0; y < lignes; y++)
         {
-            index = -1;
-
             for (int x = 0; x < colonnes; x++)
             {
-                index += 2;
-
-                damier[x, y] = damierRef[index - 1];
                 damier[x, y] = damierRef[index];
-                //print(damierRef[index].gameObject.name);
+                damierRef[index].transform.SetSiblingIndex(index);
+                
                 index++;
             }
         }
 
+
         return damier;
+    }
+
+    private float Recupererhauteur()
+    {
+        float hauteur = 0;
+
+        float tailleTuileY = damierGen.tuileHexa.GetComponent<SpriteRenderer>().bounds.size.y;
+
+        hauteur = damierGen.lignes * (tailleTuileY * 3/4);
+        
+
+        return hauteur;
+    }
+
+    private float Recupererhauteur(float decalage)
+    {
+        float hauteur = 0;
+
+        float tailleTuileY = damierGen.tuileHexa.GetComponent<SpriteRenderer>().bounds.size.y;
+
+        hauteur = (damierGen.lignes - decalage) * (tailleTuileY * 3 / 4);
+
+      
+        return hauteur;
+    }
+
+    private float RecupererLargeur()
+    {
+        float largeur = 0;
+
+        float tailleTuileX = damierGen.tuileHexa.GetComponent<SpriteRenderer>().bounds.size.x;
+
+        largeur = (damierGen.colonnes) * (tailleTuileX);
+
+        
+        return largeur;
+    }
+
+    private float RecupererLargeur(float decalage)
+    {
+        float largeur    = 0;
+
+        float tailleTuileX = damierGen.tuileHexa.GetComponent<SpriteRenderer>().bounds.size.x;
+
+        largeur = (damierGen.colonnes - decalage) * (tailleTuileX);
+
+        //print("colonne " + damierGen.colonnes + " -  décalage " + decalage + " = " + (damierGen.colonnes - decalage));
+        return largeur;
     }
 }

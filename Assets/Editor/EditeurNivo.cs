@@ -130,7 +130,7 @@ public class EditeurNiveau : EditorWindow
         }
         GUILayout.EndVertical();
 
-        GUILayout.Space(-400);
+        GUILayout.Space(-150);
 
         GUILayout.BeginVertical();
 
@@ -369,7 +369,7 @@ public class EditeurNiveau : EditorWindow
 
         GUILayout.EndVertical();
 
-        GUILayout.Space(150);
+        GUILayout.Space(50);
 
         GUILayout.BeginVertical();
 
