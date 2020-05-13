@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamierFluvGen : MonoBehaviour
+
+public class DamierFleuveGen : MonoBehaviour
 {
     [SerializeField] DamierGen damierGen;
     [SerializeField] GameObject noeudFleuve;
+    public GameObject fleuvePrefab;
 
     NoeudFleuve[,] damierFleuve;
 
@@ -76,8 +78,8 @@ public class DamierFluvGen : MonoBehaviour
                 position.x += tailleTuileX;
                 
                 GameObject nvNoeud = Instantiate(noeudFleuve, transform);
-
                 nvNoeud.transform.position += position;
+                nvNoeud.GetComponent<NoeudFleuve>().EstSelectionne(false);
                 //print(nvNoeud.transform.position);   
             }
         }
@@ -125,6 +127,7 @@ public class DamierFluvGen : MonoBehaviour
                     GameObject nvNoeud = Instantiate(noeudFleuve, transform);
 
                     nvNoeud.transform.position += position;
+                    nvNoeud.GetComponent<NoeudFleuve>().EstSelectionne(false);
 
                     //Changer la place dans la hierarchie
                     int index = x + (lignesParcourues * damierGen.colonnes) + (lignes * damierGen.colonnes);
@@ -174,7 +177,7 @@ public class DamierFluvGen : MonoBehaviour
                     position.x += tailleTuileX;
 
                     GameObject nvNoeud = Instantiate(noeudFleuve, transform);
-
+                    nvNoeud.GetComponent<NoeudFleuve>().EstSelectionne(false);
                     nvNoeud.transform.position += position;
 
                     //Changer la place dans la hierarchie

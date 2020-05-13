@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+using UnityEditor.U2D;
+using UnityEditor.U2D.SpriteShape;
+using UnityEngine.U2D;
 
 public class EditeurNiveau : EditorWindow
 {
@@ -10,6 +12,7 @@ public class EditeurNiveau : EditorWindow
     bool modePeinture = false;
     string nomMappeSauvegarde = "NomSauvegarde";
 
+    
     TuileTerrain[] listeTerrains;
     TuileTerrain terrainSelectionne;
 
@@ -31,6 +34,14 @@ public class EditeurNiveau : EditorWindow
     char opperateurAjout = '+';
     #endregion
 
+    #region VARIABLES FLEUVE
+    DamierFleuveGen damierFleuve;
+    Fleuve fleuveSelectionne;
+    bool modeFleuve = false;
+    bool modeAjoutFleuve = false;
+    int indexSelectionFleuve = -1;
+    #endregion
+
     [MenuItem("Window/Editeur de Nivo")]
     public static void AfficherFenetre()
     {
@@ -45,7 +56,8 @@ public class EditeurNiveau : EditorWindow
 
     private void Init()
     {
-        damierGen = GameObject.FindObjectOfType<DamierGen>();
+        damierGen = FindObjectOfType<DamierGen>();
+        damierFleuve = FindObjectOfType<DamierFleuveGen>();
         colonnes = damierGen.colonnes;
         lignes = damierGen.lignes;
 
@@ -71,32 +83,17 @@ public class EditeurNiveau : EditorWindow
 
 
         DessinerPalletteTerrain();
-        
-        
 
         Peindre();
 
-       
 
+        GUILayout.Space(15);
 
-        GUILayout.Space(10);
+        DessinerInterfacePinceauFleuve();
 
-        GUILayout.Label("Sauvegardes");
+        GUILayout.Space(15);
 
-        GUILayout.Space(5);
-
-        GUILayout.BeginHorizontal();
-        nomMappeSauvegarde = GUILayout.TextField(nomMappeSauvegarde);
-        if(GUILayout.Button("Sauvegarder Mappe"))
-        {
-            MappeSysteme.SauvergarderMappe(nomMappeSauvegarde);
-            nomMappeSauvegarde = "NomSauvergarde";
-        }
-        GUILayout.EndHorizontal();
-
-        GUILayout.Space(10);
-
-        AfficherInterfacesSauvegarde();
+        DessinerInterfacesSauvegarde();
     }
 
     #region GENERATEUR ET MODIFICATEUR DE DAMIER
@@ -348,13 +345,11 @@ public class EditeurNiveau : EditorWindow
         {
             if (modePeinture)
             {
-                textBoutonActiverModePeinture = "activer mode peinture";
-                modePeinture = false;
+                ActiverModePeinture(false);
             }
             else
-            {
-                textBoutonActiverModePeinture = "désactiver mode peinture";
-                modePeinture = true;
+            {                
+                ActiverModePeinture(true);
             }
         }
 
@@ -415,12 +410,238 @@ public class EditeurNiveau : EditorWindow
             }
         }
     }
+
+    private void ActiverModePeinture(bool activer)
+    {
+        if(activer)
+        {
+            textBoutonActiverModePeinture = "désactiver mode peinture";
+            modePeinture = true;
+            ActiverModeFleuve(false);
+            ActiverCanvas(false);
+        }
+        else
+        {
+            textBoutonActiverModePeinture = "activer mode peinture";
+            modePeinture = false;
+            ActiverCanvas(true);
+        }
+    }
+
+    private void Peindre()
+    {
+        if (modePeinture)
+        {
+            foreach (GameObject go in Selection.gameObjects)
+            {
+                if (go.GetComponent<TuileManager>())
+                {
+                    TuileManager tuile = go.GetComponent<TuileManager>();
+
+                    //Debug.Log(terrainSelectionne.nom);
+                    if(tuile.gameObject.name != "TuileHexa")
+                    {
+                        tuile.SetTerrain(terrainSelectionne);
+                    }
+                }
+            }
+            Selection.objects = new Object[0];
+        }
+    }
+    #endregion
+
+    #region PINCEAU FLEUVE
+
+    private void DessinerInterfacePinceauFleuve()
+    {
+        GUILayout.Label("Pinceau de Fleuve");
+
+
+        DessinerBouttonsFleuve();
+
+        DessinerFleuve();
+    }
+
+    private void DessinerBouttonsFleuve()
+    {
+        GameObject[] listeFleuves = GameObject.FindGameObjectsWithTag("Fleuve");
+        
+
+        GUILayout.BeginHorizontal();
+
+        GUILayout.BeginVertical();
+
+        //Dessine la liste des fleuves
+        for (int i = 0; i < listeFleuves.Length; i++)
+        {
+            Fleuve fleuve = listeFleuves[i].GetComponent<Fleuve>();
+            GUILayoutOption[] options = new GUILayoutOption[2] { GUILayout.Height(25), GUILayout.Width(80) };
+
+            if (indexSelectionFleuve == i)
+            {
+                GUI.backgroundColor = Color.cyan;
+            }
+            else
+            {
+                GUI.backgroundColor = Color.white;
+            }
+
+            //Dessine la liste les boutons de selection de tous les fleuves
+            if (GUILayout.Button(listeFleuves[i].name, options))
+            {
+                if(fleuveSelectionne == null)
+                {
+                    fleuveSelectionne = fleuve;
+                    fleuveSelectionne.EstSelectionne(true);
+                    fleuveSelectionne.GetComponent<SpriteShapeRenderer>().color = Color.blue;
+
+                    indexSelectionFleuve = i;
+                    ActiverModeFleuve(true);
+                }
+                else if(fleuve != fleuveSelectionne)
+                {
+                    fleuveSelectionne.GetComponent<SpriteShapeRenderer>().color = Color.white;
+                    fleuve.GetComponent<SpriteShapeRenderer>().color = Color.blue;
+
+                    fleuveSelectionne.EstSelectionne(false);
+                    fleuveSelectionne = fleuve;
+                    fleuveSelectionne.EstSelectionne(true);
+
+                    indexSelectionFleuve = i;
+                    ActiverModeFleuve(true);
+                }
+               else
+                {
+                    fleuveSelectionne.EstSelectionne(false);
+                    fleuveSelectionne.GetComponent<SpriteShapeRenderer>().color = Color.white;
+                    fleuveSelectionne = null;
+                    indexSelectionFleuve = -1;
+
+                    ActiverModeFleuve(false);
+                }
+            }
+            if (!modeFleuve)
+            {
+                fleuve.GetComponent<SpriteShapeRenderer>().color = Color.white;
+                fleuveSelectionne = null;
+                indexSelectionFleuve = -1;
+            }
+        }
+        GUI.backgroundColor = Color.white;
+        GUILayout.EndVertical();
+
+        GUILayout.Space(-80);
+
+        // dessine les boutons de suppression qui vont avec
+        GUILayout.BeginVertical();
+        GUI.backgroundColor = Color.red;
+        for (int i = 0; i < listeFleuves.Length; i++)
+        {
+            GUILayoutOption[] options = new GUILayoutOption[2] { GUILayout.Height(25), GUILayout.Width(100) };
+            //Quand on clique sur un bouton, ça supprime le fleuve en question
+            if (GUILayout.Button("SUPPRIMER", options))
+            {
+                if(i == indexSelectionFleuve)
+                {
+                    ActiverModeFleuve(false);
+                    indexSelectionFleuve = -1;
+                    fleuveSelectionne.GetComponent<Fleuve>().EstSelectionne(false);
+                    fleuveSelectionne = null;
+                }
+
+                Fleuve fleuve = listeFleuves[i].GetComponent<Fleuve>();
+                DestroyImmediate(fleuve.gameObject);
+            }
+        }
+        GUI.backgroundColor = Color.white;
+        GUILayout.EndVertical();
+
+        GUILayout.EndHorizontal();
+
+        GUILayout.Space(5);
+        GUI.backgroundColor = Color.green;
+        GUILayoutOption[] optionsAjout = new GUILayoutOption[2] { GUILayout.Height(30), GUILayout.Width(30) };
+        //Quand on clique sur un bouton, ça supprime le fleuve en question
+        if (GUILayout.Button(" + ", optionsAjout))
+        {
+            GameObject nvFleuve = Instantiate(damierFleuve.fleuvePrefab);
+            nvFleuve.transform.position = new Vector3(0, 0, -200);
+            nvFleuve.name = "Fleuve" + (listeFleuves.Length);
+            nvFleuve.GetComponent<Fleuve>().Init();
+        }
+        GUI.backgroundColor = Color.white;
+    }
+
+    private void ActiverModeFleuve(bool activer)
+    {
+        DamierFleuveGen damierfleuve = FindObjectOfType<DamierFleuveGen>();
+
+        if (activer)
+        {
+            ActiverModePeinture(false);
+            modeFleuve = true;
+            Vector3 position = new Vector3(0, 0, -4f);
+            position.x = damierfleuve.transform.position.x;
+            position.y = damierfleuve.transform.position.y;
+            damierfleuve.transform.position = position;
+            ActiverCanvas(false);
+        }
+        else
+        {
+            modeFleuve = false;
+            Vector3 position = new Vector3(0, 0, 0.2f);
+            position.x = damierfleuve.transform.position.x;
+            position.y = damierfleuve.transform.position.y;
+            damierfleuve.transform.position = position;
+            ActiverCanvas(true);
+        }
+    }
+
+    private void DessinerFleuve()
+    {
+        if(modeFleuve)
+        {
+            foreach (GameObject go in Selection.gameObjects)
+            {
+                if(go.CompareTag("NoeudFleuve"))
+                {
+                    NoeudFleuve nf = go.GetComponent<NoeudFleuve>();
+
+                    if(fleuveSelectionne.grapheNoeuds.Contains(nf))
+                    {
+                        fleuveSelectionne.RetirerNoeud(nf);
+                    }
+                    else
+                    {
+                        fleuveSelectionne.AjouterNoeud(nf);
+                    }
+                }
+            }
+            Selection.objects = new Object[0];
+        }
+    }
+
     #endregion
 
     #region SAUVEGARDES
 
-    private void AfficherInterfacesSauvegarde()
+    private void DessinerInterfacesSauvegarde()
     {
+        GUILayout.Label("Sauvegardes");
+
+        GUILayout.Space(5);
+
+        GUILayout.BeginHorizontal();
+        nomMappeSauvegarde = GUILayout.TextField(nomMappeSauvegarde);
+        if (GUILayout.Button("Sauvegarder Mappe"))
+        {
+            MappeSysteme.SauvergarderMappe(nomMappeSauvegarde);
+            nomMappeSauvegarde = "NomSauvergarde";
+        }
+        GUILayout.EndHorizontal();
+
+        GUILayout.Space(10);
+
         List<string> listeMappes = MappeSysteme.RecuprererNomMappes();
         for (int i = 0; i < listeMappes.Count; i++)
         {
@@ -455,49 +676,17 @@ public class EditeurNiveau : EditorWindow
     }
     #endregion
 
-    private void Peindre()
+
+    private void ActiverCanvas(bool activer)
     {
-        if (modePeinture)
+        GameObject[] gOScene = Resources.FindObjectsOfTypeAll<GameObject>();
+
+        foreach (GameObject go in gOScene)
         {
-            GameObject[] gOScene = Resources.FindObjectsOfTypeAll<GameObject>();
-
-            foreach (GameObject go in gOScene)
+            if (go.TryGetComponent(out Canvas canvas))
             {
-                if(go.name == "Canvas")
-                {
-                    go.gameObject.SetActive(false);
-                }
-               
+                canvas.gameObject.SetActive(activer);
             }
-
-            foreach (GameObject go in Selection.gameObjects)
-            {
-                if (go.GetComponent<TuileManager>())
-                {
-                    TuileManager tuile = go.GetComponent<TuileManager>();
-
-                    //Debug.Log(terrainSelectionne.nom);
-                    if(tuile.gameObject.name != "TuileHexa")
-                    {
-                    tuile.SetTerrain(terrainSelectionne);
-                    }
-                }
-            }
-        }
-        else
-        {
-            GameObject[] gOScene = Resources.FindObjectsOfTypeAll<GameObject>();
-
-            foreach (GameObject go in gOScene)
-            {
-                if (go.name == "Canvas")
-                {
-                    go.gameObject.SetActive(true);
-                }
-                    
-
-            }
-
         }
     }
 

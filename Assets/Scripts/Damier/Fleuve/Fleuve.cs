@@ -13,6 +13,13 @@ using UnityEditor.U2D.SpriteShape;
 public class Fleuve : MonoBehaviour
 {
     int index = 0;
+    public List<NoeudFleuve> grapheNoeuds;
+    Spline spline;
+    SpriteShapeController ssController;
+
+    const float profondeur = -2;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +33,86 @@ public class Fleuve : MonoBehaviour
         //ChangerSpline();
     }
 
+    public void Init()
+    {
+        grapheNoeuds = new List<NoeudFleuve>();
+        ssController = GetComponent<SpriteShapeController>();
+        spline = ssController.spline;
+    }
+
+    public void AjouterNoeud(NoeudFleuve nf)
+    {
+        grapheNoeuds.Add(nf);
+        nf.EstSelectionne(true);
+
+        if (grapheNoeuds.Count == 2)
+        {
+            transform.position = Vector3.zero;
+            for (int i = 0; i < grapheNoeuds.Count; i++)
+            {
+                Vector3 positionNoeud = grapheNoeuds[i].transform.position;
+                positionNoeud.z = profondeur;
+                
+                    spline.InsertPointAt(i, positionNoeud);
+                    spline.RemovePointAt(i + 1);
+            }
+        }
+        else if(grapheNoeuds.Count > 2)
+        {
+            Vector3 positionNoeud = grapheNoeuds[grapheNoeuds.Count - 1].transform.position;
+            positionNoeud.z = profondeur;
+            spline.InsertPointAt(spline.GetPointCount(), positionNoeud);
+        }
+    }
+
+    public void RetirerNoeud(NoeudFleuve nf)
+    {
+        if(grapheNoeuds.Contains(nf))
+        {
+            if(grapheNoeuds.Count > 2)
+            {
+                int index = RecupererIndexSpline(nf.transform.position);
+
+                if(index >= 0)
+                {
+                    for (int i = index; i < grapheNoeuds.Count; i++)
+                    {
+                        grapheNoeuds[i].EstSelectionne(false);
+                        grapheNoeuds.RemoveAt(i);
+
+                        spline.RemovePointAt(i);
+                    }
+                }
+            }
+        }
+    }
+
+    private int RecupererIndexSpline(Vector3 position)
+    {
+        position.z = profondeur;
+        for (int i = 0; i < grapheNoeuds.Count; i++)
+        {
+            if(spline.GetPosition(i) == position)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public void EstSelectionne(bool selectionne)
+    {
+        foreach(NoeudFleuve nf in grapheNoeuds)
+        {
+            nf.EstSelectionne(selectionne);
+        }
+    }
+
     public void ChangerSpline()
     {
         SpriteShapeController ssController = GetComponent<SpriteShapeController>();
         EdgeCollider2D edgeCollider = GetComponent<EdgeCollider2D>();
-
-
-        
 
         Spline spline = ssController.spline;
 
@@ -49,32 +129,6 @@ public class Fleuve : MonoBehaviour
         
     }
 
-    public void MiseAJourCollider()
-    {
-        
-    }
-
-    IEnumerator testSpline()
-    {
-        SpriteShapeController ssController = GetComponent<SpriteShapeController>();
-        EdgeCollider2D edgeCollider = GetComponent<EdgeCollider2D>();
-
-        
-
-        Spline spline = ssController.spline;
-        
-        
-
-        int tailleSpline = spline.GetPointCount();
-
-        for (int i = 0; i < 200; i++)
-        {
-            Vector3 position = spline.GetPosition(0);
-            position.y += 0.01f;
-            spline.SetPosition(0, position);
-
-            yield return new WaitForSeconds(0.01f);
-        }
-    }
+    
 
 }

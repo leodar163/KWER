@@ -7,7 +7,7 @@ public class DamierGen : MonoBehaviour
 {
     //[SerializeField] public GameObject tuileCarree;
     [SerializeField] public GameObject tuileHexa;
-    [SerializeField] DamierFluvGen damierFleuve;
+    [SerializeField] DamierFleuveGen damierFleuve;
 
     [HideInInspector] public bool genererEnTuileCarree = false;
     [HideInInspector] public bool genererEnTuileHexa = true;
