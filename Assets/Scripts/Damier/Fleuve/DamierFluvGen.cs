@@ -104,7 +104,7 @@ public class DamierFluvGen : MonoBehaviour
         {
             for (int y = 0; y < 2; y++)
             {
-                print(lignesParcourues);
+                //print(lignesParcourues);
                 position.x = 0;
 
                 position.y = Recupererhauteur(nbrLigne - i) + (tailleTuileY / 2 * y);
@@ -199,6 +199,56 @@ public class DamierFluvGen : MonoBehaviour
         RenommerNoeudsFleuve();
     }
 
+    public void RetirerNoeuds(int nbrColonne, int nbrLigne)
+    {
+        damierFleuve = RecupDamierFleuve();
+        for (int y = 0; y < damierFleuve.GetLength(1); y++)
+        {
+            for (int x = 0; x < damierFleuve.GetLength(0); x++)
+            {
+                char[] nomTuile = damierFleuve[x, y].gameObject.name.ToCharArray();
+                int col = 0;
+                int lig = 0;
+
+                //Extrait les coordonnées du noeud en fonction de son nom
+                string actu = "";
+                for (int z = 0; z < nomTuile.Length; z++)
+                {
+                    actu += nomTuile[z];
+
+                    if (actu == "NoeudFleuve")
+                    {
+                        actu = "";
+                    }
+                    else if (actu.Contains(":"))
+                    {
+                        actu = actu.Remove(actu.IndexOf(':'));
+                        col = int.Parse(actu);
+                        actu = "";
+                    }
+                    else if (z == nomTuile.Length - 1)
+                    {
+                        lig = int.Parse(actu);
+                    }
+                }
+
+                //Compare les coordonnées au nombre de ligne et de colonne qui doit être retiré
+                if (col >= colonnes - nbrColonne)
+                {
+                    DestroyImmediate(damierFleuve[x, y].gameObject);
+                }
+                else if (lig >= lignes - (nbrLigne * 2))
+                {
+                    DestroyImmediate(damierFleuve[x, y].gameObject);
+                }
+            }
+        }
+
+        colonnes -= nbrColonne;
+        lignes -= nbrLigne * 2;
+
+        RenommerNoeudsFleuve();
+    }
 
     private void RenommerNoeudsFleuve()
     {
@@ -208,7 +258,7 @@ public class DamierFluvGen : MonoBehaviour
         {
             for (int x = 0; x < damierFleuve.GetLength(0); x++)
             {
-                damierFleuve[x, y].gameObject.name = "NoeudTuile" + x + ":" + y;
+                damierFleuve[x, y].gameObject.name = "NoeudFleuve" + x + ":" + y;
             }
         }
     }
@@ -229,13 +279,14 @@ public class DamierFluvGen : MonoBehaviour
     {
         NoeudFleuve[,] damier = new NoeudFleuve[colonnes, lignes];
         NoeudFleuve[] damierRef = GetComponentsInChildren<NoeudFleuve>();
-
+        
 
         int index = 0;
         for (int y = 0; y < lignes; y++)
         {
             for (int x = 0; x < colonnes; x++)
             {
+               
                 damier[x, y] = damierRef[index];
                 damierRef[index].transform.SetSiblingIndex(index);
                 

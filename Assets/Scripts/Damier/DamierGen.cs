@@ -61,7 +61,7 @@ public class DamierGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //print(damier[0, 0].gameObject.name);
+        
     }
 
     // Update is called once per frame
@@ -71,26 +71,6 @@ public class DamierGen : MonoBehaviour
     }
 
 
-    public void ClearDamier(bool utiliseDestroyImmediate)
-    {
-        GameObject[] damier = GameObject.FindGameObjectsWithTag("Tuile");
-
-        if(utiliseDestroyImmediate)
-        {
-            foreach (GameObject go in damier)
-            {
-                DestroyImmediate(go);
-            }
-        }
-        else
-        {
-            foreach (GameObject go in damier)
-            {
-                Destroy(go);
-            }
-        }
-        
-    }
 
     /* OBSOLET
     public void GenDamierCarre(int x, int y)
@@ -347,7 +327,8 @@ public class DamierGen : MonoBehaviour
                     }
                 }
 
-                if(col >= colonnes - nbrColonne)
+                //Compare les coordonnées au nombre de ligne et de colonne qui doit être retiré
+                if (col >= colonnes - nbrColonne)
                 {
                     DestroyImmediate(damier[x, y].gameObject);
                 }
@@ -362,6 +343,8 @@ public class DamierGen : MonoBehaviour
         lignes -= nbrLigne;
 
         RenommerTuilesDamier();
+
+        damierFleuve.RetirerNoeuds(nbrColonne, nbrLigne);
     }
 
     private void RenommerTuilesDamier()
@@ -387,8 +370,28 @@ public class DamierGen : MonoBehaviour
 
     #endregion
 
+    public void ClearDamier(bool utiliseDestroyImmediate)
+    {
+        GameObject[] damier = GameObject.FindGameObjectsWithTag("Tuile");
 
-    public TuileManager[,] RecupDamier()//Je suis obligé de recréer la variable parce qu'à chaque fois que j'appuye sur play, damier se reset ! C'est méga chiant ! 
+        if(utiliseDestroyImmediate)
+        {
+            foreach (GameObject go in damier)
+            {
+                DestroyImmediate(go);
+            }
+        }
+        else
+        {
+            foreach (GameObject go in damier)
+            {
+                Destroy(go);
+            }
+        }
+        
+    }
+
+    public TuileManager[,] RecupDamier() 
     {
         TuileManager[,] damier = new TuileManager[colonnes, lignes];
         TuileManager[] damierRef = GetComponentsInChildren<TuileManager>();

@@ -23,7 +23,7 @@ public class Fleuve : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ChangerSpline();
+        //ChangerSpline();
     }
 
     public void ChangerSpline()
