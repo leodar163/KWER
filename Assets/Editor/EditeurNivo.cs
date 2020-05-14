@@ -409,7 +409,7 @@ public class EditeurNiveau : EditorWindow
                 //Debug.Log(listeTerrains[i].nom);
 
                 terrainSelectionne = listeTerrains[i];
-                spriteTerrain = listeTerrains[i].sprite;
+                spriteTerrain = listeTerrains[i].garnitures[Random.Range(0, listeTerrains[i].garnitures.Length)];
                 nomTerrainSelectionne = listeTerrains[i].nom;
 
                 //Debug.Log(terrainSelectionne);

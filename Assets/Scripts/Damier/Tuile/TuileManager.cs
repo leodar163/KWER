@@ -1,14 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class TuileManager : MonoBehaviour
 {
     public bool tuileHexa = false;
 
-    SpriteRenderer sprite;
-    public TuileManager predecesseur;
+    [SerializeField]GameObject garniture;
+    SpriteRenderer spriteGarniture;
+    SpriteRenderer spriteBase;
+    int indexGarniture = -1;
+    [SerializeField] Sprite[] spritesBase;
+    [SerializeField] Sprite[] spritesBaseHiver;
+    int indexBase = -1;
+
+    [HideInInspector]public TuileManager predecesseur;
     public int nombreConnections;
     public TuileManager[] connections; //Liste des noeuds directement relié à celui-ci
     public float[] connectionsDistance; //Poids entre les noeuds / l'index est le même que celui des connections
@@ -32,6 +37,7 @@ public class TuileManager : MonoBehaviour
 
 
     [SerializeField]public TuileTerrain terrainTuile;
+    
 
 
     public int decalage;
@@ -41,7 +47,7 @@ public class TuileManager : MonoBehaviour
 
     private void Awake()
     {
-        Init();
+        //Init();
 
     }
 
@@ -61,18 +67,42 @@ public class TuileManager : MonoBehaviour
         
     } 
 
+    public void Init()
+    {
+        panelInterdition = GetComponentInChildren<PanelInterdictionTuile>();
+        panelNourriture = GetComponentInChildren<PanelNourriture>();
+        revendicateur = null;
+
+        if(!terrainTuile)
+        {
+            terrainTuile = FindObjectOfType<TerrainDefaut>();
+        }
+    
+        spriteBase = GetComponent<SpriteRenderer>();
+        indexBase = Random.Range(0, spritesBase.Length);
+        spriteBase.sprite = spritesBase[indexBase];
+
+        spriteGarniture = garniture.GetComponent<SpriteRenderer>();
+        indexGarniture = Random.Range(0, terrainTuile.garnitures.Length);
+        spriteGarniture.sprite = terrainTuile.garnitures[indexGarniture];
+
+        tailleTuile = spriteBase.bounds.size.x;
+    }
+
     public void RevetirManteauHiver(bool hiver)
     {
-        if(hiver)
+        if (hiver)
         {
-            if(terrainTuile.spriteHiver)
+            if (terrainTuile.garnituresHivernales.Length == terrainTuile.garnitures.Length)
             {
-                sprite.sprite = terrainTuile.spriteHiver;
+                spriteBase.sprite = spritesBaseHiver[indexBase];
+                spriteGarniture.sprite = terrainTuile.garnituresHivernales[indexGarniture];
             }
         }
         else
         {
-            sprite.sprite = terrainTuile.sprite;
+            spriteBase.sprite = spritesBase[indexBase];
+            spriteGarniture.sprite = terrainTuile.garnitures[indexGarniture];
         }
     }
 
@@ -162,28 +192,6 @@ public class TuileManager : MonoBehaviour
 
     
 
-    public void Init()
-    {
-        panelInterdition = GetComponentInChildren<PanelInterdictionTuile>();
-        panelNourriture = GetComponentInChildren<PanelNourriture>();
-        revendicateur = null;
-
-        if(!terrainTuile)
-        {
-            terrainTuile =FindObjectOfType<TerrainDefaut>();
-        }
-
-        //print(GetComponent<TuileTerrain>().nom);
-        //print("chose");
-        //print(terrainTuile.nom);
-
-       
-    
-        sprite = GetComponent<SpriteRenderer>();
-        sprite.sprite = terrainTuile.sprite;
-
-        tailleTuile = sprite.bounds.size.x;
-    }
 
     public void SetTerrain(TuileTerrain terrain)
     {
@@ -313,7 +321,7 @@ public class TuileManager : MonoBehaviour
 
     public void ColorerTuile(Color couleur)
     {
-        sprite.color = couleur;
+        spriteBase.color = couleur;
     }
 
     public void TuileReinit()
@@ -324,22 +332,6 @@ public class TuileManager : MonoBehaviour
         aPortee = false;
         GetComponent<SpriteRenderer>().color = Color.white;
     }
-
-    private void OnMouseUpAsButton()
-    {
-
-        /*
-        foreach(GameObject go in connections)
-        {
-            if(go)
-            {
-                go.GetComponent<TuileManager>().EtreParcouru();
-            }
-            
-        }
-        */
-        
-    }// OBSOLET 
 
     public void EtreSelectionne()
     {

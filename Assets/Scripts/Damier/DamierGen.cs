@@ -260,6 +260,8 @@ public class DamierGen : MonoBehaviour
                 //Changer la place dans la hierarchie
                 nvlTuile.transform.SetSiblingIndex(colonnes+x + ((nbrColonne + colonnes)* y));
 
+                nvlTuile.GetComponent<TuileManager>().Init();
+
             }
         }
 
@@ -281,6 +283,7 @@ public class DamierGen : MonoBehaviour
                     //Changer la place dans la hierarchie
                     nvlTuile.transform.SetSiblingIndex(x + ((nbrColonne + colonnes) * (y + lignes)));
 
+                    nvlTuile.GetComponent<TuileManager>().Init();
                 }
             }
         }
