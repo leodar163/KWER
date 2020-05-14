@@ -6,6 +6,7 @@ using UnityEditor;
 
 static public class MappeSysteme
 {
+
     private static string cheminDefaut = "Assets/Mappes/";
     private static string extention = ".mappe";
 
@@ -13,7 +14,10 @@ static public class MappeSysteme
     private const string baliseColonne = "<c>";
     private const string baliseLigne = "<l>";
     private const string baliseMappeTerrain = "<t>";
-    private const char separateurTerrain  = ':' ;
+    private const string baliseFleuve = "<f>";
+    private const string baliseNvFleuve = "<nf>";
+    private const char separateurTerrain  = ':';
+    private const char separateurFleuve = '|';
 
     private static TuileTerrain[] listeTerrains;
 
@@ -23,17 +27,21 @@ static public class MappeSysteme
         public TuileTerrain[,] mappeTerrains;
         public int colonnes;
         public int lignes;
+        public List<string> listeFleuves;
+        public char separateurNouedFleuve;
 
-
-        public Mappe(string nomMappe, int nbrColonnes, int nbrLignes, TuileTerrain[,] listeTerrains)
+        public Mappe(string nomMappe, int nbrColonnes, int nbrLignes, TuileTerrain[,] listeTerrains, List<string> codeFleuve)
         {
             nom = nomMappe;
             colonnes = nbrColonnes;
             lignes = nbrLignes;
             mappeTerrains = listeTerrains;
+            listeFleuves = codeFleuve;
+            separateurNouedFleuve = separateurFleuve;
         }
     }
 
+    #region SAUVEGARDE
     public static void SauvergarderMappe(string nomMappe)
     {
         string cheminMappe = cheminDefaut + nomMappe + extention;
@@ -42,8 +50,9 @@ static public class MappeSysteme
 
         DamierGen damierGen = Object.FindObjectOfType<DamierGen>();
         TuileTerrain[,] damierTerrains = CreerDamierTerrain(damierGen.RecupDamier());
+        Fleuve[] listeFleuves = GameObject.FindObjectsOfType<Fleuve>();
 
-        Mappe mappe = new Mappe(nomMappe, damierGen.colonnes, damierGen.lignes, damierTerrains);
+        Mappe mappe = new Mappe(nomMappe, damierGen.colonnes, damierGen.lignes, damierTerrains, CreerListeFleuve(listeFleuves));
 
         /* DEBUG
         int index = 0;
@@ -95,16 +104,21 @@ static public class MappeSysteme
     //Créer le code qui va être inscrit dans le fichier .mappe
     private static string CreerCodeMappe(Mappe mappe)
     {
-        string codeMappe = baliseNom + mappe.nom + baliseColonne + mappe.colonnes + baliseLigne + mappe.lignes + CreerCodeMappeTerrain(mappe.mappeTerrains);
+        string codeMappe = baliseNom + mappe.nom 
+            + baliseColonne + mappe.colonnes 
+            + baliseLigne + mappe.lignes 
+            + baliseMappeTerrain + CreerCodeMappeTerrain(mappe.mappeTerrains) 
+            + baliseFleuve + CreerCodeFleuve(mappe.listeFleuves)
+            ;
+
 
         return codeMappe;
     }
 
-
     //Créer la partie du code de la mappe qui concerne les types de terrain
     private static string CreerCodeMappeTerrain(TuileTerrain[,] mappeTerrain)
     {
-        string codeMappeTerrain = baliseMappeTerrain;
+        string codeMappeTerrain = "";
 
         for (int y = 0; y < mappeTerrain.GetLength(1); y++)
         {
@@ -117,18 +131,51 @@ static public class MappeSysteme
         return codeMappeTerrain;
     }
 
-    //Récupère le contenu/code d'un fichier .mappe en fonction du nom de la mappe
-    private static string RecupererCodeMappe(string nomMappe)
+    //Créer le code de la mappe qui va contenir les informations nécessaires à la sauvegarde des fleuves à partir de tous les fleuves présents sur la mappe
+    private static List<string> CreerListeFleuve(Fleuve[] listeFleuves)
     {
-        string chemin = cheminDefaut + nomMappe + extention;
-        string code = "";
+        List<string> listeFleuvesCode = new List<string>();
 
-        if(CheckerMappeExiste(nomMappe))
+        for (int i = 0; i < listeFleuves.Length; i++)
         {
-            code = File.ReadAllText(chemin);
+            if(listeFleuves[i].grapheNoeuds.Count > 0)
+            {
+                listeFleuvesCode.Add("");
+                for (int x = 0; x < listeFleuves[i].grapheNoeuds.Count; x++)
+                {
+                    listeFleuvesCode[i] += separateurFleuve;
+                    listeFleuvesCode[i] += listeFleuves[i].grapheNoeuds[x].gameObject.name;
+                }
+            }
+        }
+        return listeFleuvesCode;
+    }
+
+    //Génère le code du fichier .mappe qui va contenir les info des fleuves
+    private static string CreerCodeFleuve(List<string> listeFleuves)
+    {
+        string codeFleuve = "";
+
+        for (int i = 0; i < listeFleuves.Count; i++)
+        {
+            codeFleuve += baliseNvFleuve;
+            codeFleuve += listeFleuves[i];
         }
 
-        return code;
+        return codeFleuve;
+    }
+    #endregion
+
+
+    #region CHARGEMENT
+    public static void ChargerMappe(string nomMappe)
+    {
+        DamierGen damierGen = Object.FindObjectOfType<DamierGen>();
+        DamierFleuveGen damierFleuve = Object.FindObjectOfType<DamierFleuveGen>();
+        listeTerrains = GameObject.FindGameObjectWithTag("ListeTerrains").GetComponents<TuileTerrain>();
+        Mappe mappe = CreerMappe(nomMappe);
+
+        damierGen.GenDamier(mappe);
     }
 
     //Créer un structure Mappe à partir du nom d'un fichier .mappe
@@ -142,21 +189,18 @@ static public class MappeSysteme
 
         string nom = "";
         string colonnesTxt ="";
-        string lignesTxt ="";
+        string lignesTxt = "";
         string codeTerrain = "";
+        List<string> listeFleuves = new List<string>();
+        int indexFleuve = -1;
 
         for (int i = 0; i < tableauCode.Length; i++)
         {
-
-
             //Détecte et stock les balises.
             if (estBalise)
             {
                 balise += tableauCode[i];
-                
-                
             }
-
             if (tableauCode[i] == '<')
             {
                 estBalise = true;
@@ -165,6 +209,11 @@ static public class MappeSysteme
             else if (tableauCode[i] == '>')
             {
                 estBalise = false;
+                if(balise == baliseNvFleuve)
+                {
+                    indexFleuve++;
+                    listeFleuves.Add("");
+                }
                 continue;
             }
 
@@ -174,40 +223,41 @@ static public class MappeSysteme
             {
                 case baliseNom:
                     nom += tableauCode[i];
-                    
                     break;
+
                 case baliseColonne:
                     colonnesTxt += tableauCode[i];
-                    
                     break;
+
                 case baliseLigne:
                     lignesTxt += tableauCode[i];
-                    
                     break;
+
                 case baliseMappeTerrain:
                     codeTerrain += tableauCode[i];
-                    
+                    break;
+                case baliseFleuve:
+                    //Je crois qu'au final cette balise sert à rien
+                    break;
+                case baliseNvFleuve:
+                    listeFleuves[indexFleuve] += tableauCode[i];
                     break;
             }
-        
         }
 
         
-
         int colonnes = int.Parse(colonnesTxt);
         int lignes = int.Parse(lignesTxt);
 
         char[] separateurs = new char[] { separateurTerrain };
         string[] listeCodeTerrain = codeTerrain.Split(separateurs, System.StringSplitOptions.RemoveEmptyEntries);
        
-
         TuileTerrain[,] damierTerrains = CreerDamierTerrain(listeCodeTerrain, colonnes, lignes);
 
-        Mappe mappe = new Mappe(nom, colonnes, lignes, damierTerrains);
+        Mappe mappe = new Mappe(nom, colonnes, lignes, damierTerrains, listeFleuves);
 
         return mappe;
     }
-
 
     //Extrait la carte des terrain de la carte des tuiles.
     private static TuileTerrain[,] CreerDamierTerrain(TuileManager[,] damier)
@@ -228,6 +278,7 @@ static public class MappeSysteme
 
         return damierTerrains;
     }
+
     private static TuileTerrain[,] CreerDamierTerrain(string[] codeTerrain, int colonnes, int lignes)
     {
         TuileTerrain[,] damierTerrains = new TuileTerrain[colonnes, lignes];
@@ -261,6 +312,23 @@ static public class MappeSysteme
         return null;
     }
 
+    //Récupère le contenu/code d'un fichier .mappe en fonction du nom de la mappe
+    private static string RecupererCodeMappe(string nomMappe)
+    {
+        string chemin = cheminDefaut + nomMappe + extention;
+        string code = "";
+
+        if(CheckerMappeExiste(nomMappe))
+        {
+            code = File.ReadAllText(chemin);
+        }
+
+        return code;
+    }
+    #endregion
+
+
+    #region NAVIGATION
     //Vérifie si la mappe existe en fonction de son nom
     public static bool CheckerMappeExiste(string nomMappe)
     {
@@ -277,15 +345,6 @@ static public class MappeSysteme
         return false;
     }
 
-    public static void ChargerMappe(string nomMappe)
-    {
-        DamierGen damierGen = Object.FindObjectOfType<DamierGen>();
-        listeTerrains = GameObject.FindGameObjectWithTag("ListeTerrains").GetComponents<TuileTerrain>();
-        Mappe mappe = CreerMappe(nomMappe);
-
-        damierGen.GenDamier(mappe);
-    }
-
     public static void SupprimerMappe(string nomMappe)
     {
         string chemin = cheminDefaut + nomMappe + extention;
@@ -300,12 +359,12 @@ static public class MappeSysteme
     //Récupère le nom de toutes les mappes
     public static List<string> RecuprererNomMappes()
     {
-        List<string> listeSauvegardes = new List<string>(Directory.GetFiles(cheminDefaut));
+        string[] saves = Directory.GetFiles(cheminDefaut, "*.mappe");
+        List<string> listeSauvegardes = new List<string>(saves);
+        
 
         for (int i = 0; i < listeSauvegardes.Count; i++)
         {
-            if(listeSauvegardes[i].EndsWith(".mappe"))
-            {
                 string nom = listeSauvegardes[i];
 
                 int indexExtention = nom.IndexOf(extention);
@@ -314,16 +373,14 @@ static public class MappeSysteme
                 nom = nom.Remove(indexExtention);
                 nom = nom.Remove(indexChemin, cheminDefaut.Length);
 
+                //Debug.Log(nom);
+
                 listeSauvegardes[i] = nom;
 
                 //Debug.Log(nom);
-            }
-            else
-            {
-                listeSauvegardes.RemoveAt(i);
-            }
         }
 
         return listeSauvegardes;
     }
+    #endregion
 }

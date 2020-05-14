@@ -86,6 +86,93 @@ public class DamierFleuveGen : MonoBehaviour
         RenommerNoeudsFleuve();
     }
 
+    public void GenererDamierFleuve(MappeSysteme.Mappe mappe)
+    {
+        ClearDamierFleuve();
+
+        colonnes = mappe.colonnes;
+        lignes = mappe.lignes * 2;
+
+        //print("Lignes : " + lignes);
+        //print("colonnes : " + colonnes);
+
+        damierFleuve = new NoeudFleuve[colonnes, lignes];
+
+        //print(damierFleuve.GetLength(1));
+
+        float tailleTuileX = damierGen.tuileHexa.GetComponent<SpriteRenderer>().bounds.size.x;
+        float tailleTuileY = damierGen.tuileHexa.GetComponent<SpriteRenderer>().bounds.size.y;
+
+        Vector3 position = new Vector3();
+
+        for (int y = 0; y < damierFleuve.GetLength(1); y++)
+        {
+            position.x = 0;
+
+            if (y != 0)
+                position.y += tailleTuileY / 2;
+
+            for (int x = 0; x < damierFleuve.GetLength(0); x++)
+            {
+                //print(y % 4);
+                if (y != 0 && y != 1)
+                {
+                    if (x == 0)
+                    {
+                        if (y % 4 == 0)
+                        {
+                            position.y -= tailleTuileY / 4;
+                        }
+                        else if (y % 4 == 2 || y % 4 == 3)
+                        {
+                            position.x -= tailleTuileX / 2;
+
+                            if (y % 4 == 2)
+                                position.y -= tailleTuileY / 4;
+                        }
+                    }
+                }
+
+                position.x += tailleTuileX;
+
+                GameObject nvNoeud = Instantiate(noeudFleuve, transform);
+                nvNoeud.transform.position += position;
+                nvNoeud.GetComponent<NoeudFleuve>().EstSelectionne(false);
+                //print(nvNoeud.transform.position);   
+            }
+        }
+        RenommerNoeudsFleuve();
+
+        GenererFleuve(mappe);
+    }
+
+    public void GenererFleuve(MappeSysteme.Mappe mappe)
+    {
+        Fleuve[] listeFleuves = new Fleuve[mappe.listeFleuves.Count];
+
+        for (int i = 0; i < mappe.listeFleuves.Count; i++)
+        {
+            GameObject nvFleuve = Instantiate(fleuvePrefab);
+            nvFleuve.name = "Fleuve" + i;
+            listeFleuves[i] = nvFleuve.GetComponent<Fleuve>();
+            listeFleuves[i].Init();
+
+            char[] separateurs = new char[] { mappe.separateurNouedFleuve};
+            string[] listeCodeNoeudFleuve = mappe.listeFleuves[i].Split(separateurs, System.StringSplitOptions.RemoveEmptyEntries);
+
+            for (int j = 0; j < listeCodeNoeudFleuve.Length; j++)
+            {
+                NoeudFleuve nf = RetrouverNoeudFleuve(listeCodeNoeudFleuve[j]);
+
+                if(nf)
+                {
+                    listeFleuves[i].AjouterNoeud(nf);
+                }
+            }
+        }
+
+
+    }
     #endregion
 
 
@@ -268,6 +355,25 @@ public class DamierFleuveGen : MonoBehaviour
 
     #endregion
 
+    //Trouve un noeud de fleuve grâce à son nom
+    private NoeudFleuve RetrouverNoeudFleuve(string nom)
+    {
+        damierFleuve = RecupDamierFleuve();
+
+        for (int y = 0; y < damierFleuve.GetLength(1); y++)
+        {
+            for (int x = 0; x < damierFleuve.GetLength(0); x++)
+            {
+                if(damierFleuve[x,y].gameObject.name == nom)
+                {
+                    return damierFleuve[x, y];
+                }
+            }
+        }
+
+        return null;
+    }
+
     public void ClearDamierFleuve()
     {
         NoeudFleuve[] damier = FindObjectsOfType<NoeudFleuve>();
@@ -301,6 +407,7 @@ public class DamierFleuveGen : MonoBehaviour
         return damier;
     }
 
+    //Recupère la hauteur du damier en unité de mesure Unity 
     private float Recupererhauteur()
     {
         float hauteur = 0;
@@ -313,6 +420,7 @@ public class DamierFleuveGen : MonoBehaviour
         return hauteur;
     }
 
+    //Recupère la hauteur du damier en unité de mesure Unity, moins un certain nombre de ligne (décalage) 
     private float Recupererhauteur(float decalage)
     {
         float hauteur = 0;
@@ -325,6 +433,7 @@ public class DamierFleuveGen : MonoBehaviour
         return hauteur;
     }
 
+    //Recupère la largeur du damier en unité de mesure Unity 
     private float RecupererLargeur()
     {
         float largeur = 0;
@@ -337,6 +446,7 @@ public class DamierFleuveGen : MonoBehaviour
         return largeur;
     }
 
+    //Recupère la largeur du damier en unité de mesure Unity, moins un certain nombre de colonne (décalage) 
     private float RecupererLargeur(float decalage)
     {
         float largeur    = 0;

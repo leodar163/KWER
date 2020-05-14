@@ -164,7 +164,7 @@ public class DamierGen : MonoBehaviour
 
         RenommerTuilesDamier();
 
-        damierFleuve.GenererDamierFleuve(mappe.colonnes, mappe.lignes);
+        damierFleuve.GenererDamierFleuve(mappe);
     }
 
 

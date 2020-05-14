@@ -24,6 +24,8 @@ public class EditeurNiveau : EditorWindow
 
     Vector3 positionCameraMemoire;
 
+    Vector2 scrollPosition = Vector2.zero;
+
     #region VARIABLES DAMIER
     DamierGen damierGen;
     int colonnes = 1;
@@ -71,6 +73,8 @@ public class EditeurNiveau : EditorWindow
 
     private void OnGUI()
     {
+        scrollPosition = GUILayout.BeginScrollView(scrollPosition, true, true);
+
         GUILayout.Space(10);
 
         DessinerGenerateurDamier();
@@ -94,6 +98,8 @@ public class EditeurNiveau : EditorWindow
         GUILayout.Space(15);
 
         DessinerInterfacesSauvegarde();
+
+        GUILayout.EndScrollView();
     }
 
     #region GENERATEUR ET MODIFICATEUR DE DAMIER
@@ -616,8 +622,9 @@ public class EditeurNiveau : EditorWindow
                         fleuveSelectionne.AjouterNoeud(nf);
                     }
                 }
+                Selection.objects = new Object[0];
             }
-            Selection.objects = new Object[0];
+            
         }
     }
 
@@ -658,18 +665,33 @@ public class EditeurNiveau : EditorWindow
         GUI.backgroundColor = new Color(0.3f, 0.8f, 0.3f);
         if (GUILayout.Button("CHARGER"))
         {
-            MappeSysteme.ChargerMappe(nomMappe);
-            
-            MappeSysteme.Mappe mappe = MappeSysteme.CreerMappe(nomMappe);
+            MappeSysteme.Mappe mappe;
 
-            colonnes = mappe.colonnes;
-            lignes = mappe.lignes;
+            if(MappeSysteme.CheckerMappeExiste(nomMappe))
+            {
+                MappeSysteme.ChargerMappe(nomMappe);
+                mappe = MappeSysteme.CreerMappe(nomMappe);
+
+                colonnes = mappe.colonnes;
+                lignes = mappe.lignes;
+            }
+            else
+            {
+                Debug.LogError("La mappe n'a pas été trouvée. Elle n'existe peut-être pas, ou le nom n'est pas le bon");
+            }
         }
 
         GUI.backgroundColor = new Color(0.8f, 0.3f, 0.3f);
         if (GUILayout.Button("SUPPRIMER"))
         {
-            MappeSysteme.SupprimerMappe(nomMappe);
+            if (MappeSysteme.CheckerMappeExiste(nomMappe))
+            {
+                MappeSysteme.SupprimerMappe(nomMappe);
+            }
+            else
+            {
+                Debug.LogError("La mappe n'a pas été trouvée. Elle n'existe peut-être pas, ou le nom n'est pas le bon");
+            }
         }
 
         GUILayout.EndHorizontal();

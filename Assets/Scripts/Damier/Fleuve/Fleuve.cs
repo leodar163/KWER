@@ -62,6 +62,7 @@ public class Fleuve : MonoBehaviour
             Vector3 positionNoeud = grapheNoeuds[grapheNoeuds.Count - 1].transform.position;
             positionNoeud.z = profondeur;
             spline.InsertPointAt(spline.GetPointCount(), positionNoeud);
+            //print(spline.GetPointCount());
         }
     }
 
@@ -72,15 +73,20 @@ public class Fleuve : MonoBehaviour
             if(grapheNoeuds.Count > 2)
             {
                 int index = RecupererIndexSpline(nf.transform.position);
+                List<NoeudFleuve> noeudsADeselectionner = grapheNoeuds.GetRange(index, grapheNoeuds.Count-index);
+                int portee = grapheNoeuds.Count;
+                grapheNoeuds.RemoveRange(index, grapheNoeuds.Count-index);
 
-                if(index >= 0)
+                if (index > 1)
                 {
-                    for (int i = index; i < grapheNoeuds.Count; i++)
+                    for (int i = index; i < portee; i++)
+                    {                           
+                        spline.RemovePointAt(index);
+                    }
+                    
+                    foreach(NoeudFleuve noefl in noeudsADeselectionner)
                     {
-                        grapheNoeuds[i].EstSelectionne(false);
-                        grapheNoeuds.RemoveAt(i);
-
-                        spline.RemovePointAt(i);
+                        noefl.EstSelectionne(false);
                     }
                 }
             }
@@ -108,27 +114,4 @@ public class Fleuve : MonoBehaviour
             nf.EstSelectionne(selectionne);
         }
     }
-
-    public void ChangerSpline()
-    {
-        SpriteShapeController ssController = GetComponent<SpriteShapeController>();
-        EdgeCollider2D edgeCollider = GetComponent<EdgeCollider2D>();
-
-        Spline spline = ssController.spline;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            position -= gameObject.transform.position;
-            position.z = gameObject.transform.position.z;
-            Debug.DrawLine(spline.GetPosition(1), position, Color.red, 0.01f);
-            //spline.SetPosition(0, position);
-            int tailleSpline = spline.GetPointCount();
-            spline.InsertPointAt(tailleSpline , position);
-        }
-        
-    }
-
-    
-
 }
