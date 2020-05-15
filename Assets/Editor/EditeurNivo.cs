@@ -63,7 +63,7 @@ public class EditeurNiveau : EditorWindow
         colonnes = damierGen.colonnes;
         lignes = damierGen.lignes;
 
-        listeTerrains = GameObject.FindGameObjectWithTag("ListeTerrains").GetComponents<TuileTerrain>();
+        listeTerrains = ListeTerrains.TousTerrains;
     }
 
     private void Update()

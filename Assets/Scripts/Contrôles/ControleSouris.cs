@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class ControleSouris : MonoBehaviour
 {
+    private static ControleSouris actuel;
+    public static ControleSouris Actuel
+    {
+        get
+        {
+            if (actuel == null)
+            {
+                actuel = FindObjectOfType<ControleSouris>();
+            }
+
+            return actuel;
+        }
+
+    }
+
     LayerMask maskUnite;
     LayerMask maskTuile;
 

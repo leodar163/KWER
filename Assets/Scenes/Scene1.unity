@@ -1518,7 +1518,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1850539020}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -1527,6 +1526,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1850539020}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -1921,7 +1921,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1707052193}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -1930,6 +1929,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1707052193}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -3687,7 +3687,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 2012897932}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -3696,6 +3695,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 2012897932}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -4361,7 +4361,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1771230853}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -4370,6 +4369,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1771230853}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -6898,7 +6898,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1801483484}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -6907,6 +6906,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1801483484}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -7301,7 +7301,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 2017683658}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -7310,6 +7309,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 2017683658}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -7620,7 +7620,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 312751662}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -7629,6 +7628,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 312751662}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -8207,7 +8207,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 582673826}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -8216,6 +8215,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 582673826}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -9158,7 +9158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 918943048}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -9167,6 +9166,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 918943048}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -9307,7 +9307,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 256006973}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -9316,6 +9315,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 256006973}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -9718,7 +9718,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 143528444}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -9727,6 +9726,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 143528444}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -9964,7 +9964,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1471456057}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -9973,6 +9972,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1471456057}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -13402,7 +13402,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 217986005}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -13411,6 +13410,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 217986005}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -15999,7 +15999,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1965108599}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -16008,6 +16007,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1965108599}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -16656,7 +16656,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 270776243}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -16665,6 +16664,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 270776243}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -17385,7 +17385,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1759017780}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -17394,6 +17393,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1759017780}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -17792,7 +17792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 2010382345}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -17801,6 +17800,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 2010382345}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -17941,7 +17941,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1536111067}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -17950,6 +17949,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1536111067}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -19287,7 +19287,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1574622656}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -19296,6 +19295,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1574622656}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -19692,7 +19692,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1908637241}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -19701,6 +19700,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1908637241}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -19941,7 +19941,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1690850066}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -19950,6 +19949,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1690850066}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -20490,7 +20490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 91976902}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -20499,6 +20498,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 91976902}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -21640,7 +21640,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1867810077}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -21649,6 +21648,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1867810077}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -21789,7 +21789,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1616381896}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -21798,6 +21797,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1616381896}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -22981,7 +22981,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1363732208}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -22990,6 +22989,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1363732208}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -26626,6 +26626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 471693530}
+  - component: {fileID: 471693532}
   - component: {fileID: 471693529}
   - component: {fileID: 471693527}
   - component: {fileID: 471693528}
@@ -26773,6 +26774,18 @@ MonoBehaviour:
   coutFranchissement: 1
   ettendueEau: 0
   nourriture: 0
+--- !u!114 &471693532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471693524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779b11f5ec7c014baced6ca8671caed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &472577899
 GameObject:
   m_ObjectHideFlags: 0
@@ -31818,7 +31831,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1844529185}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -31827,6 +31839,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1844529185}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -33003,7 +33016,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1981711673}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -33012,6 +33024,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1981711673}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -33591,7 +33604,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1488925148}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -33600,6 +33612,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1488925148}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -34407,7 +34420,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 671957865}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -34416,6 +34428,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 671957865}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -35204,7 +35217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 817508921}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -35213,6 +35225,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 817508921}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -37673,7 +37686,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1147797734}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -37682,6 +37694,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1147797734}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -37983,7 +37996,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1148349141}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -37992,6 +38004,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1148349141}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -38132,7 +38145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 559617269}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -38141,6 +38153,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 559617269}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -38964,7 +38977,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 261532156}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -38973,6 +38985,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 261532156}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -39892,7 +39905,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1541490524}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -39901,6 +39913,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1541490524}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -40238,7 +40251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1683385761}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -40247,6 +40259,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1683385761}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -41088,7 +41101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1757842155}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -41097,6 +41109,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1757842155}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -41470,7 +41483,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1535838926}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -41479,6 +41491,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1535838926}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -42688,7 +42701,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 2007055803}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -42697,6 +42709,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 2007055803}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -43228,7 +43241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 287226394}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -43237,6 +43249,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 287226394}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -46527,7 +46540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1510459400}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -46536,6 +46548,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1510459400}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -46764,7 +46777,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 985475578}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -46773,6 +46785,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 985475578}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -50040,7 +50053,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1192489049}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -50049,6 +50061,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1192489049}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -50604,7 +50617,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 993810124}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -50613,6 +50625,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 993810124}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -51431,7 +51444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 2049126966}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -51440,6 +51452,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 2049126966}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -52811,7 +52824,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 923407189}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -52820,6 +52832,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 923407189}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -53231,7 +53244,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 975128601}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -53240,6 +53252,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 975128601}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -53724,7 +53737,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 239475257}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -53733,6 +53745,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 239475257}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -55800,7 +55813,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 922392966}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -55809,6 +55821,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 922392966}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -55949,7 +55962,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 462385038}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -55958,6 +55970,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 462385038}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -57317,7 +57330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1525642118}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -57326,6 +57338,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1525642118}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -57957,7 +57970,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 408064746}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -57966,6 +57978,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 408064746}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -58554,7 +58567,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 415259871}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -58563,6 +58575,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 415259871}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -58703,7 +58716,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1847553865}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -58712,6 +58724,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1847553865}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -60008,7 +60021,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 524553223}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -60017,6 +60029,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 524553223}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -60157,7 +60170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1094125042}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -60166,6 +60178,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1094125042}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -60533,7 +60546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1566422352}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -60542,6 +60554,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1566422352}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -61055,7 +61068,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 2074909882}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -61064,6 +61076,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 2074909882}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -61404,7 +61417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 882854116}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -61413,6 +61425,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 882854116}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -61726,7 +61739,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 95627333}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -61735,6 +61747,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 95627333}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -62385,7 +62398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 2106951001}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -62394,6 +62406,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 2106951001}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -62718,7 +62731,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 186618230}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -62727,6 +62739,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 186618230}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -63110,7 +63123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 788407176}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -63119,6 +63131,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 788407176}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -64016,7 +64029,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 501944691}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -64025,6 +64037,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 501944691}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -66307,7 +66320,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 96998827}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -66316,6 +66328,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 96998827}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -66529,7 +66542,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1805204839}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -66538,6 +66550,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1805204839}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -66766,7 +66779,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1705054184}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -66775,6 +66787,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1705054184}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -67560,7 +67573,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 304315829}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -67569,6 +67581,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 304315829}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -69543,7 +69556,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1217560859}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -69552,6 +69564,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1217560859}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -71174,7 +71187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1224180907}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -71183,6 +71195,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1224180907}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -71778,7 +71791,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1616345767}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -71787,6 +71799,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1616345767}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -71927,7 +71940,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1302112257}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -71936,6 +71948,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1302112257}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -73098,7 +73111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1938967217}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -73107,6 +73119,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1938967217}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -75614,7 +75627,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1364311276}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -75623,6 +75635,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1364311276}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -76005,7 +76018,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 2134723213}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -76014,6 +76026,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 2134723213}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -76311,7 +76324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 780225299}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -76320,6 +76332,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 780225299}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -77000,7 +77013,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1544963061}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -77009,6 +77021,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1544963061}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -77737,7 +77750,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 2087598222}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -77746,6 +77758,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 2087598222}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -78080,7 +78093,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 454826625}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -78089,6 +78101,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 454826625}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -78413,7 +78426,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1023497284}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -78422,6 +78434,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1023497284}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -79047,7 +79060,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1256076917}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -79056,6 +79068,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1256076917}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -80587,7 +80600,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1990203696}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -80596,6 +80608,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1990203696}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -82174,7 +82187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1954329029}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -82183,6 +82195,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1954329029}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -82323,7 +82336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 461180153}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -82332,6 +82344,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 461180153}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -82629,7 +82642,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 222366134}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -82638,6 +82650,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 222366134}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -82938,7 +82951,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 368153008}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -82947,6 +82959,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 368153008}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -84469,7 +84482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 2099634889}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -84478,6 +84490,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 2099634889}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -84618,7 +84631,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1422277526}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -84627,6 +84639,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1422277526}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -85010,7 +85023,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 4098609}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -85019,6 +85031,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 4098609}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -86099,7 +86112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 20614308}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -86108,6 +86120,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 20614308}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -87600,7 +87613,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1145179263}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -87609,6 +87621,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1145179263}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -89055,7 +89068,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 211434480}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -89064,6 +89076,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 211434480}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -90807,7 +90820,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 154917254}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -90816,6 +90828,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 154917254}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -91029,7 +91042,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1845489359}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -91038,6 +91050,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1845489359}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -92007,7 +92020,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 156158613}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -92016,6 +92028,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 156158613}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -92831,7 +92844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1061813518}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -92840,6 +92852,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1061813518}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -97566,7 +97579,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 336262356}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -97575,6 +97587,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 336262356}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -98550,7 +98563,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1904616625}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -98559,6 +98571,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1904616625}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -99426,7 +99439,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 244041886}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -99435,6 +99447,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 244041886}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -102034,7 +102047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 293586458}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -102043,6 +102055,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 293586458}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -102583,7 +102596,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1487193270}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -102592,6 +102604,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1487193270}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -103652,7 +103665,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1523841942}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -103661,6 +103673,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1523841942}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -107053,7 +107066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 527866250}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -107062,6 +107074,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 527866250}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -107868,7 +107881,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1488917627}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -107877,6 +107889,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1488917627}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -109380,7 +109393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1216852022}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -109389,6 +109401,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1216852022}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -110591,7 +110604,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1261295313}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -110600,6 +110612,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1261295313}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -110821,7 +110834,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 34529023}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -110830,6 +110842,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 34529023}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -111736,7 +111749,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 424547098}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -111745,6 +111757,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 424547098}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -113023,7 +113036,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1519817916}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -113032,6 +113044,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1519817916}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -113792,7 +113805,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 139472561}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -113801,6 +113813,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 139472561}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -114041,7 +114054,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1967484190}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -114050,6 +114062,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1967484190}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -115064,7 +115077,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1830189693}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -115073,6 +115085,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1830189693}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -115367,7 +115380,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 2075778866}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -115376,6 +115388,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 2075778866}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -115864,7 +115877,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1024082959}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -115873,6 +115885,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1024082959}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -116678,7 +116691,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1915750267}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -116687,6 +116699,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1915750267}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -118401,7 +118414,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 262227658}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -118410,6 +118422,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 262227658}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -119481,7 +119494,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 331964433}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -119490,6 +119502,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 331964433}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -120598,7 +120611,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 247647088}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -120607,6 +120619,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 247647088}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -121013,7 +121026,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 298772677}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -121022,6 +121034,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 298772677}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
@@ -121316,7 +121329,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
-  garniture: {fileID: 1374779827}
   nombreConnections: 6
   connections: []
   distance: 0
@@ -121325,6 +121337,7 @@ MonoBehaviour:
   predecesseur: {fileID: 0}
   tailleTuile: 1
   connectionsDistance: []
+  garniture: {fileID: 1374779827}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:

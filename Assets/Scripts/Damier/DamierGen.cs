@@ -3,8 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+
 public class DamierGen : MonoBehaviour
 {
+    private static DamierGen actuel;
+    public static DamierGen Actuel
+    {
+        get
+        {
+            if(actuel == null)
+            {
+                actuel = FindObjectOfType<DamierGen>();
+            }
+            return actuel;
+        }
+    }
+
     //[SerializeField] public GameObject tuileCarree;
     [SerializeField] public GameObject tuileHexa;
     [SerializeField] DamierFleuveGen damierFleuve;
@@ -58,10 +72,12 @@ public class DamierGen : MonoBehaviour
 }
 */
 
+      
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -69,7 +85,6 @@ public class DamierGen : MonoBehaviour
     {
 
     }
-
 
 
     /* OBSOLET

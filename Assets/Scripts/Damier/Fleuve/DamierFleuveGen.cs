@@ -1,10 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
-
 
 public class DamierFleuveGen : MonoBehaviour
 {
+    private static DamierFleuveGen actuel;
+    public static DamierFleuveGen Actuel
+    {
+        get
+        {
+            if(actuel == null)
+            {
+                actuel = FindObjectOfType<DamierFleuveGen>();
+            }
+
+            return actuel;
+        }
+
+    }
+
     [SerializeField] DamierGen damierGen;
     [SerializeField] GameObject noeudFleuve;
     public GameObject fleuvePrefab;
@@ -17,6 +32,7 @@ public class DamierFleuveGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         gameObject.SetActive(false);
     }
 
@@ -25,6 +41,7 @@ public class DamierFleuveGen : MonoBehaviour
     {
 
     }
+
 
     #region GENERATEUR
 
@@ -376,11 +393,17 @@ public class DamierFleuveGen : MonoBehaviour
 
     public void ClearDamierFleuve()
     {
+        Fleuve[] listeFleuves = FindObjectsOfType<Fleuve>();
         NoeudFleuve[] damier = FindObjectsOfType<NoeudFleuve>();
 
         foreach(NoeudFleuve noeud in damier)
         {
             DestroyImmediate(noeud.gameObject);
+        }
+
+        foreach(Fleuve f in listeFleuves)
+        {
+            DestroyImmediate(f);
         }
     }
 

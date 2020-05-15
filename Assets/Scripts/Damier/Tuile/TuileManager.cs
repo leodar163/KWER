@@ -5,13 +5,6 @@ public class TuileManager : MonoBehaviour
 {
     public bool tuileHexa = false;
 
-    [SerializeField] GameObject garniture;
-    SpriteRenderer spriteGarniture;
-    SpriteRenderer spriteBase;
-    
-
-    
-    
 
     [Header("Graphe")]
     
@@ -26,6 +19,9 @@ public class TuileManager : MonoBehaviour
     public float[] connectionsDistance; //Poids entre les noeuds / l'index est le même que celui des connections
 
     [Header("Sprite")]
+    [SerializeField] GameObject garniture;
+    SpriteRenderer spriteGarniture;
+    SpriteRenderer spriteBase;
     [SerializeField] Sprite[] spritesBase;
     [SerializeField] Sprite[] spritesBaseHiver;
     [SerializeField] int indexGarniture = -1;
