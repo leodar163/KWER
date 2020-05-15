@@ -27,7 +27,7 @@ public class Tribu : MonoBehaviour
 
     //Utiliser pour les déplacement entre les tuiles
     public float vitesse = 10;
-    Stack<TuileManager> cheminASuivre;
+    Stack<TuileManager> cheminASuivre = new Stack<TuileManager>();
     public bool peutEmbarquer = false;
 
     private bool traverseFleuve;

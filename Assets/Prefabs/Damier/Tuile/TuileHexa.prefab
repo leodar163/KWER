@@ -230,23 +230,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tuileHexa: 1
   garniture: {fileID: 7196889779831233828}
+  nombreConnections: 6
+  connections: []
+  distance: 0
+  parcouru: 0
+  aPortee: 0
+  predecesseur: {fileID: 0}
+  tailleTuile: 0
+  connectionsDistance: []
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   spritesBaseHiver:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
-  predecesseur: {fileID: 0}
-  nombreConnections: 6
-  connections: []
-  connectionsDistance: []
-  tailleTuile: 0
-  hauteur: 0
-  distance: 0
-  parcouru: 0
-  aPortee: 0
+  indexGarniture: -1
+  indexBase: -1
   couleurTuileAPortee: {r: 0.23349057, g: 0.9339623, b: 0.7579205, a: 1}
   couleurTuileSurChemin: {r: 0.9245283, g: 0.7051749, b: 0.17880027, a: 1}
   terrainTuile: {fileID: 0}
-  decalage: 0
   revendicateur: {fileID: 0}
   estRevendiquee: 0
 --- !u!1 &2582660507774148950

@@ -133,7 +133,7 @@ public class EditeurNiveau : EditorWindow
         }
         GUILayout.EndVertical();
 
-        GUILayout.Space(-150);
+        GUILayout.Space(-600);
 
         GUILayout.BeginVertical();
 
@@ -546,7 +546,7 @@ public class EditeurNiveau : EditorWindow
         GUI.backgroundColor = Color.white;
         GUILayout.EndVertical();
 
-        GUILayout.Space(-80);
+        GUILayout.Space(-300);
 
         // dessine les boutons de suppression qui vont avec
         GUILayout.BeginVertical();
@@ -649,15 +649,19 @@ public class EditeurNiveau : EditorWindow
         GUILayout.Space(5);
 
         GUILayout.BeginHorizontal();
-        nomMappeSauvegarde = GUILayout.TextField(nomMappeSauvegarde);
-        if (GUILayout.Button("Sauvegarder Mappe"))
+
+        GUILayoutOption[] txtFieldOptions = new GUILayoutOption[2] { GUILayout.MaxWidth(150), GUILayout.MinHeight(20) };
+        nomMappeSauvegarde = GUILayout.TextField(nomMappeSauvegarde, txtFieldOptions);
+
+        GUILayoutOption[] optionsSave = new GUILayoutOption[2] { GUILayout.MaxWidth(150), GUILayout.MinHeight(20) };
+        if (GUILayout.Button("Sauvegarder Mappe", optionsSave))
         {
             MappeSysteme.SauvergarderMappe(nomMappeSauvegarde);
             nomMappeSauvegarde = "NomSauvergarde";
         }
         GUILayout.EndHorizontal();
 
-        GUILayout.Space(10);
+        GUILayout.Space(5);
 
         List<string> listeMappes = MappeSysteme.RecuprererNomMappes();
         for (int i = 0; i < listeMappes.Count; i++)
@@ -669,11 +673,12 @@ public class EditeurNiveau : EditorWindow
     private void CreerIntefaceSauvegarde(string nomMappe)
     {
         GUILayout.BeginHorizontal();
-
         GUILayout.Label(nomMappe);
 
+        
         GUI.backgroundColor = new Color(0.3f, 0.8f, 0.3f);
-        if (GUILayout.Button("CHARGER"))
+        GUILayoutOption[] optionsCharge = new GUILayoutOption[2] { GUILayout.Width(80), GUILayout.Height(20) };
+        if (GUILayout.Button("CHARGER", optionsCharge))
         {
             MappeSysteme.Mappe mappe;
 
@@ -691,8 +696,11 @@ public class EditeurNiveau : EditorWindow
             }
         }
 
+        
+
         GUI.backgroundColor = new Color(0.8f, 0.3f, 0.3f);
-        if (GUILayout.Button("SUPPRIMER"))
+        GUILayoutOption[] optionsSuppr = new GUILayoutOption[2] { GUILayout.Width(80), GUILayout.Height(20) };
+        if (GUILayout.Button("SUPPRIMER",optionsSuppr))
         {
             if (MappeSysteme.CheckerMappeExiste(nomMappe))
             {
@@ -703,6 +711,7 @@ public class EditeurNiveau : EditorWindow
                 Debug.LogError("La mappe n'a pas été trouvée. Elle n'existe peut-être pas, ou le nom n'est pas le bon");
             }
         }
+        GUILayout.Space(230);
 
         GUILayout.EndHorizontal();
     }
