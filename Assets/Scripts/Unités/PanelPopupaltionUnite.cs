@@ -7,13 +7,13 @@ public class PanelPopupaltionUnite : MonoBehaviour
 {
 
     TextMeshProUGUI txtMP;
-    UniteManager tribu;
+    Tribu tribu;
     Color couleurDefaut;
     [SerializeField] Color couleurFamine;
 
     private void Awake()
     {
-        tribu = GetComponentInParent<UniteManager>();
+        tribu = GetComponentInParent<Tribu>();
         txtMP = GetComponentInChildren<TextMeshProUGUI>();
         couleurDefaut = txtMP.color;
     }

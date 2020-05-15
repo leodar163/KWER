@@ -7,13 +7,13 @@ public class InterfaceCroissance : MonoBehaviour
 {
     TextMeshProUGUI ptsCroissance;
 
-    UniteManager tribu;
+    Tribu tribu;
 
     // Start is called before the first frame update
     void Start()
     {
         ptsCroissance = GetComponentInChildren<TextMeshProUGUI>();
-        tribu = FindObjectOfType<UniteManager>();
+        tribu = FindObjectOfType<Tribu>();
         MiseAJourCroissance();
     }
 

@@ -5,14 +5,14 @@ using TMPro;
 
 public class InterfacePopulation : MonoBehaviour
 {
-    UniteManager tribu;
+    Tribu tribu;
     TextMeshProUGUI stock;
 
     // Start is called before the first frame update
     void Start()
     {
         stock = GetComponentInChildren<TextMeshProUGUI>();
-        tribu = FindObjectOfType<UniteManager>();
+        tribu = FindObjectOfType<Tribu>();
         MiseAJourPopulation();
     }
 

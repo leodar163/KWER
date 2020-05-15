@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class UniteManager : MonoBehaviour
+public class Tribu : MonoBehaviour
 {
     PathFinder pathFinder;
     public TuileManager tuileActuelle;
@@ -9,8 +9,8 @@ public class UniteManager : MonoBehaviour
     Revendication revendication;
 
     //interface
-    PanelBouffeUnite panelBouffe;
-    PanelPopupaltionUnite panelPopu;
+    //PanelBouffeUnite panelBouffe;
+    //PanelPopupaltionUnite panelPopu;
     BonusPeche bonusPeche;
     Vector3 positionBonusPeche;
     InterfaceNourriture interfaceNourriture;
@@ -98,8 +98,8 @@ public class UniteManager : MonoBehaviour
         interfacePopu = FindObjectOfType<InterfacePopulation>();
         interfaceCroissance = FindObjectOfType<InterfaceCroissance>();
 
-        panelPopu = GetComponentInChildren<PanelPopupaltionUnite>();
-        panelBouffe = GetComponentInChildren<PanelBouffeUnite>();
+        //panelPopu = GetComponentInChildren<PanelPopupaltionUnite>();
+        //panelBouffe = GetComponentInChildren<PanelBouffeUnite>();
 
         revendication.RevendiquerTerritoire(tuileActuelle, true);
         CacherIntefaceTribu();
@@ -150,7 +150,7 @@ public class UniteManager : MonoBehaviour
             troupeau.AfficherNourriture();
         }
 
-        panelBouffe.AfficherGainNourriture(gainNourriture);
+        //panelBouffe.AfficherGainNourriture(gainNourriture);
 
         interfaceNourriture.MiseAJourTextesNourriture();
 
@@ -160,12 +160,12 @@ public class UniteManager : MonoBehaviour
     private void AfficherPopulation()
     {
         interfacePopu.MiseAJourPopulation();
-        panelPopu.AfficherPopulation();
+        //panelPopu.AfficherPopulation();
     }
 
     private void CacherIntefaceTribu()
     {
-        panelPopu.CacherPopulation();
+        //panelPopu.CacherPopulation();
         CacherNourriture();
     }
 
@@ -181,7 +181,7 @@ public class UniteManager : MonoBehaviour
             }      
         }
 
-        panelBouffe.CacherGainNourriture();
+        //panelBouffe.CacherGainNourriture();
 
         foreach (Troupeau troupeau in troupeauxAPortee)
         {

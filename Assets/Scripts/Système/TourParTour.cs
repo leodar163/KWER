@@ -6,7 +6,7 @@ public class TourParTour : MonoBehaviour
 {
     ControleSouris controles;
 
-    UniteManager[] toutesUnites;
+    Tribu[] toutesUnites;
     Migration[] tousMigrateurs; //Loups et troupeaux
     Hostile[] tousHostiles;
     int nbrTour;
@@ -87,11 +87,11 @@ public class TourParTour : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        toutesUnites = FindObjectsOfType<UniteManager>();
+        toutesUnites = FindObjectsOfType<Tribu>();
         tousMigrateurs = FindObjectsOfType<Migration>();
         
 
-        foreach (UniteManager unite in toutesUnites)
+        foreach (Tribu unite in toutesUnites)
         {
             unite.PasserTour();
         }

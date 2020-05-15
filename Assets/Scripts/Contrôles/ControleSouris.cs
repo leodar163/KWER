@@ -48,7 +48,7 @@ public class ControleSouris : MonoBehaviour
             if(checkUnite)
             {
                 GameObject autre = checkUnite.gameObject;
-                autre.GetComponent<UniteManager>().EtreSelectionne();
+                autre.GetComponent<Tribu>().EtreSelectionne();
 
                 objetSelectionne = autre;
             }   
@@ -82,7 +82,7 @@ public class ControleSouris : MonoBehaviour
 
                 TuileManager tuileSelectionnee = checkTuile.GetComponent<TuileManager>();
                 PathFinder pathfinder = objetSelectionne.GetComponent<PathFinder>();
-                UniteManager Tribu = objetSelectionne.GetComponent<UniteManager>();
+                Tribu Tribu = objetSelectionne.GetComponent<Tribu>();
 
                 Tribu.ImporterCheminASuivre(pathfinder.TrouverChemin(Tribu.tuileActuelle, tuileSelectionnee));
             }
@@ -117,7 +117,7 @@ public class ControleSouris : MonoBehaviour
             else if (objetSelectionne.CompareTag("Unite"))
             {
 
-                objetSelectionne.GetComponent<UniteManager>().EtreDeselectionne();
+                objetSelectionne.GetComponent<Tribu>().EtreDeselectionne();
                 
             }
             objetSelectionne = null;
@@ -142,7 +142,7 @@ public class ControleSouris : MonoBehaviour
             
 
             PathFinder pathFinder = objetSelectionne.GetComponent<PathFinder>();
-            UniteManager uM = objetSelectionne.GetComponent<UniteManager>();
+            Tribu uM = objetSelectionne.GetComponent<Tribu>();
 
 
             //Colore le chemin et le met à jour toutes les frames, si la tuile qu'on survole est à portee

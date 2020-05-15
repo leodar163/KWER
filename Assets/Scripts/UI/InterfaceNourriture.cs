@@ -8,13 +8,13 @@ public class InterfaceNourriture : MonoBehaviour
     TextMeshProUGUI gain;
 
 
-    UniteManager tribu;
+    Tribu tribu;
 
 
     void Start()
     {
         gain = GetComponentInChildren<TextMeshProUGUI>();
-        tribu = FindObjectOfType<UniteManager>();
+        tribu = FindObjectOfType<Tribu>();
 
         MiseAJourTextesNourriture();
     }

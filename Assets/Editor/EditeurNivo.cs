@@ -450,6 +450,16 @@ public class EditeurNiveau : EditorWindow
                         tuile.SetTerrain(terrainSelectionne);
                     }
                 }
+                else if(go.GetComponentInParent<TuileManager>())
+                {
+                    TuileManager tuile = go.GetComponentInParent<TuileManager>();
+
+                    //Debug.Log(terrainSelectionne.nom);
+                    if (tuile.gameObject.name != "TuileHexa")
+                    {
+                        tuile.SetTerrain(terrainSelectionne);
+                    }
+                }
             }
             Selection.objects = new Object[0];
         }

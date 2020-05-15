@@ -5,31 +5,37 @@ public class TuileManager : MonoBehaviour
 {
     public bool tuileHexa = false;
 
-    [SerializeField]GameObject garniture;
+    [SerializeField] GameObject garniture;
     SpriteRenderer spriteGarniture;
     SpriteRenderer spriteBase;
-    int indexGarniture = -1;
-    [SerializeField] Sprite[] spritesBase;
-    [SerializeField] Sprite[] spritesBaseHiver;
-    int indexBase = -1;
+    
 
-    [HideInInspector]public TuileManager predecesseur;
+    
+    
+
+    [Header("Graphe")]
+    
     public int nombreConnections;
     public TuileManager[] connections; //Liste des noeuds directement relié à celui-ci
-    public float[] connectionsDistance; //Poids entre les noeuds / l'index est le même que celui des connections
-
-    [HideInInspector]public float tailleTuile;
-
-    public float hauteur = 0;
-    
     public float distance = 0;
     public bool parcouru = false;
     public bool aPortee = false;
+    [HideInInspector] public TuileManager predecesseur;
 
-    private bool jeuLance = false; 
+    [HideInInspector] public float tailleTuile;
+    public float[] connectionsDistance; //Poids entre les noeuds / l'index est le même que celui des connections
 
+    [Header("Sprite")]
+    [SerializeField] Sprite[] spritesBase;
+    [SerializeField] Sprite[] spritesBaseHiver;
+    [SerializeField] int indexGarniture = -1;
+    [SerializeField] int indexBase = -1;
+    
+    
+    [Header("Infos")]
     public Color couleurTuileAPortee = Color.white;
     public Color couleurTuileSurChemin = Color.white;
+    private bool jeuLance = false; 
 
 
     private PanelNourriture panelNourriture;
@@ -38,24 +44,23 @@ public class TuileManager : MonoBehaviour
 
     [SerializeField]public TuileTerrain terrainTuile;
     
-
-
-    public int decalage;
-
+    [Header("Revendication")]
     public Revendication revendicateur; //Celui qui revendique la tuile
     public bool estRevendiquee = false; //une tuile interdite ne produit pas de nourriture. Un tuile est interdite quand un ennemi la contrôle.
 
     private void Awake()
     {
         //Init();
-
+        spriteBase = GetComponent<SpriteRenderer>();
+        spriteGarniture = garniture.GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         jeuLance = true;
-        
+
+
         TrouverConnections(nombreConnections);
         CacherInterfaceTuile();
         
