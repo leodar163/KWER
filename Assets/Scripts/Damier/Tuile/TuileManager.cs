@@ -49,6 +49,7 @@ public class TuileManager : MonoBehaviour
         //Init();
         spriteBase = GetComponent<SpriteRenderer>();
         spriteGarniture = garniture.GetComponent<SpriteRenderer>();
+        TrouverConnections(nombreConnections);
     }
 
     // Start is called before the first frame update
@@ -57,7 +58,7 @@ public class TuileManager : MonoBehaviour
         jeuLance = true;
 
 
-        TrouverConnections(nombreConnections);
+        
         CacherInterfaceTuile();
         
     }

@@ -3,10 +3,14 @@ using UnityEngine;
 
 public class Tribu : MonoBehaviour
 {
+    public int idTribu;
+
     PathFinder pathFinder;
     public TuileManager tuileActuelle;
     SpriteRenderer spriteRenderer;
     Revendication revendication;
+
+    [HideInInspector] public bool modeCampement = false;
 
     //interface
     //PanelBouffeUnite panelBouffe;
@@ -18,30 +22,31 @@ public class Tribu : MonoBehaviour
     InterfaceCroissance interfaceCroissance;
     //Interface
 
-    List<Troupeau> troupeauxAPortee;
-    public List<TuileManager> tuilesAPortee;
-    
-
-    public float pointActionDeffaut = 3;
-    public float pointAction;
-
-    //Utiliser pour les déplacement entre les tuiles
-    public float vitesse = 10;
-    Stack<TuileManager> cheminASuivre = new Stack<TuileManager>();
-    public bool peutEmbarquer = false;
-
-    private bool traverseFleuve;
 
     //couleurs
     public Color couleurSelectionne;
 
-    //Démographie
+    List<Troupeau> troupeauxAPortee;
+    
+    [Header("Déplacements")]
+    public float pointActionDeffaut = 3;
+    public float pointsAction;
+    public float vitesse = 10;
+    Stack<TuileManager> cheminASuivre = new Stack<TuileManager>();
+    public bool peutEmbarquer = false;
+    public List<TuileManager> tuilesAPortee;
+
+    private bool traverseFleuve;
+
+    
+
+    [Header("Démographie")]
     public float gainNourriturePeche = 1;
     public float ptsCroissance;
     public float excedentNourriture;
     public float gainNourriture;
-
     public float population = 1;
+    [SerializeField] private Demographie demographie;
 
     private void Awake()
     {
@@ -62,7 +67,7 @@ public class Tribu : MonoBehaviour
 
     public void PasserTour()
     {
-        pointAction = pointActionDeffaut;
+        pointsAction = pointActionDeffaut;
         
         CalculerNourriture();
 
@@ -74,17 +79,20 @@ public class Tribu : MonoBehaviour
         {
             population--;
         }
+
+
+        tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle,pointsAction,false);
         
 
-        AfficherInterfaceTribu();
-        CacherIntefaceTribu();
+        //AfficherInterfaceTribu();
+        //CacherIntefaceTribu();
     }
 
     public void Init()
     {
         revendication = GetComponent<Revendication>();
         troupeauxAPortee = new List<Troupeau>();
-        pointAction = pointActionDeffaut;
+        pointsAction = pointActionDeffaut;
         bonusPeche = FindObjectOfType<BonusPeche>();
         cheminASuivre = new Stack<TuileManager>();
 
@@ -92,17 +100,8 @@ public class Tribu : MonoBehaviour
         pathFinder = GetComponent<PathFinder>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        tuilesAPortee = new List<TuileManager>();
-
-        interfaceNourriture = FindObjectOfType<InterfaceNourriture>();
-        interfacePopu = FindObjectOfType<InterfacePopulation>();
-        interfaceCroissance = FindObjectOfType<InterfaceCroissance>();
-
-        //panelPopu = GetComponentInChildren<PanelPopupaltionUnite>();
-        //panelBouffe = GetComponentInChildren<PanelBouffeUnite>();
-
-        revendication.RevendiquerTerritoire(tuileActuelle, true);
-        CacherIntefaceTribu();
+        tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, pointsAction, false);
+        print(tuilesAPortee[0].name);
     }
 
     private void TrouverTuileActuelle()
@@ -302,37 +301,19 @@ public class Tribu : MonoBehaviour
     #endregion
 
 
-    public void EtreSelectionne()
+    public void Selectionner(bool selectionner)
     {
-        
-        spriteRenderer.color = couleurSelectionne;
-        tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, pointAction, peutEmbarquer);
+        modeCampement = selectionner;
+        demographie.AfficherIntefacePop(modeCampement);
+    }
 
-        /*
-        foreach(GameObject tuile in tuilesAPortee)
+
+    public TuileManager Destination
+    {
+        set
         {
-            print(tuile.name);
+            cheminASuivre = pathFinder.TrouverChemin(tuileActuelle, value);
         }
-        */
-
-        CalculerNourriture();//Doit impérativement être appelé AVANT l'affichage de la nourriture
-        AfficherInterfaceTribu();
-        pathFinder.ColorerGraphe(tuilesAPortee, tuileActuelle.GetComponent<TuileManager>().couleurTuileAPortee);
-    }
-
-    public void EtreDeselectionne()
-    {
-        CacherIntefaceTribu();
-        tuilesAPortee.Clear();
-        spriteRenderer.color = Color.white;
-        pathFinder.ReinitGraphe();
-        
-    }
-
-    public void ImporterCheminASuivre(Stack<TuileManager> chemin)
-    {
-        cheminASuivre = chemin;
-
     }
 
     private bool CheckerFleuve(Vector3 direction)
@@ -371,25 +352,24 @@ public class Tribu : MonoBehaviour
             else //Quand il est arrivé à destination
             {
                 
-                pointAction -= cheminASuivre.Peek().GetComponent<TuileManager>().terrainTuile.coutFranchissement;
+                pointsAction -= cheminASuivre.Peek().GetComponent<TuileManager>().terrainTuile.coutFranchissement;
 
                 if(traverseFleuve)
                 {
-                    pointAction --;
+                    pointsAction --;
                     traverseFleuve = false;
                 }
 
                 cheminASuivre.Pop();
 
-                
+                //EtreDeselectionne();
+                //revendication.RevendiquerTerritoire(tuileActuelle, false);
 
-                EtreDeselectionne();
-
-                revendication.RevendiquerTerritoire(tuileActuelle, false);
                 TrouverTuileActuelle();
-                revendication.RevendiquerTerritoire(tuileActuelle, true);
-
-                EtreSelectionne();
+                tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, pointsAction, false);
+                
+                //revendication.RevendiquerTerritoire(tuileActuelle, true);
+                //EtreSelectionne();
             }
         }
     }

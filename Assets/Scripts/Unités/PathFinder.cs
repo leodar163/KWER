@@ -7,6 +7,7 @@ public class PathFinder : MonoBehaviour
     //Génère le graphe de toutes les tuiles à portée
     public  List<TuileManager> CreerGrapheTuilesAPortee(TuileManager tuileOrigine, float portee)
     {
+        ReinitGraphe();
         List<TuileManager> grapheAPortee = new List<TuileManager>();
 
         Queue<TuileManager> fileTuiles = new Queue<TuileManager>();
@@ -51,6 +52,7 @@ public class PathFinder : MonoBehaviour
 
     public List<TuileManager> CreerGrapheTuilesAPortee(TuileManager tuileOrigine, float portee, bool peutEmbarquer)
     {
+        ReinitGraphe(   );
         List<TuileManager> grapheAPortee = new List<TuileManager>();
 
         Queue<TuileManager> fileTuiles = new Queue<TuileManager>();
