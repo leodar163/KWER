@@ -79,7 +79,7 @@ public class Calendrier : MonoBehaviour
             {
                 if(terrains[i].nom == "Foret")
                 {
-                    terrains[i].nourriture = 0;
+                    //terrains[i].nourriture = 0;
                 }
             }
         }
@@ -89,7 +89,7 @@ public class Calendrier : MonoBehaviour
             {
                 if (terrains[i].nom == "Foret")
                 {
-                    terrains[i].nourriture = 1;
+                    //terrains[i].nourriture = 1;
                 }
             }
         }

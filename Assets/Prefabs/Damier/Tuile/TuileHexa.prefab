@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 5944668874170640134}
   - component: {fileID: 6094356627544449355}
   - component: {fileID: 8056909880984153132}
+  - component: {fileID: 2253160564664868208}
   m_Layer: 8
   m_Name: TuileHexa
   m_TagString: Tuile
@@ -227,14 +228,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuileHexa: 1
+  productionTuile: {fileID: 2253160564664868208}
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 0
-  connectionsDistance: []
   garniture: {fileID: 7196889779831233828}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -247,6 +249,19 @@ MonoBehaviour:
   terrainTuile: {fileID: 0}
   revendicateur: {fileID: 0}
   estRevendiquee: 0
+--- !u!114 &2253160564664868208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987124979046534958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e3562d50ba5024aba44f35f1a6f0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tuile: {fileID: 8056909880984153132}
 --- !u!1 &7196889779831233828
 GameObject:
   m_ObjectHideFlags: 0

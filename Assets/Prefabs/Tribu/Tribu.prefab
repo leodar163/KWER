@@ -34,6 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7721500361054036401}
+  - {fileID: 1793041808176316495}
   - {fileID: 2693491918803891838}
   - {fileID: 7176380269026222855}
   m_Father: {fileID: 0}
@@ -135,13 +136,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idTribu: 0
   tuileActuelle: {fileID: 0}
-  modeCampement: 0
+  entreeDansCampement: 0
   couleurSelectionne: {r: 0.4744422, g: 0.6431373, b: 0.4627451, a: 1}
   pointActionDeffaut: 3
   pointsAction: 0
   vitesse: 2
   peutEmbarquer: 0
   tuilesAPortee: []
+  expedition: {fileID: 5645824234354430084}
   gainNourriturePeche: 1
   ptsCroissance: 0
   excedentNourriture: 0
@@ -247,6 +249,52 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4636449862794629791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793041808176316495}
+  - component: {fileID: 5645824234354430084}
+  m_Layer: 9
+  m_Name: Expedition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1793041808176316495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636449862794629791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 751071140445369186}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5645824234354430084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636449862794629791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d33a9a339d9e24d862aec15fbd0433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tribu: {fileID: 1618904120558817127}
+  exploitation: {fileID: 6867846760689202661, guid: c592ad1196a391e4b878bbb4c467685a,
+    type: 3}
 --- !u!1 &5603307567387533592
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +454,7 @@ RectTransform:
   m_Children:
   - {fileID: 9090394043314418942}
   m_Father: {fileID: 751071140445369186}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -504,7 +552,7 @@ Transform:
   - {fileID: 9207579176751462614}
   - {fileID: 5038874106849144183}
   m_Father: {fileID: 751071140445369186}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3981823110589431221
 MonoBehaviour:

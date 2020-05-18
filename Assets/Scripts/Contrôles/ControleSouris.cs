@@ -58,18 +58,22 @@ public class ControleSouris : MonoBehaviour
         {
             Collider2D check = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0);
 
-            if(check && check.CompareTag("Unite") && tribuControlee.modeCampement == false)
+            if(check && check.CompareTag("Unite") && tribuControlee.estEntreCampement == false)
             {
                 Tribu autre = check.GetComponent<Tribu>();
 
                 if(autre == tribuControlee)
                 {
-                    tribuControlee.Selectionner(true);
+                    tribuControlee.EntrerCampement(true);
                 }
             }
-            else if(check.CompareTag("Tuile") && tribuControlee.modeCampement == true)
+            else if(!check && tribuControlee.estEntreCampement == true)
             {
-                tribuControlee.Selectionner(false);
+                tribuControlee.EntrerCampement(false);
+            }
+            else if(check && check.CompareTag("Tuile") && tribuControlee.estEntreCampement == true)
+            {
+                tribuControlee.EntrerCampement(false);
             }
 
         }

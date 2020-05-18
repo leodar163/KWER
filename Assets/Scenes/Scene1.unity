@@ -349,12 +349,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1659138381}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -579,12 +579,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1271927406}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -809,12 +809,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 586444}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -958,12 +958,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1715511374}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -1204,12 +1204,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 5105255}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -3987,12 +3987,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 554686286}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -4702,12 +4702,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1025890764}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -5321,12 +5321,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1243591158}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -7384,12 +7384,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1177425407}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -7533,12 +7533,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 263695072}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -7763,12 +7763,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 98457549}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -8302,12 +8302,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1881197}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -9075,12 +9075,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 288499555}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -9759,12 +9759,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1283821992}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -9908,12 +9908,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 879868705}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -10772,12 +10772,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 188603959}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -11862,12 +11862,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 981002046}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -12092,12 +12092,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1042463307}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -12339,12 +12339,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 966521463}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -13367,12 +13367,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 2074610320}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -13853,12 +13853,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 806846157}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -14173,12 +14173,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 246754746}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -14703,7 +14703,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 882b58768163a5548a893fd9124c3c42, type: 3}
   coutFranchissement: 1
   ettendueEau: 0
-  nourriture: 0
+  nbrSlotsParDeffaut: 0
+  nourritureParSlotParDeffaut: 0
+  pierreParSlotParDeffaut: 0
+  peauParSlotParDeffaut: 0
+  pigmentParSlotParDeffaut: 0
 --- !u!114 &471693526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14723,7 +14727,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b8c5871bcdc3fd441b40336a0137b4ca, type: 3}
   coutFranchissement: 2
   ettendueEau: 0
-  nourriture: 0
+  nbrSlotsParDeffaut: 2
+  nourritureParSlotParDeffaut: 0
+  pierreParSlotParDeffaut: 1
+  peauParSlotParDeffaut: 0
+  pigmentParSlotParDeffaut: 0
 --- !u!114 &471693527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14743,7 +14751,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0bbbf6eb51cb4bc49af2d65729179922, type: 3}
   coutFranchissement: 4
   ettendueEau: 1
-  nourriture: 0
+  nbrSlotsParDeffaut: 0
+  nourritureParSlotParDeffaut: 0
+  pierreParSlotParDeffaut: 0
+  peauParSlotParDeffaut: 0
+  pigmentParSlotParDeffaut: 0
 --- !u!114 &471693528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14763,7 +14775,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f8986b5f3d235cd4799953ac875b0048, type: 3}
   coutFranchissement: 1
   ettendueEau: 0
-  nourriture: 1
+  nbrSlotsParDeffaut: 2
+  nourritureParSlotParDeffaut: 1
+  pierreParSlotParDeffaut: 0
+  peauParSlotParDeffaut: 0
+  pigmentParSlotParDeffaut: 0
 --- !u!114 &471693529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14783,7 +14799,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b48ac3cb39738f840baf53867151349a, type: 3}
   coutFranchissement: 1
   ettendueEau: 1
-  nourriture: 0
+  nbrSlotsParDeffaut: 1
+  nourritureParSlotParDeffaut: 1
+  pierreParSlotParDeffaut: 0
+  peauParSlotParDeffaut: 0
+  pigmentParSlotParDeffaut: 0
 --- !u!4 &471693530
 Transform:
   m_ObjectHideFlags: 0
@@ -14817,7 +14837,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e80ced9bdf949d543872703ff0b87c0e, type: 3}
   coutFranchissement: 1
   ettendueEau: 0
-  nourriture: 0
+  nbrSlotsParDeffaut: 0
+  nourritureParSlotParDeffaut: 0
+  pierreParSlotParDeffaut: 0
+  peauParSlotParDeffaut: 0
+  pigmentParSlotParDeffaut: 0
 --- !u!114 &471693532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16168,12 +16192,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 286413629}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -16520,12 +16544,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1755005989}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -16669,12 +16693,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 336356848}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -17094,12 +17118,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1336169595}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -17811,12 +17835,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1556761231}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -18707,12 +18731,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 16125726}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -19895,12 +19919,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 488738318}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -20530,12 +20554,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1939901693}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -21053,12 +21077,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 272808526}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -22614,12 +22638,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 900642492}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -22957,12 +22981,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 686727029}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -23674,12 +23698,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 2141829615}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -24374,12 +24398,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 605975660}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -25480,12 +25504,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1570163410}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -25726,12 +25750,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 2113991744}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -26895,12 +26919,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1601115570}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -27498,12 +27522,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 128393333}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -27744,12 +27768,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1312881185}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -28475,12 +28499,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1252751906}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -28722,12 +28746,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 907750736}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -29033,12 +29057,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 539184894}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -29360,12 +29384,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 179656646}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -29882,12 +29906,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1734141616}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -30226,12 +30250,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 575303183}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -30569,12 +30593,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1795846906}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -30718,12 +30742,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 322420032}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -30964,12 +30988,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 208954819}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -31194,12 +31218,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 907465970}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -31440,12 +31464,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1177442385}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -32135,12 +32159,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 487924941}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -32915,12 +32939,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1926151681}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -33064,12 +33088,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 299233534}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -33391,12 +33415,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 146562313}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -34027,12 +34051,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 966984283}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -34727,12 +34751,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1092880454}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -35214,12 +35238,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 105328225}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -37775,12 +37799,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1120856626}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -38005,12 +38029,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1800899317}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -38154,12 +38178,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 131671480}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -38838,12 +38862,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 2130450241}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -39084,12 +39108,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 724391499}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -39233,12 +39257,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1063117916}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -39648,12 +39672,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 2122648081}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -40268,12 +40292,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 804831908}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -40417,12 +40441,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 256085842}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -40858,12 +40882,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1652899373}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -41655,12 +41679,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 29041406}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -42043,12 +42067,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 494025624}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -43149,12 +43173,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 272732678}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -43574,12 +43598,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1772783787}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -44291,12 +44315,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1670459619}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -44440,12 +44464,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1949129372}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -45530,12 +45554,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1445908240}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -46431,12 +46455,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1217783372}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -46580,12 +46604,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1226656707}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -47410,12 +47434,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 373776302}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -47559,12 +47583,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 190751277}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -47806,12 +47830,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 302581365}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -48249,12 +48273,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 48941207}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -48576,12 +48600,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1120449837}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -49067,12 +49091,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1175582249}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -49841,12 +49865,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 610458419}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -50624,12 +50648,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1071666990}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -50773,12 +50797,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1846133842}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -51116,12 +51140,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1988853758}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -51533,12 +51557,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 2000215629}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -52201,12 +52225,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 781788749}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -52447,12 +52471,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1850463962}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -52790,12 +52814,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 191050728}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -53037,12 +53061,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1399821430}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -53186,12 +53210,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1772809916}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -53752,12 +53776,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 751111104}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -53901,12 +53925,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 2135306767}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -54148,12 +54172,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1222790441}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -54671,12 +54695,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 40240675}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -55484,12 +55508,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1699362966}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -55893,12 +55917,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 258180565}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -57107,12 +57131,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1406955544}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -57451,12 +57475,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 877551201}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -57974,12 +57998,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1951716019}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -58610,12 +58634,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 186978167}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -58759,12 +58783,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 853262950}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -59167,12 +59191,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 570702414}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -59316,12 +59340,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 826697853}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -60123,12 +60147,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 41524587}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -61036,12 +61060,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1493101107}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -61266,12 +61290,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1831646883}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -61512,12 +61536,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 974075796}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -61742,12 +61766,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1255737923}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -62329,12 +62353,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1456217821}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -63326,12 +63350,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1060902369}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -63475,12 +63499,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1369664377}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -63624,12 +63648,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1945956312}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -63773,12 +63797,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 215483575}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -64683,12 +64707,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 764445862}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -65027,12 +65051,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1654507075}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -65711,12 +65735,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 220130248}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
@@ -65941,12 +65965,12 @@ MonoBehaviour:
   tuileHexa: 1
   nombreConnections: 6
   connections: []
+  connectionsDistance: []
   distance: 0
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
   tailleTuile: 1
-  connectionsDistance: []
   garniture: {fileID: 1746858674}
   spritesBase:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}

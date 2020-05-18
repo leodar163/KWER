@@ -24,7 +24,7 @@ public class PathFinder : MonoBehaviour
 
             if(tuileObservee.distance < portee)
             {
-                for (int i = 0; i < tuileObservee.connections.Length; i++)
+                for (int i = 0; i < tuileObservee.connections.Count; i++)
                 {
                     if (tuileObservee.connections[i] != null)
                     {
@@ -52,7 +52,7 @@ public class PathFinder : MonoBehaviour
 
     public List<TuileManager> CreerGrapheTuilesAPortee(TuileManager tuileOrigine, float portee, bool peutEmbarquer)
     {
-        ReinitGraphe(   );
+        ReinitGraphe();
         List<TuileManager> grapheAPortee = new List<TuileManager>();
 
         Queue<TuileManager> fileTuiles = new Queue<TuileManager>();
@@ -70,7 +70,7 @@ public class PathFinder : MonoBehaviour
             if (tuileObservee.distance < portee)
             {
 
-                for (int i = 0; i < tuileObservee.connections.Length; i++)
+                for (int i = 0; i < tuileObservee.connections.Count; i++)
                 {
                     if (tuileObservee.connections[i] != null)
                     {

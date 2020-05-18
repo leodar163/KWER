@@ -27,7 +27,7 @@ public class PanelNourriture : MonoBehaviour
 
     private void AfficherNourriture()
     {
-        nourriture = GetComponentInParent<TuileManager>().terrainTuile.nourriture.ToString();
+        //nourriture = GetComponentInParent<TuileManager>().terrainTuile.nourriture.ToString();
         txtMesh = GetComponentInChildren<TextMeshProUGUI>();
         txtMesh.text = nourriture;
     }

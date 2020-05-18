@@ -12,6 +12,20 @@ public abstract class TuileTerrain : MonoBehaviour
 
     public float coutFranchissement;
     public bool ettendueEau;
-    public float nourriture;
+
+    [Header("Production")]
+    [SerializeField] private int nbrSlotsParDeffaut;
+    [SerializeField] float nourritureParSlotParDeffaut;
+    [SerializeField] float pierreParSlotParDeffaut;
+    [SerializeField] float peauParSlotParDeffaut;
+    [SerializeField] float pigmentParSlotParDeffaut;
     
+    public ProductionTuile.Production Production
+    {
+        get
+        {
+            return new ProductionTuile.Production(nbrSlotsParDeffaut, nourritureParSlotParDeffaut, pierreParSlotParDeffaut, 
+                                                    peauParSlotParDeffaut, pigmentParSlotParDeffaut);
+        }
+    }
 }

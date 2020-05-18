@@ -10,7 +10,7 @@ public class Tribu : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Revendication revendication;
 
-    [HideInInspector] public bool modeCampement = false;
+    [HideInInspector] public bool estEntreCampement = false;
 
     //interface
     //PanelBouffeUnite panelBouffe;
@@ -38,7 +38,8 @@ public class Tribu : MonoBehaviour
 
     private bool traverseFleuve;
 
-    
+    [Header("Expedition")]
+    [SerializeField] private Expedition expedition;
 
     [Header("Démographie")]
     public float gainNourriturePeche = 1;
@@ -57,6 +58,8 @@ public class Tribu : MonoBehaviour
     void Start()
     {
         Init();
+        expedition.LancerExpeditions();
+        EntrerCampement(false);
     }
 
     // Update is called once per frame
@@ -101,7 +104,6 @@ public class Tribu : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, pointsAction, false);
-        print(tuilesAPortee[0].name);
     }
 
     private void TrouverTuileActuelle()
@@ -197,12 +199,12 @@ public class Tribu : MonoBehaviour
     private void CalculerNourriture()
     {
         gainNourriture = 0;
-        gainNourriture += tuileActuelle.terrainTuile.nourriture;
+        //gainNourriture += tuileActuelle.terrainTuile.nourriture;
         foreach (TuileManager tuile in tuileActuelle.connections)
         {
             if(tuile)
             {
-                gainNourriture += tuile.GetComponent<TuileManager>().terrainTuile.nourriture;
+                //gainNourriture += tuile.GetComponent<TuileManager>().terrainTuile.nourriture;
             }
             
         }
@@ -301,18 +303,21 @@ public class Tribu : MonoBehaviour
     #endregion
 
 
-    public void Selectionner(bool selectionner)
+    public void EntrerCampement(bool selectionner)
     {
-        modeCampement = selectionner;
-        demographie.AfficherIntefacePop(modeCampement);
+        estEntreCampement = selectionner;
+        demographie.AfficherIntefacePop(selectionner);
+        expedition.AfficherExploitations(selectionner);
     }
 
-
+    #region DEPLACEMENTS
     public TuileManager Destination
     {
         set
         {
             cheminASuivre = pathFinder.TrouverChemin(tuileActuelle, value);
+            expedition.RappelerExpeditions();
+            EntrerCampement(false);
         }
     }
 
@@ -362,14 +367,13 @@ public class Tribu : MonoBehaviour
 
                 cheminASuivre.Pop();
 
-                //EtreDeselectionne();
-                //revendication.RevendiquerTerritoire(tuileActuelle, false);
-
                 TrouverTuileActuelle();
                 tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, pointsAction, false);
-                
-                //revendication.RevendiquerTerritoire(tuileActuelle, true);
-                //EtreSelectionne();
+
+                if(cheminASuivre.Count == 0)
+                {
+                    expedition.LancerExpeditions();
+                }
             }
         }
     }
@@ -380,4 +384,5 @@ public class Tribu : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, direction, vitesse*Time.deltaTime);
     }
+    #endregion
 }

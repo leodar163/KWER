@@ -1,22 +1,27 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 
 public class TuileManager : MonoBehaviour
 {
     public bool tuileHexa = false;
 
+    [Header("Production")]
+    public ProductionTuile productionTuile;
 
     [Header("Graphe")]
     
     public int nombreConnections;
-    public TuileManager[] connections; //Liste des noeuds directement relié à celui-ci
+    public List<TuileManager> connections; //Liste des noeuds directement relié à celui-ci
+    public List<float> connectionsDistance; //Poids entre les noeuds / l'index est le même que celui des connections
     public float distance = 0;
     public bool parcouru = false;
     public bool aPortee = false;
     [HideInInspector] public TuileManager predecesseur;
 
     [HideInInspector] public float tailleTuile;
-    public float[] connectionsDistance; //Poids entre les noeuds / l'index est le même que celui des connections
+    
 
     [Header("Sprite")]
     [SerializeField] GameObject garniture;
@@ -111,8 +116,8 @@ public class TuileManager : MonoBehaviour
     private void TrouverConnections(int nbrConnectionAttendue, float decalageDegre)
     {
 
-        connections = new TuileManager[nbrConnectionAttendue];
-        connectionsDistance = new float[nbrConnectionAttendue];
+        connections = new List<TuileManager>();
+        connectionsDistance = new List<float>();
 
         LayerMask maskRiviere = LayerMask.GetMask("Fleuve");
         LayerMask maskTuile = LayerMask.GetMask("Tuile");
@@ -135,8 +140,8 @@ public class TuileManager : MonoBehaviour
 
             if (checkTuile)
             {
-                connections[i] = checkTuile.collider.GetComponent<TuileManager>();
-                connectionsDistance[i] = checkTuile.collider.GetComponent<TuileManager>().terrainTuile.coutFranchissement; 
+                connections.Add(checkTuile.collider.GetComponent<TuileManager>());
+                connectionsDistance.Add(checkTuile.collider.GetComponent<TuileManager>().terrainTuile.coutFranchissement); 
 
                 if (checkRiviere)
                 {
@@ -153,8 +158,8 @@ public class TuileManager : MonoBehaviour
     private void TrouverConnections(int nbrConnectionAttendue)
     {
 
-        connections = new TuileManager[nbrConnectionAttendue];
-        connectionsDistance = new float[nbrConnectionAttendue];
+        connections = new List<TuileManager>();
+        connectionsDistance = new List<float>();
 
         LayerMask maskRiviere = LayerMask.GetMask("Fleuve");
         LayerMask maskTuile = LayerMask.GetMask("Tuile");
@@ -177,8 +182,8 @@ public class TuileManager : MonoBehaviour
 
             if (checkTuile)
             {
-                connections[i] = checkTuile.collider.GetComponent<TuileManager>();
-                connectionsDistance[i] = checkTuile.collider.GetComponent<TuileManager>().terrainTuile.coutFranchissement;
+                connections.Add(checkTuile.collider.GetComponent<TuileManager>());
+                connectionsDistance.Add(checkTuile.collider.GetComponent<TuileManager>().terrainTuile.coutFranchissement);
 
                 if (checkRiviere)
                 {
