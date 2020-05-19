@@ -36,8 +36,6 @@ public class TuileManager : MonoBehaviour
     [Header("Infos")]
     public Color couleurTuileAPortee = Color.white;
     public Color couleurTuileSurChemin = Color.white;
-    private bool jeuLance = false; 
-
 
     private PanelNourriture panelNourriture;
     private PanelInterdictionTuile panelInterdition;
@@ -60,9 +58,6 @@ public class TuileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        jeuLance = true;
-
-
         
         CacherInterfaceTuile();
         

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Expedition : MonoBehaviour
 {
-    [SerializeField] private Tribu tribu;
+    [SerializeField] public Tribu tribu;
     [SerializeField] private GameObject exploitation;
     private List<Exploitation> listeExploitations = new List<Exploitation>();
 
@@ -29,6 +29,8 @@ public class Expedition : MonoBehaviour
         {
             GameObject exploit = Instantiate(exploitation, transform);
             Exploitation expl = exploit.GetComponent<Exploitation>();
+
+            expl.expedition = this;
             expl.TuileExploitee = zoneExploitation[i];
             listeExploitations.Add(expl);
         }
@@ -46,5 +48,10 @@ public class Expedition : MonoBehaviour
     public void AfficherExploitations(bool afficher)
     {
         gameObject.SetActive(afficher);
+
+        foreach(Exploitation exploit in listeExploitations)
+        {
+            exploit.AfficherGainRessource();
+        }
     }
 }

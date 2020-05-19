@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1618904120558817127}
   - component: {fileID: 8930979129811697115}
   - component: {fileID: 3311495747200995255}
+  - component: {fileID: 51998110753543547}
   m_Layer: 9
   m_Name: Tribu
   m_TagString: Unite
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idTribu: 0
   tuileActuelle: {fileID: 0}
-  entreeDansCampement: 0
+  estEntreCampement: 0
   couleurSelectionne: {r: 0.4744422, g: 0.6431373, b: 0.4627451, a: 1}
   pointActionDeffaut: 3
   pointsAction: 0
@@ -144,6 +145,7 @@ MonoBehaviour:
   peutEmbarquer: 0
   tuilesAPortee: []
   expedition: {fileID: 5645824234354430084}
+  ressources: {fileID: 51998110753543547}
   gainNourriturePeche: 1
   ptsCroissance: 0
   excedentNourriture: 0
@@ -176,6 +178,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tuilesRevendiquees: []
   tuilesDisputees: []
+--- !u!114 &51998110753543547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770215730859688538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f082d20013a27074c98fc9241dd64018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tribu: {fileID: 1618904120558817127}
 --- !u!1 &3249043141586904090
 GameObject:
   m_ObjectHideFlags: 0

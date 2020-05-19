@@ -82,16 +82,18 @@ public class ControleSouris : MonoBehaviour
         {
             Collider2D checkTuile = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0, maskTuile);
 
-            if (tribuControlee)
+            if (tribuControlee && checkTuile)
             {
                 TuileManager tuileSelectionnee = checkTuile.GetComponent<TuileManager>();
 
                 //On se déplace sur la tuile sur laquelle on a cliqué, si elle est à portée
-                if(tribuControlee.tuilesAPortee.Contains(tuileSelectionnee))
+                if(tribuControlee.tuilesAPortee.Contains(tuileSelectionnee) && !tribuControlee.estEntreCampement)
                 {
-                    PathFinder pathfinder = tribuControlee.GetComponent<PathFinder>();
-
                     tribuControlee.Destination = tuileSelectionnee;
+                }
+                else if(tribuControlee.estEntreCampement)
+                {
+                    tribuControlee.EntrerCampement(false);
                 }
             }
         }
@@ -110,21 +112,29 @@ public class ControleSouris : MonoBehaviour
     //Gestion de l'overing
     private void SourisSurvol()
     {
-        Collider2D checkTuile = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0, maskTuile);
+            Collider2D checkTuile = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0, maskTuile);
 
-        if (checkTuile && tribuControlee)
-        {
-            TuileManager tuileSurvolee = checkTuile.GetComponent<TuileManager>();
+            if (checkTuile && tribuControlee)
+            {
+                TuileManager tuileSurvolee = checkTuile.GetComponent<TuileManager>();
             
-            PathFinder pathFinder = tribuControlee.GetComponent<PathFinder>();
+                PathFinder pathFinder = tribuControlee.GetComponent<PathFinder>();
             //Colore le chemin et le met à jour toutes les frames, si la tuile qu'on survole est à portee
             if (tuileSurvolee.aPortee)
             {
-            pathFinder.ColorerGraphe(tribuControlee.tuilesAPortee, tuileSurvolee.couleurTuileAPortee);
-                pathFinder.ColorerChemin(pathFinder.TrouverChemin(tribuControlee.tuileActuelle, tuileSurvolee), tuileSurvolee.couleurTuileSurChemin);
-            }  
-        }
-
+                if (tribuControlee.estEntreCampement)
+                {
+                    pathFinder.ColorerGraphe(tribuControlee.tuilesAPortee, Color.white);
+                }
+                else
+                {
+                    pathFinder.ColorerGraphe(tribuControlee.tuilesAPortee, tuileSurvolee.couleurTuileAPortee);
+                    pathFinder.ColorerChemin(pathFinder.TrouverChemin(tribuControlee.tuileActuelle, tuileSurvolee), tuileSurvolee.couleurTuileSurChemin);
+                }
+            
+                }  
+            }
+        
     }
 
     private void RecupererTribuControlee()

@@ -10,18 +10,38 @@ public class ProductionTuile : MonoBehaviour
     public struct Production
     {
         public int slots;
-        public float nourritureParSlot;
-        public float pierreParSlot;
-        public float peauParSlot;
-        public float pigmentParSlot;
+        public float gainNourriture;
+        public float gainPierre;
+        public float gainPeau;
+        public float gainPigment;
 
         public Production(int nbrSlots, float nourritureSlot, float pierreSlot, float peauSlot, float pigmentSot)
         {
             slots = nbrSlots;
-            nourritureParSlot = nourritureSlot;
-            pierreParSlot = pierreSlot;
-            peauParSlot = peauSlot;
-            pigmentParSlot = pigmentSot;
+            gainNourriture = nourritureSlot;
+            gainPierre = pierreSlot;
+            gainPeau = peauSlot;
+            gainPigment = pigmentSot;
+        }
+
+        public static Production operator *(Production a, float b)
+        {
+            a.gainNourriture *= b;
+            a.gainPierre *= b;
+            a.gainPeau *= b;
+            a.gainPierre *= b;
+
+            return a;
+        }
+
+        public static Production operator /(Production a, float b)
+        {
+            a.gainNourriture /= b;
+            a.gainPierre /= b;
+            a.gainPeau /= b;
+            a.gainPierre /= b;
+
+            return a;
         }
     }
 

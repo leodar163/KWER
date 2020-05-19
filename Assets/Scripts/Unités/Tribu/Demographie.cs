@@ -7,12 +7,21 @@ public class Demographie : MonoBehaviour
     [SerializeField] private GameObject popPrefab;
     [SerializeField] private Tribu tribu;
 
-    public List<Pop> listePops;
+    public List<Pop> listePopsCampement;
+    public List<Pop> listePopsExpedition;
+
+    public int taillePopulation
+    {
+        get
+        {
+            return listePopsExpedition.Count + listePopsCampement.Count;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        listePops = new List<Pop>(GetComponentsInChildren<Pop>());
+        listePopsCampement = new List<Pop>(GetComponentsInChildren<Pop>());
         AjouterPop();
     }
 
@@ -28,17 +37,17 @@ public class Demographie : MonoBehaviour
 
         float index = 0;
 
-        for (int i = 0; i < listePops.Count; i++)
+        for (int i = 0; i < listePopsCampement.Count; i++)
         {
             float x = Mathf.Cos(index) * rayon;
             float y = Mathf.Sin(index) * rayon;
 
             Vector3 direction = new Vector3(x, y);
 
-            listePops[i].transform.position = transform.position;
-            listePops[i].transform.position += direction;
+            listePopsCampement[i].transform.position = transform.position;
+            listePopsCampement[i].transform.position += direction;
 
-            index += Mathf.PI * 2 / listePops.Count;
+            index += Mathf.PI * 2 / listePopsCampement.Count;
         }
     }
 
@@ -47,29 +56,59 @@ public class Demographie : MonoBehaviour
         for (int i = 0; i < nbrPop; i++)
         {
             AjouterPop();
-        }
-
-        
+        }   
     }
 
     public void AjouterPop()
     {
         GameObject nvPop = Instantiate(popPrefab, transform);
 
-        listePops.Add(nvPop.GetComponent<Pop>());
+        listePopsCampement.Add(nvPop.GetComponent<Pop>());
 
         AjusterRouePopulation();
     }
 
-    public void SacrifierPop()
+    public void AjouterPop(Pop popAjoutee)
     {
-        if(listePops.Count > 1)
+        if(listePopsExpedition.Contains(popAjoutee))
         {
-            Pop popSacrfiee = listePops[listePops.Count - 1];
-            listePops.RemoveAt(listePops.Count - 1);
-            Destroy(popSacrfiee.gameObject);
+            listePopsExpedition.Remove(popAjoutee);
+            listePopsCampement.Add(popAjoutee);
+
+            AjusterRouePopulation();
         }
+    }
+
+    public void RetirerPop()
+    {
+
+        Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1];
+        listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
+        Destroy(popRetiree.gameObject);
+
         AjusterRouePopulation();
+    
+    }
+
+    public Pop RetirerPop( bool detruir)
+    {
+        Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1];
+        listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
+
+        if (detruir)
+        {
+            Destroy(popRetiree.gameObject);
+            popRetiree = null;
+        }
+        else
+        {
+            listePopsExpedition.Add(popRetiree);
+        }
+        
+        AjusterRouePopulation();
+
+        return popRetiree;
+        
     }
 
     public void AfficherIntefacePop(bool afficher)

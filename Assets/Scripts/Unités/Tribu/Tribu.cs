@@ -38,8 +38,9 @@ public class Tribu : MonoBehaviour
 
     private bool traverseFleuve;
 
-    [Header("Expedition")]
+    [Header("Exploitation")]
     [SerializeField] private Expedition expedition;
+    [SerializeField] public StockRessource stockRessources;
 
     [Header("Démographie")]
     public float gainNourriturePeche = 1;
@@ -47,7 +48,7 @@ public class Tribu : MonoBehaviour
     public float excedentNourriture;
     public float gainNourriture;
     public float population = 1;
-    [SerializeField] private Demographie demographie;
+    [SerializeField] public Demographie demographie;
 
     private void Awake()
     {
