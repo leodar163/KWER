@@ -11933,7 +11933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &413088562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15973,6 +15973,7 @@ MonoBehaviour:
   minZoom: 1
   vitesseZoom: 0.2
   sourisAccrochee: 0
+  camEnMouvmt: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -16000,7 +16001,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 1.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -16033,8 +16034,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.94, y: 2.4}
-  m_SizeDelta: {x: 14, y: 8}
+  m_AnchoredPosition: {x: 3.51, y: -0.21}
+  m_SizeDelta: {x: 5.25, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &520305801
 GameObject:
@@ -47227,11 +47228,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1790c12c872034e8b4f6fd2d99bd5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IconeNourriture: {fileID: 21300000, guid: 90454806e9afa514297d60cf425c511e, type: 3}
-  IconePeau: {fileID: 21300000, guid: 0af4911aa316f39499947851f42bae69, type: 3}
-  IconePierre: {fileID: 21300000, guid: 6a00fef234af3b24893b38ba167c0adb, type: 3}
-  IconePigment: {fileID: 21300000, guid: 77075ac232c6a544a9a688db5e87af4e, type: 3}
-  IconeOutil: {fileID: 21300000, guid: c103e46c4464a704d9478e52fcf98174, type: 3}
+  iconeNourriture: {fileID: 21300000, guid: 90454806e9afa514297d60cf425c511e, type: 3}
+  iconePeau: {fileID: 21300000, guid: 0af4911aa316f39499947851f42bae69, type: 3}
+  iconePierre: {fileID: 21300000, guid: 6a00fef234af3b24893b38ba167c0adb, type: 3}
+  iconePigment: {fileID: 21300000, guid: 77075ac232c6a544a9a688db5e87af4e, type: 3}
+  iconeOutil: {fileID: 21300000, guid: c103e46c4464a704d9478e52fcf98174, type: 3}
+  iconePopulation: {fileID: 21300000, guid: 870360edb19e32540b92be4a91f14ab2, type: 3}
 --- !u!1 &1490218418
 GameObject:
   m_ObjectHideFlags: 0
@@ -68013,6 +68015,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 822323821260667831, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 822323821260667831, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 822323821260667831, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 822323821260667831, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 822323821260667831, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1618904120558817127, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}
       propertyPath: couleurSelectionne.a
@@ -68022,6 +68049,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tribu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677332245530139741, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3769245885458682590, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}
@@ -68052,6 +68084,11 @@ PrefabInstance:
         type: 3}
       propertyPath: couleurFamine.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918416123020956408, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0000038146973
       objectReference: {fileID: 0}
     - target: {fileID: 7381368698220929736, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}

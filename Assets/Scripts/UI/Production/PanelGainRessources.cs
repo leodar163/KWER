@@ -29,19 +29,19 @@ public class PanelGainRessources : MonoBehaviour
 
         if(prod.gainNourriture > 0)
         {
-            AjouterAffichage(prod.gainNourriture, ListeIcones.ParDefaut.IconeNourriture);
+            AjouterAffichage(prod.gainNourriture, ListeIcones.ParDefaut.iconeNourriture);
         }
         if(prod.gainPeau > 0)
         {
-            AjouterAffichage(prod.gainPeau, ListeIcones.ParDefaut.IconePeau);
+            AjouterAffichage(prod.gainPeau, ListeIcones.ParDefaut.iconePeau);
         }
         if(prod.gainPierre > 0)
         {
-            AjouterAffichage(prod.gainPierre, ListeIcones.ParDefaut.IconePierre);
+            AjouterAffichage(prod.gainPierre, ListeIcones.ParDefaut.iconePierre);
         }
         if(prod.gainPigment > 0)
         {
-            AjouterAffichage(prod.gainPigment, ListeIcones.ParDefaut.IconePigment);
+            AjouterAffichage(prod.gainPigment, ListeIcones.ParDefaut.iconePigment);
         }
 
         ReorganiserAffichages();

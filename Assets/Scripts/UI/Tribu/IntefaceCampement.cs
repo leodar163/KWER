@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
-public class Pop : MonoBehaviour
+public class IntefaceCampement : MonoBehaviour
 {
-    SpriteRenderer spR;
+    public Tribu tribu;
 
     // Start is called before the first frame update
     void Start()
     {
-        spR = GetComponent<SpriteRenderer>();
-        spR.sprite = ListeIcones.ParDefaut.iconePopulation;
+        
     }
 
     // Update is called once per frame
@@ -18,5 +19,4 @@ public class Pop : MonoBehaviour
     {
         
     }
-
 }

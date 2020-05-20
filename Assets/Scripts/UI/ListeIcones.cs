@@ -19,11 +19,14 @@ public class ListeIcones : MonoBehaviour
     }
 
     [Header("Icones de ressource")]
-    public Sprite IconeNourriture;
-    public Sprite IconePeau;
-    public Sprite IconePierre;
-    public Sprite IconePigment;
-    public Sprite IconeOutil;
+    public Sprite iconeNourriture;
+    public Sprite iconePeau;
+    public Sprite iconePierre;
+    public Sprite iconePigment;
+    public Sprite iconeOutil;
+
+    [Header("Icones démograpie")]
+    public Sprite iconePopulation;
 
     private void Awake()
     {
