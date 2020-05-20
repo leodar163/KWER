@@ -29,7 +29,7 @@ public class ProductionTuile : MonoBehaviour
             a.gainNourriture *= b;
             a.gainPierre *= b;
             a.gainPeau *= b;
-            a.gainPierre *= b;
+            a.gainPigment *= b;
 
             return a;
         }
@@ -39,7 +39,28 @@ public class ProductionTuile : MonoBehaviour
             a.gainNourriture /= b;
             a.gainPierre /= b;
             a.gainPeau /= b;
-            a.gainPierre /= b;
+            a.gainPigment /= b;
+
+            return a;
+        }
+
+        public static Production operator +(Production a, Production b)
+        {
+            a.slots += b.slots;
+            a.gainNourriture += b.gainNourriture;
+            a.gainPierre += b.gainPierre;
+            a.gainPeau += b.gainPeau;
+            a.gainPigment += b.gainPigment;
+
+            return a;
+        }
+        public static Production operator -(Production a, Production b)
+        {
+            a.slots -= b.slots;
+            a.gainNourriture -= b.gainNourriture;
+            a.gainPierre -= b.gainPierre;
+            a.gainPeau -= b.gainPeau;
+            a.gainPigment -= b.gainPigment;
 
             return a;
         }
@@ -47,15 +68,23 @@ public class ProductionTuile : MonoBehaviour
 
     public Production prod;
 
+    private void Awake()
+    {
+        prod = tuile.terrainTuile.Production;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        prod = tuile.terrainTuile.Production;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    
+    public void ReinitProd()
+    {
+        prod = tuile.terrainTuile.Production;
     }
 }

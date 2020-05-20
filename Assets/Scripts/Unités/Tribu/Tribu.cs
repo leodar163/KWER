@@ -123,76 +123,7 @@ public class Tribu : MonoBehaviour
 
 
     #region INTERFACE
-    private void AfficherInterfaceTribu()
-    {
-        AfficherPopulation();
-        AfficherNourriture();
-        AfficherCroissance();
-    }
-
-    private void AfficherCroissance()
-    {
-        interfaceCroissance.MiseAJourCroissance();
-    }
-
-    private void AfficherNourriture()
-    {
-        TuileManager tM = tuileActuelle.GetComponent<TuileManager>();
-        tM.AfficherInterfaceTuile();
-        foreach (TuileManager tuile in tM.connections)
-        {
-            if(tuile)
-            {
-                tuile.AfficherInterfaceTuile();
-            }
-        }
-
-        foreach (Troupeau troupeau in troupeauxAPortee)
-        {
-            troupeau.AfficherNourriture();
-        }
-
-        //panelBouffe.AfficherGainNourriture(gainNourriture);
-
-        interfaceNourriture.MiseAJourTextesNourriture();
-
-        bonusPeche.AfficherBonusPeche(positionBonusPeche, gainNourriturePeche);
-    }
-
-    private void AfficherPopulation()
-    {
-        interfacePopu.MiseAJourPopulation();
-        //panelPopu.AfficherPopulation();
-    }
-
-    private void CacherIntefaceTribu()
-    {
-        //panelPopu.CacherPopulation();
-        CacherNourriture();
-    }
-
-    private void CacherNourriture()
-    {
-        TuileManager tM = tuileActuelle.GetComponent<TuileManager>();
-        tM.CacherInterfaceTuile();
-        foreach (TuileManager tuile in tM.connections)
-        {
-            if(tuile)
-            {
-                tuile.CacherInterfaceTuile();
-            }      
-        }
-
-        //panelBouffe.CacherGainNourriture();
-
-        foreach (Troupeau troupeau in troupeauxAPortee)
-        {
-            troupeau.CacherNourriture();
-        }
-
-        positionBonusPeche = new Vector3();
-        bonusPeche.CacherBonusPeche();
-    }
+    
     #endregion
 
 
@@ -238,7 +169,7 @@ public class Tribu : MonoBehaviour
             {
                 Troupeau troupeau = checkTroupeau.collider.GetComponent<Troupeau>();
                 troupeauxAPortee.Add(troupeau);
-                gainNourriture += troupeau.nourriture;
+                //gainNourriture += troupeau.GainNourriture;
             }
 
             index += Mathf.PI * 2 / tM.nombreConnections;

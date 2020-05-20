@@ -1,20 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
+[RequireComponent(typeof(Migration))]
 public class Troupeau : MonoBehaviour
 {
-    
-    PanelBouffeUnite panelNourriture;
-    public float nourriture;
+    [SerializeField] private Migration migration;
+    public TuileManager tuileActuelle;
 
+    [SerializeField] private int nbrSlots;
+    [SerializeField] private float gainNourriture;
+    [SerializeField] private float gainPierre;
+    [SerializeField] private float gainPeau;
+    [SerializeField] private float gainPigment;
+
+    private ProductionTuile.Production prod;
+
+    public ProductionTuile.Production Prod
+    {
+        get
+        {
+            prod = new ProductionTuile.Production(nbrSlots, gainNourriture, gainPierre, gainPeau, gainPigment);
+            return prod;
+        }
+    }
+
+    private void Awake()
+    {
+        
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        panelNourriture = GetComponentInChildren<PanelBouffeUnite>();
-        
-        CacherNourriture();
+        if(migration == null)
+        {
+            migration = GetComponent<Migration>();
+        }
     }
 
     
@@ -25,14 +48,7 @@ public class Troupeau : MonoBehaviour
     }
 
     #region INTERFACE
-    public void AfficherNourriture()
-    {
-        panelNourriture.AfficherGainNourriture(nourriture);
-    }
-    public void CacherNourriture()
-    {
-        panelNourriture.CacherGainNourriture();
-    }
+   
     #endregion
 
 

@@ -46,8 +46,8 @@ public class TourParTour : MonoBehaviour
     {
         ActiverControles(false);
 
-        StartCoroutine(AttaquesHostiles());
-        yield return new WaitUntil(() => hostilesOntAttaque);
+        //StartCoroutine(AttaquesHostiles());
+        //yield return new WaitUntil(() => hostilesOntAttaque);
         StartCoroutine(ChangementSaison());
         yield return new WaitUntil(() => saisonChangee);
         //Fin du tour

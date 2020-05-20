@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Migration : MonoBehaviour
 {
+    [SerializeField] private Troupeau troupeau;
+
     TuileManager tuileActuelle;
     [SerializeField] float vitesse;
     [SerializeField] float ptsActionDefaut = 2;
@@ -11,12 +13,21 @@ public class Migration : MonoBehaviour
     TuileManager prochaineTuile = null;
     List<TuileManager> tuilesParcourues;
     bool traverseFleuve = false;
-    [SerializeField] bool Troupeau;
+    [SerializeField] bool estTroupeau;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        
+    }
+
     void Start()
     {
         tuilesParcourues = new List<TuileManager>();
+
+        if (troupeau == null)
+        {
+            troupeau = GetComponent<Troupeau>();
+        }
         TrouverTuileActuelle();
     }
 
@@ -24,7 +35,6 @@ public class Migration : MonoBehaviour
     void Update()
     {
         SeDeplacer();
-
     }
 
     private void TrouverTuileActuelle()
@@ -38,6 +48,10 @@ public class Migration : MonoBehaviour
             tuileActuelle = checkTuile.gameObject.GetComponent<TuileManager>();
             transform.position = new Vector3(tuileActuelle.transform.position.x, tuileActuelle.transform.position.y, transform.position.z);
         }
+        
+        troupeau.tuileActuelle = tuileActuelle;
+
+        tuileActuelle.productionTuile.prod += troupeau.Prod;
     }
 
 
@@ -53,7 +67,6 @@ public class Migration : MonoBehaviour
         {
             tuilesParcourues.Clear();
         }
-
         ptsAction = 0;
     }
 
@@ -81,6 +94,7 @@ public class Migration : MonoBehaviour
         {
             if (prochaineTuile == null)
             {
+                tuileActuelle.productionTuile.ReinitProd();
                 prochaineTuile = ChoisirProchaineTuile();
 
                 if (CheckerFleuve())
@@ -141,7 +155,7 @@ public class Migration : MonoBehaviour
                 TuileManager tMCible = tuile;
                 if (!tuilesParcourues.Contains(tMCible))
                 {
-                    if(Troupeau)
+                    if(troupeau)
                     {
                         if (tMCible.terrainTuile.nom == "Plaine")
                         {
@@ -174,6 +188,8 @@ public class Migration : MonoBehaviour
         int choixTuile = Random.Range(0, directionPossibles.Count);
 
         tuileCible = directionPossibles[choixTuile];
+
+        tuileActuelle.productionTuile.ReinitProd();
 
         return tuileCible;
     }
