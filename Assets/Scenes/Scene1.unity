@@ -13962,11 +13962,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 882b58768163a5548a893fd9124c3c42, type: 3}
   coutFranchissement: 1
   ettendueEau: 0
-  nbrSlotsParDeffaut: 0
-  nourritureParSlotParDeffaut: 0
-  pierreParSlotParDeffaut: 0
-  peauParSlotParDeffaut: 0
-  pigmentParSlotParDeffaut: 0
+  nbrSlots: 0
+  gainNourriture: 0
+  gainPierre: 0
+  gainPeau: 0
+  gainPigment: 0
 --- !u!114 &471693526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13986,11 +13986,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b8c5871bcdc3fd441b40336a0137b4ca, type: 3}
   coutFranchissement: 2
   ettendueEau: 0
-  nbrSlotsParDeffaut: 2
-  nourritureParSlotParDeffaut: 1
-  pierreParSlotParDeffaut: 1
-  peauParSlotParDeffaut: 0
-  pigmentParSlotParDeffaut: 0
+  nbrSlots: 1
+  gainNourriture: 0
+  gainPierre: 1
+  gainPeau: 0
+  gainPigment: 0
 --- !u!114 &471693527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14010,11 +14010,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0bbbf6eb51cb4bc49af2d65729179922, type: 3}
   coutFranchissement: 4
   ettendueEau: 1
-  nbrSlotsParDeffaut: 0
-  nourritureParSlotParDeffaut: 0
-  pierreParSlotParDeffaut: 0
-  peauParSlotParDeffaut: 0
-  pigmentParSlotParDeffaut: 0
+  nbrSlots: 0
+  gainNourriture: 0
+  gainPierre: 0
+  gainPeau: 0
+  gainPigment: 0
 --- !u!114 &471693528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14034,11 +14034,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f8986b5f3d235cd4799953ac875b0048, type: 3}
   coutFranchissement: 1
   ettendueEau: 0
-  nbrSlotsParDeffaut: 2
-  nourritureParSlotParDeffaut: 1
-  pierreParSlotParDeffaut: 0
-  peauParSlotParDeffaut: 0
-  pigmentParSlotParDeffaut: 0
+  nbrSlots: 2
+  gainNourriture: 1
+  gainPierre: 0
+  gainPeau: 0
+  gainPigment: 0
 --- !u!114 &471693529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14058,11 +14058,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b48ac3cb39738f840baf53867151349a, type: 3}
   coutFranchissement: 1
   ettendueEau: 1
-  nbrSlotsParDeffaut: 1
-  nourritureParSlotParDeffaut: 1
-  pierreParSlotParDeffaut: 0
-  peauParSlotParDeffaut: 0
-  pigmentParSlotParDeffaut: 0
+  nbrSlots: 1
+  gainNourriture: 1
+  gainPierre: 0
+  gainPeau: 0
+  gainPigment: 0
 --- !u!4 &471693530
 Transform:
   m_ObjectHideFlags: 0
@@ -14096,11 +14096,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e80ced9bdf949d543872703ff0b87c0e, type: 3}
   coutFranchissement: 1
   ettendueEau: 0
-  nbrSlotsParDeffaut: 0
-  nourritureParSlotParDeffaut: 0
-  pierreParSlotParDeffaut: 0
-  peauParSlotParDeffaut: 0
-  pigmentParSlotParDeffaut: 0
+  nbrSlots: 6
+  gainNourriture: 1
+  gainPierre: 1
+  gainPeau: 1
+  gainPigment: 1
 --- !u!114 &471693532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15970,7 +15970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxZoom: 10
-  minZoom: 2
+  minZoom: 1
   vitesseZoom: 0.2
   sourisAccrochee: 0
 --- !u!20 &519420031
@@ -47213,7 +47213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1489462987
 MonoBehaviour:
@@ -55099,147 +55099,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1696977886
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1696977887}
-  - component: {fileID: 1696977888}
-  - component: {fileID: 1696977890}
-  - component: {fileID: 1696977889}
-  - component: {fileID: 1696977892}
-  - component: {fileID: 1696977891}
-  m_Layer: 0
-  m_Name: MeuteLoup
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1696977887
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696977886}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.495, z: -3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1696977888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696977886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b4bcd45da2801c40b59dbbcef64cea7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vitesse: 2
-  ptsActionDefaut: 2
-  Troupeau: 0
---- !u!136 &1696977889
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696977886}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 0.58
-  m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!212 &1696977890
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696977886}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 97cd91f47d4299f44be41bfa3672b8c0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.88166666, y: 0.7133333}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &1696977891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696977886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace2367af8ae381439db53f83db2e441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  peutAttaquer: 0
---- !u!114 &1696977892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696977886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3102a1f94a9df4488faa0ef2250c75f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tuilesRevendiquees: []
-  tuilesDisputees: []
 --- !u!1 &1700998503
 GameObject:
   m_ObjectHideFlags: 0
@@ -68193,6 +68052,11 @@ PrefabInstance:
         type: 3}
       propertyPath: couleurFamine.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381368698220929736, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: eventBouton.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetirerPop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cdde373df811184a965e956d92dccb3, type: 3}

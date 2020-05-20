@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using UnityEngine;
 
 public class ControleSouris : MonoBehaviour
@@ -32,7 +33,7 @@ public class ControleSouris : MonoBehaviour
 
     public bool controlesActives = true;
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +52,26 @@ public class ControleSouris : MonoBehaviour
         }
     }
 
+    //Détecte si on vient de cliquer sur un élément de la tribu ou pas
+    private bool EstEnfantDeTribuSelectionnee(Collider2D check)
+    {
+        if (check)
+        {
+            foreach (Transform parent in check.GetComponentsInParent<Transform>())
+            {
+                Tribu tribu;
+                if (parent.TryGetComponent<Tribu>(out tribu))
+                {
+                    if(tribu == tribuControlee)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }   
+        return false;
+    }
+
     private void QuandClique()
     {
         //Gestion du clique gauche
@@ -67,15 +88,20 @@ public class ControleSouris : MonoBehaviour
                     tribuControlee.EntrerCampement(true);
                 }
             }
-            else if(!check && tribuControlee.estEntreCampement == true)
+            else if(check && check.CompareTag("Unite") && tribuControlee.estEntreCampement == true)
             {
-                tribuControlee.EntrerCampement(false);
-            }
-            else if(check && check.CompareTag("Tuile") && tribuControlee.estEntreCampement == true)
-            {
-                tribuControlee.EntrerCampement(false);
-            }
+                Tribu autre = check.GetComponent<Tribu>();
 
+                if (autre == tribuControlee)
+                {
+                    tribuControlee.EntrerCampement(false);
+                }
+            }
+            //Si on clique sur autre chose qu'un élément de la tribu, 
+            else if(!EstEnfantDeTribuSelectionnee(check) && tribuControlee.estEntreCampement == true)
+            {
+                tribuControlee.EntrerCampement(false);
+            }
         }
         //Gestion clique droit
         else if(Input.GetMouseButtonUp(1))

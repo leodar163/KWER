@@ -44,7 +44,7 @@ public class TourParTour : MonoBehaviour
 
     private IEnumerator PasserLeTour()
     {
-        ActiverControles(false);
+        //ActiverControles(false);
 
         //StartCoroutine(AttaquesHostiles());
         //yield return new WaitUntil(() => hostilesOntAttaque);
@@ -52,7 +52,7 @@ public class TourParTour : MonoBehaviour
         yield return new WaitUntil(() => saisonChangee);
         //Fin du tour
 
-        ActiverControles(true);
+        //ActiverControles(true);
         passageTour = false;
     }
 

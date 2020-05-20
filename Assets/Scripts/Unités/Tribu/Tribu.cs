@@ -237,9 +237,21 @@ public class Tribu : MonoBehaviour
 
     public void EntrerCampement(bool selectionner)
     {
-        estEntreCampement = selectionner;
-        demographie.AfficherIntefacePop(selectionner);
-        expedition.AfficherExploitations(selectionner);
+        if(!CameraControle.Actuel.camEnMouvmt)
+        {
+            estEntreCampement = selectionner;
+            demographie.AfficherIntefacePop(selectionner);
+            expedition.AfficherExploitations(selectionner);
+
+            if (selectionner)
+            {
+                CameraControle.Actuel.CentrerCamera(transform.position, true);
+            }
+            else
+            {
+                CameraControle.Actuel.ReinitCamera();
+            }
+        }
     }
 
     #region DEPLACEMENTS

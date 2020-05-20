@@ -1,13 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
+using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
 
 public class CameraControle : MonoBehaviour
 {
+    private static CameraControle camControleActuel;
+
+    public static CameraControle Actuel
+    {
+        get
+        {
+            if (camControleActuel == null)
+            {
+                camControleActuel = FindObjectOfType<CameraControle>();
+            }
+            return camControleActuel;
+        }
+    }
+
     float vitesse = 10f;
     Vector3 vecteurMove;
-    Camera camera;
-    RectTransform rectTrans;
+    Camera cam;
 
     [SerializeField] float maxZoom = 10f;
     [SerializeField] float minZoom = 4f;
@@ -16,31 +31,36 @@ public class CameraControle : MonoBehaviour
 
     ControleSouris controleSouris;
 
+    bool controlesActives = true;
+
+
+    private Vector3 positionMemoire;
+    private float zoomMemoire;
+    public bool camEnMouvmt = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        camControleActuel = this;
+
         controleSouris = FindObjectOfType<ControleSouris>();
-        rectTrans = GetComponent<RectTransform>();
-        camera = GetComponent<Camera>();
+        cam = GetComponent<Camera>();
         vecteurMove = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveCamera();
-        ZoomCamera();
+        if(controlesActives)
+        {
+            MoveCamera();
+            ZoomCamera();
 
-        BougerAvecSouris();
+            BougerAvecSouris();
+        }
     }
 
-    private void MaJTailleUI()
-    {
-        float zoom = camera.orthographicSize;
-
-        rectTrans.sizeDelta = new Vector2(3.5f * zoom, 2 * zoom);
-    }
-
+    #region CONTROLES
     private void MoveCamera()
     {
         vecteurMove = transform.position;
@@ -66,41 +86,120 @@ public class CameraControle : MonoBehaviour
         }
 
         transform.position = vecteurMove;
-
-
-       
-
     }
 
     private void ZoomCamera()
     {
         float molette = Input.GetAxis("Mouse ScrollWheel");
         
-        
-
-        if (molette < 0 && camera.orthographicSize < maxZoom )
+        if (molette < 0 && cam.orthographicSize < maxZoom )
         {
-            
-
-            camera.orthographicSize += vitesseZoom;
-            
+            cam.orthographicSize += vitesseZoom;   
         }
 
-        if (molette > 0 && camera.orthographicSize > minZoom)
+        if (molette > 0 && cam.orthographicSize > minZoom)
         {
-            
-            camera.orthographicSize -= vitesseZoom;
+            cam.orthographicSize -= vitesseZoom;
         }
     }
 
 
     public void BougerAvecSouris()
-    {
-        
+    { 
         if(sourisAccrochee)
         {
-        Vector3 decalage =  Camera.main.ScreenToWorldPoint(Input.mousePosition) - controleSouris.pointAccrocheSouris;
-        transform.position -= decalage;
+            Vector3 decalage =  Camera.main.ScreenToWorldPoint(Input.mousePosition) - controleSouris.pointAccrocheSouris;
+            transform.position -= decalage;
         }
     }
+    #endregion
+
+    #region MOUVEMENTSCAMERA
+    public void CentrerCamera(Vector3 point)
+    {
+        if(!camEnMouvmt)
+        {
+            EnregistrerPosition();
+
+            point.z = transform.position.z;
+
+            StartCoroutine(CentrageCamera(point, cam.orthographicSize));
+        }
+    }
+
+    public void CentrerCamera(Vector3 point, float pointZoom)
+    {
+        if (!camEnMouvmt)
+        {
+            EnregistrerPosition();
+
+            point.z = transform.position.z;
+
+            StartCoroutine(CentrageCamera(point, pointZoom));
+        }
+    }
+
+    public void CentrerCamera(Vector3 point, bool centrerSurTribu)
+    {
+        if (!camEnMouvmt)
+        {
+            controlesActives = false;
+            EnregistrerPosition();
+
+            controlesActives = !centrerSurTribu;
+            point.z = transform.position.z;
+
+            StartCoroutine(CentrageCamera(point, 1.5f));
+        }
+    }
+
+    public void ReinitCamera()
+    {
+        if (!camEnMouvmt)
+        {
+            if (zoomMemoire != 0 && positionMemoire != Vector3.zero)
+            {
+                controlesActives = true;
+                StartCoroutine(CentrageCamera(positionMemoire, zoomMemoire));
+            }
+        }
+    }
+
+    private void EnregistrerPosition()
+    {
+        positionMemoire = transform.position;
+        zoomMemoire = cam.orthographicSize;
+    }
+    
+
+    private IEnumerator CentrageCamera(Vector3 point, float pointZoom)
+    {
+        camEnMouvmt = true;
+        float tempsKiPasse = 0;
+        while(transform.position != point)
+        {
+            transform.position = Vector3.Lerp(transform.position, point, tempsKiPasse);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, pointZoom, tempsKiPasse);
+
+            tempsKiPasse += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        camEnMouvmt = false;
+    }
+
+    private IEnumerator CentrageCamera(Vector3 point, float pointZoom, float multiplicateurVitesse)
+    {
+        camEnMouvmt = true;
+        float tempsKiPasse = 0;
+        while (transform.position != point)
+        {
+            transform.position = Vector3.Lerp(transform.position, point, tempsKiPasse);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, pointZoom, tempsKiPasse);
+
+            tempsKiPasse += Time.deltaTime * multiplicateurVitesse;
+            yield return new WaitForEndOfFrame();
+        }
+        camEnMouvmt = false;
+    }
+    #endregion
 }
