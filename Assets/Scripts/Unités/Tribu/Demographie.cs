@@ -80,14 +80,15 @@ public class Demographie : MonoBehaviour
     }
 
     public void RetirerPop()
-    {
+    { 
+        if(listePopsCampement.Count >= 0 && (listePopsCampement.Count + listePopsExpedition.Count) > 1)
+        {
+            Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1];
+            listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
+            Destroy(popRetiree.gameObject);
 
-        Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1];
-        listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
-        Destroy(popRetiree.gameObject);
-
-        AjusterRouePopulation();
-    
+            AjusterRouePopulation();
+        }
     }
 
     public Pop RetirerPop( bool detruir)

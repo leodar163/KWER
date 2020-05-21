@@ -607,6 +607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 17584043}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &17584043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1559,6 +1561,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 30009237}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &30009237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1999,6 +2003,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 39722186}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &39722186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2456,6 +2462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 50610789}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &50610789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2620,6 +2628,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 55504155}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &55504155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3051,6 +3061,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 63963314}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &63963314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3490,6 +3502,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 86515585}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &86515585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4973,6 +4987,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 124650227}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &124650227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5137,6 +5153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 129389176}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &129389176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5479,6 +5497,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 137143481}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &137143481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5643,6 +5663,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 137866346}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &137866346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6926,6 +6948,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 193576300}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &193576300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8112,6 +8136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 235744915}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &235744915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8640,6 +8666,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 257727428}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &257727428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9340,6 +9368,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 295469326}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &295469326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9699,6 +9729,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 312043076}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &312043076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9960,6 +9992,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 326663105}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &326663105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10124,6 +10158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 338825629}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &338825629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10386,6 +10422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 344780431}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &344780431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10631,6 +10669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 349992813}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &349992813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11250,6 +11290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 390971864}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &390971864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12483,6 +12525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 430131007}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &430131007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13962,11 +14006,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 882b58768163a5548a893fd9124c3c42, type: 3}
   coutFranchissement: 1
   ettendueEau: 0
-  nbrSlots: 0
-  gainNourriture: 0
-  gainPierre: 0
-  gainPeau: 0
-  gainPigment: 0
+  nbrSlot: 0
+  production: {fileID: 11400000, guid: f2df94e681c9b1942ad59621e9a169f9, type: 2}
 --- !u!114 &471693526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13986,11 +14027,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b8c5871bcdc3fd441b40336a0137b4ca, type: 3}
   coutFranchissement: 2
   ettendueEau: 0
-  nbrSlots: 1
-  gainNourriture: 0
-  gainPierre: 1
-  gainPeau: 0
-  gainPigment: 0
+  nbrSlot: 1
+  production: {fileID: 11400000, guid: 6188a833a2d2a9b4589bb74d35c52fa6, type: 2}
 --- !u!114 &471693527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14010,11 +14048,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0bbbf6eb51cb4bc49af2d65729179922, type: 3}
   coutFranchissement: 4
   ettendueEau: 1
-  nbrSlots: 0
-  gainNourriture: 0
-  gainPierre: 0
-  gainPeau: 0
-  gainPigment: 0
+  nbrSlot: 0
+  production: {fileID: 11400000, guid: 3b0432a2b793cf042bb471facebf2dd2, type: 2}
 --- !u!114 &471693528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14034,11 +14069,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f8986b5f3d235cd4799953ac875b0048, type: 3}
   coutFranchissement: 1
   ettendueEau: 0
-  nbrSlots: 2
-  gainNourriture: 1
-  gainPierre: 0
-  gainPeau: 0
-  gainPigment: 0
+  nbrSlot: 2
+  production: {fileID: 11400000, guid: 5ad9d0ed97d1c49458764535ffec0562, type: 2}
 --- !u!114 &471693529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14058,11 +14090,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b48ac3cb39738f840baf53867151349a, type: 3}
   coutFranchissement: 1
   ettendueEau: 1
-  nbrSlots: 1
-  gainNourriture: 1
-  gainPierre: 0
-  gainPeau: 0
-  gainPigment: 0
+  nbrSlot: 1
+  production: {fileID: 11400000, guid: bcb95bf40058d3945a597c93c89a56d4, type: 2}
 --- !u!4 &471693530
 Transform:
   m_ObjectHideFlags: 0
@@ -14096,11 +14125,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e80ced9bdf949d543872703ff0b87c0e, type: 3}
   coutFranchissement: 1
   ettendueEau: 0
-  nbrSlots: 6
-  gainNourriture: 1
-  gainPierre: 1
-  gainPeau: 1
-  gainPigment: 1
+  nbrSlot: 0
+  production: {fileID: 11400000, guid: d4fbbef80e78c734fb0b74e5cbcf1163, type: 2}
 --- !u!114 &471693532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14421,6 +14447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 482725383}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &482725383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14585,6 +14613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 486319632}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &486319632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14830,6 +14860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 488884170}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &488884170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15285,6 +15317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 494832185}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &494832185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15815,6 +15849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 515389114}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &515389114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18388,6 +18424,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 619301372}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &619301372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18746,6 +18784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 629819868}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &629819868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18910,6 +18950,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 637761998}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &637761998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19544,6 +19586,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 652962890}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &652962890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20340,6 +20384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 681112712}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &681112712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20698,6 +20744,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 687736282}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &687736282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21335,6 +21383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 710026373}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &710026373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21499,6 +21549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 710358975}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &710358975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21614,6 +21666,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &711647285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 711647287}
+  - component: {fileID: 711647286}
+  m_Layer: 0
+  m_Name: ListeRessources
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &711647286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711647285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8912527f2eb7e2a4d8f5be9ff70500f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeDesRessources:
+  - {fileID: 11400000, guid: 929e22f0fb554e24999c2f5e96405deb, type: 2}
+  - {fileID: 11400000, guid: 85edab753716ee946918236895156217, type: 2}
+  - {fileID: 11400000, guid: d3a3b394449051a40baa94a75559939a, type: 2}
+  - {fileID: 11400000, guid: 6bc7ad86e6787a74596212da00db7725, type: 2}
+  - {fileID: 11400000, guid: d79f97f3d1b74744fada2bd675fb5c26, type: 2}
+--- !u!4 &711647287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711647285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7467926, y: -9.499328, z: -28.55503}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &712475867
 GameObject:
   m_ObjectHideFlags: 0
@@ -21939,6 +22040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 725251002}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &725251002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22283,6 +22386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 731816394}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &731816394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22642,6 +22747,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 746861487}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &746861487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23864,6 +23971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 801639299}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &801639299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24028,6 +24137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 803245286}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &803245286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24273,6 +24384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 812087057}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &812087057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24437,6 +24550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 812709405}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &812709405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25378,6 +25493,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 846821288}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &846821288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25640,6 +25757,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 854456443}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &854456443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25901,6 +26020,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 857840632}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &857840632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26163,6 +26284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 862699698}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &862699698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27089,6 +27212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 880568426}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &880568426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27253,6 +27378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 885515114}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &885515114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27986,6 +28113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 898073623}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &898073623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28328,6 +28457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 907485808}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &907485808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28492,6 +28623,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 920779717}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &920779717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28931,6 +29064,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 935170824}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &935170824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30700,6 +30835,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1006793464}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1006793464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31042,6 +31179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1022282240}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1022282240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32660,6 +32799,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1087392620}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1087392620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33214,6 +33355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1101482056}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1101482056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33378,6 +33521,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1108561520}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1108561520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33639,6 +33784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1114995379}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1114995379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33803,6 +33950,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1116144806}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1116144806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36302,6 +36451,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1184161089}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1184161089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36896,6 +37047,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1206675394}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1206675394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37060,6 +37213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1207198451}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1207198451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37321,6 +37476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1210078789}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1210078789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37566,6 +37723,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1215924736}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1215924736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37925,6 +38084,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1234158188}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1234158188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38186,6 +38347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1251907154}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1251907154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38448,6 +38611,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1252690122}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1252690122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38612,6 +38777,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1253120026}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1253120026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38776,6 +38943,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1253914149}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1253914149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39200,6 +39369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1260861678}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1260861678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39364,6 +39535,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1260920896}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1260920896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39869,6 +40042,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1265827464}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1265827464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41175,6 +41350,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1303511934}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1303511934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42048,6 +42225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1344132414}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1344132414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42553,6 +42732,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1352537698}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1352537698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43188,6 +43369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1378564658}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1378564658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44133,6 +44316,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1406638105}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1406638105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44394,6 +44579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1416000354}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1416000354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44558,6 +44745,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1420559301}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1420559301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44722,6 +44911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1422120925}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1422120925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45259,6 +45450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1448342253}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1448342253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45520,6 +45713,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1459076889}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1459076889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45959,6 +46154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1464909007}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1464909007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46973,6 +47170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1485830962}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1485830962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47228,6 +47427,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1790c12c872034e8b4f6fd2d99bd5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listeIconeRessource:
+  - {fileID: 21300000, guid: 90454806e9afa514297d60cf425c511e, type: 3}
+  - {fileID: 21300000, guid: c103e46c4464a704d9478e52fcf98174, type: 3}
+  - {fileID: 21300000, guid: 0af4911aa316f39499947851f42bae69, type: 3}
+  - {fileID: 21300000, guid: 6a00fef234af3b24893b38ba167c0adb, type: 3}
+  - {fileID: 21300000, guid: 77075ac232c6a544a9a688db5e87af4e, type: 3}
   iconeNourriture: {fileID: 21300000, guid: 90454806e9afa514297d60cf425c511e, type: 3}
   iconePeau: {fileID: 21300000, guid: 0af4911aa316f39499947851f42bae69, type: 3}
   iconePierre: {fileID: 21300000, guid: 6a00fef234af3b24893b38ba167c0adb, type: 3}
@@ -47283,6 +47488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1490218421}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1490218421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47822,6 +48029,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1507280624}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1507280624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48928,6 +49137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1535531684}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1535531684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49644,6 +49855,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1564190671}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1564190671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50426,6 +50639,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1581807112}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1581807112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50590,6 +50805,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1584192576}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1584192576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50851,6 +51068,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1594914536}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1594914536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51251,6 +51470,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1600936390}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1600936390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52057,6 +52278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1615451783}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1615451783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52408,6 +52631,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1620964074}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1620964074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53115,6 +53340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1643126639}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1643126639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53635,6 +53862,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1662962183}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1662962183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54075,6 +54304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1668374227}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1668374227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54239,6 +54470,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1668629812}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1668629812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54986,6 +55219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1695181693}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1695181693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55798,6 +56033,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1717891753}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1717891753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56156,6 +56393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1724897477}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1724897477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56806,6 +57045,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1742339047}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1742339047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57068,6 +57309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1745579282}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1745579282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57977,6 +58220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1765987895}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1765987895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58433,6 +58678,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1774571260}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1774571260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58694,6 +58941,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1791467447}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1791467447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59921,6 +60170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1867009638}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1867009638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60514,6 +60765,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1886902031}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1886902031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61131,6 +61384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1905181662}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1905181662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61878,6 +62133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1932781219}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1932781219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62317,6 +62574,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1952599254}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1952599254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63032,6 +63291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 1982227634}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &1982227634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64595,6 +64856,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 2035154875}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &2035154875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65148,6 +65411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 2052219439}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &2052219439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65312,6 +65577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 2054040289}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &2054040289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65574,6 +65841,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 2065495959}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &2065495959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65835,6 +66104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 2072580268}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &2072580268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66292,6 +66563,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 2083886474}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &2083886474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66554,6 +66827,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 2102499542}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &2102499542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67739,6 +68014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 2145718832}
+  prod: {fileID: 0}
+  nbrSlot: 0
 --- !u!114 &2145718832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67950,6 +68227,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240119684360671227, guid: 18fd76525600bc1478a42c4153774c23,
+        type: 3}
+      propertyPath: gainProduction
+      value: 
+      objectReference: {fileID: 11400000, guid: 032411beca6685c45b75e555c362ba6f,
+        type: 2}
+    - target: {fileID: 4240119684360671227, guid: 18fd76525600bc1478a42c4153774c23,
+        type: 3}
+      propertyPath: nbrSlot
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18fd76525600bc1478a42c4153774c23, type: 3}

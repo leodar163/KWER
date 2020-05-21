@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TMPro.EditorUtilities;
+using System.Security.Policy;
 
 public class PanelGainRessources : MonoBehaviour
 {
@@ -23,27 +25,16 @@ public class PanelGainRessources : MonoBehaviour
         
     }
 
-    public void afficherRessources(ProductionTuile.Production prod)
+    public void AfficherRessources(Production prod)
     {
         ReinitAffichage();
-
-        if(prod.gainNourriture > 0)
+        for (int i = 0; i < prod.gains.Length; i++)
         {
-            AjouterAffichage(prod.gainNourriture, ListeIcones.ParDefaut.iconeNourriture);
+            if (prod.gains[i] != 0)
+            {
+                AjouterAffichage(prod.gains[i], ListeIcones.Defaut.TrouverIcone(ListeRessources.Defaut.listeDesRessources[i].nom));
+            }
         }
-        if(prod.gainPeau > 0)
-        {
-            AjouterAffichage(prod.gainPeau, ListeIcones.ParDefaut.iconePeau);
-        }
-        if(prod.gainPierre > 0)
-        {
-            AjouterAffichage(prod.gainPierre, ListeIcones.ParDefaut.iconePierre);
-        }
-        if(prod.gainPigment > 0)
-        {
-            AjouterAffichage(prod.gainPigment, ListeIcones.ParDefaut.iconePigment);
-        }
-
         ReorganiserAffichages();
     }
 

@@ -50,8 +50,8 @@ public class Tribu : MonoBehaviour
     public float population = 1;
     [SerializeField] public Demographie demographie;
 
-    [Header("Inteface")]
-    public IntefaceCampement interfaceCampement;
+    [Header("Campement")]
+    public Campement campement;
 
     private void Awake()
     {

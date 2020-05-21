@@ -51,7 +51,8 @@ public class Migration : MonoBehaviour
         
         troupeau.tuileActuelle = tuileActuelle;
 
-        tuileActuelle.productionTuile.prod += troupeau.Prod;
+        tuileActuelle.productionTuile.production += troupeau.gainProduction;
+        tuileActuelle.productionTuile.nbrSlot += troupeau.nbrSlot;
     }
 
 
@@ -94,7 +95,9 @@ public class Migration : MonoBehaviour
         {
             if (prochaineTuile == null)
             {
-                tuileActuelle.productionTuile.ReinitProd();
+                tuileActuelle.productionTuile.production -= troupeau.gainProduction;
+                tuileActuelle.productionTuile.nbrSlot -= troupeau.nbrSlot;
+
                 prochaineTuile = ChoisirProchaineTuile();
 
                 if (CheckerFleuve())
@@ -189,7 +192,8 @@ public class Migration : MonoBehaviour
 
         tuileCible = directionPossibles[choixTuile];
 
-        tuileActuelle.productionTuile.ReinitProd();
+        tuileActuelle.productionTuile.production -= troupeau.gainProduction;
+        tuileActuelle.productionTuile.nbrSlot -= troupeau.nbrSlot;
 
         return tuileCible;
     }

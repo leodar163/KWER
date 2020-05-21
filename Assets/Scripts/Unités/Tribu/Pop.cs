@@ -10,7 +10,7 @@ public class Pop : MonoBehaviour
     void Start()
     {
         spR = GetComponent<SpriteRenderer>();
-        spR.sprite = ListeIcones.ParDefaut.iconePopulation;
+        spR.sprite = ListeIcones.Defaut.iconePopulation;
     }
 
     // Update is called once per frame

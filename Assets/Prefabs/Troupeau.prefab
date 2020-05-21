@@ -99,11 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   migration: {fileID: 2523344375351965229}
   tuileActuelle: {fileID: 0}
-  nbrSlots: 2
-  gainNourriture: 1
-  gainPierre: 0
-  gainPeau: 1
-  gainPigment: 0
+  nbrSlot: 2
+  gainProduction: {fileID: 11400000, guid: 032411beca6685c45b75e555c362ba6f, type: 2}
 --- !u!70 &3796760071837312150
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

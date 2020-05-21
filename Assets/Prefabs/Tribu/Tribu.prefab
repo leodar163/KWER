@@ -225,7 +225,7 @@ MonoBehaviour:
   gainNourriture: 0
   population: 1
   demographie: {fileID: 3981823110589431221}
-  interfaceCampement: {fileID: 2068591022801829680}
+  campement: {fileID: 346511199273669100}
 --- !u!114 &8930979129811697115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,16 +265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tribu: {fileID: 1618904120558817127}
-  capaciteNourriture: 0
-  capacitePeau: 0
-  capacitePierre: 0
-  capacitePigment: 0
-  capaciteOutil: 0
-  nourriture: 0
-  peau: 0
-  pierre: 0
-  pigment: 0
-  outil: 0
+  capaciteDeStockage: {fileID: 11400000, guid: 070cacbaaa9e33347a1e87b5eab2f978, type: 2}
+  ressourcesEnStock: {fileID: 11400000, guid: 97ce50e1d923af24ba85a17cf2279b79, type: 2}
 --- !u!1 &2343271504050336216
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,8 +375,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39.41, y: 0.000024319}
-  m_SizeDelta: {x: 61.18, y: 50}
+  m_AnchoredPosition: {x: -31.58, y: -0.000024319}
+  m_SizeDelta: {x: 45.52, y: 33.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4826979633158518153
 CanvasRenderer:
@@ -664,7 +656,7 @@ GameObject:
   - component: {fileID: 5606475425974818328}
   - component: {fileID: 1461647568747463000}
   - component: {fileID: 463437594664025994}
-  - component: {fileID: 2068591022801829680}
+  - component: {fileID: 346511199273669100}
   m_Layer: 5
   m_Name: InterfaceCampement
   m_TagString: Untagged
@@ -752,7 +744,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2068591022801829680
+--- !u!114 &346511199273669100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -761,7 +753,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4597710223264444188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d2783881dc655b4ea4561a8993604a1, type: 3}
+  m_Script: {fileID: 11500000, guid: b796dae5f0e1fa6458aac0d0cedbb7f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tribu: {fileID: 1618904120558817127}
@@ -1126,8 +1118,9 @@ GameObject:
   - component: {fileID: 8653530204994056425}
   - component: {fileID: 4901941120246590270}
   - component: {fileID: 7665368869299250690}
+  - component: {fileID: 8709991397376982704}
   m_Layer: 5
-  m_Name: AffichageCraft
+  m_Name: PanelRecette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,6 +1183,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8709991397376982704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8725605192702390918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a9dd2a246919849abad5f03d619ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8752921091737780635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,6 +1287,7 @@ GameObject:
   - component: {fileID: 8292540723941480277}
   - component: {fileID: 9118155881399539663}
   - component: {fileID: 1627383237378988374}
+  - component: {fileID: 1925405937097078200}
   m_Layer: 5
   m_Name: PanelCraft
   m_TagString: Untagged
@@ -1345,3 +1351,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1925405937097078200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9027606999113553486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8454c6af49df19544bbca0701e13b4fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  campement: {fileID: 346511199273669100}
+  panelRecette: {fileID: 8725605192702390918}

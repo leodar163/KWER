@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class ListeIcones : MonoBehaviour
 {
     private static ListeIcones listeIcones;
 
-    public static ListeIcones ParDefaut
+    public static ListeIcones Defaut
     {
         get
         {
@@ -19,11 +20,9 @@ public class ListeIcones : MonoBehaviour
     }
 
     [Header("Icones de ressource")]
-    public Sprite iconeNourriture;
-    public Sprite iconePeau;
-    public Sprite iconePierre;
-    public Sprite iconePigment;
-    public Sprite iconeOutil;
+    [Header("nom icone = \"Icone\" + \"NomRessource\"")]
+    public Sprite[] listeIconeRessource;
+
 
     [Header("Icones démograpie")]
     public Sprite iconePopulation;
@@ -42,5 +41,19 @@ public class ListeIcones : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public Sprite TrouverIcone(string nom)
+    {
+        foreach (Sprite icone in listeIconeRessource)
+        {
+            if (icone.name.EndsWith(nom))
+            {
+                return icone;
+            }
+        }
+
+        Debug.LogError("Il faut un icone pour " + nom + " ou le nom de la ressource est pas la bonne");
+        return null;
     }
 }
