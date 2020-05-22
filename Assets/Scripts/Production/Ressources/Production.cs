@@ -116,7 +116,7 @@ public class Production : ScriptableObject
         return 0;
     }
 
-    public void SauvegarderSO()
+    public void Sauvegarder()
     {
         AssetDatabase.Refresh();
         EditorUtility.SetDirty(this);

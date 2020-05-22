@@ -13,13 +13,14 @@ public class ProductionTuile : MonoBehaviour
     private void Awake()
     {
         production = ScriptableObject.CreateInstance<Production>();
-        
+        production.gains = (float[])tuile.terrainTuile.production.gains.Clone();
+
     }
     // Start is called before the first frame update
     void Start()
     {
         
-        production.gains = (float[])tuile.terrainTuile.production.gains.Clone();
+        
         
         nbrSlot = tuile.terrainTuile.nbrSlot;
     }

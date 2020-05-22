@@ -24,6 +24,5 @@ public class InterfacePopulation : MonoBehaviour
 
     public void MiseAJourPopulation()
     {
-        stock.text = tribu.population.ToString();
     }
 }

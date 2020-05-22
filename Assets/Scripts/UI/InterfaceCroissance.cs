@@ -19,14 +19,6 @@ public class InterfaceCroissance : MonoBehaviour
 
     public void MiseAJourCroissance()
     {
-        if (tribu.excedentNourriture >= 0)
-        {
-            ptsCroissance.text = tribu.ptsCroissance.ToString() + " + " + tribu.excedentNourriture.ToString();
-        }
-        else
-        {
-            ptsCroissance.text = tribu.ptsCroissance.ToString() + " + 0";
-        }
     }
 
     // Update is called once per frame

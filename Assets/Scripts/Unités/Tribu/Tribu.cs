@@ -12,17 +12,6 @@ public class Tribu : MonoBehaviour
 
     [HideInInspector] public bool estEntreCampement = false;
 
-    //interface
-    //PanelBouffeUnite panelBouffe;
-    //PanelPopupaltionUnite panelPopu;
-    BonusPeche bonusPeche;
-    Vector3 positionBonusPeche;
-    InterfaceNourriture interfaceNourriture;
-    InterfacePopulation interfacePopu;
-    InterfaceCroissance interfaceCroissance;
-    //Interface
-
-
     //couleurs
     public Color couleurSelectionne;
 
@@ -38,16 +27,11 @@ public class Tribu : MonoBehaviour
 
     private bool traverseFleuve;
 
-    [Header("Exploitation")]
+    [Header("Economie")]
     [SerializeField] private Expedition expedition;
     [SerializeField] public StockRessource stockRessources;
 
     [Header("Démographie")]
-    public float gainNourriturePeche = 1;
-    public float ptsCroissance;
-    public float excedentNourriture;
-    public float gainNourriture;
-    public float population = 1;
     [SerializeField] public Demographie demographie;
 
     [Header("Campement")]
@@ -63,6 +47,7 @@ public class Tribu : MonoBehaviour
     {
         Init();
         expedition.LancerExpeditions();
+        campement.MonterCampement();
         EntrerCampement(false);
     }
 
@@ -75,24 +60,8 @@ public class Tribu : MonoBehaviour
     public void PasserTour()
     {
         pointsAction = pointActionDeffaut;
-        
-        CalculerNourriture();
-
-        if(excedentNourriture >= 0)
-        {
-            ptsCroissance += excedentNourriture;
-        }
-        else
-        {
-            population--;
-        }
-
 
         tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle,pointsAction,false);
-        
-
-        //AfficherInterfaceTribu();
-        //CacherIntefaceTribu();
     }
 
     public void Init()
@@ -100,7 +69,6 @@ public class Tribu : MonoBehaviour
         revendication = GetComponent<Revendication>();
         troupeauxAPortee = new List<Troupeau>();
         pointsAction = pointActionDeffaut;
-        bonusPeche = FindObjectOfType<BonusPeche>();
         cheminASuivre = new Stack<TuileManager>();
 
         TrouverTuileActuelle();
@@ -126,117 +94,6 @@ public class Tribu : MonoBehaviour
 
 
     #region INTERFACE
-    
-    #endregion
-
-
-    #region NOURRITURE
-    private void CalculerNourriture()
-    {
-        gainNourriture = 0;
-        //gainNourriture += tuileActuelle.terrainTuile.nourriture;
-        foreach (TuileManager tuile in tuileActuelle.connections)
-        {
-            if(tuile)
-            {
-                //gainNourriture += tuile.GetComponent<TuileManager>().terrainTuile.nourriture;
-            }
-            
-        }
-        CheckerNourritureEau();
-        CheckerNourritureTroupeau();
-
-        excedentNourriture = gainNourriture - population;
-    }
-
-    private void CheckerNourritureTroupeau()
-    {
-        troupeauxAPortee.Clear();
-
-        LayerMask maskTroupeau = LayerMask.GetMask("Troupeau");
-
-        float index = 0;
-
-        TuileManager tM = tuileActuelle.GetComponent<TuileManager>();
-
-        for (int i = 0; i < tM.nombreConnections; i++)
-        {
-            float x = Mathf.Cos(index) * tM.tailleTuile;
-            float y = Mathf.Sin(index) * tM.tailleTuile;
-
-            Vector2 direction = new Vector2(x, y);
-
-            RaycastHit2D checkTroupeau = Physics2D.Raycast(transform.position, direction, tM.tailleTuile, maskTroupeau);
-
-            if (checkTroupeau)
-            {
-                Troupeau troupeau = checkTroupeau.collider.GetComponent<Troupeau>();
-                troupeauxAPortee.Add(troupeau);
-                //gainNourriture += troupeau.GainNourriture;
-            }
-
-            index += Mathf.PI * 2 / tM.nombreConnections;
-        }
-    }
-
-    private void CheckerNourritureEau()
-    {
-        bool fleuve = false;
-        LayerMask maskRiviere = LayerMask.GetMask("Fleuve");
-        LayerMask maskTuile = LayerMask.GetMask("Tuile");
-
-        float index = 0;
-
-        TuileManager tM = tuileActuelle.GetComponent<TuileManager>();
-
-        for (int i = 0; i < tM.nombreConnections; i++)
-        {
-            float x = Mathf.Cos(index) * tM.tailleTuile;
-            float y = Mathf.Sin(index) * tM.tailleTuile;
-
-            Vector2 direction = new Vector2(x, y);
-
-            RaycastHit2D checkFleuve = Physics2D.Raycast(transform.position, direction, tM.tailleTuile, maskRiviere);
-
-            if (checkFleuve)
-            {
-                gainNourriture += gainNourriturePeche;
-                positionBonusPeche = checkFleuve.point;
-                fleuve = true;
-                break;
-            }
-            index += Mathf.PI * 2 / tM.nombreConnections;
-        }
-
-        if (!fleuve)
-        {
-            for (int i = 0; i < tM.nombreConnections; i++)
-            {
-                float x = Mathf.Cos(index) * tM.tailleTuile;
-                float y = Mathf.Sin(index) * tM.tailleTuile;
-
-                Vector2 direction = new Vector2(x, y);
-
-               
-                RaycastHit2D checkTuile = Physics2D.Raycast(transform.position, direction, tM.tailleTuile, maskTuile);
-
-                if (checkTuile)
-                {
-                    if(checkTuile.collider.GetComponent<TuileManager>().terrainTuile.ettendueEau)
-                    {
-                        gainNourriture += gainNourriturePeche;
-                        positionBonusPeche = checkTuile.point;
-
-                        break;
-                    }
-                }
-
-                index += Mathf.PI * 2 / tM.nombreConnections;
-            }
-        }
-    }
-    #endregion
-
 
     public void EntrerCampement(bool selectionner)
     {
@@ -245,17 +102,15 @@ public class Tribu : MonoBehaviour
             estEntreCampement = selectionner;
             demographie.AfficherIntefacePop(selectionner);
             expedition.AfficherExploitations(selectionner);
+            campement.AfficherInterfaceCampement(selectionner);
 
             if (selectionner)
             {
                 CameraControle.Actuel.CentrerCamera(transform.position, true);
             }
-            else
-            {
-                CameraControle.Actuel.ReinitCamera();
-            }
         }
     }
+    #endregion
 
     #region DEPLACEMENTS
     public TuileManager Destination
@@ -324,8 +179,6 @@ public class Tribu : MonoBehaviour
             }
         }
     }
-
-
 
     private void SeDeplacerALaProchaineTuile(Vector3 direction)
     {

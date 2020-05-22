@@ -10,7 +10,6 @@ using System.Threading;
 [CustomEditor(typeof(Production))]
 public class ProductionEditor : Editor
 {
-    private EditorApplication.CallbackFunction callback;
     private Production production;
     
 
@@ -23,7 +22,7 @@ public class ProductionEditor : Editor
         GUILayout.Space(20);
         if(GUILayout.Button("Sauvegarder"))
         {
-            production.SauvegarderSO();
+            production.Sauvegarder();
         }
     }
 

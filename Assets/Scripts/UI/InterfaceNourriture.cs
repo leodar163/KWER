@@ -24,7 +24,7 @@ public class InterfaceNourriture : MonoBehaviour
     public void MiseAJourTextesNourriture()
     {
 
-        gain.text = "+" + tribu.gainNourriture.ToString();
+
 
     }
 

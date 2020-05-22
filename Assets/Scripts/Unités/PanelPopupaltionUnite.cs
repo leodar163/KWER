@@ -33,20 +33,6 @@ public class PanelPopupaltionUnite : MonoBehaviour
     public void AfficherPopulation()
     {
 
-        gameObject.SetActive(true);
-
-
-
-        txtMP.text = tribu.population.ToString();
-
-        if(tribu.gainNourriture < tribu.population)
-        {
-            txtMP.color = couleurFamine;
-        }
-        else
-        {
-            txtMP.color = couleurDefaut;
-        }
     }
 
     public void CacherPopulation()
