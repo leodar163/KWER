@@ -19,7 +19,7 @@ public class ProductionTuile : MonoBehaviour
     void Start()
     {
         
-        production.gains = tuile.terrainTuile.production.gains;
+        production.gains = (float[])tuile.terrainTuile.production.gains.Clone();
         
         nbrSlot = tuile.terrainTuile.nbrSlot;
     }
@@ -27,10 +27,11 @@ public class ProductionTuile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
     
     public void ReinitProd()
     {
-        production.gains = tuile.terrainTuile.production.gains;
+        production.gains = (float[])tuile.terrainTuile.production.gains.Clone();
     }
 }

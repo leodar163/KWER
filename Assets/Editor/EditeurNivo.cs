@@ -40,7 +40,6 @@ public class EditeurNiveau : EditorWindow
     DamierFleuveGen damierFleuve;
     Fleuve fleuveSelectionne;
     bool modeFleuve = false;
-    bool modeAjoutFleuve = false;
     int indexSelectionFleuve = -1;
     #endregion
 

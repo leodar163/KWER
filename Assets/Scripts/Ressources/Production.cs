@@ -12,7 +12,7 @@ using UnityScript.Lang;
 [CreateAssetMenu(fileName = "nvlleProduction", menuName = "Production")]
 public class Production : ScriptableObject
 {
-    [HideInInspector] public float[] gains = new float[0];
+    public float[] gains = new float[0];
 
     public static Production operator +(Production a, Production b)
     {
@@ -114,5 +114,12 @@ public class Production : ScriptableObject
         Debug.LogError("Impossible de récupérer le gain d'une ressource qui n'existe pas, ou le nom de la ressource est pas le bon. " +
             "Tip : Les Ressources commences par une majuscules et son en français");
         return 0;
+    }
+
+    public void SauvegarderSO()
+    {
+        AssetDatabase.Refresh();
+        EditorUtility.SetDirty(this);
+        AssetDatabase.SaveAssets();
     }
 }
