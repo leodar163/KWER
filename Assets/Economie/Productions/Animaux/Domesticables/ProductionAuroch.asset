@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373db5e09aaf8b142abd92ef60f30af5, type: 3}
-  m_Name: RecetteOutil
+  m_Script: {fileID: 11500000, guid: ec82c49dae0110c45938d74758575c38, type: 3}
+  m_Name: ProductionAuroch
   m_EditorClassIdentifier: 
-  nom: Outils
-  slots: 2
-  production: {fileID: 11400000, guid: 744a2d120440e0a498a165f230b2db62, type: 2}
+  gains:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0

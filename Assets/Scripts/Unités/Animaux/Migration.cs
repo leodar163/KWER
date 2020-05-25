@@ -6,7 +6,7 @@ public class Migration : MonoBehaviour
 {
     [SerializeField] private Troupeau troupeau;
 
-    TuileManager tuileActuelle;
+    public TuileManager tuileActuelle;
     [SerializeField] float vitesse;
     [SerializeField] float ptsActionDefaut = 2;
     float ptsAction;
@@ -48,11 +48,10 @@ public class Migration : MonoBehaviour
             tuileActuelle = checkTuile.gameObject.GetComponent<TuileManager>();
             transform.position = new Vector3(tuileActuelle.transform.position.x, tuileActuelle.transform.position.y, transform.position.z);
         }
-        
-        troupeau.tuileActuelle = tuileActuelle;
+      
 
-        tuileActuelle.productionTuile.production += troupeau.gainProduction;
-        tuileActuelle.productionTuile.nbrSlot += troupeau.nbrSlot;
+        tuileActuelle.productionTuile.production += troupeau.productionTroupeau.gainProduction;
+        tuileActuelle.productionTuile.nbrSlot += troupeau.productionTroupeau.nbrSlot;
     }
 
 
@@ -95,8 +94,8 @@ public class Migration : MonoBehaviour
         {
             if (prochaineTuile == null)
             {
-                tuileActuelle.productionTuile.production -= troupeau.gainProduction;
-                tuileActuelle.productionTuile.nbrSlot -= troupeau.nbrSlot;
+                tuileActuelle.productionTuile.production -= troupeau.productionTroupeau.gainProduction;
+                tuileActuelle.productionTuile.nbrSlot -= troupeau.productionTroupeau.nbrSlot;
 
                 prochaineTuile = ChoisirProchaineTuile();
 
@@ -192,8 +191,8 @@ public class Migration : MonoBehaviour
 
         tuileCible = directionPossibles[choixTuile];
 
-        tuileActuelle.productionTuile.production -= troupeau.gainProduction;
-        tuileActuelle.productionTuile.nbrSlot -= troupeau.nbrSlot;
+        tuileActuelle.productionTuile.production -= troupeau.productionTroupeau.gainProduction;
+        tuileActuelle.productionTuile.nbrSlot -= troupeau.productionTroupeau.nbrSlot;
 
         return tuileCible;
     }

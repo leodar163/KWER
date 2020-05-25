@@ -7,10 +7,14 @@ using UnityEngine;
 public class Troupeau : MonoBehaviour
 {
     [SerializeField] private Migration migration;
-    public TuileManager tuileActuelle;
+    public ProductionTroupeau productionTroupeau;
+    public SpriteRenderer spriteRenderer;
 
-    public int nbrSlot;
-    public Production gainProduction;
+    [HideInInspector] public bool domesticable;
+    [HideInInspector] public bool megaFaune;
+    [HideInInspector] public bool predateur;
+
+
 
     private void Awake()
     {
