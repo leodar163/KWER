@@ -30,7 +30,7 @@ public class ListeRessources : MonoBehaviour
         listeRessources = this;
         foreach (Ressource ressource in listeDesRessources)
         {
-            ressource.icone = ListeIcones.Defaut.TrouverIcone(ressource.nom);
+            ressource.icone = ListeIcones.Defaut.TrouverIconeRessource(ressource.nom);
         }
     }
 

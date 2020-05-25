@@ -43,7 +43,7 @@ public class ListeIcones : MonoBehaviour
         
     }
 
-    public Sprite TrouverIcone(string nom)
+    public Sprite TrouverIconeRessource(string nom)
     {
         foreach (Sprite icone in listeIconeRessource)
         {

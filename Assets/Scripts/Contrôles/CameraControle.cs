@@ -31,7 +31,7 @@ public class CameraControle : MonoBehaviour
 
     ControleSouris controleSouris;
 
-    bool controlesActives = true;
+    public bool controlesActives = true;
 
 
     private Vector3 positionMemoire;

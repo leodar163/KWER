@@ -28,7 +28,7 @@ public class Migration : MonoBehaviour
         {
             troupeau = GetComponent<Troupeau>();
         }
-        Invoke("TrouverTuileActuelle",1);
+        Invoke("TrouverTuileActuelle",0.5f);
     }
 
     // Update is called once per frame

@@ -98,10 +98,10 @@ public class ControleSouris : MonoBehaviour
                 }
             }
             //Si on clique sur autre chose qu'un élément de la tribu, 
-            else if(!EstEnfantDeTribuSelectionnee(check) && tribuControlee.estEntreCampement == true)
-            {
-                tribuControlee.EntrerCampement(false);
-            }
+            //else if(!EstEnfantDeTribuSelectionnee(check) && tribuControlee.estEntreCampement == true)
+            //{
+            //    tribuControlee.EntrerCampement(false);
+            //}
         }
         //Gestion clique droit
         else if(Input.GetMouseButtonUp(1))

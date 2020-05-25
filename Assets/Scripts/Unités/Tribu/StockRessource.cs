@@ -31,14 +31,14 @@ public class StockRessource : MonoBehaviour
         Production capacite = ScriptableObject.CreateInstance<Production>();
         if(capaciteDeStockage)
         {
-            capacite += capaciteDeStockage;
+            capacite.gains = (float[])capaciteDeStockage.gains.Clone();
         }
         capaciteDeStockage = capacite;
 
         Production stock = ScriptableObject.CreateInstance<Production>();
         if(ressourcesEnStock)
         {
-            stock += ressourcesEnStock;
+            stock.gains = (float[])ressourcesEnStock.gains.Clone();
         }
         ressourcesEnStock = stock;
     }

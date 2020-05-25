@@ -35,7 +35,7 @@ public class PanelGainRessources : MonoBehaviour
         {
             if (prod.gains[i] != 0)
             {
-                AjouterAffichage(prod.gains[i], ListeIcones.Defaut.TrouverIcone(ListeRessources.Defaut.listeDesRessources[i].nom), i);
+                AjouterAffichage(prod.gains[i], ListeIcones.Defaut.TrouverIconeRessource(ListeRessources.Defaut.listeDesRessources[i].nom), i);
             }
         }
         ReorganiserAffichages();

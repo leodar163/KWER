@@ -39,7 +39,7 @@ public class Tribu : MonoBehaviour
 
     private void Awake()
     {
-        
+
     }
 
     // Start is called before the first frame update
@@ -107,6 +107,10 @@ public class Tribu : MonoBehaviour
             if (selectionner)
             {
                 CameraControle.Actuel.CentrerCamera(transform.position, true);
+            }
+            else
+            {
+                CameraControle.Actuel.controlesActives = true;
             }
         }
     }
