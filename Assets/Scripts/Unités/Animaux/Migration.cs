@@ -48,10 +48,8 @@ public class Migration : MonoBehaviour
             tuileActuelle = checkTuile.gameObject.GetComponent<TuileManager>();
             transform.position = new Vector3(tuileActuelle.transform.position.x, tuileActuelle.transform.position.y, transform.position.z);
         }
-      
 
-        tuileActuelle.productionTuile.production += troupeau.productionTroupeau.gainProduction;
-        tuileActuelle.productionTuile.nbrSlot += troupeau.productionTroupeau.nbrSlot;
+        troupeau.productionTroupeau.FertiliserTuile();
     }
 
 
@@ -94,8 +92,7 @@ public class Migration : MonoBehaviour
         {
             if (prochaineTuile == null)
             {
-                tuileActuelle.productionTuile.production -= troupeau.productionTroupeau.gainProduction;
-                tuileActuelle.productionTuile.nbrSlot -= troupeau.productionTroupeau.nbrSlot;
+                troupeau.productionTroupeau.ReinitTuile();
 
                 prochaineTuile = ChoisirProchaineTuile();
 

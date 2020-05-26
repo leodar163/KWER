@@ -8,14 +8,9 @@ public class Tribu : MonoBehaviour
     PathFinder pathFinder;
     public TuileManager tuileActuelle;
     SpriteRenderer spriteRenderer;
-    Revendication revendication;
+    
 
     [HideInInspector] public bool estEntreCampement = false;
-
-    //couleurs
-    public Color couleurSelectionne;
-
-    List<Troupeau> troupeauxAPortee;
     
     [Header("Déplacements")]
     public float pointActionDeffaut = 3;
@@ -36,6 +31,7 @@ public class Tribu : MonoBehaviour
 
     [Header("Campement")]
     public Campement campement;
+    public Revendication revendication;
 
     private void Awake()
     {
@@ -46,6 +42,7 @@ public class Tribu : MonoBehaviour
     void Start()
     {
         Init();
+        revendication.RevendiquerTerritoire(tuileActuelle, true);
         expedition.LancerExpeditions();
         campement.MonterCampement();
         EntrerCampement(false);
@@ -66,12 +63,9 @@ public class Tribu : MonoBehaviour
 
     public void Init()
     {
-        revendication = GetComponent<Revendication>();
-        troupeauxAPortee = new List<Troupeau>();
-        pointsAction = pointActionDeffaut;
-        cheminASuivre = new Stack<TuileManager>();
-
         TrouverTuileActuelle();
+
+        pointsAction = pointActionDeffaut;
         pathFinder = GetComponent<PathFinder>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -90,8 +84,6 @@ public class Tribu : MonoBehaviour
             transform.position = new Vector3(tuileActuelle.transform.position.x, tuileActuelle.transform.position.y, transform.position.z);
         }
     }
-
-
 
     #region INTERFACE
 
@@ -123,6 +115,7 @@ public class Tribu : MonoBehaviour
         {
             cheminASuivre = pathFinder.TrouverChemin(tuileActuelle, value);
             expedition.RappelerExpeditions();
+            revendication.RevendiquerTerritoire(tuileActuelle, false);
             EntrerCampement(false);
         }
     }
@@ -178,6 +171,7 @@ public class Tribu : MonoBehaviour
 
                 if(cheminASuivre.Count == 0)
                 {
+                    revendication.RevendiquerTerritoire(tuileActuelle, true);
                     expedition.LancerExpeditions();
                 }
             }

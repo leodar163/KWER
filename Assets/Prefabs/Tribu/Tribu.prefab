@@ -415,6 +415,7 @@ MonoBehaviour:
   stockRessources: {fileID: 51998110753543547}
   demographie: {fileID: 3981823110589431221}
   campement: {fileID: 346511199273669100}
+  revendication: {fileID: 3311495747200995255}
 --- !u!114 &8930979129811697115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,8 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3102a1f94a9df4488faa0ef2250c75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tuilesRevendiquees: []
-  tuilesDisputees: []
+  parent: {fileID: 1618904120558817127}
 --- !u!114 &51998110753543547
 MonoBehaviour:
   m_ObjectHideFlags: 0

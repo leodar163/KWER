@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3796760071837312150}
   - component: {fileID: 2523344375351965229}
   - component: {fileID: 1714641867515581847}
+  - component: {fileID: 9055846603267299339}
   m_Layer: 11
   m_Name: Auroch
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799528128373039931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 51195969847626310}
@@ -51,6 +52,7 @@ MonoBehaviour:
   migration: {fileID: 2523344375351965229}
   productionTroupeau: {fileID: 1714641867515581847}
   spriteRenderer: {fileID: 6269753663623220688}
+  revendication: {fileID: 9055846603267299339}
   domesticable: 1
   megaFaune: 0
   predateur: 0
@@ -101,6 +103,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nbrSlot: 2
   gainProduction: {fileID: 11400000, guid: 27415d559ba222d46af25d24d4c834be, type: 2}
+  troupeau: {fileID: 4240119684360671227}
+--- !u!114 &9055846603267299339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799528128373039931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3102a1f94a9df4488faa0ef2250c75f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 4240119684360671227}
 --- !u!1 &4788891487758131682
 GameObject:
   m_ObjectHideFlags: 0

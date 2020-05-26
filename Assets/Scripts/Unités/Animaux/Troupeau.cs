@@ -9,6 +9,7 @@ public class Troupeau : MonoBehaviour
     public Migration migration;
     public ProductionTroupeau productionTroupeau;
     public SpriteRenderer spriteRenderer;
+    public Revendication revendication;
 
     [HideInInspector] public bool domesticable;
     [HideInInspector] public bool megaFaune;

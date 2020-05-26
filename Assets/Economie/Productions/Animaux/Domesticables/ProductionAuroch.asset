@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ProductionAuroch
   m_EditorClassIdentifier: 
   gains:
+  - 2
   - 0
-  - 0
-  - 0
+  - 1
   - 0
   - 0

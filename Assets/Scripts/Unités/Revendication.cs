@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Revendication : MonoBehaviour
 {
-
+    
     [SerializeField] private MonoBehaviour parent;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,7 +32,14 @@ public class Revendication : MonoBehaviour
 
     private void RevendiquerTuile(TuileManager tuile, bool revendiquer)
     {
-
+        if(revendiquer)
+        {
+            if(!tuile.revendication.revendicateurs.Contains(this)) tuile.revendication.revendicateurs.Add(this);
+        }
+        else
+        {
+            if (tuile.revendication.revendicateurs.Contains(this)) tuile.revendication.revendicateurs.Remove(this);
+        }
     }
 
     public bool EstAnimal
@@ -72,7 +79,6 @@ public class Revendication : MonoBehaviour
                     return true;
                 }
                 else return false;
-                
             }
             else return false;
         }

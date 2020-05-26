@@ -7,6 +7,8 @@ public class ProductionTroupeau : MonoBehaviour
     public int nbrSlot;
     public Production gainProduction;
 
+    public Troupeau troupeau;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +19,17 @@ public class ProductionTroupeau : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void FertiliserTuile()
+    {
+        troupeau.migration.tuileActuelle.productionTuile.production += gainProduction;
+        troupeau.migration.tuileActuelle.productionTuile.nbrSlot += nbrSlot;
+    }
+
+    public void ReinitTuile()
+    {
+        troupeau.migration.tuileActuelle.productionTuile.production -= gainProduction;
+        troupeau.migration.tuileActuelle.productionTuile.nbrSlot -= nbrSlot;
     }
 }

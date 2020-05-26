@@ -32,20 +32,16 @@ public class PathFinder : MonoBehaviour
 
                         if (!tuileFille.parcouru)//On demande si la tuile a déjà été explorée par l'algo
                         {
-
                             tuileFille.parcouru = true;
                             tuileFille.predecesseur = tuileObservee;
                             tuileFille.distance += tuileObservee.connectionsDistance[i] + tuileObservee.distance;
                             fileTuiles.Enqueue(tuileFille);
 
                             grapheAPortee.Add(tuileFille);
-
-
                         }
                     }
                 }
             }
-            
         }
         return grapheAPortee;
     }
