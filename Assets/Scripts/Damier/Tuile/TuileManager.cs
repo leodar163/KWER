@@ -11,13 +11,12 @@ public class TuileManager : MonoBehaviour
     public ProductionTuile productionTuile;
 
     [Header("Graphe")]
-    
     public int nombreConnections;
     public List<TuileManager> connections; //Liste des noeuds directement relié à celui-ci
     public List<float> connectionsDistance; //Poids entre les noeuds / l'index est le même que celui des connections
-    public float distance = 0;
-    public bool parcouru = false;
-    public bool aPortee = false;
+    [HideInInspector]public float distance = 0;
+    [HideInInspector] public bool parcouru = false;
+    [HideInInspector] public bool aPortee = false;
     [HideInInspector] public TuileManager predecesseur;
 
     [HideInInspector] public float tailleTuile;
@@ -37,15 +36,10 @@ public class TuileManager : MonoBehaviour
     public Color couleurTuileAPortee = Color.white;
     public Color couleurTuileSurChemin = Color.white;
 
-    private PanelNourriture panelNourriture;
-    private PanelInterdictionTuile panelInterdition;
-
-
     [SerializeField]public TuileTerrain terrainTuile;
-    
+
     [Header("Revendication")]
-    public Revendication revendicateur; //Celui qui revendique la tuile
-    public bool estRevendiquee = false; //une tuile interdite ne produit pas de nourriture. Un tuile est interdite quand un ennemi la contrôle.
+    public RevendicationTuile revendication;
 
     private void Awake()
     {
@@ -59,8 +53,6 @@ public class TuileManager : MonoBehaviour
     void Start()
     {
         
-        CacherInterfaceTuile();
-        
     }
 
     // Update is called once per frame
@@ -71,10 +63,6 @@ public class TuileManager : MonoBehaviour
 
     public void Init()
     {
-        panelInterdition = GetComponentInChildren<PanelInterdictionTuile>();
-        panelNourriture = GetComponentInChildren<PanelNourriture>();
-        revendicateur = null;
-
         if(!terrainTuile)
         {
             terrainTuile = FindObjectOfType<TerrainDefaut>();
@@ -285,34 +273,6 @@ public class TuileManager : MonoBehaviour
 
     #region INTERFACE
 
-
-    public void AfficherInterdiction(bool afficher)
-    {
-        if(panelInterdition)
-        {
-            panelInterdition.gameObject.SetActive(afficher);
-        }
-    }
-
-    private void AfficherNourriture(bool afficher)
-    {
-        if(panelNourriture)
-        {
-            panelNourriture.gameObject.SetActive(afficher);
-        }
-    }
-
-    public void AfficherInterfaceTuile()
-    {
-        AfficherNourriture(true);
-        //AfficherInterdiction(estRevendiquee);
-    }
-
-    public void CacherInterfaceTuile()
-    {
-        AfficherNourriture(false);
-        AfficherInterdiction(false);
-    }
     #endregion
 
 

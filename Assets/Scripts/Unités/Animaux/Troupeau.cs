@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Migration))]
 public class Troupeau : MonoBehaviour
 {
-    [SerializeField] private Migration migration;
+    public Migration migration;
     public ProductionTroupeau productionTroupeau;
     public SpriteRenderer spriteRenderer;
 

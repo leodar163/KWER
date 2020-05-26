@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 6094356627544449355}
   - component: {fileID: 8056909880984153132}
   - component: {fileID: 2253160564664868208}
+  - component: {fileID: 7767983280701060473}
   m_Layer: 8
   m_Name: TuileHexa
   m_TagString: Tuile
@@ -244,11 +245,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
   indexGarniture: -1
   indexBase: -1
-  couleurTuileAPortee: {r: 0.23349057, g: 0.9339623, b: 0.7579205, a: 1}
-  couleurTuileSurChemin: {r: 0.9245283, g: 0.7051749, b: 0.17880027, a: 1}
+  couleurTuileAPortee: {r: 0.6383055, g: 0.8301887, b: 0.7869529, a: 1}
+  couleurTuileSurChemin: {r: 0.9433962, g: 0.8555208, b: 0.6452474, a: 1}
   terrainTuile: {fileID: 0}
-  revendicateur: {fileID: 0}
-  estRevendiquee: 0
+  revendication: {fileID: 7767983280701060473}
 --- !u!114 &2253160564664868208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +262,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 8056909880984153132}
+  production: {fileID: 0}
+  nbrSlot: 0
+--- !u!114 &7767983280701060473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987124979046534958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb215b2475269042bc79924eb457506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tuile: {fileID: 8056909880984153132}
+  revendicateurs: []
 --- !u!1 &7196889779831233828
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,6 +43,7 @@ public class TroupeauEditor : Editor
             troupeau.domesticable = true;
             troupeau.megaFaune = false;
             troupeau.predateur = false;
+            troupeau.migration.cantonnerAuxPlaines = true;
         }
         ColorerSelection(troupeau.megaFaune);
         if (GUILayout.Button("MegaFaune", options))
@@ -50,6 +51,7 @@ public class TroupeauEditor : Editor
             troupeau.domesticable = false;
             troupeau.megaFaune = true;
             troupeau.predateur = false;
+            troupeau.migration.cantonnerAuxPlaines = true;
         }
         ColorerSelection(troupeau.predateur);
         if (GUILayout.Button("Predateur", options))
@@ -57,6 +59,7 @@ public class TroupeauEditor : Editor
             troupeau.domesticable = false;
             troupeau.megaFaune = false;
             troupeau.predateur = true;
+            troupeau.migration.cantonnerAuxPlaines = false;
         }
     }
 

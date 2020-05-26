@@ -8,7 +8,6 @@ public class TourParTour : MonoBehaviour
 
     Tribu[] toutesUnites;
     Migration[] tousMigrateurs; //Loups et troupeaux
-    Hostile[] tousHostiles;
     int nbrTour;
     InterfaceNourriture interfaceNourriture;
     InterfacePopulation interfacePopulation;
@@ -56,6 +55,7 @@ public class TourParTour : MonoBehaviour
         passageTour = false;
     }
 
+    /*
     private IEnumerator AttaquesHostiles()
     {
         tousHostiles = FindObjectsOfType<Hostile>();
@@ -77,7 +77,7 @@ public class TourParTour : MonoBehaviour
 
         hostilesOntAttaque = true;
     }
-
+    */
     private IEnumerator ChangementSaison()
     {
         calendrier.MiseAJourCalendrier(nbrTour);

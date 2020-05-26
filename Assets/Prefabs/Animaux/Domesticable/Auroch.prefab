@@ -86,7 +86,7 @@ MonoBehaviour:
   tuileActuelle: {fileID: 0}
   vitesse: 2
   ptsActionDefaut: 2
-  estTroupeau: 1
+  cantonnerAuxPlaines: 1
 --- !u!114 &1714641867515581847
 MonoBehaviour:
   m_ObjectHideFlags: 0

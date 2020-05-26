@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Revendication : MonoBehaviour
 {
 
-    public List<TuileManager> tuilesRevendiquees;
-    public List<TuileManager> tuilesDisputees;
-
+    [SerializeField] private MonoBehaviour parent;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +22,6 @@ public class Revendication : MonoBehaviour
 
     public void RevendiquerTerritoire(TuileManager tuileActuelle, bool revendiquer)
     {
-        tuilesRevendiquees.Clear();
-        tuilesRevendiquees.Clear();
-
         RevendiquerTuile(tuileActuelle, revendiquer);
 
         foreach(TuileManager tuile in tuileActuelle.connections)
@@ -36,27 +32,87 @@ public class Revendication : MonoBehaviour
 
     private void RevendiquerTuile(TuileManager tuile, bool revendiquer)
     {
-        
-        if(!tuile.estRevendiquee)
+
+    }
+
+    public bool EstAnimal
+    {
+        get
         {
-            tuilesRevendiquees.Add(tuile);
-            tuile.estRevendiquee = revendiquer;
-            if(revendiquer)
+            if (parent is Troupeau)
             {
-                tuile.revendicateur = this;
+                return true;
             }
-            else
-            {
-                tuile.revendicateur = null;
-            }
+            else return false;
         }
-        else
-        {
-            tuilesDisputees.Add(tuile);
+        
+    }
+
+    public bool EstTribu
+    {
+        get
+        { 
+            if(parent is Tribu)
+            {
+                return true;
+            }
+            else return false;
         }
     }
 
+    public bool EstPredateur
+    {
+        get
+        {
+            if (EstAnimal)
+            {
+                Troupeau animal = (Troupeau)parent;
+                if (animal.predateur)
+                {
+                    return true;
+                }
+                else return false;
+                
+            }
+            else return false;
+        }
+    }
 
+    public bool EstDomesticable
+    {
+        get
+        {
+            if (EstAnimal)
+            {
+                Troupeau animal = (Troupeau)parent;
+                if (animal.domesticable)
+                {
+                    return true;
+                }
+                else return false;
+
+            }
+            else return false;
+        }
+    }
+
+    public bool EstMegaFaune
+    {
+        get
+        {
+            if (EstAnimal)
+            {
+                Troupeau animal = (Troupeau)parent;
+                if (animal.megaFaune)
+                {
+                    return true;
+                }
+                else return false;
+
+            }
+            else return false;
+        }
+    }
     //revendiquer une tuile libre
     //dispuster une tuile déjà revendiquer
     //protéger une tuile revendiqué disputer par quelqu'un d'autre

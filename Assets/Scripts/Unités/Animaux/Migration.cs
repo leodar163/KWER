@@ -13,7 +13,7 @@ public class Migration : MonoBehaviour
     TuileManager prochaineTuile = null;
     List<TuileManager> tuilesParcourues;
     bool traverseFleuve = false;
-    [SerializeField] bool estTroupeau;
+    public bool cantonnerAuxPlaines;
 
     private void Awake()
     {
