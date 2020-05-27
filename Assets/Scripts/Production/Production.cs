@@ -122,4 +122,12 @@ public class Production : ScriptableObject
         EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
     }
+
+    public void Clear()
+    {
+        for (int i = 0; i < gains.Length; i++)
+        {
+            gains[i] = 0;
+        }
+    }
 }

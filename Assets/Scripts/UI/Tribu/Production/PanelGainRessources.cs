@@ -10,7 +10,6 @@ public class PanelGainRessources : MonoBehaviour
 {
 
     [SerializeField] private GameObject affichageRessource;
-
     private List<GameObject> listeAffichages = new List<GameObject>();
 
     public MonoBehaviour parent;
@@ -51,7 +50,15 @@ public class PanelGainRessources : MonoBehaviour
 
         if(gain > 0)
         {
-            txtMP.color = Color.black;
+            if(parent is Exploitation)
+            {
+                txtMP.color = ListeCouleurs.Defaut.couleurTexteSansFond;
+            }
+            else
+            {
+                txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
+            }
+            
              txtMP.text = "+" + gain;
         }
         else if(gain < 0)
@@ -61,26 +68,28 @@ public class PanelGainRessources : MonoBehaviour
                 Exploitation exploitation = (Exploitation)parent;
 
                 //si y a moins de ressource en stock qu'il n'en faut pour créer l'objet
-                if (exploitation.expedition.tribu.stockRessources.ressourcesEnStock.gains[indexRessource] < gain)
+                if (exploitation.expedition.tribu.stockRessources.RessourcesEnStock.gains[indexRessource] < Mathf.Abs(gain))
                 {
-                    txtMP.color = Color.red;
+                    txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
                 }
+                else txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
             }
             else if(parent is PanelRecette)
             {
                 PanelRecette panelRecette = (PanelRecette)parent;
 
                 //si y a moins de ressource en stock qu'il n'en faut pour créer l'objet
-                if (panelRecette.craft.campement.tribu.stockRessources.ressourcesEnStock.gains[indexRessource] < gain)
+                if (panelRecette.craft.campement.tribu.stockRessources.RessourcesEnStock.gains[indexRessource] < Mathf.Abs(gain))
                 {
-                    txtMP.color = Color.red;
+                    txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
                 }
+                else txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
             }
             else
             {
                 Debug.LogError("PanelGainRessource de " + name + " n'a pas le bon type de parent. Il faut un Exploitation ou un PanelRecette");
             }
-            txtMP.text = gain.ToString();
+            txtMP.text = "-" + gain;
         }
        
 

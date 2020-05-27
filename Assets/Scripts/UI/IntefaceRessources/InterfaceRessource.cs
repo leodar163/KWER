@@ -66,4 +66,28 @@ public class InterfaceRessource : MonoBehaviour
             rectInstance.position += new Vector3(largeurPanelInfo * i,0);
         }
     }
+
+    public void MiseAJourCapacite(Production capacite)
+    {
+        for (int i = 0; i < listePanelsInfoRessource.Count; i++)
+        {
+            listePanelsInfoRessource[i].Capacite = capacite.gains[i];
+        }
+    }
+
+    public void MiseAJourStock(Production stock)
+    {
+        for (int i = 0; i < listePanelsInfoRessource.Count; i++)
+        {
+            listePanelsInfoRessource[i].Stock = stock.gains[i];
+        }
+    }
+
+    public void MiseAjourGain(Production gain)
+    {
+        for (int i = 0; i < listePanelsInfoRessource.Count; i++)
+        {
+            listePanelsInfoRessource[i].Gain = gain.gains[i];
+        }
+    }
 }

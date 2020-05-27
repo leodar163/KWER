@@ -3,9 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class Calendrier : MonoBehaviour
 {
+    private static Calendrier cela;
+
+    public static Calendrier Actuel
+    {
+        get
+        {
+            if(cela == null)
+            {
+                cela = FindObjectOfType<Calendrier>();
+            }
+            return cela;
+        }
+    }
+
     TextMeshProUGUI compteur;
     [SerializeField] int dureeSaison;
     public bool hiver = true;
@@ -15,9 +30,16 @@ public class Calendrier : MonoBehaviour
     TuileTerrain[] terrains;
     TourParTour tourParTour;
 
+    private void Awake()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        cela = this;
+            
         damier = FindObjectsOfType<TuileManager>();
         compteur = GetComponentInChildren<TextMeshProUGUI>();
         terrains = FindObjectsOfType<TuileTerrain>();

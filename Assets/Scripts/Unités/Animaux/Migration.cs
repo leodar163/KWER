@@ -92,7 +92,7 @@ public class Migration : MonoBehaviour
         {
             if (prochaineTuile == null)
             {
-                troupeau.productionTroupeau.ReinitTuile();
+                
 
                 prochaineTuile = ChoisirProchaineTuile();
 
@@ -188,8 +188,7 @@ public class Migration : MonoBehaviour
 
         tuileCible = directionPossibles[choixTuile];
 
-        tuileActuelle.productionTuile.production -= troupeau.productionTroupeau.gainProduction;
-        tuileActuelle.productionTuile.nbrSlot -= troupeau.productionTroupeau.nbrSlot;
+        troupeau.productionTroupeau.ReinitTuile();
 
         return tuileCible;
     }

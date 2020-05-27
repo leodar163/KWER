@@ -6,9 +6,10 @@ public class Demographie : MonoBehaviour
 {
     [SerializeField] private GameObject popPrefab;
     [SerializeField] private Tribu tribu;
+    [SerializeField] private GameObject affichage;
 
-    public List<Pop> listePopsCampement;
-    public List<Pop> listePopsExpedition;
+    public List<Pop> listePopsCampement = new List<Pop>();
+    public List<Pop> listePopsExpedition = new List<Pop>();
 
     public int taillePopulation
     {
@@ -21,14 +22,13 @@ public class Demographie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        listePopsCampement = new List<Pop>(GetComponentsInChildren<Pop>());
-        AjouterPop();
+
+        Invoke("AjouterPop", 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void AjusterRouePopulation()
@@ -61,10 +61,10 @@ public class Demographie : MonoBehaviour
 
     public void AjouterPop()
     {
-        GameObject nvPop = Instantiate(popPrefab, transform);
+        GameObject nvPop = Instantiate(popPrefab, affichage.transform);
 
         listePopsCampement.Add(nvPop.GetComponent<Pop>());
-
+        tribu.stockRessources.CalculerGain();
         AjusterRouePopulation();
     }
 
@@ -114,7 +114,7 @@ public class Demographie : MonoBehaviour
 
     public void AfficherIntefacePop(bool afficher)
     {
-        gameObject.SetActive(afficher);
+        affichage.SetActive(afficher);
     }
 
 }
