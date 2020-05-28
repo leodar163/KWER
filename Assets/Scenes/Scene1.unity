@@ -2570,13 +2570,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56352984}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7372774, w: 0.67559016}
+  m_LocalRotation: {x: 0, y: -0, z: 0.8433915, w: -0.5372995}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1617142091}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -95}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 245}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -15375,6 +15375,7 @@ GameObject:
   - component: {fileID: 429056403}
   - component: {fileID: 429056402}
   - component: {fileID: 429056405}
+  - component: {fileID: 429056406}
   m_Layer: 5
   m_Name: ButtonTourSuivant
   m_TagString: Untagged
@@ -15447,7 +15448,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1175890957}
-        m_MethodName: PasserTour
+        m_MethodName: JoueurPasseTour
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15503,6 +15504,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8878503a95413f46934edd4f66ed586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &429056406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429056400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c4303c0b0e90f41916298cdb059a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &431220668
@@ -38527,6 +38540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e11ee344e5b47644a8d97715b424eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventNouveauTour:
+    m_PersistentCalls:
+      m_Calls: []
   calendrierMAJ: 0
 --- !u!1 &1177900316
 GameObject:
@@ -53982,7 +53998,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dureeSaison: 4
-  hiver: 1
+  roueCalendrier: {fileID: 56352985}
+  changementDeSaison:
+    m_PersistentCalls:
+      m_Calls: []
+  vitesseRotation: 40
 --- !u!114 &1617142093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69364,6 +69384,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292540723941480277, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000061035156
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cdde373df811184a965e956d92dccb3, type: 3}

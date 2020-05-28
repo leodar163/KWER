@@ -44,6 +44,7 @@ public class TuileManager : MonoBehaviour
     private void Awake()
     {
         //Init();
+        Calendrier.Actuel.changementDeSaison.AddListener(RevetirSpriteSaison);
         spriteBase = GetComponent<SpriteRenderer>();
         spriteGarniture = garniture.GetComponent<SpriteRenderer>();
         TrouverConnections(nombreConnections);
@@ -79,9 +80,9 @@ public class TuileManager : MonoBehaviour
         tailleTuile = spriteBase.bounds.size.x;
     }
 
-    public void RevetirManteauHiver(bool hiver)
+    public void RevetirSpriteSaison()
     {
-        if (hiver)
+        if (Calendrier.Actuel.Hiver)
         {
             if (terrainTuile.garnituresHivernales.Length == terrainTuile.garnitures.Length)
             {

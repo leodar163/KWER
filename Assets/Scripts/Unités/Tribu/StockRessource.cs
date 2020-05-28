@@ -50,6 +50,7 @@ public class StockRessource : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LimiterStock();
         Invoke("MiseAJourInterfaceRessource",0.5f);
     }
 
@@ -106,14 +107,47 @@ public class StockRessource : MonoBehaviour
         }
         if(Calendrier.Actuel)
         {
-            if(Calendrier.Actuel.hiver)
+            if(Calendrier.Actuel.Hiver)
             {
                 projectionGain += consoParPopHiver * tribu.demographie.taillePopulation;
             }
             else projectionGain += consoParPop * tribu.demographie.taillePopulation;
         }
+        LimiterGain();
 
         MiseAJourInterfaceRessource();
+    }
+
+    private void LimiterGain()
+    {
+        for (int i = 0; i < projectionGain.gains.Length; i++)
+        {
+            if(projectionGain.gains[i] > (capaciteDeStockage.gains[i] - ressourcesEnStock.gains[i]))
+            {
+                projectionGain.gains[i] = (capaciteDeStockage.gains[i] - ressourcesEnStock.gains[i]);
+            }
+        }
+    }
+
+    private void LimiterStock()
+    {
+        for (int i = 0; i < ressourcesEnStock.gains.Length; i++)
+        {
+            if(ressourcesEnStock.gains[i] > capaciteDeStockage.gains[i])
+            {
+                ressourcesEnStock.gains[i] = capaciteDeStockage.gains[i];
+            }
+        }
+    }
+
+    public void EncaisserGain()
+    {
+        for (int i = 0; i < ressourcesEnStock.gains.Length; i++)
+        {
+            ressourcesEnStock.gains[i] += projectionGain.gains[i];
+        }
+
+        LimiterStock();
     }
 
     private void MiseAJourInterfaceRessource()

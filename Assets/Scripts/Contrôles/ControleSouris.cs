@@ -45,11 +45,8 @@ public class ControleSouris : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(controlesActives)
-        {
-            QuandClique();
-            SourisSurvol();
-        }
+        QuandClique();
+        SourisSurvol();
     }
 
     //Détecte si on vient de cliquer sur un élément de la tribu ou pas
@@ -74,81 +71,85 @@ public class ControleSouris : MonoBehaviour
 
     private void QuandClique()
     {
-        //Gestion du clique gauche
-        if(Input.GetMouseButtonUp(0))
+        if (controlesActives)
         {
-            Collider2D check = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0);
-
-            if(check && check.CompareTag("Unite") && tribuControlee.estEntreCampement == false)
+            //Gestion du clique gauche
+            if (Input.GetMouseButtonUp(0))
             {
-                Tribu autre = check.GetComponent<Tribu>();
+                Collider2D check = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0);
 
-                if(autre == tribuControlee)
+                if (check && check.CompareTag("Unite") && tribuControlee.estEntreCampement == false)
                 {
-                    tribuControlee.EntrerCampement(true);
+                    Tribu autre = check.GetComponent<Tribu>();
+
+                    if (autre == tribuControlee)
+                    {
+                        tribuControlee.EntrerCampement(true);
+                    }
+                }
+                else if (check && check.CompareTag("Unite") && tribuControlee.estEntreCampement == true)
+                {
+                    Tribu autre = check.GetComponent<Tribu>();
+
+                    if (autre == tribuControlee)
+                    {
+                        tribuControlee.EntrerCampement(false);
+                    }
+                }
+                //Si on clique sur autre chose qu'un élément de la tribu, 
+                //else if(!EstEnfantDeTribuSelectionnee(check) && tribuControlee.estEntreCampement == true)
+                //{
+                //    tribuControlee.EntrerCampement(false);
+                //}
+            }
+            //Gestion clique droit
+            else if (Input.GetMouseButtonUp(1))
+            {
+                Collider2D checkTuile = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0, maskTuile);
+
+                if (tribuControlee && checkTuile)
+                {
+                    TuileManager tuileSelectionnee = checkTuile.GetComponent<TuileManager>();
+
+                    //On se déplace sur la tuile sur laquelle on a cliqué, si elle est à portée
+                    if (tribuControlee.tuilesAPortee.Contains(tuileSelectionnee) && !tribuControlee.estEntreCampement)
+                    {
+                        tribuControlee.Destination = tuileSelectionnee;
+                    }
+                    else if (tribuControlee.estEntreCampement)
+                    {
+                        tribuControlee.EntrerCampement(false);
+                    }
                 }
             }
-            else if(check && check.CompareTag("Unite") && tribuControlee.estEntreCampement == true)
+            //Gestion clique milieux
+            else if (Input.GetMouseButtonDown(2))
             {
-                Tribu autre = check.GetComponent<Tribu>();
-
-                if (autre == tribuControlee)
-                {
-                    tribuControlee.EntrerCampement(false);
-                }
+                pointAccrocheSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                camControle.sourisAccrochee = true;
             }
-            //Si on clique sur autre chose qu'un élément de la tribu, 
-            //else if(!EstEnfantDeTribuSelectionnee(check) && tribuControlee.estEntreCampement == true)
-            //{
-            //    tribuControlee.EntrerCampement(false);
-            //}
-        }
-        //Gestion clique droit
-        else if(Input.GetMouseButtonUp(1))
-        {
-            Collider2D checkTuile = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0, maskTuile);
-
-            if (tribuControlee && checkTuile)
+            else if (Input.GetMouseButtonUp(2))
             {
-                TuileManager tuileSelectionnee = checkTuile.GetComponent<TuileManager>();
-
-                //On se déplace sur la tuile sur laquelle on a cliqué, si elle est à portée
-                if(tribuControlee.tuilesAPortee.Contains(tuileSelectionnee) && !tribuControlee.estEntreCampement)
-                {
-                    tribuControlee.Destination = tuileSelectionnee;
-                }
-                else if(tribuControlee.estEntreCampement)
-                {
-                    tribuControlee.EntrerCampement(false);
-                }
+                camControle.sourisAccrochee = false;
             }
-        }
-        //Gestion clique milieux
-        else if(Input.GetMouseButtonDown(2))
-        {
-            pointAccrocheSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            camControle.sourisAccrochee = true;
-        }
-        else if (Input.GetMouseButtonUp(2))
-        {
-            camControle.sourisAccrochee = false;
         }
     }
 
     //Gestion de l'overing
     private void SourisSurvol()
     {
-            Collider2D checkTuile = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0, maskTuile);
+        Collider2D checkTuile = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0, maskTuile);
 
-            if (checkTuile && tribuControlee)
-            {
-                TuileManager tuileSurvolee = checkTuile.GetComponent<TuileManager>();
-            
-                PathFinder pathFinder = tribuControlee.GetComponent<PathFinder>();
+        if (checkTuile && tribuControlee)
+        {
+            TuileManager tuileSurvolee = checkTuile.GetComponent<TuileManager>();
+
+            PathFinder pathFinder = tribuControlee.GetComponent<PathFinder>();
+
             //Colore le chemin et le met à jour toutes les frames, si la tuile qu'on survole est à portee
             if (tuileSurvolee.aPortee)
             {
-                if (tribuControlee.estEntreCampement)
+                if (tribuControlee.estEntreCampement || !controlesActives)
                 {
                     pathFinder.ColorerGraphe(tribuControlee.tuilesAPortee, Color.white);
                 }
@@ -157,10 +158,8 @@ public class ControleSouris : MonoBehaviour
                     pathFinder.ColorerGraphe(tribuControlee.tuilesAPortee, tuileSurvolee.couleurTuileAPortee);
                     pathFinder.ColorerChemin(pathFinder.TrouverChemin(tribuControlee.tuileActuelle, tuileSurvolee), tuileSurvolee.couleurTuileSurChemin);
                 }
-            
-                }  
             }
-        
+        }
     }
 
     private void RecupererTribuControlee()

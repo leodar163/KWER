@@ -1,120 +1,119 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TourParTour : MonoBehaviour
 {
-    ControleSouris controles;
+    #region SINGLETON
+    private static TourParTour cela;
+    
+    public static TourParTour Defaut
+    {
+        get
+        {
+            if (cela == null) cela = FindObjectOfType<TourParTour>();
+            return cela;
+        }
+    }
+    #endregion
 
-    Tribu[] toutesUnites;
+    Tribu[] tribus;
+    Troupeau[] animaux;
     Migration[] tousMigrateurs; //Loups et troupeaux
     int nbrTour;
-    InterfaceNourriture interfaceNourriture;
-    InterfacePopulation interfacePopulation;
-    InterfaceCroissance interfaceCroissance;
-    Calendrier calendrier;
-    public bool calendrierMAJ;
+
+    public UnityEvent eventNouveauTour;
+
+    public bool calendrierMAJ = false;
     bool hostilesOntAttaque;
-    bool saisonChangee;
     bool passageTour;
+
+    private int nbrJoueurAyantPasseTour = 0;
+    private int nbrAnimalAyantPasseTour = 0;
 
     private void Start()
     {
-        
-
-        controles = FindObjectOfType<ControleSouris>();
-        calendrier = FindObjectOfType<Calendrier>();
-        interfaceNourriture = FindObjectOfType<InterfaceNourriture>();
-        interfaceCroissance = FindObjectOfType<InterfaceCroissance>();
-        interfacePopulation = FindObjectOfType<InterfacePopulation>();
+        cela = this;
+        StartCoroutine(TourJoueur());
     }
 
-    public void PasserTour()
+    public void JoueurPasseTour()
     {
-        if(!passageTour)
+        nbrJoueurAyantPasseTour++;
+    }
+
+    public void AnimalPasseTour()
+    {
+        nbrAnimalAyantPasseTour++;
+    }
+
+
+
+    #region DEROULEMENT D'UN TOUR
+    private IEnumerator TourJoueur()
+    {
+        tribus = FindObjectsOfType<Tribu>();
+        eventNouveauTour.Invoke();
+
+        if(nbrTour != 0)
         {
-            passageTour = true;
-            nbrTour++;
-
-            StartCoroutine(PasserLeTour());
-
-        }
-    }
-
-    private IEnumerator PasserLeTour()
-    {
-        //ActiverControles(false);
-
-        //StartCoroutine(AttaquesHostiles());
-        //yield return new WaitUntil(() => hostilesOntAttaque);
-        StartCoroutine(ChangementSaison());
-        yield return new WaitUntil(() => saisonChangee);
-        //Fin du tour
-
-        //ActiverControles(true);
-        passageTour = false;
-    }
-
-    /*
-    private IEnumerator AttaquesHostiles()
-    {
-        tousHostiles = FindObjectsOfType<Hostile>();
-        bool tousHostilesOntAttaque = false;
-
-        while(!tousHostilesOntAttaque)
-        {
-            for (int i = 0; i < tousHostiles.Length; i++)
+            ControleSouris.Actuel.controlesActives = true;
+            BoutonTourSuivant.Actuel.Activer(true);
+            foreach(Tribu tribu in tribus)
             {
-                if (tousHostiles[i].peutAttaquer)
-                {
-                    tousHostilesOntAttaque = false;
-                    break;
-                }
-                tousHostilesOntAttaque = true;
-            }
-            yield return new WaitForEndOfFrame();
-        }
-
-        hostilesOntAttaque = true;
-    }
-    */
-    private IEnumerator ChangementSaison()
-    {
-        calendrier.MiseAJourCalendrier(nbrTour);
-
-        if (!calendrierMAJ)
-        {
-            yield return new WaitForEndOfFrame();
-        }
-
-        toutesUnites = FindObjectsOfType<Tribu>();
-        tousMigrateurs = FindObjectsOfType<Migration>();
-        
-
-        foreach (Tribu unite in toutesUnites)
-        {
-            unite.PasserTour();
-        }
-        if(calendrier.hiver)
-        {
-            foreach (Migration migrateur in tousMigrateurs)
-            {
-                migrateur.Migrer();
+                tribu.PasserTour();
             }
         }
-        else if (!calendrier.hiver)
-        {
-            foreach (Migration migrateur in tousMigrateurs)
-            {
-                migrateur.FinirMigration();
-            }
-        }
+
+        yield return new WaitWhile(() => nbrJoueurAyantPasseTour < tribus.Length);
+
+        nbrJoueurAyantPasseTour = 0;
+        BoutonTourSuivant.Actuel.Activer(false);
+        ControleSouris.Actuel.controlesActives = false;
+        nbrTour++;
+
+        print("Joueurs ont fini leur tour");
+
+        StartCoroutine(TourCalendrier());
+    }
+
+    private IEnumerator TourCalendrier()
+    {
+        Calendrier.Actuel.MiseAJourCalendrier(nbrTour);
+
+        yield return new WaitUntil(() => calendrierMAJ);
+
         calendrierMAJ = false;
-        saisonChangee = true;
+
+        print("Calendrier à jour");
+
+        StartCoroutine(TourAnimaux());
     }
 
-    private void ActiverControles(bool activer)
+    private IEnumerator TourAnimaux()
     {
-        controles.controlesActives = activer;
+        animaux = FindObjectsOfType<Troupeau>();
+        
+        foreach(Troupeau animal in animaux)
+        {
+            animal.DemarrerTour();
+        }
+
+        yield return new WaitWhile(() => nbrAnimalAyantPasseTour < animaux.Length);
+
+        nbrAnimalAyantPasseTour = 0;
+
+        print("Animaux ont fini leur tour");
+
+        StartCoroutine(Evenements());
     }
+
+    private IEnumerator Evenements()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        StartCoroutine(TourJoueur());
+    }
+    #endregion
 }

@@ -12,12 +12,12 @@ public class PanelRecette : MonoBehaviour
     private Recette recette;
     [SerializeField] private GameObject slotCraft;
     private List<SlotCraft> listeSlots = new List<SlotCraft>();
-
+    private Production gainRessource;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        TourParTour.Defaut.eventNouveauTour.AddListener(MiseAJourProduction);
     }
 
     // Update is called once per frame
@@ -39,6 +39,12 @@ public class PanelRecette : MonoBehaviour
         {
             return recette;
         }
+    }
+
+    private void MiseAJourProduction()
+    {
+        MiseAJourSlots();
+        craft.campement.tribu.stockRessources.AjouterGain(GainRessource);
     }
 
     private void OnEnable()
@@ -131,12 +137,19 @@ public class PanelRecette : MonoBehaviour
     public void AfficherGainRessource()
     {
         panelRessource.GetComponent<PanelGainRessources>().AfficherRessources(GainRessource);
+        craft.campement.tribu.stockRessources.AjouterGain(gainRessource);
     }
 
     private Production GainRessource
     {
         get
         {
+            if (gainRessource == null)
+            {
+                gainRessource = ScriptableObject.CreateInstance<Production>();
+                gainRessource.gains = new float[ListeRessources.Defaut.listeDesRessources.Length];
+            }
+            gainRessource.Clear();
             int slotsOccupes = 0;
             foreach(SlotCraft slot in listeSlots)
             {
@@ -145,7 +158,11 @@ public class PanelRecette : MonoBehaviour
                     slotsOccupes++;
                 }
             }
-            return recette.production * slotsOccupes;
+            for (int i = 0; i < gainRessource.gains.Length; i++)
+            {
+                gainRessource.gains[i] += recette.production.gains[i] * slotsOccupes;
+            }
+            return gainRessource;
         }
     }
 }

@@ -4,11 +4,14 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEngine.Events;
+using System.Linq.Expressions;
+using System;
 
 public class Calendrier : MonoBehaviour
 {
+    #region SINGLETON
     private static Calendrier cela;
-
     public static Calendrier Actuel
     {
         get
@@ -20,15 +23,26 @@ public class Calendrier : MonoBehaviour
             return cela;
         }
     }
+    #endregion
 
     TextMeshProUGUI compteur;
     [SerializeField] int dureeSaison;
-    public bool hiver = true;
-    int decompte;
-    RectTransform roueCalendrier;
-    TuileManager[] damier;
-    TuileTerrain[] terrains;
-    TourParTour tourParTour;
+    private bool hiver = false;
+    public bool Hiver
+    {
+        get
+        {
+            return hiver;
+        }
+    }
+    [SerializeField] private RectTransform roueCalendrier;
+    public UnityEvent changementDeSaison;
+
+    [SerializeField] private float vitesseRotation = 50f;
+
+    private float differenceRotation;
+    private float rotationDepart;
+    private float differenceTemps;
 
     private void Awake()
     {
@@ -39,96 +53,58 @@ public class Calendrier : MonoBehaviour
     void Start()
     {
         cela = this;
-            
-        damier = FindObjectsOfType<TuileManager>();
-        compteur = GetComponentInChildren<TextMeshProUGUI>();
-        terrains = FindObjectsOfType<TuileTerrain>();
-        tourParTour = FindObjectOfType<TourParTour>();
 
-        RecupererRoueCalendrier();
+        differenceRotation = roueCalendrier.localEulerAngles.z;
+        compteur = GetComponentInChildren<TextMeshProUGUI>();
 
         MiseAJourCalendrier(0);
+    }
+    void Update()
+    {
+        Rotater();   
+    }
+
+    private void Rotater()
+    {
+        if(!(Mathf.Clamp(roueCalendrier.localEulerAngles.z, differenceRotation - 1, differenceRotation + 1) == roueCalendrier.localEulerAngles.z))
+        {
+            roueCalendrier.localEulerAngles += new Vector3(0, 0,  vitesseRotation* Time.deltaTime);
+        }   
     }
 
     public void MiseAJourCalendrier(int nbrTour)
     {
+        StartCoroutine(MettreCalendrierAJour(nbrTour));
+    }
+
+    private IEnumerator MettreCalendrierAJour(int nbrTour)
+    {
+        differenceRotation += 180 / dureeSaison;
+        if (differenceRotation > 360) differenceRotation -= 360;
+
+        rotationDepart = roueCalendrier.localEulerAngles.z;
+        differenceTemps = 0;
+
+        yield return new WaitUntil(() => Mathf.Clamp(roueCalendrier.localEulerAngles.z, differenceRotation - 1, differenceRotation + 1) == roueCalendrier.localEulerAngles.z);
+
         MiseAJourCompteurCalendrier(nbrTour);
-        MiseAJourRoueCalendrier();
     }
 
     private void MiseAJourCompteurCalendrier(int nbrTour)
     {
-        decompte = dureeSaison - nbrTour % dureeSaison;
+        int decompte = dureeSaison - nbrTour % dureeSaison;
+        compteur.text = nbrTour.ToString();
 
-        compteur.text = decompte.ToString();
-
-        if (decompte == 4)
+        //On commence à vraiment faire les modif' qu'à partir du premier tour;
+        if(nbrTour != 0)
         {
-            hiver = !hiver;
-            ChangementSaison(hiver);
-            //print(hiver);
-        }
-        else
-        {
-            tourParTour.calendrierMAJ = true;
-        }
-    }
-
-    private void MiseAJourRoueCalendrier()
-    {
-        roueCalendrier.Rotate(0, 0, 180/dureeSaison);
-    }
-    
-    private void RecupererRoueCalendrier()
-    {
-        RectTransform[] listeEnfants = GetComponentsInChildren<RectTransform>();
-
-        foreach(RectTransform enfant in listeEnfants)
-        {
-            if(enfant.gameObject.name == "RoueCalendrier")
+            if (decompte == 4)
             {
-                roueCalendrier = enfant;
-                break;
+                hiver = !hiver;
+                changementDeSaison.Invoke();
             }
+            TourParTour.Defaut.calendrierMAJ = true;
         }
     }
 
-    private void ChangementSaison(bool hiver)
-    {
-        if(hiver)
-        {
-            for (int i = 0; i < terrains.Length; i++)
-            {
-                if(terrains[i].nom == "Foret")
-                {
-                    //terrains[i].nourriture = 0;
-                }
-            }
-        }
-        else
-        {
-            for (int i = 0; i < terrains.Length; i++)
-            {
-                if (terrains[i].nom == "Foret")
-                {
-                    //terrains[i].nourriture = 1;
-                }
-            }
-        }
-
-        for (int i = 0; i < damier.Length; i++)
-        {
-            damier[i].RevetirManteauHiver(hiver);
-            if(i == damier.Length - 1)
-            {
-                tourParTour.calendrierMAJ = true;
-            }
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

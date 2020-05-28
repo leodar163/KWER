@@ -33,6 +33,10 @@ public class Tribu : MonoBehaviour
     public Campement campement;
     public Revendication revendication;
 
+    [Header("Sprites")]
+    [SerializeField] private Sprite SprCampementHiver;
+    private Sprite SprCampementEte;
+
     private void Awake()
     {
 
@@ -59,7 +63,11 @@ public class Tribu : MonoBehaviour
         pointsAction = pointActionDeffaut;
 
         tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle,pointsAction,false);
+
+        stockRessources.EncaisserGain();
     }
+
+
 
     public void Init()
     {
@@ -67,9 +75,12 @@ public class Tribu : MonoBehaviour
 
         pointsAction = pointActionDeffaut;
         pathFinder = GetComponent<PathFinder>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
         tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, pointsAction, false);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        SprCampementEte = spriteRenderer.sprite;
+
+        Calendrier.Actuel.changementDeSaison.AddListener(TrouverTuileActuelle);  
     }
 
     private void TrouverTuileActuelle()
@@ -84,6 +95,22 @@ public class Tribu : MonoBehaviour
             transform.position = new Vector3(tuileActuelle.transform.position.x, tuileActuelle.transform.position.y, transform.position.z);
         }
     }
+
+    #region GRAPHISMES
+
+    public void RevetirSpriteSaison()
+    {
+        if(Calendrier.Actuel.Hiver)
+        {
+            spriteRenderer.sprite = SprCampementHiver;
+        }
+        else
+        {
+            spriteRenderer.sprite = SprCampementEte;
+        }
+    }
+
+    #endregion
 
     #region INTERFACE
 

@@ -15,8 +15,6 @@ public class Troupeau : MonoBehaviour
     [HideInInspector] public bool megaFaune;
     [HideInInspector] public bool predateur;
 
-
-
     private void Awake()
     {
         
@@ -37,6 +35,13 @@ public class Troupeau : MonoBehaviour
     {
 
     }
+
+    public void DemarrerTour()
+    {
+        TourParTour.Defaut.AnimalPasseTour();
+    }
+
+
 
     #region INTERFACE
    
