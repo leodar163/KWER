@@ -36,13 +36,10 @@ public class Calendrier : MonoBehaviour
         }
     }
     [SerializeField] private RectTransform roueCalendrier;
-    public UnityEvent changementDeSaison;
+    public UnityEvent EventChangementDeSaison;
 
-    [SerializeField] private float vitesseRotation = 50f;
-
+    [SerializeField] private float vitesseRotation = 60f;
     private float differenceRotation;
-    private float rotationDepart;
-    private float differenceTemps;
 
     private void Awake()
     {
@@ -82,9 +79,6 @@ public class Calendrier : MonoBehaviour
         differenceRotation += 180 / dureeSaison;
         if (differenceRotation > 360) differenceRotation -= 360;
 
-        rotationDepart = roueCalendrier.localEulerAngles.z;
-        differenceTemps = 0;
-
         yield return new WaitUntil(() => Mathf.Clamp(roueCalendrier.localEulerAngles.z, differenceRotation - 1, differenceRotation + 1) == roueCalendrier.localEulerAngles.z);
 
         MiseAJourCompteurCalendrier(nbrTour);
@@ -101,7 +95,7 @@ public class Calendrier : MonoBehaviour
             if (decompte == 4)
             {
                 hiver = !hiver;
-                changementDeSaison.Invoke();
+                EventChangementDeSaison.Invoke();
             }
             TourParTour.Defaut.calendrierMAJ = true;
         }

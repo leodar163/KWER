@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using TMPro.EditorUtilities;
 using System.Security.Policy;
+using System.Linq;
 
 public class PanelGainRessources : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PanelGainRessources : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJCouleurs);
         affichageRessource.SetActive(false);
     }
 
@@ -79,7 +81,7 @@ public class PanelGainRessources : MonoBehaviour
                 PanelRecette panelRecette = (PanelRecette)parent;
 
                 //si y a moins de ressource en stock qu'il n'en faut pour créer l'objet
-                if (panelRecette.craft.campement.tribu.stockRessources.RessourcesEnStock.gains[indexRessource] < Mathf.Abs(gain))
+                if (panelRecette.craft.campement.tribu.stockRessources.RessourcesEnStock.gains[indexRessource] < Mathf.Abs(gain) && panelRecette.craft.campement.tribu.stockRessources.ProjectionGain.gains[indexRessource] < Mathf.Abs(gain))
                 {
                     txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
                 }
@@ -89,11 +91,9 @@ public class PanelGainRessources : MonoBehaviour
             {
                 Debug.LogError("PanelGainRessource de " + name + " n'a pas le bon type de parent. Il faut un Exploitation ou un PanelRecette");
             }
-            txtMP.text = "-" + gain;
+            txtMP.text = "" + gain;
         }
        
-
-
         nvAffichage.GetComponentInChildren<Image>(true).sprite = icone;
         nvAffichage.GetComponent<RectTransform>().sizeDelta = affichageRessource.GetComponent<RectTransform>().sizeDelta;
         nvAffichage.GetComponent<RectTransform>().pivot = affichageRessource.GetComponent<RectTransform>().pivot;
@@ -103,6 +103,61 @@ public class PanelGainRessources : MonoBehaviour
         nvAffichage.SetActive(true);
 
         listeAffichages.Add(nvAffichage);
+    }
+
+    private void MAJCouleurs()
+    {
+        foreach(GameObject affichage in listeAffichages)
+        {
+            TextMeshProUGUI txtMP = affichage.GetComponentInChildren<TextMeshProUGUI>(true);
+            float gain = float.Parse(txtMP.text);
+            int indexRessource = -1;
+            if (ListeRessources.Defaut) indexRessource = ListeRessources.Defaut.TrouverIndexRessource(affichage.GetComponentInChildren<Image>(true).sprite);
+
+            if (gain > 0)
+            {
+                if (parent is Exploitation)
+                {
+                    txtMP.color = ListeCouleurs.Defaut.couleurTexteSansFond;
+                }
+                else
+                {
+                    txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
+                }
+            }
+            else if (gain < 0)
+            {
+                if (parent is Exploitation)
+                {
+                    Exploitation exploitation = (Exploitation)parent;
+
+                    //si y a moins de ressource en stock qu'il n'en faut pour créer l'objet
+                    if (indexRessource > -1 && exploitation.expedition.tribu.stockRessources.RessourcesEnStock.gains[indexRessource] < Mathf.Abs(gain)
+                        && exploitation.expedition.tribu.stockRessources.ProjectionGain.gains[indexRessource] < 0)
+                    {
+                        txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
+                    }
+                    else txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
+                }
+                else if (parent is PanelRecette)
+                {
+                    PanelRecette panelRecette = (PanelRecette)parent;
+
+                    //si y a moins de ressource en stock qu'il n'en faut pour créer l'objet
+                    if (indexRessource > -1 && panelRecette.craft.campement.tribu.stockRessources.RessourcesEnStock.gains[indexRessource] < Mathf.Abs(gain) 
+                        && panelRecette.craft.campement.tribu.stockRessources.ProjectionGain.gains[indexRessource] < 0)
+                    {
+                        txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
+                    }
+                    else txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
+                }
+                else
+                {
+                    Debug.LogError("PanelGainRessource de " + name + " n'a pas le bon type de parent. Il faut un Exploitation ou un PanelRecette");
+                }
+            }
+
+        }
     }
 
     private void ReinitAffichage()

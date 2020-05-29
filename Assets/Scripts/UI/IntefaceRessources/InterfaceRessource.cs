@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class InterfaceRessource : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class InterfaceRessource : MonoBehaviour
 
     [SerializeField] private GameObject PanelInfoRessource;
     private List<PanelInfoRessource> listePanelsInfoRessource = new List<PanelInfoRessource>();
+
+    public UnityEvent EventInterfaceMAJ;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +76,7 @@ public class InterfaceRessource : MonoBehaviour
         {
             listePanelsInfoRessource[i].Capacite = capacite.gains[i];
         }
+        EventInterfaceMAJ.Invoke();
     }
 
     public void MiseAJourStock(Production stock)
@@ -81,6 +85,7 @@ public class InterfaceRessource : MonoBehaviour
         {
             listePanelsInfoRessource[i].Stock = stock.gains[i];
         }
+        EventInterfaceMAJ.Invoke();
     }
 
     public void MiseAjourGain(Production gain)
@@ -89,5 +94,6 @@ public class InterfaceRessource : MonoBehaviour
         {
             listePanelsInfoRessource[i].Gain = gain.gains[i];
         }
+        EventInterfaceMAJ.Invoke();
     }
 }

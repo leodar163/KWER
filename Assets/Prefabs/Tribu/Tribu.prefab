@@ -1624,7 +1624,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3981823110589431221}
-        m_MethodName: RetirerPop
+        m_MethodName: SupprimerPop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

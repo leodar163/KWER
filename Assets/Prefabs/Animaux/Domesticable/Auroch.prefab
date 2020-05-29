@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2523344375351965229}
   - component: {fileID: 1714641867515581847}
   - component: {fileID: 9055846603267299339}
+  - component: {fileID: 1595176928494081868}
   m_Layer: 11
   m_Name: Auroch
   m_TagString: Untagged
@@ -50,12 +51,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   migration: {fileID: 2523344375351965229}
+  hostile: {fileID: 1595176928494081868}
   productionTroupeau: {fileID: 1714641867515581847}
   spriteRenderer: {fileID: 6269753663623220688}
   revendication: {fileID: 9055846603267299339}
   domesticable: 1
   megaFaune: 0
   predateur: 0
+  aFaitUneAction: 0
 --- !u!70 &3796760071837312150
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -87,7 +90,7 @@ MonoBehaviour:
   troupeau: {fileID: 4240119684360671227}
   tuileActuelle: {fileID: 0}
   vitesse: 2
-  ptsActionDefaut: 2
+  ptsDeplacementDefaut: 2
   cantonnerAuxPlaines: 1
 --- !u!114 &1714641867515581847
 MonoBehaviour:
@@ -117,6 +120,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 4240119684360671227}
+--- !u!114 &1595176928494081868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799528128373039931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda67a0ef89633f4b86b6ea8adef0258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  troupeau: {fileID: 4240119684360671227}
 --- !u!1 &4788891487758131682
 GameObject:
   m_ObjectHideFlags: 0

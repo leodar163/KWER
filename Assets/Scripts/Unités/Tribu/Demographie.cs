@@ -65,6 +65,7 @@ public class Demographie : MonoBehaviour
 
         listePopsCampement.Add(nvPop.GetComponent<Pop>());
         tribu.stockRessources.CalculerGain();
+        tribu.stockRessources.AjouterCapacitePop();
         AjusterRouePopulation();
     }
 
@@ -79,13 +80,16 @@ public class Demographie : MonoBehaviour
         }
     }
 
-    public void RetirerPop()
+    public void SupprimerPop()
     { 
         if(listePopsCampement.Count >= 0 && (listePopsCampement.Count + listePopsExpedition.Count) > 1)
         {
             Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1];
             listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
             Destroy(popRetiree.gameObject);
+
+            tribu.stockRessources.CalculerGain();
+            tribu.stockRessources.RetirerCapacitePop();
 
             AjusterRouePopulation();
         }
@@ -100,12 +104,16 @@ public class Demographie : MonoBehaviour
         {
             Destroy(popRetiree.gameObject);
             popRetiree = null;
+            tribu.stockRessources.RetirerCapacitePop();
         }
         else
         {
             listePopsExpedition.Add(popRetiree);
         }
+
+        tribu.stockRessources.CalculerGain();
         
+
         AjusterRouePopulation();
 
         return popRetiree;

@@ -80,7 +80,7 @@ public class Tribu : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         SprCampementEte = spriteRenderer.sprite;
 
-        Calendrier.Actuel.changementDeSaison.AddListener(TrouverTuileActuelle);  
+        Calendrier.Actuel.EventChangementDeSaison.AddListener(TrouverTuileActuelle);  
     }
 
     private void TrouverTuileActuelle()

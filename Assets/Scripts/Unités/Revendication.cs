@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Revendication : MonoBehaviour
 {
-    
-    [SerializeField] private MonoBehaviour parent;
+
+    public MonoBehaviour parent;
+    private List<RevendicationTuile> tuilesRevendiquees = new List<RevendicationTuile>();
 
     // Start is called before the first frame update
     void Start()
@@ -17,14 +18,14 @@ public class Revendication : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void RevendiquerTerritoire(TuileManager tuileActuelle, bool revendiquer)
     {
         RevendiquerTuile(tuileActuelle, revendiquer);
 
-        foreach(TuileManager tuile in tuileActuelle.connections)
+        foreach (TuileManager tuile in tuileActuelle.connections)
         {
             RevendiquerTuile(tuile, revendiquer);
         }
@@ -32,13 +33,21 @@ public class Revendication : MonoBehaviour
 
     private void RevendiquerTuile(TuileManager tuile, bool revendiquer)
     {
-        if(revendiquer)
+        if (revendiquer)
         {
-            if(!tuile.revendication.revendicateurs.Contains(this)) tuile.revendication.revendicateurs.Add(this);
+            if (!tuile.revendication.revendicateurs.Contains(this))
+            {
+                tuile.revendication.revendicateurs.Add(this);
+                tuilesRevendiquees.Add(tuile.revendication);
+            }
         }
         else
         {
-            if (tuile.revendication.revendicateurs.Contains(this)) tuile.revendication.revendicateurs.Remove(this);
+            if (tuile.revendication.revendicateurs.Contains(this))
+            {
+                tuile.revendication.revendicateurs.Remove(this);
+                tuilesRevendiquees.Remove(tuile.revendication);
+            }
         }
     }
 
@@ -52,14 +61,14 @@ public class Revendication : MonoBehaviour
             }
             else return false;
         }
-        
+
     }
 
     public bool EstTribu
     {
         get
-        { 
-            if(parent is Tribu)
+        {
+            if (parent is Tribu)
             {
                 return true;
             }
@@ -119,7 +128,21 @@ public class Revendication : MonoBehaviour
             else return false;
         }
     }
-    //revendiquer une tuile libre
-    //dispuster une tuile déjà revendiquer
-    //protéger une tuile revendiqué disputer par quelqu'un d'autre
+
+    public List<Revendication> TrouverRevendicateursAPortee()
+    {
+        List<Revendication> revendicateurs = new List<Revendication>();
+
+        foreach(RevendicationTuile tuile in tuilesRevendiquees)
+        {
+            foreach(Revendication revendicateur in tuile.revendicateurs)
+            {
+                if(!revendicateurs.Contains(revendicateur))
+                {
+                    revendicateurs.Add(revendicateur);
+                }
+            }
+        }
+        return revendicateurs;
+    }
 }

@@ -8,12 +8,21 @@ public class Migration : MonoBehaviour
 
     public TuileManager tuileActuelle;
     [SerializeField] float vitesse;
-    [SerializeField] float ptsActionDefaut = 2;
-    float ptsAction;
+    [SerializeField] float ptsDeplacementDefaut = 2;
+    float ptsDeplacement;
     TuileManager prochaineTuile = null;
     List<TuileManager> tuilesParcourues;
     bool traverseFleuve = false;
     public bool cantonnerAuxPlaines;
+
+    public bool PeutBouger
+    {
+        get
+        {
+            if (ptsDeplacement > 0 && Calendrier.Actuel.Hiver) return true;
+            else return false;
+        }
+    }
 
     private void Awake()
     {
@@ -29,12 +38,14 @@ public class Migration : MonoBehaviour
             troupeau = GetComponent<Troupeau>();
         }
         Invoke("TrouverTuileActuelle",0.5f);
+
+        Calendrier.Actuel.EventChangementDeSaison.AddListener(TerminerMigration);
     }
 
     // Update is called once per frame
     void Update()
     {
-        SeDeplacer();
+
     }
 
     private void TrouverTuileActuelle()
@@ -53,24 +64,60 @@ public class Migration : MonoBehaviour
     }
 
 
-    public void Migrer()
+    public void InitialiserPointsDeplacement()
     {
-        ptsAction = ptsActionDefaut;
+        ptsDeplacement = ptsDeplacementDefaut;
         tuilesParcourues.Add(tuileActuelle);
     }
 
-    public void FinirMigration()
+    //Boucle de déplacement
+    public IEnumerator Migrer()
     {
-        if (tuilesParcourues != null || tuilesParcourues.Count != 0)
+        if (ptsDeplacement > 0)
         {
-            tuilesParcourues.Clear();
+            tuilesParcourues.Add(tuileActuelle);
+            prochaineTuile = ChoisirProchaineTuile();
+
+            if (CheckerFleuve())
+            {
+                traverseFleuve = true;
+            }
+
+            //Tant qu'on est pas arrivé à la prochaine tuile, on avance vers elle
+            //simule un Update() avec le WaitForEndOfFrame()
+            while (!EstArrivePrichaineTuile())
+            {
+                SeDeplacerALaProchaineTuile();
+                yield return new WaitForEndOfFrame();
+            }
+
+            //On diminue les points de deplacements disponibles fonction de si on a traversé un fleuve ou pas
+            if(traverseFleuve)
+            {
+                ptsDeplacement--;
+            }
+            ptsDeplacement--;
+
+            //On abandonne le territoire tantôt à portée, 
+            //puis on trouve la tuile actuelle, 
+            //puis on revendique le territoire maintenant à porté
+            troupeau.revendication.RevendiquerTerritoire(tuileActuelle, false);
+            TrouverTuileActuelle();
+            troupeau.revendication.RevendiquerTerritoire(tuileActuelle, true);
+
+            tuilesParcourues.Add(tuileActuelle);
         }
-        ptsAction = 0;
+
+        troupeau.aFaitUneAction = true;
+    }
+
+    private void TerminerMigration()
+    {
+        tuilesParcourues.Clear();
     }
 
     private bool CheckerFleuve()
     {
-
         LayerMask maskFleuve = LayerMask.GetMask("Fleuve");
 
         RaycastHit2D checkFleuve = Physics2D.Raycast(transform.position, prochaineTuile.transform.position, tuileActuelle.GetComponent<TuileManager>().tailleTuile, maskFleuve);
@@ -83,48 +130,8 @@ public class Migration : MonoBehaviour
         {
             return false;
         }
-
     }
 
-    private void SeDeplacer()
-    {
-        if (ptsAction > 0)
-        {
-            if (prochaineTuile == null)
-            {
-                
-
-                prochaineTuile = ChoisirProchaineTuile();
-
-                if (CheckerFleuve())
-                {
-                    traverseFleuve = true;
-                }
-            }
-
-            if (!EstArrivePrichaineTuile())
-            {
-
-                SeDeplacerALaProchaineTuile();
-            }
-            else
-            {
-
-                if (traverseFleuve)
-                {
-                    ptsAction--;
-                    traverseFleuve = false;
-                }
-
-                TrouverTuileActuelle();
-                tuilesParcourues.Add(tuileActuelle);
-
-                prochaineTuile = null;
-
-                ptsAction--;
-            }
-        }
-    }
 
     private bool EstArrivePrichaineTuile()
     {
@@ -151,35 +158,39 @@ public class Migration : MonoBehaviour
         {
             if (tuile)
             {
-                TuileManager tMCible = tuile;
-                if (!tuilesParcourues.Contains(tMCible))
+                if (!tuilesParcourues.Contains(tuile))
                 {
-                    if(troupeau)
+                    if(!troupeau.predateur)
                     {
-                        if (tMCible.terrainTuile.nom == "Plaine")
+                        if (tuile.terrainTuile.nom == "Plaine")
                         {
-                            directionPossibles.Add(tMCible);
+                            directionPossibles.Add(tuile);
                         }
                     }
                     else
                     {
-                        directionPossibles.Add(tMCible);
+                        directionPossibles.Add(tuile);
                     }
-                    
                 }
             }
         }
+
         if (directionPossibles.Count == 0)
         {
             foreach (TuileManager tuile in tuileActuelle.connections)
             {
                 if (tuile)
                 {
-                    TuileManager tMCible = tuile;
-
-                    if (tMCible.terrainTuile.nom == "Plaine")
+                    if(!troupeau.predateur)
                     {
-                        directionPossibles.Add(tMCible);
+                        if (tuile.terrainTuile.nom == "Plaine")
+                        {
+                            directionPossibles.Add(tuile);
+                        }
+                    }
+                    else
+                    {
+                        directionPossibles.Add(tuile);
                     }
                 }
             }

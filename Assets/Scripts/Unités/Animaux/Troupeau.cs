@@ -7,6 +7,7 @@ using UnityEngine;
 public class Troupeau : MonoBehaviour
 {
     public Migration migration;
+    public Hostile hostile;
     public ProductionTroupeau productionTroupeau;
     public SpriteRenderer spriteRenderer;
     public Revendication revendication;
@@ -36,11 +37,37 @@ public class Troupeau : MonoBehaviour
 
     }
 
+    #region iNTELLIGENCE ARTIFICIELLE
     public void DemarrerTour()
     {
-        TourParTour.Defaut.AnimalPasseTour();
+        migration.InitialiserPointsDeplacement();
+        StartCoroutine(DeroulerTour());
     }
 
+    [HideInInspector] public bool aFaitUneAction = false;
+    private IEnumerator DeroulerTour()
+    {
+        while(migration.PeutBouger || hostile.PeutAttaquer)
+        {
+            if(predateur)
+            {
+                StartCoroutine(hostile.Attaquer());
+            }
+            else
+            {
+                if(Calendrier.Actuel.Hiver)
+                {
+                    StartCoroutine(migration.Migrer());
+                }
+            }
+
+            yield return new WaitUntil(() => aFaitUneAction);
+            aFaitUneAction = false;
+        }
+
+        TourParTour.Defaut.AnimalPasseTour();
+    }
+    #endregion
 
 
     #region INTERFACE

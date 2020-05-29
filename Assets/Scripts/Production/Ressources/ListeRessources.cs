@@ -39,4 +39,28 @@ public class ListeRessources : MonoBehaviour
     {
         
     }
+
+    public int TrouverIndexRessource(string nom)
+    {
+        for (int i = 0; i < listeDesRessources.Length; i++)
+        {
+            if(listeDesRessources[i].nom == nom)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int TrouverIndexRessource(Sprite Icone)
+    {
+        for (int i = 0; i < listeDesRessources.Length; i++)
+        {
+            if(Icone.name.EndsWith(listeDesRessources[i].nom))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

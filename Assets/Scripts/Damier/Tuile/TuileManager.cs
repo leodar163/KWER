@@ -44,7 +44,7 @@ public class TuileManager : MonoBehaviour
     private void Awake()
     {
         //Init();
-        Calendrier.Actuel.changementDeSaison.AddListener(RevetirSpriteSaison);
+        Calendrier.Actuel.EventChangementDeSaison.AddListener(RevetirSpriteSaison);
         spriteBase = GetComponent<SpriteRenderer>();
         spriteGarniture = garniture.GetComponent<SpriteRenderer>();
         TrouverConnections(nombreConnections);

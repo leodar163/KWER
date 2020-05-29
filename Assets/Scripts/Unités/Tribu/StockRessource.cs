@@ -43,6 +43,14 @@ public class StockRessource : MonoBehaviour
         }
     }
 
+    public Production ProjectionGain
+    {
+        get
+        {
+            return projectionGain;
+        }
+    }
+
     private void Awake()
     {
         InstancierProduction();
@@ -113,7 +121,6 @@ public class StockRessource : MonoBehaviour
             }
             else projectionGain += consoParPop * tribu.demographie.taillePopulation;
         }
-        LimiterGain();
 
         MiseAJourInterfaceRessource();
     }
@@ -148,6 +155,7 @@ public class StockRessource : MonoBehaviour
         }
 
         LimiterStock();
+        MiseAJourInterfaceRessource();
     }
 
     private void MiseAJourInterfaceRessource()
@@ -160,8 +168,21 @@ public class StockRessource : MonoBehaviour
         }
     }
 
-    public void MiseAJourCapacite(Demographie demo)
+    public void AjouterCapacitePop()
     {
-        CapaciteDeStockage = capaciteParPop * demo.taillePopulation;
+        for (int i = 0; i < capaciteDeStockage.gains.Length; i++)
+        {
+            capaciteDeStockage.gains[i] += capaciteParPop.gains[i];
+        }
+        MiseAJourInterfaceRessource();
+    }
+
+    public void RetirerCapacitePop()
+    {
+        for (int i = 0; i < capaciteDeStockage.gains.Length; i++)
+        {
+            capaciteDeStockage.gains[i] -= capaciteParPop.gains[i];
+        }
+        MiseAJourInterfaceRessource();
     }
 }
