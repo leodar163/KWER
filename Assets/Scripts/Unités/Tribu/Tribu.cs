@@ -1,18 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class Tribu : MonoBehaviour
 {
     public int idTribu;
 
-    PathFinder pathFinder;
-    public TuileManager tuileActuelle;
     SpriteRenderer spriteRenderer;
     
 
     [HideInInspector] public bool estEntreCampement = false;
     
     [Header("Déplacements")]
+    public PathFinder pathFinder;
+    [HideInInspector]public TuileManager tuileActuelle;
     public float pointActionDeffaut = 3;
     public float pointsAction;
     public float vitesse = 10;
@@ -67,15 +68,12 @@ public class Tribu : MonoBehaviour
         stockRessources.EncaisserGain();
     }
 
-
-
     public void Init()
     {
         TrouverTuileActuelle();
 
         pointsAction = pointActionDeffaut;
-        pathFinder = GetComponent<PathFinder>();
-        tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, pointsAction, false);
+        StartCoroutine(MAJTuilesAPortee());
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         SprCampementEte = spriteRenderer.sprite;
@@ -83,8 +81,29 @@ public class Tribu : MonoBehaviour
         Calendrier.Actuel.EventChangementDeSaison.AddListener(TrouverTuileActuelle);  
     }
 
+    private IEnumerator MAJTuilesAPortee()
+    {
+        while(Application.isPlaying)
+        {
+            tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, pointsAction, false);
+            
+            if(!estEntreCampement && ControleSouris.Actuel.controlesActives)
+            {
+                pathFinder.ColorerGraphe(tuilesAPortee, tuileActuelle.couleurTuileAPortee);
+            }
+            else
+            {
+                pathFinder.ColorerGraphe(tuilesAPortee, Color.white);
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
     private void TrouverTuileActuelle()
     {
+        if (tuileActuelle) tuileActuelle.estOccupee = false;
+
         LayerMask layerMaskTuile = LayerMask.GetMask("Tuile");
 
         Collider2D checkTuile = Physics2D.OverlapBox(transform.position, new Vector2(0.1f, 0.1f), 0, layerMaskTuile);
@@ -94,6 +113,8 @@ public class Tribu : MonoBehaviour
             tuileActuelle = checkTuile.GetComponent<TuileManager>();
             transform.position = new Vector3(tuileActuelle.transform.position.x, tuileActuelle.transform.position.y, transform.position.z);
         }
+
+        tuileActuelle.estOccupee = true;
     }
 
     #region GRAPHISMES

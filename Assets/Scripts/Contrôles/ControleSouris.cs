@@ -144,19 +144,12 @@ public class ControleSouris : MonoBehaviour
         {
             TuileManager tuileSurvolee = checkTuile.GetComponent<TuileManager>();
 
-            PathFinder pathFinder = tribuControlee.GetComponent<PathFinder>();
-
             //Colore le chemin et le met à jour toutes les frames, si la tuile qu'on survole est à portee
             if (tuileSurvolee.aPortee)
             {
-                if (tribuControlee.estEntreCampement || !controlesActives)
+                if (!tribuControlee.estEntreCampement && controlesActives)
                 {
-                    pathFinder.ColorerGraphe(tribuControlee.tuilesAPortee, Color.white);
-                }
-                else
-                {
-                    pathFinder.ColorerGraphe(tribuControlee.tuilesAPortee, tuileSurvolee.couleurTuileAPortee);
-                    pathFinder.ColorerChemin(pathFinder.TrouverChemin(tribuControlee.tuileActuelle, tuileSurvolee), tuileSurvolee.couleurTuileSurChemin);
+                    tribuControlee.pathFinder.ColorerChemin(tribuControlee.pathFinder.TrouverChemin(tribuControlee.tuileActuelle, tuileSurvolee), tuileSurvolee.couleurTuileSurChemin);
                 }
             }
         }

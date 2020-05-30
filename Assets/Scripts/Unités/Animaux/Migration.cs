@@ -50,6 +50,7 @@ public class Migration : MonoBehaviour
 
     private void TrouverTuileActuelle()
     {
+        if (tuileActuelle) tuileActuelle.estOccupee = false;
         LayerMask layerMaskTuile = LayerMask.GetMask("Tuile");
 
         Collider2D checkTuile = Physics2D.OverlapBox(transform.position, new Vector2(0.1f, 0.1f), 0, layerMaskTuile);
@@ -60,6 +61,7 @@ public class Migration : MonoBehaviour
             transform.position = new Vector3(tuileActuelle.transform.position.x, tuileActuelle.transform.position.y, transform.position.z);
         }
 
+        tuileActuelle.estOccupee = true;
         troupeau.productionTroupeau.FertiliserTuile();
     }
 
@@ -156,7 +158,7 @@ public class Migration : MonoBehaviour
 
         foreach (TuileManager tuile in tuileActuelle.connections)
         {
-            if (tuile)
+            if (tuile && tuile.estOccupee == false)
             {
                 if (!tuilesParcourues.Contains(tuile))
                 {
@@ -179,7 +181,7 @@ public class Migration : MonoBehaviour
         {
             foreach (TuileManager tuile in tuileActuelle.connections)
             {
-                if (tuile)
+                if (tuile && tuile.estOccupee == false)
                 {
                     if(!troupeau.predateur)
                     {

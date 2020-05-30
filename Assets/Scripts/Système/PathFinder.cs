@@ -30,7 +30,7 @@ public class PathFinder : MonoBehaviour
                     {
                         TuileManager tuileFille = tuileObservee.connections[i];
 
-                        if (!tuileFille.parcouru)//On demande si la tuile a déjà été explorée par l'algo
+                        if (!tuileFille.parcouru && tuileFille.estOccupee == false)//On demande si la tuile a déjà été explorée par l'algo et si elle est occupée
                         {
                             tuileFille.parcouru = true;
                             tuileFille.predecesseur = tuileObservee;
@@ -72,7 +72,7 @@ public class PathFinder : MonoBehaviour
                     {
                         TuileManager tuileFille = tuileObservee.connections[i];
 
-                        if (!tuileFille.parcouru)//On demande si la tuile a déjà été explorée par l'algo
+                        if (!tuileFille.parcouru && tuileFille.estOccupee == false)//On demande si la tuile a déjà été explorée par l'algo et si elle est occupée
                         {
                             if (peutEmbarquer)// si on peut embarquer, aucune restriction concernant l'eau
                             {

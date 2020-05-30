@@ -435,8 +435,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idTribu: 0
-  tuileActuelle: {fileID: 0}
   estEntreCampement: 0
+  pathFinder: {fileID: 8930979129811697115}
+  tuileActuelle: {fileID: 0}
   pointActionDeffaut: 3
   pointsAction: 0
   vitesse: 2

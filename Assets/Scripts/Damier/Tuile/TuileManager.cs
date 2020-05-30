@@ -14,11 +14,11 @@ public class TuileManager : MonoBehaviour
     public int nombreConnections;
     public List<TuileManager> connections; //Liste des noeuds directement relié à celui-ci
     public List<float> connectionsDistance; //Poids entre les noeuds / l'index est le même que celui des connections
-    [HideInInspector]public float distance = 0;
+    [HideInInspector] public float distance = 0;
     [HideInInspector] public bool parcouru = false;
     [HideInInspector] public bool aPortee = false;
     [HideInInspector] public TuileManager predecesseur;
-
+    public bool estOccupee;
     [HideInInspector] public float tailleTuile;
     
 
