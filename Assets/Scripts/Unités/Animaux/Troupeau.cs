@@ -47,7 +47,7 @@ public class Troupeau : MonoBehaviour
     [HideInInspector] public bool aFaitUneAction = false;
     private IEnumerator DeroulerTour()
     {
-        while(migration.PeutBouger || hostile.PeutAttaquer)
+        while(migration.PeutBouger || (hostile != null && hostile.PeutAttaquer))
         {
             if(predateur)
             {

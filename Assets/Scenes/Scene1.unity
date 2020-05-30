@@ -208,6 +208,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 532343225}
   spritesBase:
@@ -486,6 +487,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 582261397}
   spritesBase:
@@ -1624,6 +1626,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1331904952}
   spritesBase:
@@ -2079,6 +2082,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 81935348}
   spritesBase:
@@ -2706,6 +2710,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelInfoRessource: {fileID: 1153121799}
+  EventInterfaceMAJ:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &66648533
 GameObject:
   m_ObjectHideFlags: 0
@@ -3230,6 +3237,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 691617759}
   spritesBase:
@@ -3410,6 +3418,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 2014703173}
   spritesBase:
@@ -3687,6 +3696,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 456245291}
   spritesBase:
@@ -4240,6 +4250,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 418513866}
   spritesBase:
@@ -4420,6 +4431,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1144244249}
   spritesBase:
@@ -4779,6 +4791,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 795918001}
   spritesBase:
@@ -5315,6 +5328,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1603968442}
   spritesBase:
@@ -5593,6 +5607,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 395561593}
   spritesBase:
@@ -6842,6 +6857,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1832212893}
   spritesBase:
@@ -7607,6 +7623,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 2103042503}
   spritesBase:
@@ -7982,6 +7999,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 996786614}
   spritesBase:
@@ -8341,6 +8359,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 133866965}
   spritesBase:
@@ -8812,6 +8831,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1502722208}
   spritesBase:
@@ -9535,6 +9555,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1902925086}
   spritesBase:
@@ -9893,6 +9914,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1482993470}
   spritesBase:
@@ -10171,6 +10193,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1679571646}
   spritesBase:
@@ -10789,6 +10812,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1336895702}
   spritesBase:
@@ -11700,6 +11724,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 236965645}
   spritesBase:
@@ -12529,6 +12554,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1899366239}
   spritesBase:
@@ -12806,6 +12832,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1711397381}
   spritesBase:
@@ -12986,6 +13013,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1478131967}
   spritesBase:
@@ -13701,6 +13729,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 798437899}
   spritesBase:
@@ -14059,6 +14088,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1229464397}
   spritesBase:
@@ -14239,6 +14269,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1291775728}
   spritesBase:
@@ -14516,6 +14547,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 334668498}
   spritesBase:
@@ -15269,6 +15301,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1811745700}
   spritesBase:
@@ -15605,6 +15638,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1187057427}
   spritesBase:
@@ -16078,6 +16112,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 770008299}
   spritesBase:
@@ -16711,6 +16746,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 132736059}
   spritesBase:
@@ -17066,6 +17102,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1896325078}
   spritesBase:
@@ -17408,6 +17445,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 681106926}
   spritesBase:
@@ -17669,6 +17707,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1771199434}
   spritesBase:
@@ -18905,6 +18944,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 2090807784}
   spritesBase:
@@ -20900,6 +20940,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 17249819}
   spritesBase:
@@ -21161,6 +21202,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1829492408}
   spritesBase:
@@ -21341,6 +21383,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 479602067}
   spritesBase:
@@ -21618,6 +21661,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 342991353}
   spritesBase:
@@ -24054,6 +24098,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 592778661}
   spritesBase:
@@ -24672,6 +24717,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1759561402}
   spritesBase:
@@ -24852,6 +24898,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1084055174}
   spritesBase:
@@ -25032,6 +25079,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 627933212}
   spritesBase:
@@ -25762,6 +25810,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1033156987}
   spritesBase:
@@ -27234,6 +27283,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 900012031}
   spritesBase:
@@ -27511,6 +27561,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 657461079}
   spritesBase:
@@ -28926,6 +28977,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1137607429}
   spritesBase:
@@ -29203,6 +29255,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 298415279}
   spritesBase:
@@ -29383,6 +29436,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1550929026}
   spritesBase:
@@ -29563,6 +29617,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 2137735016}
   spritesBase:
@@ -30197,6 +30252,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1647887116}
   spritesBase:
@@ -31235,6 +31291,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 891375061}
   spritesBase:
@@ -31691,6 +31748,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 44872668}
   spritesBase:
@@ -31871,6 +31929,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 151395713}
   spritesBase:
@@ -32506,6 +32565,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 103861662}
   spritesBase:
@@ -32767,6 +32827,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 147049672}
   spritesBase:
@@ -33400,6 +33461,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 477454763}
   spritesBase:
@@ -34147,6 +34209,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 115573816}
   spritesBase:
@@ -35290,6 +35353,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1075298443}
   spritesBase:
@@ -35568,6 +35632,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 721546563}
   spritesBase:
@@ -35748,6 +35813,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 482982542}
   spritesBase:
@@ -36399,6 +36465,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1434344286}
   spritesBase:
@@ -37576,6 +37643,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 75256184}
   spritesBase:
@@ -38046,6 +38114,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 496887470}
   spritesBase:
@@ -38226,6 +38295,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1242748428}
   spritesBase:
@@ -39101,6 +39171,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 2127131501}
   spritesBase:
@@ -39556,6 +39627,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 310271167}
   spritesBase:
@@ -39834,6 +39906,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 514865823}
   spritesBase:
@@ -40695,6 +40768,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1691453401}
   spritesBase:
@@ -41307,6 +41381,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 371225063}
   spritesBase:
@@ -41568,6 +41643,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 930588254}
   spritesBase:
@@ -42984,6 +43060,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 188293571}
   spritesBase:
@@ -44398,6 +44475,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 538648290}
   spritesBase:
@@ -44578,6 +44656,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 2037074629}
   spritesBase:
@@ -44839,6 +44918,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 66648533}
   spritesBase:
@@ -45117,6 +45197,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 940654337}
   spritesBase:
@@ -46171,6 +46252,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1974174428}
   spritesBase:
@@ -46546,6 +46628,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 2058738159}
   spritesBase:
@@ -47546,6 +47629,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 289444486}
   spritesBase:
@@ -47921,6 +48005,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 122666927}
   spritesBase:
@@ -48101,6 +48186,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1992398505}
   spritesBase:
@@ -48751,6 +48837,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 282415508}
   spritesBase:
@@ -49093,6 +49180,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1483787634}
   spritesBase:
@@ -49892,6 +49980,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1451389867}
   spritesBase:
@@ -50267,6 +50356,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 489063943}
   spritesBase:
@@ -50545,6 +50635,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 374175352}
   spritesBase:
@@ -50806,6 +50897,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 142902863}
   spritesBase:
@@ -51405,6 +51497,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1297264761}
   spritesBase:
@@ -51845,6 +51938,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 152580478}
   spritesBase:
@@ -52512,6 +52606,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 286246772}
   spritesBase:
@@ -52855,6 +52950,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 2113959936}
   spritesBase:
@@ -53035,6 +53131,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 119710525}
   spritesBase:
@@ -53999,7 +54096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dureeSaison: 4
   roueCalendrier: {fileID: 56352985}
-  changementDeSaison:
+  EventChangementDeSaison:
     m_PersistentCalls:
       m_Calls: []
   vitesseRotation: 40
@@ -54223,6 +54320,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 749224983}
   spritesBase:
@@ -54484,6 +54582,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 376000263}
   spritesBase:
@@ -54664,6 +54763,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1087326578}
   spritesBase:
@@ -55120,6 +55220,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1870879786}
   spritesBase:
@@ -56137,6 +56238,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1040911867}
   spritesBase:
@@ -56787,6 +56889,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1023811102}
   spritesBase:
@@ -57420,6 +57523,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1518729469}
   spritesBase:
@@ -58460,6 +58564,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1174904635}
   spritesBase:
@@ -58737,6 +58842,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 40716082}
   spritesBase:
@@ -59014,6 +59120,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1064938706}
   spritesBase:
@@ -59291,6 +59398,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 252929687}
   spritesBase:
@@ -59844,6 +59952,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 2079977994}
   spritesBase:
@@ -60396,6 +60505,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 937186409}
   spritesBase:
@@ -61339,6 +61449,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1020493190}
   spritesBase:
@@ -61796,6 +61907,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 316033134}
   spritesBase:
@@ -63507,6 +63619,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1600063315}
   spritesBase:
@@ -63687,6 +63800,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1104741056}
   spritesBase:
@@ -64353,6 +64467,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1721642672}
   spritesBase:
@@ -65147,6 +65262,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1620855101}
   spritesBase:
@@ -65327,6 +65443,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1085479784}
   spritesBase:
@@ -66308,6 +66425,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1180379024}
   spritesBase:
@@ -66662,6 +66780,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4240119684360671227, guid: 18fd76525600bc1478a42c4153774c23,
+        type: 3}
+      propertyPath: hostile
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240119684360671227, guid: 18fd76525600bc1478a42c4153774c23,
+        type: 3}
+      propertyPath: domesticable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240119684360671227, guid: 18fd76525600bc1478a42c4153774c23,
+        type: 3}
+      propertyPath: megaFaune
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240119684360671227, guid: 18fd76525600bc1478a42c4153774c23,
+        type: 3}
+      propertyPath: predateur
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18fd76525600bc1478a42c4153774c23, type: 3}
 --- !u!1 &2056520046
@@ -67010,6 +67148,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 448548980}
   spritesBase:
@@ -67287,6 +67426,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1348638850}
   spritesBase:
@@ -67548,6 +67688,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1555161757}
   spritesBase:
@@ -68280,6 +68421,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1793090441}
   spritesBase:
@@ -68833,6 +68975,7 @@ MonoBehaviour:
   parcouru: 0
   aPortee: 0
   predecesseur: {fileID: 0}
+  estOccupee: 0
   tailleTuile: 1
   garniture: {fileID: 1008241137}
   spritesBase:

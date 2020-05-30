@@ -43,23 +43,47 @@ public class TroupeauEditor : Editor
             troupeau.domesticable = true;
             troupeau.megaFaune = false;
             troupeau.predateur = false;
-            troupeau.migration.cantonnerAuxPlaines = true;
+
+
+            if(troupeau.GetComponent<Hostile>())
+            {
+                DestroyImmediate(troupeau.GetComponent<Hostile>());
+            }
         }
         ColorerSelection(troupeau.megaFaune);
         if (GUILayout.Button("MegaFaune", options))
         {
+            Hostile hostile = troupeau.GetComponent<Hostile>();
+
             troupeau.domesticable = false;
             troupeau.megaFaune = true;
             troupeau.predateur = false;
-            troupeau.migration.cantonnerAuxPlaines = true;
+
+
+            if (!hostile)
+            {
+                hostile = troupeau.gameObject.AddComponent<Hostile>();
+            }
+
+            hostile.troupeau = troupeau;
+            troupeau.hostile = hostile;
         }
         ColorerSelection(troupeau.predateur);
         if (GUILayout.Button("Predateur", options))
         {
+            Hostile hostile = troupeau.GetComponent<Hostile>();
+
             troupeau.domesticable = false;
             troupeau.megaFaune = false;
             troupeau.predateur = true;
-            troupeau.migration.cantonnerAuxPlaines = false;
+
+            if (!hostile)
+            {
+                hostile = troupeau.gameObject.AddComponent<Hostile>();
+            }
+
+            hostile.troupeau = troupeau;
+            troupeau.hostile = hostile;
         }
     }
 

@@ -118,11 +118,11 @@ public class PanelGainRessources : MonoBehaviour
             {
                 if (parent is Exploitation)
                 {
-                    txtMP.color = ListeCouleurs.Defaut.couleurTexteSansFond;
+                    if(ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurTexteSansFond;
                 }
                 else
                 {
-                    txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
+                    if (ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
                 }
             }
             else if (gain < 0)
@@ -132,31 +132,32 @@ public class PanelGainRessources : MonoBehaviour
                     Exploitation exploitation = (Exploitation)parent;
 
                     //si y a moins de ressource en stock qu'il n'en faut pour créer l'objet
+                    //et que la production au prochain tour ne permet pas de compenser
                     if (indexRessource > -1 && exploitation.expedition.tribu.stockRessources.RessourcesEnStock.gains[indexRessource] < Mathf.Abs(gain)
                         && exploitation.expedition.tribu.stockRessources.ProjectionGain.gains[indexRessource] < 0)
                     {
-                        txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
+                        if (ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
                     }
-                    else txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
+                    else if (ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
                 }
                 else if (parent is PanelRecette)
                 {
                     PanelRecette panelRecette = (PanelRecette)parent;
 
-                    //si y a moins de ressource en stock qu'il n'en faut pour créer l'objet
+                    //si y a moins de ressource en stock qu'il n'en faut pour créer l'objet 
+                    //et que la production au prochain tour ne permet pas de compenser
                     if (indexRessource > -1 && panelRecette.craft.campement.tribu.stockRessources.RessourcesEnStock.gains[indexRessource] < Mathf.Abs(gain) 
                         && panelRecette.craft.campement.tribu.stockRessources.ProjectionGain.gains[indexRessource] < 0)
                     {
-                        txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
+                        if (ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
                     }
-                    else txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
+                    else if (ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
                 }
                 else
                 {
                     Debug.LogError("PanelGainRessource de " + name + " n'a pas le bon type de parent. Il faut un Exploitation ou un PanelRecette");
                 }
             }
-
         }
     }
 

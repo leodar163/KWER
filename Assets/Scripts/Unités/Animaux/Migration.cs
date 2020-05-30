@@ -13,7 +13,6 @@ public class Migration : MonoBehaviour
     TuileManager prochaineTuile = null;
     List<TuileManager> tuilesParcourues;
     bool traverseFleuve = false;
-    public bool cantonnerAuxPlaines;
 
     public bool PeutBouger
     {

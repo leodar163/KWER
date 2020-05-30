@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2523344375351965229}
   - component: {fileID: 1714641867515581847}
   - component: {fileID: 9055846603267299339}
-  - component: {fileID: 1595176928494081868}
+  - component: {fileID: -6910516454383727766}
   m_Layer: 11
   m_Name: Auroch
   m_TagString: Untagged
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   migration: {fileID: 2523344375351965229}
-  hostile: {fileID: 1595176928494081868}
+  hostile: {fileID: -6910516454383727766}
   productionTroupeau: {fileID: 1714641867515581847}
   spriteRenderer: {fileID: 6269753663623220688}
   revendication: {fileID: 9055846603267299339}
@@ -91,7 +91,6 @@ MonoBehaviour:
   tuileActuelle: {fileID: 0}
   vitesse: 2
   ptsDeplacementDefaut: 2
-  cantonnerAuxPlaines: 1
 --- !u!114 &1714641867515581847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 4240119684360671227}
---- !u!114 &1595176928494081868
+--- !u!114 &-6910516454383727766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,6 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   troupeau: {fileID: 4240119684360671227}
+  passif: 1
+  agressif: 0
 --- !u!1 &4788891487758131682
 GameObject:
   m_ObjectHideFlags: 0
