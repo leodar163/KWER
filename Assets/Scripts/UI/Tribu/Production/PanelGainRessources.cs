@@ -103,7 +103,7 @@ public class PanelGainRessources : MonoBehaviour
             {
                 if (parent is Exploitation)
                 {
-                    if (ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
+                    if (ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;   
                 }
                 else if (parent is PanelRecette)
                 {
