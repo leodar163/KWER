@@ -29,7 +29,7 @@ public class ListeIcones : MonoBehaviour
 
     private void Awake()
     {
-        listeIcones = this;
+
     }
 
     // Start is called before the first frame update

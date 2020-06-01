@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Collider2D))]
 public class Bouton : MonoBehaviour
 {
     [Header("Sprite")]
@@ -15,7 +16,12 @@ public class Bouton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spR = GetComponent<SpriteRenderer>();
+        
+    }
+
+    private void OnEnable()
+    {
+        if (spR == null)spR = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -26,22 +32,25 @@ public class Bouton : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        spR.color = couleurOver;
+        if(enabled)spR.color = couleurOver;
     }
 
     private void OnMouseExit()
     {
-        spR.color = Color.white;
+        if (enabled) spR.color = Color.white;
     }
 
     private void OnMouseDown()
     {
-        spR.color = couleurEnfonce;
+        if (enabled) spR.color = couleurEnfonce;
     }
 
     private void OnMouseUpAsButton()
     {
-        spR.color = Color.white;
-        eventBouton.Invoke();
+        if (enabled)
+        {
+            spR.color = Color.white;
+            eventBouton.Invoke();
+        }
     }
 }

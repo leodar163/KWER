@@ -36,7 +36,7 @@ public class Migration : MonoBehaviour
         {
             troupeau = GetComponent<Troupeau>();
         }
-        Invoke("TrouverTuileActuelle",0.5f);
+        Invoke("TrouverTuileActuelle",0.1f);
 
         Calendrier.Actuel.EventChangementDeSaison.AddListener(TerminerMigration);
     }
@@ -49,7 +49,11 @@ public class Migration : MonoBehaviour
 
     private void TrouverTuileActuelle()
     {
-        if (tuileActuelle) tuileActuelle.estOccupee = false;
+        if (tuileActuelle)
+        {
+            tuileActuelle.productionTuile.ReinitBonusOutil();
+            tuileActuelle.estOccupee = false;
+        }
         LayerMask layerMaskTuile = LayerMask.GetMask("Tuile");
 
         Collider2D checkTuile = Physics2D.OverlapBox(transform.position, new Vector2(0.1f, 0.1f), 0, layerMaskTuile);

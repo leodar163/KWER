@@ -50,16 +50,9 @@ public class PanelGainRessources : MonoBehaviour
 
         TextMeshProUGUI txtMP = nvAffichage.GetComponentInChildren<TextMeshProUGUI>(true);
 
-        if(gain > 0)
+        if (gain > 0)
         {
-            if(parent is Exploitation)
-            {
-                txtMP.color = ListeCouleurs.Defaut.couleurTexteSansFond;
-            }
-            else
-            {
-                txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
-            }
+            txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
             
              txtMP.text = "+" + gain;
         }
@@ -67,14 +60,7 @@ public class PanelGainRessources : MonoBehaviour
         {
             if (parent is Exploitation)
             {
-                Exploitation exploitation = (Exploitation)parent;
-
-                //si y a moins de ressource en stock qu'il n'en faut pour créer l'objet
-                if (exploitation.expedition.tribu.stockRessources.RessourcesEnStock.gains[indexRessource] < Mathf.Abs(gain))
-                {
-                    txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
-                }
-                else txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
+                txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
             }
             else if(parent is PanelRecette)
             {
@@ -95,11 +81,6 @@ public class PanelGainRessources : MonoBehaviour
         }
        
         nvAffichage.GetComponentInChildren<Image>(true).sprite = icone;
-        nvAffichage.GetComponent<RectTransform>().sizeDelta = affichageRessource.GetComponent<RectTransform>().sizeDelta;
-        nvAffichage.GetComponent<RectTransform>().pivot = affichageRessource.GetComponent<RectTransform>().pivot;
-        nvAffichage.GetComponent<RectTransform>().position = affichageRessource.GetComponent<RectTransform>().position;
-
-
         nvAffichage.SetActive(true);
 
         listeAffichages.Add(nvAffichage);
@@ -116,29 +97,13 @@ public class PanelGainRessources : MonoBehaviour
 
             if (gain > 0)
             {
-                if (parent is Exploitation)
-                {
-                    if(ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurTexteSansFond;
-                }
-                else
-                {
                     if (ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
-                }
             }
             else if (gain < 0)
             {
                 if (parent is Exploitation)
                 {
-                    Exploitation exploitation = (Exploitation)parent;
-
-                    //si y a moins de ressource en stock qu'il n'en faut pour créer l'objet
-                    //et que la production au prochain tour ne permet pas de compenser
-                    if (indexRessource > -1 && exploitation.expedition.tribu.stockRessources.RessourcesEnStock.gains[indexRessource] < Mathf.Abs(gain)
-                        && exploitation.expedition.tribu.stockRessources.ProjectionGain.gains[indexRessource] < 0)
-                    {
-                        if (ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
-                    }
-                    else if (ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
+                    if (ListeCouleurs.Defaut) txtMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
                 }
                 else if (parent is PanelRecette)
                 {

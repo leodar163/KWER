@@ -33,7 +33,7 @@ public class Demographie : MonoBehaviour
 
     private void AjusterRouePopulation()
     {
-        float rayon = 0.6f;
+        float rayon = 0.5f;
 
         float index = 0;
 

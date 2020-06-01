@@ -27,7 +27,6 @@ public class ListeRessources : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        listeRessources = this;
         foreach (Ressource ressource in listeDesRessources)
         {
             ressource.icone = ListeIcones.Defaut.TrouverIconeRessource(ressource.nom);

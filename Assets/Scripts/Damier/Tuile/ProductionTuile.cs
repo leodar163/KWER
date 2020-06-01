@@ -7,6 +7,7 @@ public class ProductionTuile : MonoBehaviour
 {
     [SerializeField] private TuileManager tuile;
     [HideInInspector] public Production production;
+    [HideInInspector] public Production bonusOutil;
     
     public int nbrSlot;
 
@@ -14,6 +15,9 @@ public class ProductionTuile : MonoBehaviour
     {
         production = ScriptableObject.CreateInstance<Production>();
         production.gains = (float[])tuile.terrainTuile.production.gains.Clone();
+
+        bonusOutil = ScriptableObject.CreateInstance<Production>();
+        bonusOutil.gains = (float[])tuile.terrainTuile.bonusOutil.gains.Clone();
 
     }
     // Start is called before the first frame update
@@ -31,6 +35,12 @@ public class ProductionTuile : MonoBehaviour
 
     }
     
+    public void ReinitBonusOutil()
+    {
+        bonusOutil.gains = (float[])tuile.terrainTuile.bonusOutil.gains.Clone();
+    }
+            
+
     public void ReinitProd()
     {
         production.gains = (float[])tuile.terrainTuile.production.gains.Clone();

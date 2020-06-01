@@ -8,6 +8,11 @@ public class Expedition : MonoBehaviour
     [SerializeField] private GameObject exploitation;
     private List<Exploitation> listeExploitations = new List<Exploitation>();
 
+
+    private void Awake()
+    {
+        exploitation.SetActive(false);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +36,7 @@ public class Expedition : MonoBehaviour
             GameObject exploit = Instantiate(exploitation, transform);
             Exploitation expl = exploit.GetComponent<Exploitation>();
 
+            exploit.SetActive(true);
             expl.expedition = this;
             expl.TuileExploitee = zoneExploitation[i];
             listeExploitations.Add(expl);
