@@ -10,11 +10,35 @@ public class SlotCraft : MonoBehaviour
     public Pop pop;
     private Demographie demo;
     [SerializeField] private Image iconePop;
-    public bool estExpoite
+    public bool estActif
+    {
+        get
+        {
+            if (estOccupe && aAssezRessource)
+            {
+                return true;
+            }
+            else return false;
+        }
+    }
+
+    private bool estOccupe
     {
         get
         {
             if (pop == null)
+            {
+                return false;
+            }
+            else return true;
+        }
+    }
+
+    public bool aAssezRessource
+    {
+        get
+        {
+            if (RecupRessourcesInsuffisantes().Count > 0)
             {
                 return false;
             }
@@ -39,6 +63,28 @@ public class SlotCraft : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public List<Ressource> RecupRessourcesInsuffisantes()
+    {
+        List<Ressource> ressourcesInsuffisantes = new List<Ressource>();
+        StockRessource stocks = panelRecette.craft.campement.tribu.stockRessources;
+
+        if (ListeRessources.Defaut)
+        {
+            for (int i = 0; i < panelRecette.Recette.cout.gains.Length; i++)
+            {
+                if (panelRecette.Recette.cout.gains[i] > 0)
+                {
+                    if (stocks.ProjectionGain.gains[i] > 0 || stocks.RessourcesEnStock.gains[i] > 0)
+                    {
+                        ressourcesInsuffisantes.Add(ListeRessources.Defaut.listeDesRessources[i]);
+                    }
+                }
+            }
+        }
+
+        return ressourcesInsuffisantes;
     }
 
     public void CliquerSurSlot()

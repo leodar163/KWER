@@ -57,5 +57,19 @@ public class ListeIcones : MonoBehaviour
         return null;
     }
 
+    public Sprite TrouverIconeRessource(Ressource ressource)
+    {
+        foreach (Sprite icone in listeIconeRessource)
+        {
+            if (icone.name.EndsWith(ressource.nom))
+            {
+                return icone;
+            }
+        }
+
+        Debug.LogError("Il faut un icone pour " + ressource.nom + " ou le nom de la ressource est pas la bonne");
+        return null;
+    }
+
 
 }

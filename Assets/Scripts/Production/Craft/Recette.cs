@@ -11,6 +11,7 @@ public class Recette : ScriptableObject
     public string nom;
     public int slots;
     public Production production;
+    public Production cout;
 
 
 

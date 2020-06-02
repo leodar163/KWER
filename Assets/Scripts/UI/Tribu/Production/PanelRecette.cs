@@ -7,17 +7,30 @@ using UnityEngine;
 public class PanelRecette : MonoBehaviour
 {
     public Craft craft;
-    public TextMeshProUGUI nomRecette;
-    public PanelGainRessources panelRessource;
     private Recette recette;
-    [SerializeField] private GameObject slotCraft;
-    private List<SlotCraft> listeSlots = new List<SlotCraft>();
+
     private Production gainRessource;
+
+    [Header("Affichage Recette")]
+    public TextMeshProUGUI nomRecette;
+    public GameObject listeGainRessource;
+    public GameObject listeCoutRessource;
+    [SerializeField] private GameObject affichageRessource;
+    private List<GainCraft> listeAffichageCout = new List<GainCraft>();
+    private List<GainCraft> listeAffichageGain = new List<GainCraft>();
+
+
+    [Header("Slots")]
+    private List<SlotCraft> listeSlots = new List<SlotCraft>();
+    [SerializeField] private GameObject slotCraft;
+    [SerializeField] private GameObject zoneSlots;
+
 
     // Start is called before the first frame update
     void Start()
     {
         TourParTour.Defaut.eventNouveauTour.AddListener(MiseAJourProduction);
+        slotCraft.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,6 +47,8 @@ public class PanelRecette : MonoBehaviour
             recette = value;
             nomRecette.text = recette.nom;
             GenererSlots();
+            GenererAffichageRecette();
+            Invoke("AfficherGainRessource",0.3f);
         }
         get
         {
@@ -63,13 +78,94 @@ public class PanelRecette : MonoBehaviour
         }
     }
 
+    private void GenererAffichageRecette()
+    {
+        //Création de l'affichage du coût
+        for (int i = 0; i < recette.cout.gains.Length; i++)
+        {
+            if(recette.cout.gains[i] > 0)
+            {
+                GameObject nvlAffichage = Instantiate(affichageRessource, listeCoutRessource.transform);
+                GainCraft nvGain = nvlAffichage.GetComponent<GainCraft>();
+
+                nvGain.Ressource = ListeRessources.Defaut.listeDesRessources[i];
+
+                listeAffichageCout.Add(nvGain);
+            }
+        }
+        //Création de l'affichage du gain
+        for (int i = 0; i < recette.production.gains.Length; i++)
+        {
+            if (recette.production.gains[i] > 0)
+            {
+                GameObject nvlAffichage = Instantiate(affichageRessource, listeGainRessource.transform);
+                GainCraft nvGain = nvlAffichage.GetComponent<GainCraft>();
+
+                nvGain.Ressource = ListeRessources.Defaut.listeDesRessources[i];
+
+                listeAffichageGain.Add(nvGain);
+            }
+        }
+    }
+
+    private void MAJAffichageRecette(Production gainProduction)
+    {
+        foreach (SlotCraft slot in listeSlots)
+        {
+            foreach (GainCraft affichage in listeAffichageCout)
+            {
+                foreach (Ressource ressource in slot.RecupRessourcesInsuffisantes())
+                {
+                    if (affichage.Ressource == ressource)
+                    {
+                        affichage.MarquerInsuffisant(true);
+                        break;
+                    }
+                    affichage.MarquerInsuffisant(false);
+                }
+            }
+        }
+
+        for (int i = 0; i < gainProduction.gains.Length; i++)
+        {
+            if(ListeRessources.Defaut)
+            {
+                //Affichage des gains
+                if(gainProduction.gains[i] > 0)
+                {
+                    foreach(GainCraft affichage in listeAffichageGain)
+                    {
+                        affichage.montant = 0;
+                        if (affichage.Ressource = ListeRessources.Defaut.listeDesRessources[i])
+                        {
+                            affichage.montant = gainProduction.gains[i];
+                        }
+                    }
+                }
+
+                //Affichage des couts
+                if (gainProduction.gains[i] < 0)
+                {
+                    foreach (GainCraft affichage in listeAffichageCout)
+                    {
+                        affichage.montant = 0;
+                        if (affichage.Ressource = ListeRessources.Defaut.listeDesRessources[i])
+                        {
+                            affichage.montant = gainProduction.gains[i];
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     private void GenererSlots()
     {
         int nbrslot = recette.slots;
 
         for (int i = 0; i < nbrslot; i++)
         {
-            GameObject nvSlot = Instantiate(slotCraft, transform);
+            GameObject nvSlot = Instantiate(slotCraft, zoneSlots.transform);
            
             SlotCraft nvSlotCraft = nvSlot.GetComponent<SlotCraft>();
             nvSlot.SetActive(true);
@@ -77,7 +173,6 @@ public class PanelRecette : MonoBehaviour
             nvSlotCraft.panelRecette = this;
             listeSlots.Add(nvSlotCraft);
         }
-        RearangerSlots();
     }
 
     private void GenererSlots(int nbrSlots)
@@ -86,7 +181,7 @@ public class PanelRecette : MonoBehaviour
             {
                 for (int i = 0; i < nbrSlots; i++)
                 {
-                    GameObject nvSlot = Instantiate(slotCraft, transform);
+                    GameObject nvSlot = Instantiate(slotCraft, zoneSlots.transform);
                     SlotCraft nvSlotCraft = nvSlot.GetComponent<SlotCraft>();
                     listeSlots.Add(nvSlotCraft);
                     nvSlotCraft.panelRecette = this;
@@ -100,44 +195,12 @@ public class PanelRecette : MonoBehaviour
                     listeSlots.RemoveAt(listeSlots.Count - 1);
                 }
             }
-        RearangerSlots();
     }
-
-    private void RearangerSlots()
-    {
-        float ecart = 10;
-
-        RectTransform rectSlotCraft = slotCraft.GetComponent<RectTransform>();
-        float tailleSlot = rectSlotCraft.sizeDelta.x;
-        int colonneMax = 5;
-        Vector3 decalage = new Vector3();
-
-        for (int i = 0; i < listeSlots.Count; i++)
-        {
-            RectTransform rectT = listeSlots[i].GetComponent<RectTransform>();
-
-            rectT.pivot = rectSlotCraft.pivot;
-            rectT.position = rectSlotCraft.position;
-            rectT.sizeDelta = rectSlotCraft.sizeDelta;
-
-            if (i == colonneMax - 1)
-            {
-                decalage.x = 0;
-                decalage.y += ecart;
-            }
-            else if (i != 0)
-            {
-                decalage.x += ecart + tailleSlot;
-            }
-            rectT.position += decalage;
-        }
-    }
-
 
     public void AfficherGainRessource()
     {
-        panelRessource.GetComponent<PanelGainRessources>().AfficherRessources(GainRessource);
-        craft.campement.tribu.stockRessources.AjouterGain(gainRessource);
+        craft.campement.tribu.stockRessources.AjouterGain(GainRessource);
+        MAJAffichageRecette(GainRessource);
     }
 
     private Production GainRessource
@@ -150,17 +213,17 @@ public class PanelRecette : MonoBehaviour
                 gainRessource.gains = new float[ListeRessources.Defaut.listeDesRessources.Length];
             }
             gainRessource.Clear();
-            int slotsOccupes = 0;
+            int slotsActifs = 0;
             foreach(SlotCraft slot in listeSlots)
             {
-                if(slot.pop != null)
+                if(slot.estActif)
                 {
-                    slotsOccupes++;
+                    slotsActifs++;
                 }
             }
             for (int i = 0; i < gainRessource.gains.Length; i++)
             {
-                gainRessource.gains[i] += recette.production.gains[i] * slotsOccupes;
+                gainRessource.gains[i] += recette.production.gains[i] * slotsActifs;
             }
             return gainRessource;
         }

@@ -20,6 +20,7 @@ public class Craft : MonoBehaviour
     void Start()
     {
         gameObject.SetActive(false);
+        panelRecette.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gains:
   - 0
-  - -1
   - 0
   - 0
-  - 1
+  - 0
+  - 2
