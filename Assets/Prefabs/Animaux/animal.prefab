@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9055846603267299339}
   - component: {fileID: -6910516454383727766}
   m_Layer: 11
-  m_Name: Auroch
+  m_Name: animal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,9 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c84140e7eb3e5546b8caa0fd215d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbrSlot: 2
-  gainProduction: {fileID: 11400000, guid: 27415d559ba222d46af25d24d4c834be, type: 2}
-  bonusOutil: {fileID: 11400000, guid: aaf290c6ce213fd42b8de746a057d888, type: 2}
+  nbrSlot: 0
+  gainProduction: {fileID: 0}
+  bonusOutil: {fileID: 0}
   troupeau: {fileID: 4240119684360671227}
 --- !u!114 &9055846603267299339
 MonoBehaviour:
