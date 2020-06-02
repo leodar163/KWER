@@ -31,6 +31,7 @@ public class PanelRecette : MonoBehaviour
     {
         TourParTour.Defaut.eventNouveauTour.AddListener(MiseAJourProduction);
         slotCraft.SetActive(false);
+        affichageRessource.SetActive(false);
     }
 
     // Update is called once per frame
@@ -89,6 +90,7 @@ public class PanelRecette : MonoBehaviour
                 GainCraft nvGain = nvlAffichage.GetComponent<GainCraft>();
 
                 nvGain.Ressource = ListeRessources.Defaut.listeDesRessources[i];
+                nvlAffichage.SetActive(true);
 
                 listeAffichageCout.Add(nvGain);
             }
@@ -103,6 +105,7 @@ public class PanelRecette : MonoBehaviour
 
                 nvGain.Ressource = ListeRessources.Defaut.listeDesRessources[i];
 
+                nvlAffichage.SetActive(true);
                 listeAffichageGain.Add(nvGain);
             }
         }

@@ -40,7 +40,7 @@ public class GainCraft : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        montant = 0;
     }
 
     // Update is called once per frame
