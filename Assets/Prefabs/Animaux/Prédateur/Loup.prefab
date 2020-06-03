@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 2523344375351965229}
   - component: {fileID: 1714641867515581847}
   - component: {fileID: 9055846603267299339}
+  - component: {fileID: 2116350178684948164}
   m_Layer: 11
-  m_Name: animal
+  m_Name: Loup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,13 +50,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   migration: {fileID: 2523344375351965229}
-  hostile: {fileID: 0}
+  hostile: {fileID: 2116350178684948164}
   productionTroupeau: {fileID: 1714641867515581847}
   spriteRenderer: {fileID: 6269753663623220688}
   revendication: {fileID: 9055846603267299339}
-  domesticable: 1
+  domesticable: 0
   megaFaune: 0
-  predateur: 0
+  predateur: 1
   aFaitUneAction: 0
 --- !u!70 &3796760071837312150
 CapsuleCollider2D:
@@ -118,6 +119,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 4240119684360671227}
+--- !u!114 &2116350178684948164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799528128373039931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda67a0ef89633f4b86b6ea8adef0258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  troupeau: {fileID: 4240119684360671227}
+  combat: {fileID: 9043204819795068831, guid: 9209567ac640936478e6b19e2b526bfa, type: 3}
 --- !u!1 &6651748277873408838
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +203,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 623e4dad2eb31734984269981f0eed58, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 97cd91f47d4299f44be41bfa3672b8c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -24,15 +24,18 @@ public class ProductionTroupeau : MonoBehaviour
 
     public void FertiliserTuile()
     {
-        for (int i = 0; i < troupeau.migration.tuileActuelle.productionTuile.bonusOutil.gains.Length; i++)
+        if(troupeau.domesticable)
         {
-            troupeau.migration.tuileActuelle.productionTuile.bonusOutil.gains[i] += bonusOutil.gains[i];
+            for (int i = 0; i < troupeau.migration.tuileActuelle.productionTuile.BonusOutil.gains.Length; i++)
+            {
+                troupeau.migration.tuileActuelle.productionTuile.BonusOutil.gains[i] += bonusOutil.gains[i];
+            }
+            for (int i = 0; i < troupeau.migration.tuileActuelle.productionTuile.Production.gains.Length; i++)
+            {
+                troupeau.migration.tuileActuelle.productionTuile.Production.gains[i] += gainProduction.gains[i];
+            }
+            troupeau.migration.tuileActuelle.productionTuile.nbrSlot += nbrSlot;
         }
-        for (int i = 0; i < troupeau.migration.tuileActuelle.productionTuile.production.gains.Length; i++)
-        {
-            troupeau.migration.tuileActuelle.productionTuile.production.gains[i] += gainProduction.gains[i];
-        }
-        troupeau.migration.tuileActuelle.productionTuile.nbrSlot += nbrSlot;
     }
 
     public void ReinitTuile()

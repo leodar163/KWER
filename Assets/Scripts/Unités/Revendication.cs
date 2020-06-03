@@ -76,6 +76,18 @@ public class Revendication : MonoBehaviour
         }
     }
 
+    public bool EstPillard
+    {
+        get
+        {
+            if (parent is Pillard)
+            {
+                return true;
+            }
+            else return false;
+        }
+    }
+
     public bool EstPredateur
     {
         get
@@ -137,6 +149,7 @@ public class Revendication : MonoBehaviour
         {
             foreach(Revendication revendicateur in tuile.revendicateurs)
             {
+                print(revendicateur);
                 if(!revendicateurs.Contains(revendicateur))
                 {
                     revendicateurs.Add(revendicateur);

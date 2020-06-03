@@ -29,6 +29,7 @@ public class InterfaceRessource : MonoBehaviour
     void Start()
     {
         cela = this;
+        PanelInfoRessource.SetActive(false);
         GenererPanelsInfo();
     }
 
@@ -48,25 +49,6 @@ public class InterfaceRessource : MonoBehaviour
             listePanelsInfoRessource[i].Ressource = ListeRessources.Defaut.listeDesRessources[i];
 
             nvInfoRessource.SetActive(true);
-        }
-
-        RearangerPanelsInfo();
-    }
-
-    private void RearangerPanelsInfo()
-    {
-        RectTransform rectPanelInfo = PanelInfoRessource.GetComponent<RectTransform>();
-        float largeurPanelInfo = rectPanelInfo.rect.width;
-
-        for (int i = 0; i < listePanelsInfoRessource.Count; i++)
-        {
-            RectTransform rectInstance = listePanelsInfoRessource[i].GetComponent<RectTransform>();
-
-            rectInstance.pivot = rectPanelInfo.pivot;
-            rectInstance.sizeDelta = rectPanelInfo.sizeDelta;
-            rectInstance.position = rectInstance.position;
-
-            rectInstance.position += new Vector3(largeurPanelInfo * i,0);
         }
     }
 

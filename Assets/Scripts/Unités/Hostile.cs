@@ -10,6 +10,8 @@ public class Hostile : MonoBehaviour
 
     private bool combatEnCours = false;
 
+    [SerializeField] private  GameObject combat;
+
     public bool PeutAttaquer
     {
         get
@@ -67,4 +69,15 @@ public class Hostile : MonoBehaviour
             }
         }
     }
+
+    public Combat InstancierCombat()
+    {
+        GameObject nvCombat = Instantiate(combat, gameObject.transform);
+        Combat compCombat = nvCombat.GetComponent<Combat>();
+        compCombat.hostile = this;
+
+        return compCombat;
+    }
 }
+
+

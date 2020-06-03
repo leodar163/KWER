@@ -49,6 +49,7 @@ public class Tribu : MonoBehaviour
         Init();
         revendication.RevendiquerTerritoire(tuileActuelle, true);
         expedition.LancerExpeditions();
+        
         campement.MonterCampement();
         EntrerCampement(false);
     }
@@ -64,7 +65,7 @@ public class Tribu : MonoBehaviour
         pointsAction = pointActionDeffaut;
 
         tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle,pointsAction,false);
-
+        expedition.GenererCombats();
         stockRessources.EncaisserGain();
     }
 

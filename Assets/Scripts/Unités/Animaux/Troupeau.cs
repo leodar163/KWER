@@ -24,10 +24,7 @@ public class Troupeau : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(migration == null)
-        {
-            migration = GetComponent<Migration>();
-        }
+
     }
 
     

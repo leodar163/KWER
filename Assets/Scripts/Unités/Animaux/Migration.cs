@@ -36,8 +36,8 @@ public class Migration : MonoBehaviour
         {
             troupeau = GetComponent<Troupeau>();
         }
-        Invoke("TrouverTuileActuelle",0.1f);
 
+        TrouverTuileActuelle();
         Calendrier.Actuel.EventChangementDeSaison.AddListener(TerminerMigration);
     }
 
@@ -51,6 +51,7 @@ public class Migration : MonoBehaviour
     {
         if (tuileActuelle)
         {
+            troupeau.revendication.RevendiquerTerritoire(tuileActuelle, false);
             tuileActuelle.productionTuile.ReinitBonusOutil();
             tuileActuelle.estOccupee = false;
         }
@@ -65,6 +66,8 @@ public class Migration : MonoBehaviour
         }
 
         tuileActuelle.estOccupee = true;
+        troupeau.revendication.RevendiquerTerritoire(tuileActuelle, true);
+        print("là je revendique");
         troupeau.productionTroupeau.FertiliserTuile();
     }
 

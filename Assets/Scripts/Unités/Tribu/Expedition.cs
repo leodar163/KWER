@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Expedition : MonoBehaviour
@@ -7,6 +8,9 @@ public class Expedition : MonoBehaviour
     [SerializeField] public Tribu tribu;
     [SerializeField] private GameObject exploitation;
     private List<Exploitation> listeExploitations = new List<Exploitation>();
+
+    private List<Hostile> hostilesAPortee = new List<Hostile>();
+    private List<Combat> combatsMenables = new List<Combat>();
 
 
     private void Awake()
@@ -41,6 +45,7 @@ public class Expedition : MonoBehaviour
             expl.TuileExploitee = zoneExploitation[i];
             listeExploitations.Add(expl);
         }
+        Invoke("GenererCombats",0.1f);
     }
 
     public void RappelerExpeditions()
@@ -59,6 +64,52 @@ public class Expedition : MonoBehaviour
         foreach(Exploitation exploit in listeExploitations)
         {
             exploit.AfficherGainRessource();
+        }
+        
+    }
+
+    private void TrouverHostilsAPortee()
+    {
+        hostilesAPortee.Clear();
+        foreach (Revendication cible in tribu.revendication.TrouverRevendicateursAPortee())
+        {
+            if (cible.EstPredateur || cible.EstMegaFaune)
+            {
+                Troupeau animal = (Troupeau)cible.parent;
+
+                if(!hostilesAPortee.Contains(animal.hostile))
+                {
+                    hostilesAPortee.Add(animal.hostile);
+                }
+            }
+            if(cible.EstPillard)
+            {
+                Pillard pillard = (Pillard)cible.parent;
+
+                if(!hostilesAPortee.Contains(pillard.hostile))
+                {
+                    hostilesAPortee.Add(pillard.hostile);
+                }
+            }
+        }
+    }
+
+    public void GenererCombats()
+    {
+        foreach(Combat combat in combatsMenables)
+        {
+            Destroy(combat.gameObject);
+        }
+        combatsMenables.Clear();
+
+        print("là je cherche les hostiles");
+        TrouverHostilsAPortee();
+
+        foreach(Hostile hostile in hostilesAPortee)
+        {
+            Combat nvCombat = hostile.InstancierCombat();
+            nvCombat.tribu = tribu;
+            combatsMenables.Add(nvCombat);
         }
     }
 }

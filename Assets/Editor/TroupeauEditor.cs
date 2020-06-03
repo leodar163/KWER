@@ -47,7 +47,7 @@ public class TroupeauEditor : Editor
 
             if(troupeau.GetComponent<Hostile>())
             {
-                DestroyImmediate(troupeau.GetComponent<Hostile>());
+                DestroyImmediate(troupeau.GetComponent<Hostile>(),true) ;
             }
         }
         ColorerSelection(troupeau.megaFaune);
