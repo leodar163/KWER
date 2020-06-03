@@ -54,10 +54,11 @@ public class TourParTour : MonoBehaviour
     private IEnumerator TourJoueur()
     {
         tribus = FindObjectsOfType<Tribu>();
-        eventNouveauTour.Invoke();
 
-        if(nbrTour != 0)
+        
+        if(nbrTour != 0) 
         {
+            eventNouveauTour.Invoke();
             ControleSouris.Actuel.controlesActives = true;
             BoutonTourSuivant.Actuel.Activer(true);
             foreach(Tribu tribu in tribus)

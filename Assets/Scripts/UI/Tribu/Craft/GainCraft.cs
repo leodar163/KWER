@@ -49,16 +49,4 @@ public class GainCraft : MonoBehaviour
         
     }
 
-    public void MarquerInsuffisant(bool insuffisant)
-    {
-       if(insuffisant)
-        {
-            if (ListeCouleurs.Defaut) tMP.color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
-        }
-       else
-        {
-            if (ListeCouleurs.Defaut) tMP.color = ListeCouleurs.Defaut.couleurDefautTexteInterface;
-        }
-    }
-
 }

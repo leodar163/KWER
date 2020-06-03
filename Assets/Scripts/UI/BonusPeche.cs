@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BonusPeche : MonoBehaviour
 {
-    PanelBouffeUnite panelNourriture;
+
     
     [SerializeField]float positionZ;
 
     // Start is called before the first frame update
     void Start()
     {
-        panelNourriture = GetComponentInChildren<PanelBouffeUnite>();
+
         
     }
 
@@ -27,8 +27,7 @@ public class BonusPeche : MonoBehaviour
         {
             Vector3 direction = position;
             direction.z = positionZ;
-            transform.position = direction;
-            panelNourriture.AfficherGainNourriture(gainNourriture);
+            transform.position = direction;;
         }
     }
 

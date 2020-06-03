@@ -10,35 +10,13 @@ public class SlotCraft : MonoBehaviour
     public Pop pop;
     private Demographie demo;
     [SerializeField] private Image iconePop;
-    public bool estActif
-    {
-        get
-        {
-            if (estOccupe && aAssezRessource)
-            {
-                return true;
-            }
-            else return false;
-        }
-    }
+    private Button bouton;
 
-    private bool estOccupe
+    public bool estOccupe
     {
         get
         {
             if (pop == null)
-            {
-                return false;
-            }
-            else return true;
-        }
-    }
-
-    public bool aAssezRessource
-    {
-        get
-        {
-            if (RecupRessourcesInsuffisantes().Count > 0)
             {
                 return false;
             }
@@ -54,9 +32,12 @@ public class SlotCraft : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bouton = GetComponent<Button>();
+        InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJSlots);
         demo = panelRecette.craft.campement.tribu.demographie;
         MiseAJourIconePop();
         iconePop.gameObject.SetActive(false);
+        MAJSlots();
     }
 
     // Update is called once per frame
@@ -65,27 +46,48 @@ public class SlotCraft : MonoBehaviour
         
     }
 
-    public List<Ressource> RecupRessourcesInsuffisantes()
+    //Active ou désactive le slot en fonction de s'il y a suffisament de ressource en stock
+    private void MAJSlots()
     {
-        List<Ressource> ressourcesInsuffisantes = new List<Ressource>();
         StockRessource stocks = panelRecette.craft.campement.tribu.stockRessources;
 
-        if (ListeRessources.Defaut)
+        if(panelRecette.Recette)
         {
-            for (int i = 0; i < panelRecette.Recette.cout.gains.Length; i++)
+            if (estOccupe)
             {
-                if (panelRecette.Recette.cout.gains[i] > 0)
+                for (int i = 0; i < panelRecette.Recette.cout.gains.Length; i++)
                 {
-                    if (stocks.ProjectionGain.gains[i] > 0 || stocks.RessourcesEnStock.gains[i] > 0)
+                    if (panelRecette.Recette.cout.gains[i] > 0)
                     {
-                        ressourcesInsuffisantes.Add(ListeRessources.Defaut.listeDesRessources[i]);
+                        if (stocks.ProjectionGain.gains[i] < 0 && stocks.RessourcesEnStock.gains[i] < 0)
+                        {
+                            CliquerSurSlot();
+                            bouton.interactable = false;
+                            MAJSlots();
+                            return;
+                        }
                     }
                 }
+                bouton.interactable = true;
+            }
+            else
+            {
+                for (int i = 0; i < panelRecette.Recette.cout.gains.Length; i++)
+                {
+                    if (panelRecette.Recette.cout.gains[i] > 0)
+                    {
+                        if (stocks.ProjectionGain.gains[i] <= 0 && stocks.RessourcesEnStock.gains[i] <= 0)
+                        {
+                            bouton.interactable = false;
+                            return;
+                        }
+                    }
+                }
+                bouton.interactable = true;
             }
         }
-
-        return ressourcesInsuffisantes;
     }
+
 
     public void CliquerSurSlot()
     {

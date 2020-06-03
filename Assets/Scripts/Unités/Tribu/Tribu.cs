@@ -41,7 +41,6 @@ public class Tribu : MonoBehaviour
 
     private void Awake()
     {
-
     }
 
     // Start is called before the first frame update

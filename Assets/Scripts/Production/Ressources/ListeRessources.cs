@@ -39,6 +39,18 @@ public class ListeRessources : MonoBehaviour
         
     }
 
+    public int TrouverIndexRessource(Ressource ressource)
+    {
+        for (int i = 0; i < listeDesRessources.Length; i++)
+        {
+            if(listeDesRessources[i] == ressource)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public int TrouverIndexRessource(string nom)
     {
         for (int i = 0; i < listeDesRessources.Length; i++)
@@ -51,11 +63,11 @@ public class ListeRessources : MonoBehaviour
         return -1;
     }
 
-    public int TrouverIndexRessource(Sprite Icone)
+    public int TrouverIndexRessource(Sprite icone)
     {
         for (int i = 0; i < listeDesRessources.Length; i++)
         {
-            if(Icone.name.EndsWith(listeDesRessources[i].nom))
+            if(icone.name.EndsWith(listeDesRessources[i].nom))
             {
                 return i;
             }
