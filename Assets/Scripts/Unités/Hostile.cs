@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Hostile : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class Hostile : MonoBehaviour
     private bool combatEnCours = false;
 
     [SerializeField] private  GameObject combat;
+
+
+    public int nbrCombattant = 0;
+    public int attaque = 0;
+    public int defense = 0;
 
     public bool PeutAttaquer
     {
@@ -35,6 +41,7 @@ public class Hostile : MonoBehaviour
     {
         
     }
+
 
     public IEnumerator Attaquer()
     {
@@ -74,7 +81,7 @@ public class Hostile : MonoBehaviour
     {
         GameObject nvCombat = Instantiate(combat, gameObject.transform);
         Combat compCombat = nvCombat.GetComponent<Combat>();
-        compCombat.hostile = this;
+        compCombat.Hostile = this;
 
         return compCombat;
     }

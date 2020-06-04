@@ -149,7 +149,6 @@ public class Revendication : MonoBehaviour
         {
             foreach(Revendication revendicateur in tuile.revendicateurs)
             {
-                print(revendicateur);
                 if(!revendicateurs.Contains(revendicateur))
                 {
                     revendicateurs.Add(revendicateur);

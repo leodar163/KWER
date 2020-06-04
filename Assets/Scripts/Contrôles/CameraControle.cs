@@ -24,8 +24,8 @@ public class CameraControle : MonoBehaviour
     Vector3 vecteurMove;
     Camera cam;
 
-    [SerializeField] float maxZoom = 10f;
-    [SerializeField] float minZoom = 4f;
+    public float maxZoom = 10f;
+    public float minZoom = 4f;
     [SerializeField] float vitesseZoom = 0.2f;
     [HideInInspector]public bool sourisAccrochee = false;
 
@@ -139,14 +139,14 @@ public class CameraControle : MonoBehaviour
         }
     }
 
-    public void CentrerCamera(Vector3 point, bool centrerSurTribu)
+    public void CentrerCamera(Vector3 point, bool modeSelection)
     {
         if (!camEnMouvmt)
         {
             controlesActives = false;
             EnregistrerPosition();
 
-            controlesActives = !centrerSurTribu;
+            controlesActives = !modeSelection;
             point.z = transform.position.z;
 
             StartCoroutine(CentrageCamera(point, 1.5f));

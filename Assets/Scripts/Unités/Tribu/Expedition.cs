@@ -102,13 +102,12 @@ public class Expedition : MonoBehaviour
         }
         combatsMenables.Clear();
 
-        print("là je cherche les hostiles");
         TrouverHostilsAPortee();
 
         foreach(Hostile hostile in hostilesAPortee)
         {
             Combat nvCombat = hostile.InstancierCombat();
-            nvCombat.tribu = tribu;
+            nvCombat.Tribu = tribu.guerrier;
             combatsMenables.Add(nvCombat);
         }
     }

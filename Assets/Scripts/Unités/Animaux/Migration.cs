@@ -67,7 +67,6 @@ public class Migration : MonoBehaviour
 
         tuileActuelle.estOccupee = true;
         troupeau.revendication.RevendiquerTerritoire(tuileActuelle, true);
-        print("là je revendique");
         troupeau.productionTroupeau.FertiliserTuile();
     }
 

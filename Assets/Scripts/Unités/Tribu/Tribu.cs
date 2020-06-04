@@ -39,6 +39,9 @@ public class Tribu : MonoBehaviour
     [SerializeField] private Sprite SprCampementHiver;
     private Sprite SprCampementEte;
 
+    [Header("Combats")]
+    public Guerrier guerrier;
+
     private void Awake()
     {
     }

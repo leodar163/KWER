@@ -19,7 +19,6 @@ public class ControleSouris : MonoBehaviour
         }
 
     }
-
     LayerMask maskUnite;
     LayerMask maskTuile;
 
@@ -32,6 +31,8 @@ public class ControleSouris : MonoBehaviour
     [HideInInspector] public Vector3 pointAccrocheSouris;
 
     public bool controlesActives = true;
+    private bool modeInteraction = false;
+    private Interaction interactionEnCoutrs;
 
     
     // Start is called before the first frame update
@@ -67,6 +68,38 @@ public class ControleSouris : MonoBehaviour
             }
         }   
         return false;
+    }
+
+    public void ActiverModeInteraction(Interaction interaction, bool activer)
+    {
+        modeInteraction = activer;
+        controlesActives = !activer;
+        Interaction[] toutesInteractions = FindObjectsOfType<Interaction>();
+
+        for (int i = 0; i < toutesInteractions.Length; i++)
+        {
+            if(toutesInteractions[i] != interaction)
+            {
+                if(activer)
+                {
+                    toutesInteractions[i].DesactiverInteraction();
+                }
+                else
+                {
+                    toutesInteractions[i].ActiverInteraction();
+                }
+            }
+        }
+
+        if(activer)
+        {
+            interactionEnCoutrs = interaction;
+        }
+        else
+        {
+            interactionEnCoutrs.EntrerEnInteraction(false);
+            interactionEnCoutrs = null;
+        }
     }
 
     private void QuandClique()
@@ -131,6 +164,22 @@ public class ControleSouris : MonoBehaviour
             else if (Input.GetMouseButtonUp(2))
             {
                 camControle.sourisAccrochee = false;
+            }
+        }
+
+        if (modeInteraction)
+        {
+            //Quelque soit le clique qu'on active
+            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+            {
+                Collider2D check = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0);
+
+                if (check == null ||
+                check.GetComponentInParent<Interaction>() == null ||
+                check.GetComponentInParent<Interaction>() != interactionEnCoutrs)
+                {
+                    ActiverModeInteraction(interactionEnCoutrs, false);
+                }
             }
         }
     }
