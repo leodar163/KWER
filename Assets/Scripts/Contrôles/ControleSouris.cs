@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ControleSouris : MonoBehaviour
 {
-    //Singleton
+    #region SINGLETON
     private static ControleSouris actuel;
     public static ControleSouris Actuel
     {
@@ -19,6 +19,8 @@ public class ControleSouris : MonoBehaviour
         }
 
     }
+    #endregion
+
     LayerMask maskUnite;
     LayerMask maskTuile;
 

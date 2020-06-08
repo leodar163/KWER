@@ -1,17 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Pop : MonoBehaviour
+public class Slot : MonoBehaviour
 {
-    Image image;
-
     // Start is called before the first frame update
     void Start()
     {
-        image = GetComponent<Image>();
-        image.sprite = ListeIcones.Defaut.iconePopulation;
+        
     }
 
     // Update is called once per frame
@@ -19,5 +15,4 @@ public class Pop : MonoBehaviour
     {
         
     }
-
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Demographie : MonoBehaviour
 {
-    [SerializeField] private GameObject popPrefab;
+    [SerializeField] private GameObject popParent;
     [SerializeField] private Tribu tribu;
     [SerializeField] private GameObject affichage;
 
@@ -22,7 +22,7 @@ public class Demographie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        popParent.SetActive(false);
         Invoke("AjouterPop", 0.5f);
     }
 
@@ -61,8 +61,8 @@ public class Demographie : MonoBehaviour
 
     public void AjouterPop()
     {
-        GameObject nvPop = Instantiate(popPrefab, affichage.transform);
-
+        GameObject nvPop = Instantiate(popParent, transform);
+        nvPop.SetActive(true);
         listePopsCampement.Add(nvPop.GetComponent<Pop>());
         tribu.stockRessources.CalculerGain();
         tribu.stockRessources.AjouterCapacitePop();
@@ -122,7 +122,7 @@ public class Demographie : MonoBehaviour
 
     public void AfficherIntefacePop(bool afficher)
     {
-        affichage.SetActive(afficher);
+        gameObject.SetActive(afficher);
     }
 
 }

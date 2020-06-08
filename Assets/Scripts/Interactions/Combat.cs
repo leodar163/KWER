@@ -56,6 +56,11 @@ public class Combat : Interaction
         AfficherInterfaceCombat(entrer);
         if (entrer == true) boutonInteraction.onClick.AddListener(CommencerCombat);
         else boutonInteraction.onClick.RemoveListener(CommencerCombat);
+
+        if(!entrer)
+        {
+            boutonInteraction.interactable = true;
+        }
     }
 
     private void AfficherInterfaceCombat(bool afficher)

@@ -39,7 +39,7 @@ public class Hostile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -56,6 +56,7 @@ public class Hostile : MonoBehaviour
     private void AttaquerCible(Tribu cible)
     {
         print(gameObject.name + " attaque " + cible.gameObject.name);
+        ciblesAPortee.Remove(cible);
         combatEnCours = true;
     }
 
