@@ -46,7 +46,7 @@ public class Troupeau : MonoBehaviour
     {
         while(migration.PeutBouger || (hostile != null && hostile.PeutAttaquer))
         {
-            if(predateur)
+            if(predateur && (hostile != null && hostile.PeutAttaquer))
             {
                 StartCoroutine(hostile.Attaquer());
             }

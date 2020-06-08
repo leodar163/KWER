@@ -4,39 +4,17 @@ using System.Dynamic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SlotCraft : MonoBehaviour
+public class SlotCraft : Slot
 {
     public PanelRecette panelRecette;
-    public Pop pop;
-    private Demographie demo;
-    [SerializeField] private Image iconePop;
-    private Button bouton;
 
-    public bool estOccupe
-    {
-        get
-        {
-            if (pop == null)
-            {
-                return false;
-            }
-            else return true;
-        }
-    }
-
-    private void OnValidate()
-    {
-        MiseAJourIconePop();
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-        bouton = GetComponent<Button>();
+        
         InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJSlots);
         demo = panelRecette.craft.campement.tribu.demographie;
-        MiseAJourIconePop();
-        iconePop.gameObject.SetActive(false);
         MAJSlots();
     }
 
@@ -88,31 +66,10 @@ public class SlotCraft : MonoBehaviour
         }
     }
 
-
-    public void CliquerSurSlot()
+    public override void CliquerSurSlot()
     {
-        if(pop)
-        {
-            pop.gameObject.SetActive(true);
-            demo.AjouterPop(pop);
-            pop = null;
-            iconePop.gameObject.SetActive(false);
-        }
-        else if(demo.listePopsCampement.Count > 0)
-        {
-            pop = demo.RetirerPop(false);
-            pop.gameObject.SetActive(false);
-            iconePop.gameObject.SetActive(true);
-        }
+        base.CliquerSurSlot();
 
         panelRecette.AfficherGainRessource();
-    }
-
-    private void MiseAJourIconePop()
-    {
-        if (iconePop.sprite != ListeIcones.Defaut.iconePopulation)
-        {
-            iconePop.sprite = ListeIcones.Defaut.iconePopulation;
-        }
     }
 }

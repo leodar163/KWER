@@ -26,6 +26,7 @@ public class ListeIcones : MonoBehaviour
 
     [Header("Icones démograpie")]
     public Sprite iconePopulation;
+    public Sprite iconeSlot;
 
     private void Awake()
     {

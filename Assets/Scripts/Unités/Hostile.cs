@@ -24,7 +24,6 @@ public class Hostile : MonoBehaviour
         {
             if(troupeau.predateur)
             {
-                TrouverCiblesAPortee();
                 if (ciblesAPortee.Count > 0) return true;
             }
             return false;
@@ -33,7 +32,7 @@ public class Hostile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        TrouverCiblesAPortee();
     }
 
     // Update is called once per frame
@@ -41,7 +40,6 @@ public class Hostile : MonoBehaviour
     {
 
     }
-
 
     public IEnumerator Attaquer()
     {
@@ -56,7 +54,7 @@ public class Hostile : MonoBehaviour
     private void AttaquerCible(Tribu cible)
     {
         print(gameObject.name + " attaque " + cible.gameObject.name);
-        ciblesAPortee.Remove(cible);
+        ciblesAPortee.Add(cible);
         combatEnCours = true;
     }
 
@@ -66,7 +64,7 @@ public class Hostile : MonoBehaviour
         combatEnCours = false;
     }
 
-    private void TrouverCiblesAPortee()
+    public void TrouverCiblesAPortee()
     {
         ciblesAPortee.Clear();
         foreach(Revendication cible in troupeau.revendication.TrouverRevendicateursAPortee())

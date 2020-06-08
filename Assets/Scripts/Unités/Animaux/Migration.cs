@@ -49,6 +49,7 @@ public class Migration : MonoBehaviour
 
     private void TrouverTuileActuelle()
     {
+
         if (tuileActuelle)
         {
             troupeau.revendication.RevendiquerTerritoire(tuileActuelle, false);
@@ -66,6 +67,7 @@ public class Migration : MonoBehaviour
         }
 
         tuileActuelle.estOccupee = true;
+        if (troupeau.predateur) troupeau.hostile.TrouverCiblesAPortee();
         troupeau.revendication.RevendiquerTerritoire(tuileActuelle, true);
         troupeau.productionTroupeau.FertiliserTuile();
     }

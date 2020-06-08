@@ -7,7 +7,7 @@ using UnityEngine;
 public class PanelRecette : MonoBehaviour
 {
     public Craft craft;
-    private Recette recette;
+
 
     private Production gainRessource;
 
@@ -37,9 +37,9 @@ public class PanelRecette : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
+    private Recette recette;
     //Fait office d'initializateur
     public Recette Recette
     {
@@ -68,6 +68,7 @@ public class PanelRecette : MonoBehaviour
         MiseAJourSlots();
     }
 
+    //Rajoute ou enlève des slots s'il en maque ou s'il y en a trop
     private void MiseAJourSlots()
     {
         if(recette)
@@ -189,8 +190,11 @@ public class PanelRecette : MonoBehaviour
             }
             for (int i = 0; i < gainRessource.gains.Length; i++)
             {
-                gainRessource.gains[i] += recette.production.gains[i] * slotsOccupes;
-                gainRessource.gains[i] -= recette.cout.gains[i] * slotsOccupes;
+               if(recette)
+                {
+                    gainRessource.gains[i] += recette.production.gains[i] * slotsOccupes;
+                    gainRessource.gains[i] -= recette.cout.gains[i] * slotsOccupes;
+                }
             }
 
             return gainRessource;

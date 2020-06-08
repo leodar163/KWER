@@ -151,12 +151,10 @@ public class Tribu : MonoBehaviour
             if (selectionner)
             {
                 CameraControle.Actuel.CentrerCamera(transform.position, true);
-                banniere.SetActive(false);
             }
             else
             {
                 CameraControle.Actuel.controlesActives = true;
-                banniere.SetActive(true);
             }
         }
     }

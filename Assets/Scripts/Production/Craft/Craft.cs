@@ -110,7 +110,7 @@ public class Craft : MonoBehaviour
     {
         foreach(PanelRecette panel in listePanelsRecette)
         {
-            if(panel.Recette = recette)
+            if(panel.Recette == recette)
             {
                 return panel;
             }
