@@ -34,7 +34,7 @@ public class ControleSouris : MonoBehaviour
 
     public bool controlesActives = true;
     private bool modeInteraction = false;
-    private Interaction interactionEnCoutrs;
+    private Interaction interactionEnCours;
 
     
     // Start is called before the first frame update
@@ -95,12 +95,12 @@ public class ControleSouris : MonoBehaviour
 
         if(activer)
         {
-            interactionEnCoutrs = interaction;
+            interactionEnCours = interaction;
         }
         else
         {
-            interactionEnCoutrs.EntrerEnInteraction(false);
-            interactionEnCoutrs = null;
+            interactionEnCours.EntrerEnInteraction(false);
+            interactionEnCours = null;
         }
     }
 
@@ -111,38 +111,14 @@ public class ControleSouris : MonoBehaviour
             //Gestion du clique gauche
             if (Input.GetMouseButtonUp(0))
             {
-                Collider2D check = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0);
 
-                if (check && check.CompareTag("Unite") && tribuControlee.estEntreCampement == false)
-                {
-                    Tribu autre = check.GetComponent<Tribu>();
-
-                    if (autre == tribuControlee)
-                    {
-                        tribuControlee.EntrerCampement(true);
-                    }
-                }
-                else if (check && check.CompareTag("Unite") && tribuControlee.estEntreCampement == true)
-                {
-                    Tribu autre = check.GetComponent<Tribu>();
-
-                    if (autre == tribuControlee)
-                    {
-                        tribuControlee.EntrerCampement(false);
-                    }
-                }
-                //Si on clique sur autre chose qu'un élément de la tribu, 
-                //else if(!EstEnfantDeTribuSelectionnee(check) && tribuControlee.estEntreCampement == true)
-                //{
-                //    tribuControlee.EntrerCampement(false);
-                //}
             }
             //Gestion clique droit
             else if (Input.GetMouseButtonUp(1))
             {
                 Collider2D checkTuile = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0, maskTuile);
 
-                if (tribuControlee && checkTuile)
+                if (tribuControlee && checkTuile && !modeInteraction)
                 {
                     TuileManager tuileSelectionnee = checkTuile.GetComponent<TuileManager>();
 
@@ -171,16 +147,16 @@ public class ControleSouris : MonoBehaviour
 
         if (modeInteraction)
         {
-            //Quelque soit le clique qu'on active
-            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+            //Quand on fait un clique droit et qu'on clique pas sur un enfant de l'interaction, on sort de l'interaction
+            if (Input.GetMouseButtonUp(1))
             {
                 Collider2D check = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0);
 
                 if (check == null ||
                 check.GetComponentInParent<Interaction>() == null ||
-                check.GetComponentInParent<Interaction>() != interactionEnCoutrs)
+                check.GetComponentInParent<Interaction>() != interactionEnCours)
                 {
-                    ActiverModeInteraction(interactionEnCoutrs, false);
+                    ActiverModeInteraction(interactionEnCours, false);
                 }
             }
         }

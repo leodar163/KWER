@@ -51,8 +51,6 @@ public abstract class Slot : MonoBehaviour
     //Construit ou met à jour les éléments nécessaires à un slot
     private void ConstruirSlot()
     {
-        
-
         if (!image)
         {
             image = GetComponent<Image>();
@@ -92,18 +90,18 @@ public abstract class Slot : MonoBehaviour
         }
         else
         {
-            AssignerPop();
+            if (demo.listePopsCampement.Count > 0)
+            {
+                AssignerPop();
+            }
         }
     }
 
     protected virtual void AssignerPop()
     {
-        if(demo.listePopsCampement.Count > 0)
-        {
-            pop = demo.RetirerPop(false);
-            pop.gameObject.SetActive(false);
-            iconePop.gameObject.SetActive(true);
-        }
+        pop = demo.RetirerPop(false);
+        pop.gameObject.SetActive(false);
+        iconePop.gameObject.SetActive(true);
     }
 
     protected virtual void retirerPop()

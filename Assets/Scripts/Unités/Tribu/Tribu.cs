@@ -141,21 +141,18 @@ public class Tribu : MonoBehaviour
 
     public void EntrerCampement(bool selectionner)
     {
-        if(!CameraControle.Actuel.camEnMouvmt)
-        {
-            estEntreCampement = selectionner;
-            demographie.AfficherIntefacePop(selectionner);
-            expedition.AfficherExploitations(selectionner);
-            campement.AfficherInterfaceCampement(selectionner);
+        estEntreCampement = selectionner;
+        demographie.AfficherIntefacePop(selectionner);
+        expedition.AfficherExploitations(selectionner);
+        campement.AfficherInterfaceCampement(selectionner);
 
-            if (selectionner)
-            {
-                CameraControle.Actuel.CentrerCamera(transform.position, true);
-            }
-            else
-            {
-                CameraControle.Actuel.controlesActives = true;
-            }
+        if (selectionner)
+        {
+            CameraControle.Actuel.CentrerCamera(transform.position, true);
+        }
+        else
+        {
+            CameraControle.Actuel.controlesActives = true;
         }
     }
     #endregion

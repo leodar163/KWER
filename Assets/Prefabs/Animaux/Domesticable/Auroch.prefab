@@ -71,8 +71,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.001955988, y: -0.0136101255}
-  m_Size: {x: 0.8, y: 0.6}
+  m_Offset: {x: -0.03040267, y: -0.04359466}
+  m_Size: {x: 0.5954919, y: 0.5400338}
   m_Direction: 1
 --- !u!114 &2523344375351965229
 MonoBehaviour:
@@ -132,6 +132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   troupeau: {fileID: 4240119684360671227}
+  combat: {fileID: 0}
+  nbrCombattant: 0
+  attaque: 0
+  defense: 0
 --- !u!1 &6651748277873408838
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +206,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 623e4dad2eb31734984269981f0eed58, type: 3}
+  m_Sprite: {fileID: 21300000, guid: edc5ebd354e26ca4093d6864f72aba16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

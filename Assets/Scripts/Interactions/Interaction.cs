@@ -9,12 +9,20 @@ public abstract class Interaction : MonoBehaviour
     public bool enInteraction;
     public bool interactable;
     [SerializeField] protected Button boutonInteraction;
+    [SerializeField] protected Button boutonRetour;
+
+    protected virtual void Start()
+    {
+        boutonRetour.onClick.AddListener(delegate { EntrerEnInteraction(false); });
+        boutonRetour.onClick.AddListener(delegate { ControleSouris.Actuel.ActiverModeInteraction(this, false); });
+    }
 
     public virtual void EntrerEnInteraction(bool entrer)
     {
         if(enInteraction != entrer)
         {
             enInteraction = entrer;
+
             if (enInteraction)
             {
                 ControleSouris.Actuel.ActiverModeInteraction(this,true); 
