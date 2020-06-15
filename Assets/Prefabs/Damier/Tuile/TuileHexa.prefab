@@ -142,9 +142,35 @@ MonoBehaviour:
   tailleTuile: 0
   garniture: {fileID: 7196889779831233828}
   spritesBase:
-  - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
+  - {fileID: 21300000, guid: 1796123766024ed448d8bb721c16ef6f, type: 3}
+  - {fileID: 21300000, guid: 1151195832287864f9a902ac9146e29f, type: 3}
+  - {fileID: 21300000, guid: 2b2fbe6746e8cfd4d93cc3c9601a4e84, type: 3}
+  - {fileID: 21300000, guid: 47b3b260d511e3345980b2e6a7170a33, type: 3}
+  - {fileID: 21300000, guid: 02adacb1fa03f454dae626fadb6637f5, type: 3}
+  - {fileID: 21300000, guid: 01258576bf91e174ab9ab8926f3453c9, type: 3}
+  - {fileID: 21300000, guid: 7991f0f900c589842bb9308693054965, type: 3}
+  - {fileID: 21300000, guid: 0f373da4938832d49b63f913a204b25a, type: 3}
+  - {fileID: 21300000, guid: f4d6481e5b6c50147a7982b130b7aeeb, type: 3}
+  - {fileID: 21300000, guid: a9e279b176881b148837a4b51abdc95b, type: 3}
+  - {fileID: 21300000, guid: d770d080fb99dea4dab99aac15a5133c, type: 3}
+  - {fileID: 21300000, guid: 858f3a696166d9a4194c28cf19913e96, type: 3}
+  - {fileID: 21300000, guid: 09289c0fa8af0384abc064496577d817, type: 3}
+  - {fileID: 21300000, guid: dcc010b7c2626284e885fa8ce0890a8a, type: 3}
   spritesBaseHiver:
-  - {fileID: 21300000, guid: 37dc3b53e9c41294c8dedf7954dc614e, type: 3}
+  - {fileID: 21300000, guid: acd51086aadcefb43bbc009c8ac6ee03, type: 3}
+  - {fileID: 21300000, guid: e127e7bcf7c85084ba6b8151bbe1c8a0, type: 3}
+  - {fileID: 21300000, guid: 78fc3f19dbf2bca418cb06d4488c1b47, type: 3}
+  - {fileID: 21300000, guid: b53a1303ba7a6744281580fc31b623e4, type: 3}
+  - {fileID: 21300000, guid: d69bb15530e1988498e300e0980500cb, type: 3}
+  - {fileID: 21300000, guid: f7fe51a1653d72c4db7d37487cd573b7, type: 3}
+  - {fileID: 21300000, guid: da8dcf447a98d654bb0c78c65c285638, type: 3}
+  - {fileID: 21300000, guid: 687c70738a0c8ff4680327a51a445bfc, type: 3}
+  - {fileID: 21300000, guid: e19395d8b92106d4a87c6b5ff424ba3a, type: 3}
+  - {fileID: 21300000, guid: e0c6882d709d9b44b9755ca347176736, type: 3}
+  - {fileID: 21300000, guid: ae12fc558e600db45bce1cdf48278d93, type: 3}
+  - {fileID: 21300000, guid: 53cd47e54f856924db1c82496af8098c, type: 3}
+  - {fileID: 21300000, guid: 2b47adb487dcdf44ea9e609876edd6cf, type: 3}
+  - {fileID: 21300000, guid: 2acf28750de31c643a980eb6805f1d60, type: 3}
   indexGarniture: -1
   indexBase: -1
   couleurTuileAPortee: {r: 0.6383055, g: 0.8301887, b: 0.7869529, a: 1}
@@ -164,8 +190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tuile: {fileID: 8056909880984153132}
-  production: {fileID: 0}
-  bonusOutil: {fileID: 0}
   nbrSlot: 0
 --- !u!114 &7767983280701060473
 MonoBehaviour:
