@@ -9,6 +9,7 @@ public class InterfaceInfoBulle : MonoBehaviour
 {
     private TextMeshProUGUI texteMP;
     private RectTransform rectT;
+    private Image image;
 
     private static InterfaceInfoBulle cela;
 
@@ -24,58 +25,37 @@ public class InterfaceInfoBulle : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         texteMP = GetComponentInChildren<TextMeshProUGUI>();
         rectT = GetComponent<RectTransform>();
+        image = GetComponent<Image>();
         CacherBulle();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        SuivreSouris();
     }
 
-    public void AfficherBulle(string texte, Rect rect, Vector3 position)
+
+
+    private void SuivreSouris()
     {
-        texteMP.text = texte;
-        Vector3 nvlPosition = Camera.main.WorldToScreenPoint(position);
-        nvlPosition.z = rectT.position.z;
-        rectT.position = nvlPosition;
+        MAJPivot();
 
-        Resolution resol = Screen.currentResolution;
-        Vector2 nvPivot = new Vector2();
-
-        if(rectT.position.x < resol.width/2)
-        {
-            nvPivot.x = 0;
-        }
-        else
-        {
-            nvPivot.x = 1;
-        }
-
-        if(rectT.position.y < resol.height/2)
-        {
-            nvPivot.y = 0;
-        }
-        else
-        {
-            nvPivot.y = 1;
-        }
-
-        rectT.pivot = nvPivot;
+        rectT.position = new Vector3(Input.mousePosition.x,Input.mousePosition.y, 0);
     }
 
-    public void AfficherBulle(string texte, RectTransform rectTransform)
+    private void MAJPivot()
     {
-        texteMP.text = texte;
-        Vector3 nvlPosition = rectTransform.position;
-        nvlPosition.z = rectT.position.z;
-        rectT.position = nvlPosition;
-
         Resolution resol = Screen.currentResolution;
         Vector2 nvPivot = new Vector2();
 
@@ -100,8 +80,28 @@ public class InterfaceInfoBulle : MonoBehaviour
         rectT.pivot = nvPivot;
     }
 
+    public void AfficherBulle(string texte)
+    {
+        texteMP.text = texte;
+
+        Color plusdalpha = texteMP.color;
+        plusdalpha.a = 1;
+        texteMP.color = plusdalpha;
+
+        plusdalpha = image.color;
+        plusdalpha.a = 1;
+        image.color = plusdalpha;
+    }
+
     public void CacherBulle()
     {
-        rectT.position = new Vector3(-1000, -1000, rectT.position.z);
+        Color plusdalpha = texteMP.color;
+        plusdalpha.a = 0;
+        texteMP.color = plusdalpha;
+
+        plusdalpha = image.color;
+        plusdalpha.a = 0;
+        image.color = plusdalpha;
     }
+
 }

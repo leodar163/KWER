@@ -11,18 +11,7 @@ public class InfoBulle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private RectTransform bulleRect;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Rect forme;
-        if (GetComponent<RectTransform>())
-        {
-            forme = new Rect(GetComponent<RectTransform>().rect);
-            InterfaceInfoBulle.Actuel.AfficherBulle(textInfoBulle, forme, transform.position);
-        }
-        else if (GetComponent<Sprite>())
-        {
-            forme = new Rect(GetComponent<Sprite>().rect);
-            InterfaceInfoBulle.Actuel.AfficherBulle(textInfoBulle, forme, transform.position);
-        }
-        
+        InterfaceInfoBulle.Actuel.AfficherBulle(textInfoBulle);
     }
 
     private void OnDestroy()
