@@ -161,7 +161,7 @@ public class DamierGen : MonoBehaviour
 
             positionTuile.x = col * tailleTuileX + ((tailleTuileX / 2) * (ligne % 2));
             positionTuile.y = ligne * (tailleTuileY / 4 * 3);
-
+            positionTuile.z = ligne * 0.01f;
 
             GameObject nvlTuile = Instantiate(tuileHexa, transform);
 
@@ -220,6 +220,7 @@ public class DamierGen : MonoBehaviour
 
             positionTuile.x = col * tailleTuileX + ((tailleTuileX / 2) * (ligne % 2));
             positionTuile.y = ligne * (tailleTuileY / 4 * 3);
+            positionTuile.z = ligne * 0.01f;
 
             GameObject nvlTuile = Instantiate(tuileHexa, transform);
 
