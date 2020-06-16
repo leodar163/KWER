@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "nvlleRessource", menuName = "Ressource")]
+[CreateAssetMenu(fileName = "nvlleRessource", menuName = "Economie/Ressource")]
 public class Ressource : ScriptableObject
 {
 

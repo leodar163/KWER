@@ -85,7 +85,7 @@ public abstract class Slot : MonoBehaviour
     public virtual void CliquerSurSlot()
     {
         if(pop)
-        {
+        {   
             retirerPop();
         }
         else

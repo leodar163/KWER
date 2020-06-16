@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditor.Experimental.TerrainAPI;
 using UnityEditor.UIElements;
 
-[CreateAssetMenu(fileName = "nvlleRecette", menuName = "Recette")]
+[CreateAssetMenu(fileName = "nvlleRecette", menuName = "Economie/Recette")]
 public class Recette : ScriptableObject
 {
     public string nom;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+using UnityEngine.UIElements;
 
 public class DamierGen : MonoBehaviour
 {
@@ -268,6 +268,7 @@ public class DamierGen : MonoBehaviour
             {
                 positionTuile.x = (colonnes + x ) * tailleTuileX + ((tailleTuileX / 2) * (y % 2));
                 positionTuile.y =  y * (tailleTuileY / 4 * 3);
+                positionTuile.z = y * 0.01f;
 
                 GameObject nvlTuile = Instantiate(tuileHexa, transform);
 
@@ -291,6 +292,7 @@ public class DamierGen : MonoBehaviour
                 {
                     positionTuile.x = x * tailleTuileX + ((tailleTuileX / 2) * ((lignes + y) % 2));
                     positionTuile.y = (lignes + y) * (tailleTuileY / 4 * 3);
+                    positionTuile.z = y * 0.01f;
 
                     GameObject nvlTuile = Instantiate(tuileHexa, transform);
 

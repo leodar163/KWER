@@ -9,7 +9,7 @@ using System;
 using System.Security.Policy;
 using UnityScript.Lang;
 
-[CreateAssetMenu(fileName = "nvlleProduction", menuName = "Production")]
+[CreateAssetMenu(fileName = "nvlleProduction", menuName = "Economie/Production")]
 public class Production : ScriptableObject
 {
     public float[] gains = new float[0];
