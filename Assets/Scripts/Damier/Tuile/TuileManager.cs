@@ -285,6 +285,7 @@ public class TuileManager : MonoBehaviour
     public void ColorerTuile(Color couleur)
     {
         spriteBase.color = couleur;
+        spriteGarniture.color = couleur;
     }
 
     public void TuileReinit()
@@ -293,7 +294,7 @@ public class TuileManager : MonoBehaviour
         distance = 0;
         parcouru = false;
         aPortee = false;
-        GetComponent<SpriteRenderer>().color = Color.white;
+        ColorerTuile(Color.white);
     }
 
     public void EtreSelectionne()

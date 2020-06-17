@@ -84,7 +84,7 @@ public class Production : ScriptableObject
             }
         }
         Debug.LogError("Impossible d'augmenter le gain d'une ressource qui n'existe pas, ou le nom de la ressource est pas le bon. " +
-            "Tip : Les Ressources commences par une majuscules et son en français");
+            "Tip : Les Ressources commencent par une majuscule et sont en français");
     }
 
     public void MultiplierGain(string nomRessource, float multiplicateur)

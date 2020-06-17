@@ -25,7 +25,7 @@ public class ControleSouris : MonoBehaviour
     LayerMask maskTuile;
 
     //GameObject objetSelectionne;
-    Tribu tribuControlee;
+    public Tribu tribuControlee;
     [SerializeField] private int idTribuControlee;
     CameraControle camControle;
 
