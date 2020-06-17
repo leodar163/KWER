@@ -98,7 +98,7 @@ public class Production : ScriptableObject
             }
         }
         Debug.LogError("Impossible de multiplier le gain d'une ressource qui n'existe pas, ou le nom de la ressource est pas le bon. " +
-            "Tip : Les Ressources commences par une majuscules et son en français");
+            "Tip : Les Ressources commencent par une majuscule et sont en français");
     }
 
     public float RecupuererGainRessource(string nomRessource, float multiplicateur)
@@ -112,7 +112,7 @@ public class Production : ScriptableObject
             }
         }
         Debug.LogError("Impossible de récupérer le gain d'une ressource qui n'existe pas, ou le nom de la ressource est pas le bon. " +
-            "Tip : Les Ressources commences par une majuscules et son en français");
+            "Tip : Les Ressources commencent par une majuscule et sont en français");
         return 0;
     }
 
