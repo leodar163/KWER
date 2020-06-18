@@ -21,7 +21,7 @@ MonoBehaviour:
   illustration: {fileID: 21300000, guid: fde2c64ce4061474287acf8fcc9f93bd, type: 3}
   listeChoix:
   - description: M'en fous
-    infobulle: Il s'en fout \n nourriture +10
+    infobulle: Il s'en fout nourriture +10
     effets:
       m_PersistentCalls:
         m_Calls:

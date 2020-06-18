@@ -13,10 +13,24 @@ public class EvenementEditor : Editor
 
         base.OnInspectorGUI();
 
+        
+
+
         GUILayout.Space(20);
         if(GUILayout.Button("SAUVEGARDER"))
         {
             evenement.Sauvegarder();
+        }
+    }
+
+    private void EcrireEffets()
+    {
+        SerializedProperty effets;
+         
+        foreach(Evenement.Choix choix in evenement.listeChoix)
+        {
+            SerializedObject so = new SerializedObject(evenement);
+            //effets = so.FindProperty()
         }
     }
 }

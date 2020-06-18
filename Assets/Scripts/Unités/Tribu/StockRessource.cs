@@ -155,18 +155,24 @@ public class StockRessource : MonoBehaviour
             ressourcesEnStock.gains[i] += projectionGain.gains[i];
         }
 
-        LimiterStock();
         MiseAJourInterfaceRessource();
     }
 
     private void MiseAJourInterfaceRessource()
     {
-        if(InterfaceRessource.Actuel)
+        LimiterStock();
+        if (InterfaceRessource.Actuel)
         {
             InterfaceRessource.Actuel.MiseAJourCapacite(capaciteDeStockage);
             InterfaceRessource.Actuel.MiseAJourStock(ressourcesEnStock);
             InterfaceRessource.Actuel.MiseAjourGain(projectionGain);
         }
+    }
+
+    public void EncaisserRessource(string nomRessource, float montant)
+    {
+        ressourcesEnStock.AugmenterGain(nomRessource, montant);
+        MiseAJourInterfaceRessource();
     }
 
     public void AjouterCapacitePop()
