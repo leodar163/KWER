@@ -71,7 +71,7 @@ public class Combat : Interaction
 
     private void CommencerCombat()
     {
-        print("C le combat !");
+        InterfaceEvenement.Defaut.LancerCombat(this);
     }
 
     private void MAJBouton()

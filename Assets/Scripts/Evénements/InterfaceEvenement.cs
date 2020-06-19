@@ -21,7 +21,7 @@ public class InterfaceEvenement : MonoBehaviour
 
     [SerializeField] private GameObject fondNoir;
     [SerializeField] private FenetreEvenement fenetreEvenement;
-
+    [SerializeField] private FenetreEvenementCombat fenetreCombat;
 
     
 
@@ -38,10 +38,19 @@ public class InterfaceEvenement : MonoBehaviour
         
     }
 
+
+    public void LancerCombat(Combat combat)
+    {
+        fenetreCombat.LancerCombat(combat, ListeEvenementCombat.Defaut.PiocherEvenement(combat));
+        fondNoir.SetActive(false);
+        fenetreCombat.gameObject.SetActive(true);
+    }
+
     public void FermerFenetreEvenement()
     {
         fondNoir.SetActive(false);
         fenetreEvenement.gameObject.SetActive(false);
+        fenetreCombat.gameObject.SetActive(false);
     }
 
     public void OuvrirFenetreEvenement(Evenement evenementALancer)

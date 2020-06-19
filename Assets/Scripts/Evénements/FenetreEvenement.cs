@@ -18,8 +18,8 @@ public class FenetreEvenement : MonoBehaviour
     [SerializeField] private GameObject choixBase;
     private List<GameObject> listeChoix = new List<GameObject>();
 
-    private Evenement evenement;
-    public Evenement EvenementActuel
+    protected Evenement evenement;
+    public virtual Evenement EvenementActuel
     {
         set
         {
@@ -32,19 +32,13 @@ public class FenetreEvenement : MonoBehaviour
         }
     }
 
-    private void DessinerEvenement()
+    protected virtual void DessinerEvenement()
     {
 
         illustration.sprite = evenement.illustration;
         titre.text = evenement.titre;
         description.text = evenement.description;
         GenererChoix();
-
-
-        if(evenement is EvenementCombat)
-        {
-
-        }
     }
 
     private void GenererChoix()
@@ -72,7 +66,7 @@ public class FenetreEvenement : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         choixBase.SetActive(false);
     }
