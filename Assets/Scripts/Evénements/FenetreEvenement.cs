@@ -44,12 +44,13 @@ public class FenetreEvenement : MonoBehaviour
     private void GenererChoix()
     {
         ClearChoix();
-
+        
         for (int i = 0; i < evenement.listeChoix.Count; i++)
         {
             GameObject nvChoix = Instantiate(choixBase, lesChoix.transform);
             nvChoix.SetActive(true);
-            nvChoix.GetComponent<InfoBulle>().textInfoBulle = evenement.listeChoix[i].infobulle;
+            print(evenement.listeChoix[i].infobulle);
+            nvChoix.GetComponent<InfoBulle>().textInfoBulle = evenement.InfoBulleComplete(i);
             nvChoix.GetComponent<TextMeshProUGUI>().text = evenement.listeChoix[i].description;
             nvChoix.GetComponent<Button>().onClick.AddListener(evenement.listeChoix[i].effets.Invoke);
 

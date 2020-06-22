@@ -7,6 +7,8 @@ using UnityEngine.Events;
 using System;
 using UnityEditor.Events;
 using UnityEditor;
+using System.Runtime.InteropServices;
+using Microsoft.Win32.SafeHandles;
 
 [CreateAssetMenu(fileName = "NvlEvenement", menuName = "Evénements/Evément")]
 public class Evenement : ScriptableObject
@@ -15,6 +17,7 @@ public class Evenement : ScriptableObject
 
     [Space]
     public string titre;
+    [TextArea]
     public string description;
     [Space]
     public Sprite illustration;
@@ -25,15 +28,18 @@ public class Evenement : ScriptableObject
     public struct Choix
     {
         public string description;
+        [TextArea]
         public string infobulle;
+        [HideInInspector] public List<string> retoursEffets;
 
         public UnityEvent effets;
-
+        
         public Choix(string descriptionChoix, string texteInfoBulle)
         {
             description = descriptionChoix;
             infobulle = texteInfoBulle;
             effets = new UnityEvent();
+            retoursEffets = new List<string>();
         }
     }
 
@@ -69,5 +75,20 @@ public class Evenement : ScriptableObject
         AssetDatabase.Refresh();
         EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
+    }
+
+    public string InfoBulleComplete(int index)
+    {
+        Choix choix = listeChoix[index];
+        string infobulleComplete = choix.infobulle;
+
+        for (int j = 0; j < choix.retoursEffets.Count; j++)
+        {
+            if (choix.retoursEffets[j] != "" && choix.retoursEffets[j] != null)
+            {
+                infobulleComplete += "\n" + choix.retoursEffets[j];
+            }
+        }
+        return infobulleComplete;
     }
 }

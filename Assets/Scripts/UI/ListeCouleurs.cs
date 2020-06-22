@@ -23,6 +23,7 @@ public class ListeCouleurs : MonoBehaviour
     public Color couleurDefautTexteInterface;
     public Color couleurAlerteTexteInterface;
     public Color couleurTexteSansFond;
+    public Color CouleurTexteBonus;
 
 
     // Start is called before the first frame update

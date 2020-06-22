@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class InfoBulle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [TextArea]
     public string textInfoBulle = "Texte d'information";
    
     private RectTransform bulleRect;
