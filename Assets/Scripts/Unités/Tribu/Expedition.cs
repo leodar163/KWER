@@ -107,7 +107,7 @@ public class Expedition : MonoBehaviour
         foreach(Hostile hostile in hostilesAPortee)
         {
             Combat nvCombat = hostile.InstancierCombat();
-            nvCombat.Tribu = tribu.guerrier;
+            nvCombat.Guerrier = tribu.guerrier;
             combatsMenables.Add(nvCombat);
         }
     }

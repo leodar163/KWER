@@ -41,7 +41,9 @@ public class InterfaceEvenement : MonoBehaviour
 
     public void LancerCombat(Combat combat)
     {
-        fenetreCombat.LancerCombat(combat, ListeEvenementCombat.Defaut.PiocherEvenement(combat));
+        EvenementCombat eC = ListeEvenementCombat.Defaut.PiocherEvenement(combat);
+        eC.combat = combat;
+        fenetreCombat.LancerCombat(combat, eC);
         fondNoir.SetActive(false);
         fenetreCombat.gameObject.SetActive(true);
     }

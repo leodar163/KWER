@@ -7,19 +7,19 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class Combat : Interaction
 {
-    private Guerrier tribu;
+    private Guerrier guerrier;
     private Hostile hostile;
 
-    public Guerrier Tribu
+    public Guerrier Guerrier
     {
         get
         {
-            return tribu;
+            return guerrier;
         }
         set
         {
-            tribu = value;
-            interfaceCombat.guerrier = tribu;
+            guerrier = value;
+            interfaceCombat.guerrier = guerrier;
         }
     }
     public Hostile Hostile
@@ -76,7 +76,7 @@ public class Combat : Interaction
 
     private void MAJBouton()
     {
-        if(tribu.nbrGuerrier <= 0)
+        if(guerrier.nbrGuerrier <= 0)
         {
             ActiverBouton(false);
         }

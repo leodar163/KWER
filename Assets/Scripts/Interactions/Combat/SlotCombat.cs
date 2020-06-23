@@ -36,15 +36,17 @@ public class SlotCombat : Slot
 
     protected override void AssignerPop()
     {
-        base.AssignerPop();
-        guerrier.nbrGuerrier++;
+        //base.AssignerPop();
+        //guerrier.nbrGuerrier++;
+        guerrier.tribu.demographie.EngagerGuerrier();
         combat.interfaceCombat.MAJInterface();
     }
 
     protected override void retirerPop()
     {
-        base.retirerPop();
-        guerrier.nbrGuerrier--;
+        //base.retirerPop();
+        //guerrier.nbrGuerrier--;
+        guerrier.tribu.demographie.DesengagerGuerrier(false);
         combat.interfaceCombat.MAJInterface();
     }
 }

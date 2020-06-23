@@ -43,7 +43,7 @@ public class Evenement : ScriptableObject
         }
     }
 
-    private void OnValidate()
+    protected virtual void OnValidate()
     {
         foreach(Choix choix in listeChoix)
         {

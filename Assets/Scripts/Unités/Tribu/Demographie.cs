@@ -10,12 +10,13 @@ public class Demographie : MonoBehaviour
 
     public List<Pop> listePopsCampement = new List<Pop>();
     public List<Pop> listePopsExpedition = new List<Pop>();
+    public List<Pop> listePopsGuerrier = new List<Pop>();
 
     public int taillePopulation
     {
         get
         {
-            return listePopsExpedition.Count + listePopsCampement.Count;
+            return listePopsExpedition.Count + listePopsCampement.Count + listePopsGuerrier.Count;
         }
     }
 
@@ -80,19 +81,42 @@ public class Demographie : MonoBehaviour
         }
     }
 
-    public void SupprimerPop()
-    { 
-        if(listePopsCampement.Count >= 0 && (listePopsCampement.Count + listePopsExpedition.Count) > 1)
+    public Pop EngagerGuerrier()
+    {
+        Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1];
+        listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
+
+        listePopsGuerrier.Add(popRetiree);
+        tribu.stockRessources.CalculerGain();
+        tribu.guerrier.nbrGuerrier++;
+
+        AjusterRouePopulation();
+
+        return popRetiree;
+    }
+
+    public Pop DesengagerGuerrier(bool detruir)
+    {
+        Pop popRetiree = listePopsGuerrier[listePopsGuerrier.Count - 1];
+        listePopsGuerrier.RemoveAt(listePopsGuerrier.Count - 1);
+
+        if (detruir)
         {
-            Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1];
-            listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
             Destroy(popRetiree.gameObject);
-
-            tribu.stockRessources.CalculerGain();
+            popRetiree = null;
             tribu.stockRessources.RetirerCapacitePop();
-
-            AjusterRouePopulation();
         }
+        else
+        {
+            listePopsCampement.Add(popRetiree);
+        }
+
+        tribu.stockRessources.CalculerGain();
+        tribu.guerrier.nbrGuerrier--;
+
+        AjusterRouePopulation();
+
+        return popRetiree;
     }
 
     public Pop RetirerPop( bool detruir)
@@ -117,7 +141,6 @@ public class Demographie : MonoBehaviour
         AjusterRouePopulation();
 
         return popRetiree;
-        
     }
 
     public void AfficherIntefacePop(bool afficher)

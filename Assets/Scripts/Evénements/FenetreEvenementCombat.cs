@@ -32,7 +32,7 @@ public class FenetreEvenementCombat : FenetreEvenement
 
     private void MAJInterfaceCombat()
     {
-        statsJoueur.MAJStats(combat.Tribu.nbrGuerrier, combat.Tribu.attaque, combat.Tribu.defense);
+        statsJoueur.MAJStats(combat.Guerrier.nbrGuerrier, combat.Guerrier.attaque, combat.Guerrier.defense);
         statsEnnemi.MAJStats(combat.Hostile.nbrCombattant, combat.Hostile.attaque, combat.Hostile.defense);
     }
 
