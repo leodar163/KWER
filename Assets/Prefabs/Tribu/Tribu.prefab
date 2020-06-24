@@ -553,6 +553,7 @@ MonoBehaviour:
   affichage: {fileID: 1062186752523472291}
   listePopsCampement: []
   listePopsExpedition: []
+  listePopsGuerrier: []
 --- !u!1 &1528107149241721293
 GameObject:
   m_ObjectHideFlags: 0
