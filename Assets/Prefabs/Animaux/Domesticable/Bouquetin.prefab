@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2523344375351965229}
   - component: {fileID: 1714641867515581847}
   - component: {fileID: 9055846603267299339}
-  - component: {fileID: -6910516454383727766}
   m_Layer: 11
   m_Name: Bouquetin
   m_TagString: Untagged
@@ -50,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   migration: {fileID: 2523344375351965229}
-  hostile: {fileID: -6910516454383727766}
+  hostile: {fileID: 0}
   productionTroupeau: {fileID: 1714641867515581847}
   spriteRenderer: {fileID: 6269753663623220688}
   revendication: {fileID: 9055846603267299339}
@@ -119,23 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 4240119684360671227}
---- !u!114 &-6910516454383727766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799528128373039931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda67a0ef89633f4b86b6ea8adef0258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  troupeau: {fileID: 4240119684360671227}
-  combat: {fileID: 0}
-  nbrCombattant: 0
-  attaque: 0
-  defense: 0
 --- !u!1 &6651748277873408838
 GameObject:
   m_ObjectHideFlags: 0

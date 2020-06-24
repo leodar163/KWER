@@ -24,7 +24,7 @@ MonoBehaviour:
     infobulle: Il s'en fout
     retoursEffets:
     - 
-    - Nourriture <color=#83C755FF>+ 10
+    - Nourriture <color=#83C755FF>+10
     - 
     - 
     - 
@@ -507,7 +507,7 @@ MonoBehaviour:
     infobulle: Honte sur vous !
     retoursEffets:
     - 
-    - Nourriture <color=#83C755FF>+ 40
+    - Nourriture <color=#83C755FF>+40
     effets:
       m_PersistentCalls:
         m_Calls:

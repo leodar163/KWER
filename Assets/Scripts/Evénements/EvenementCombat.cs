@@ -10,17 +10,6 @@ public class EvenementCombat : Evenement
 {
     [HideInInspector] public Combat combat;
 
-    protected override void OnValidate()
-    {
-        foreach (Choix choix in listeChoix)
-        {
-            if (choix.effets.GetPersistentEventCount() == 0)
-            {
-                UnityEventTools.AddPersistentListener(choix.effets, LancerCombat);
-            }
-        }
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -33,13 +22,11 @@ public class EvenementCombat : Evenement
         
     }
 
-    private void LancerCombat()
+    public void Combattre()
     {
-        FermerFenetreEvenement();
-        Combattre();
     }
 
-    private void Combattre()
+    public void Fuire()
     {
 
     }

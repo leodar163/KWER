@@ -64,7 +64,7 @@ public class EvenementEditor : Editor
                     if (argument.floatValue > 0)
                     {
 
-                        retour += " <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.CouleurTexteBonus) + ">+ " + argument.floatValue;
+                        retour += " <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.CouleurTexteBonus) + ">+" + argument.floatValue;
                     }
                     else if (argument.floatValue < 0)
                     {

@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60e8e30da5cfe34fbacb35c3fc55b77, type: 3}
+  m_Name: GoulotEtranglement
+  m_EditorClassIdentifier: 
+  effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
+  titre: GOULOT D'ETRANGLEMENT
+  description: "Il y a un ravin non-loin o\xF9 nous aurions l'avantage contre ces
+    grands animaux. Quelle strat\xE9gie adopter ?"
+  illustration: {fileID: 21300000, guid: f067f4dd7553b7d4ba82df7e8e891d73, type: 3}
+  listeChoix:
+  - description: "Tendons-leur un pi\xE8ge"
+    infobulle: "Ils ne pourront pas esquiver un foss\xE9 dans cet \xE9troit coridor."
+    retoursEffets:
+    - 
+    - 
+    effets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_MethodName: FermerFenetreEvenement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: ae50a04289bb07b479fe7eb6194ff63f, type: 2}
+          m_MethodName: PiocherEvenement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - description: "Pr\xE9parons une embuscade"
+    infobulle: Une fois rabattus dans le ravin, nous les percerons de pierres et
+      de sagais.
+    retoursEffets:
+    - 
+    - 
+    effets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_MethodName: FermerFenetreEvenement
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 75de0d4281449ae47a659a97f96eeed4, type: 2}
+          m_MethodName: PiocherEvenement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  combat: {fileID: 0}

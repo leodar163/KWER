@@ -83,16 +83,20 @@ public class Demographie : MonoBehaviour
 
     public Pop EngagerGuerrier()
     {
-        Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1];
-        listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
+        if (listePopsCampement.Count > 0)
+        {
+            Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1];
+            listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
 
-        listePopsGuerrier.Add(popRetiree);
-        tribu.stockRessources.CalculerGain();
-        tribu.guerrier.nbrGuerrier++;
+            listePopsGuerrier.Add(popRetiree);
+            tribu.stockRessources.CalculerGain();
+            tribu.guerrier.nbrGuerrier++;
 
-        AjusterRouePopulation();
+            AjusterRouePopulation();
 
-        return popRetiree;
+            return popRetiree;
+        }
+        else return null;
     }
 
     public Pop DesengagerGuerrier(bool detruir)

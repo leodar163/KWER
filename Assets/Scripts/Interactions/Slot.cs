@@ -106,8 +106,8 @@ public abstract class Slot : MonoBehaviour
 
     protected virtual void retirerPop()
     {
-        pop.gameObject.SetActive(true);
         demo.AjouterPop(pop);
+        pop.gameObject.SetActive(true);
         pop = null;
         iconePop.gameObject.SetActive(false);
     }

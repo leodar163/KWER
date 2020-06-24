@@ -38,7 +38,9 @@ public class SlotCombat : Slot
     {
         //base.AssignerPop();
         //guerrier.nbrGuerrier++;
-        guerrier.tribu.demographie.EngagerGuerrier();
+        pop = guerrier.tribu.demographie.EngagerGuerrier();
+        pop.gameObject.SetActive(false);
+        iconePop.gameObject.SetActive(true);
         combat.interfaceCombat.MAJInterface();
     }
 
@@ -46,6 +48,9 @@ public class SlotCombat : Slot
     {
         //base.retirerPop();
         //guerrier.nbrGuerrier--;
+        pop.gameObject.SetActive(true);
+        pop = null;
+        iconePop.gameObject.SetActive(false);
         guerrier.tribu.demographie.DesengagerGuerrier(false);
         combat.interfaceCombat.MAJInterface();
     }

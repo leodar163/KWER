@@ -681,17 +681,20 @@ public class EditeurNiveau : EditorWindow
         {
             MappeSysteme.Mappe mappe;
 
-            if(MappeSysteme.CheckerMappeExiste(nomMappe))
+           if(EditorUtility.DisplayDialog("Chargement", "T'es bien sûr d'avoir sauvegarder ta mappe avant d'en charger une autre ?", "Ouaip !", "ah merde, non !"))
             {
-                MappeSysteme.ChargerMappe(nomMappe);
-                mappe = MappeSysteme.CreerMappe(nomMappe);
+                if(MappeSysteme.CheckerMappeExiste(nomMappe))
+                {
+                    MappeSysteme.ChargerMappe(nomMappe);
+                    mappe = MappeSysteme.CreerMappe(nomMappe);
 
-                colonnes = mappe.colonnes;
-                lignes = mappe.lignes;
-            }
-            else
-            {
-                Debug.LogError("La mappe n'a pas été trouvée. Elle n'existe peut-être pas, ou le nom n'est pas le bon");
+                    colonnes = mappe.colonnes;
+                    lignes = mappe.lignes;
+                }
+                else
+                {
+                    EditorUtility.DisplayDialog("Erruer", "La mappe n'a pas été trouvée. Elle n'existe peut-être pas, ou le nom n'est pas le bon", "hum...");
+                }
             }
         }
 
@@ -701,13 +704,16 @@ public class EditeurNiveau : EditorWindow
         GUILayoutOption[] optionsSuppr = new GUILayoutOption[2] { GUILayout.Width(80), GUILayout.Height(20) };
         if (GUILayout.Button("SUPPRIMER",optionsSuppr))
         {
-            if (MappeSysteme.CheckerMappeExiste(nomMappe))
+            if(EditorUtility.DisplayDialog("Suppression", "Tu veux vraiment supprimer cette mappe ?","Oui oui","ah merde, non !"))
             {
-                MappeSysteme.SupprimerMappe(nomMappe);
-            }
-            else
-            {
-                Debug.LogError("La mappe n'a pas été trouvée. Elle n'existe peut-être pas, ou le nom n'est pas le bon");
+                if (MappeSysteme.CheckerMappeExiste(nomMappe))
+                {
+                    MappeSysteme.SupprimerMappe(nomMappe);
+                }
+                else
+                {
+                    Debug.LogError("La mappe n'a pas été trouvée. Elle n'existe peut-être pas, ou le nom n'est pas le bon");
+                }
             }
         }
         GUILayout.Space(230);
