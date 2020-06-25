@@ -23,6 +23,8 @@ MonoBehaviour:
     retoursEffets:
     - 
     - 
+    - 
+    - 
     effets:
       m_PersistentCalls:
         m_Calls:
@@ -45,6 +47,17 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000}
+          m_MethodName: FaireFuirGuerrier
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
+            m_FloatArgument: 25
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -79,4 +92,28 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - description: "Pr\xE9f\xE9rons renoncer"
+    infobulle: Parfois il vaut mieux se replier que de subir trop de perte.
+    retoursEffets:
+    - 
+    - 
+    effets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_MethodName: FermerFenetreEvenement
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  finBalise: <fin>
   combat: {fileID: 0}
+  baliseGuer: <guer>
+  baliseGuerPourc: <guer%>
+  baliseEnnPourc: <enn%>
+  baliseEnn: <enn>

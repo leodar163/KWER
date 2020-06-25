@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine;  
 
 [CreateAssetMenu(fileName = "NvCluster", menuName = "Evénements/Cluster")]
 public class ClusterEvenement : ScriptableObject
@@ -42,10 +40,5 @@ public class ClusterEvenement : ScriptableObject
 
     }
 
-    public void Sauvegarder()
-    {
-        AssetDatabase.Refresh();
-        EditorUtility.SetDirty(this);
-        AssetDatabase.SaveAssets();
-    }
+    
 }

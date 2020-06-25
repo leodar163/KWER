@@ -16,8 +16,15 @@ public class RecetteEditor : Editor
         GUILayout.Space(20);
         if(GUILayout.Button("Sauvegarder"))
         {
-            recette.Sauvegarder();
+            Sauvegarder();
         }
     }
 
+
+    public void Sauvegarder()
+    {
+        AssetDatabase.Refresh();
+        EditorUtility.SetDirty(target);
+        AssetDatabase.SaveAssets();
+    }
 }

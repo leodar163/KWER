@@ -16,7 +16,14 @@ public class ClusterEditor : Editor
         cluster = (ClusterEvenement)target;
         if(GUILayout.Button("SAUVEGARDER"))
         {
-            cluster.Sauvegarder();
+            Sauvegarder();
         }
+    }
+
+    public void Sauvegarder()
+    {
+        AssetDatabase.Refresh();
+        EditorUtility.SetDirty(target);
+        AssetDatabase.SaveAssets();
     }
 }

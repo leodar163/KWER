@@ -1,7 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
-using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
 
 public class CameraControle : MonoBehaviour

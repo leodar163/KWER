@@ -2,17 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using Unity.Mathematics;
 
-    [CustomEditor(typeof(Evenement), true)]
+[CustomEditor(typeof(Evenement), true)]
 public class EvenementEditor : Editor
 {
     private Evenement evenement;
     int oih = 0;
+
+
     public override void OnInspectorGUI()
     {
         evenement = (Evenement)target;
 
         base.OnInspectorGUI();
+
+        foreach (Evenement.Choix choix in evenement.listeChoix)
+        {
+            if (choix.effets.GetPersistentEventCount() == 0)
+            {
+                UnityEditor.Events.UnityEventTools.AddPersistentListener(choix.effets, evenement.FermerFenetreEvenement);
+            }
+        }
 
         EcrireEffets();
 
@@ -20,10 +31,16 @@ public class EvenementEditor : Editor
         GUILayout.Space(20);
         if(GUILayout.Button("SAUVEGARDER"))
         {
-            evenement.Sauvegarder();
+            Sauvegarder();
         }
     }
-
+    public void Sauvegarder()
+    {
+        AssetDatabase.Refresh();
+        EditorUtility.SetDirty(target);
+        AssetDatabase.SaveAssets();
+        EcrireEffets();
+    }
     private void EcrireEffets()
     {
         SerializedProperty effet;
@@ -55,28 +72,79 @@ public class EvenementEditor : Editor
 
                 cible = effet.FindPropertyRelative("data[" + j + "].m_target");
                 methode = effet.FindPropertyRelative("data[" + j + "].m_MethodName");
+                argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_FloatArgument");
+                string retour = "";
+                EvenementCombat evenementCombat = (EvenementCombat)evenement;
 
                 if (methode.stringValue.Contains("Gain"))
                 {
-                    argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_FloatArgument");
-                    string retour = methode.stringValue.Remove(0, 4);
+                    retour = methode.stringValue.Remove(0, 4);
 
                     if (argument.floatValue > 0)
                     {
 
-                        retour += " <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.CouleurTexteBonus) + ">+" + argument.floatValue;
+                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.CouleurTexteBonus) + ">+" + argument.floatValue;
                     }
                     else if (argument.floatValue < 0)
                     {
-                        retour += " <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> " + argument.floatValue;
+                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> " + argument.floatValue;
                     }
                     else if (argument.floatValue == 0)
                     {
                         retour = "";
                     }
-                
-                    choix.retoursEffets[j] = retour;
                 }
+                else if (methode.stringValue.Contains("Fuir"))
+                {
+                    if(methode.stringValue.Contains("Pourcentage"))
+                    {
+                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                            + evenementCombat.baliseGuerPourc + argument.intValue + evenement.finBalise + " guerriers s'enfuient.";
+                    }
+                    else
+                    {
+                        argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_IntArgument");
+                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" 
+                            + evenementCombat.baliseGuer + argument.intValue + evenement.finBalise +" guerriers s'enfuient.";
+                    }
+                }
+                else if(methode.stringValue.Contains("Tuer"))
+                {   
+                    if(methode.stringValue.Contains("Guerrier"))
+                    {
+                        if(methode.stringValue.Contains("Pourcentage"))
+                        {
+                            retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                               + evenementCombat.baliseGuerPourc + argument.floatValue + evenement.finBalise + " guerriers tués";
+                        }
+                        else
+                        {
+                            argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_IntArgument");
+                            retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" 
+                                + evenementCombat.baliseGuer + argument.intValue + evenement.finBalise + " guerriers tués";
+                        }
+                    }
+                    else if(methode.stringValue.Contains("Ennemis"))
+                    {
+                        if(methode.stringValue.Contains("Pourcentage"))
+                        {
+                            
+                            retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.CouleurTexteBonus) + ">" 
+                                + evenementCombat.baliseEnnPourc + argument.floatValue + evenement.finBalise + " ennemis meurent";
+                        }
+                        else
+                        {
+                            argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_IntArgument");
+                            retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.CouleurTexteBonus) + ">"
+                                + evenementCombat.baliseEnn + argument.intValue + evenement.finBalise + " ennemis meurent";
+                        }
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+                choix.retoursEffets[j] = retour;
             }
         }
     }

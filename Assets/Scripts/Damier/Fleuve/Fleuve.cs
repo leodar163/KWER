@@ -1,21 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.U2D;
-using UnityEditor;
-using UnityEditor.U2D;
-using UnityEditor.U2D.SpriteShape;
 
-[RequireComponent(typeof(SpriteShapeController))]
+
+[RequireComponent(typeof(UnityEngine.U2D.SpriteShapeController))]
 [RequireComponent(typeof(EdgeCollider2D))]
-[RequireComponent(typeof(SpriteShapeRenderer))]
+[RequireComponent(typeof(UnityEngine.U2D.SpriteShapeRenderer))]
 
 public class Fleuve : MonoBehaviour
 {
     int index = 0;
     public List<NoeudFleuve> grapheNoeuds;
-    Spline spline;
-    SpriteShapeController ssController;
+    UnityEngine.U2D.Spline spline;
+    UnityEngine.U2D.SpriteShapeController ssController;
 
     const float profondeur = -2;
 
@@ -36,7 +33,7 @@ public class Fleuve : MonoBehaviour
     public void Init()
     {
         grapheNoeuds = new List<NoeudFleuve>();
-        ssController = GetComponent<SpriteShapeController>();
+        ssController = GetComponent<UnityEngine.U2D.SpriteShapeController>();
         spline = ssController.spline;
     }
 

@@ -2,12 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.Experimental.TerrainAPI;
-using System.Runtime.InteropServices;
-using System.Runtime.CompilerServices;
-using System;
-using System.Security.Policy;
-using UnityScript.Lang;
 
 [CreateAssetMenu(fileName = "nvlleProduction", menuName = "Economie/Production")]
 public class Production : ScriptableObject
@@ -116,12 +110,6 @@ public class Production : ScriptableObject
         return 0;
     }
 
-    public void Sauvegarder()
-    {
-        AssetDatabase.Refresh();
-        EditorUtility.SetDirty(this);
-        AssetDatabase.SaveAssets();
-    }
 
     public void Clear()
     {

@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-using UnityEditor.Experimental.TerrainAPI;
-using UnityEditor.UIElements;
 
 [CreateAssetMenu(fileName = "nvlleRecette", menuName = "Economie/Recette")]
 public class Recette : ScriptableObject
@@ -14,11 +11,4 @@ public class Recette : ScriptableObject
     public Production cout;
 
 
-
-    public void Sauvegarder()
-    {
-        AssetDatabase.Refresh();
-        EditorUtility.SetDirty(this);
-        AssetDatabase.SaveAssets();
-    }
 }

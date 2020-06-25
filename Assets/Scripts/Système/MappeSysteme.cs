@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using UnityEditor;
 
 static public class MappeSysteme
 {
@@ -42,7 +41,7 @@ static public class MappeSysteme
     }
 
     #region SAUVEGARDE
-    public static void SauvergarderMappe(string nomMappe)
+    public static void SauvergarderMappe(string nomMappe, bool ecraserSave)
     {
         string cheminMappe = cheminDefaut + nomMappe + extention;
 
@@ -67,24 +66,12 @@ static public class MappeSysteme
         }
         */
 
-        if(nomMappe == "")
-        {
-            if (EditorUtility.DisplayDialog("Manque le nom", "Rentre un nom pour ta mappe !","Oui Léo..."))
-            {
-                if(EditorUtility.DisplayDialog(":3","C'est bien mon grand ^^ !","Ouai ouai... TG..."))
-                {
-
-                }
-            }
-        }
-        else if(CheckerMappeExiste(nomMappe))
-        {
-            if(EditorUtility.DisplayDialog("La mappe existe déjà", "La mappe existe déjà, tu veux écraser la sauvegarde ?", "Oui", "Non"))
-            {
+        if(ecraserSave)
+        {    
                 SupprimerMappe(nomMappe);
 
                 CreerFichierMappe(cheminMappe, CreerCodeMappe(mappe));
-            }
+            
         }
         else
         {

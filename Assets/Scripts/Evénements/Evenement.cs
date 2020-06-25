@@ -1,13 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 using UnityEngine.Events;
-using UnityEditor.Events;
-using UnityEditor;
-using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
 using System;
 
 [CreateAssetMenu(fileName = "NvlEvenement", menuName = "Evénements/Evément")]
@@ -23,6 +17,8 @@ public class Evenement : ScriptableObject
     public Sprite illustration;
     [Space]
     public List<Choix> listeChoix = new List<Choix>();
+
+    [HideInInspector] public string finBalise = "<fin>";
 
     [Serializable]
     public struct Choix
@@ -43,16 +39,6 @@ public class Evenement : ScriptableObject
         }
     }
 
-    protected virtual void OnValidate()
-    {
-        foreach(Choix choix in listeChoix)
-        {
-            if (choix.effets.GetPersistentEventCount() == 0)
-            {    
-                UnityEventTools.AddPersistentListener(choix.effets, FermerFenetreEvenement);
-            }
-        }
-    }
 
     public void FermerFenetreEvenement()
     {
@@ -70,13 +56,6 @@ public class Evenement : ScriptableObject
         }
     }
 
-    public void Sauvegarder()
-    {
-        AssetDatabase.Refresh();
-        EditorUtility.SetDirty(this);
-        AssetDatabase.SaveAssets();
-    }
-
     public string InfoBulleComplete(int index)
     {
         Choix choix = listeChoix[index];
@@ -86,9 +65,57 @@ public class Evenement : ScriptableObject
         {
             if (choix.retoursEffets[j] != "" && choix.retoursEffets[j] != null)
             {
+                choix.retoursEffets[j] = ModifsRetourEffets(choix.retoursEffets[j]);
                 infobulleComplete += "\n" + choix.retoursEffets[j];
             }
         }
         return infobulleComplete;
     }
+
+    protected virtual string ModifsRetourEffets(string retourEffet)
+    {
+        string retour = retourEffet;
+        return retour;
+    }
+
+    #region BALISES
+    protected string RecupererContenuBalise(string contenant, string balise)
+    {
+        if (contenant.Contains(balise))
+        {
+            int indexDebut = contenant.IndexOf(balise) + balise.Length;
+            int indexFin = contenant.IndexOf(finBalise);
+            string contenu = contenant.Substring(indexDebut, indexFin - indexDebut);
+            return contenu;
+        }
+        else return null;
+    }
+
+    protected string RemplacerContenuBalises(string texte, string balise, string remplacement)
+    {
+        if (texte.Contains(balise))
+        {
+            string retour = texte;
+            int indexDebut = retour.IndexOf(balise) + balise.Length;
+            int indexFin = retour.IndexOf(finBalise);
+            retour = retour.Remove(indexDebut, indexFin - indexDebut);
+            retour = retour.Insert(indexDebut, remplacement);
+            return retour;
+        }
+        else return null;
+    }
+
+    protected string SupprimerBalises(string texte,string balise)
+    {
+        if (texte.Contains(balise))
+        {
+            string retour = texte;
+            retour = retour.Replace(balise, "");
+            retour = retour.Replace(finBalise,"");
+            Debug.Log(retour);
+            return retour;
+        }
+        else return null;
+    }
+    #endregion
 }

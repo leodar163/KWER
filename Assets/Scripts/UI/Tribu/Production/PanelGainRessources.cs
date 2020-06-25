@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using TMPro.EditorUtilities;
-using System.Security.Policy;
-using System.Linq;
 
 public class PanelGainRessources : MonoBehaviour
 {

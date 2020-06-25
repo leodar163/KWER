@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listeEvenement:
   - proba: 30
-    evenement: {fileID: 0}
+    evenement: {fileID: 11400000, guid: 3552b8567a95934439a41eb71f3d1c71, type: 2}
     descriptionRapide: Une partie des ennemis meurt dans le piege.
   - proba: 70
-    evenement: {fileID: 0}
+    evenement: {fileID: 11400000, guid: 1cde73f037512dc40b9cfd8c47e8276e, type: 2}
     descriptionRapide: "Les ennemis rep\xE8rent le piege."

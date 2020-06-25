@@ -655,7 +655,27 @@ public class EditeurNiveau : EditorWindow
         GUILayoutOption[] optionsSave = new GUILayoutOption[2] { GUILayout.MaxWidth(150), GUILayout.MinHeight(20) };
         if (GUILayout.Button("Sauvegarder Mappe", optionsSave))
         {
-            MappeSysteme.SauvergarderMappe(nomMappeSauvegarde);
+            if (nomMappeSauvegarde == "")
+            {
+                if (EditorUtility.DisplayDialog("Manque le nom", "Rentre un nom pour ta mappe !", "Oui Léo..."))
+                {
+                    if (EditorUtility.DisplayDialog(":3", "C'est bien mon grand ^^ !", "Ouai ouai... TG..."))
+                    {
+
+                    }
+                }
+            }
+            else if (MappeSysteme.CheckerMappeExiste(nomMappeSauvegarde))
+            {
+                if (EditorUtility.DisplayDialog("La mappe existe déjà", "La mappe existe déjà, tu veux écraser la sauvegarde ?", "Oui", "Non"))
+                {
+                    MappeSysteme.SauvergarderMappe(nomMappeSauvegarde, true);
+                }
+            }
+            else
+            {
+                MappeSysteme.SauvergarderMappe(nomMappeSauvegarde, false);
+            }
             nomMappeSauvegarde = "NomSauvergarde";
         }
         GUILayout.EndHorizontal();

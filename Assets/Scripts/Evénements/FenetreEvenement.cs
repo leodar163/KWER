@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using UnityEditor.Events;
-using UnityEngine.Analytics;
 
 public class FenetreEvenement : MonoBehaviour
 {
@@ -49,7 +46,6 @@ public class FenetreEvenement : MonoBehaviour
         {
             GameObject nvChoix = Instantiate(choixBase, lesChoix.transform);
             nvChoix.SetActive(true);
-            print(evenement.listeChoix[i].infobulle);
             nvChoix.GetComponent<InfoBulle>().textInfoBulle = evenement.InfoBulleComplete(i);
             nvChoix.GetComponent<TextMeshProUGUI>().text = evenement.listeChoix[i].description;
             nvChoix.GetComponent<Button>().onClick.AddListener(evenement.listeChoix[i].effets.Invoke);
