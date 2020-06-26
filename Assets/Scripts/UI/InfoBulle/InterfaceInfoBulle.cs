@@ -4,12 +4,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image), typeof(ContentSizeFitter))]
 public class InterfaceInfoBulle : MonoBehaviour
 {
     private TextMeshProUGUI texteMP;
     private RectTransform rectT;
-    private Image image;
+    [SerializeField] private Image image;
+    private float alphaDefaut;
 
     private static InterfaceInfoBulle cela;
 
@@ -29,7 +29,8 @@ public class InterfaceInfoBulle : MonoBehaviour
     {
         texteMP = GetComponentInChildren<TextMeshProUGUI>();
         rectT = GetComponent<RectTransform>();
-        image = GetComponent<Image>();
+        if(!image)image = GetComponentInChildren<Image>();
+        alphaDefaut = image.color.a;
         CacherBulle();
     }
 
@@ -89,7 +90,7 @@ public class InterfaceInfoBulle : MonoBehaviour
         texteMP.color = plusdalpha;
 
         plusdalpha = image.color;
-        plusdalpha.a = 1;
+        plusdalpha.a = alphaDefaut;
         image.color = plusdalpha;
     }
 

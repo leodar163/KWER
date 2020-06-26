@@ -16,14 +16,14 @@ MonoBehaviour:
   titre: PIEGE REUSSI
   description: "Nos ennemis sont tomb\xE9s droit dans notre pi\xE8ge ! Nombreux ont
     p\xE9ri sur le coup."
-  illustration: {fileID: 21300000, guid: f067f4dd7553b7d4ba82df7e8e891d73, type: 3}
+  illustration: {fileID: 0}
   listeChoix:
   - description: C'est une bonne nouvelle
     infobulle: 
     retoursEffets:
     - 
     - 
-    - <color=#83C755FF>
+    - <color=#83C755FF><enn%>33<fin> ennemis meurent
     effets:
       m_PersistentCalls:
         m_Calls:
@@ -56,8 +56,13 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 25
+            m_FloatArgument: 33
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  finBalise: <fin>
   combat: {fileID: 0}
+  baliseGuer: <guer>
+  baliseGuerPourc: <guer%>
+  baliseEnnPourc: <enn%>
+  baliseEnn: <enn>
