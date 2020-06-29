@@ -7,6 +7,13 @@ using UnityEngine.UI;
 public class FenetreEvenement : MonoBehaviour
 {
     [SerializeField] private Image illustration;
+    public Image IllustrationActuelle
+    {
+        get
+        {
+            return illustration;
+        }
+    }
     [SerializeField] private TextMeshProUGUI titre;
     [SerializeField] private TextMeshProUGUI description;
 

@@ -42,6 +42,9 @@ public class Tribu : MonoBehaviour
     [Header("Combats")]
     public Guerrier guerrier;
 
+    [Header("Bonus")]
+    public BonusTribu bonus;
+
     private void Awake()
     {
     }

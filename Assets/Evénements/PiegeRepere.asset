@@ -16,10 +16,10 @@ MonoBehaviour:
   titre: PIEGE REPERE
   description: "L'ennemi a repr\xE9r\xE9 notre strat\xE9g\xE8me et contourne nos
     positions !"
-  illustration: {fileID: 0}
+  illustration: {fileID: 21300000, guid: f067f4dd7553b7d4ba82df7e8e891d73, type: 3}
   listeChoix:
-  - description: 
-    infobulle: 
+  - description: Mince !
+    infobulle: Bon... Et maintenant ?
     retoursEffets:
     - 
     - 

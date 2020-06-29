@@ -22,7 +22,8 @@ MonoBehaviour:
     infobulle: "Ils ne pourront pas esquiver un foss\xE9 dans cet \xE9troit coridor."
     retoursEffets:
     - 
-    - 
+    - " - < color =#83C755FF>Forte chance que le pi\xE8ge fonctionne.\n - < color
+      =#F2D82DFF>Chance moyenne que le pi\xE8ge soit rep\xE9r\xE9."
     - 
     - 
     effets:

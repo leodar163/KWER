@@ -34,7 +34,7 @@ public class EvenementEditor : Editor
             Sauvegarder();
         }
     }
-    public void Sauvegarder()
+    private void Sauvegarder()
     {
         AssetDatabase.Refresh();
         EditorUtility.SetDirty(target);
@@ -69,8 +69,7 @@ public class EvenementEditor : Editor
 
             for (int j = 0; j < effet.arraySize; j++)
             {
-
-                cible = effet.FindPropertyRelative("data[" + j + "].m_target");
+                cible = effet.FindPropertyRelative("data[" + j + "].m_Target");
                 methode = effet.FindPropertyRelative("data[" + j + "].m_MethodName");
                 argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_FloatArgument");
                 string retour = "";
@@ -83,7 +82,7 @@ public class EvenementEditor : Editor
                     if (argument.floatValue > 0)
                     {
 
-                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.CouleurTexteBonus) + ">+" + argument.floatValue;
+                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+" + argument.floatValue;
                     }
                     else if (argument.floatValue < 0)
                     {
@@ -96,7 +95,7 @@ public class EvenementEditor : Editor
                 }
                 else if (methode.stringValue.Contains("Fuir"))
                 {
-                    if(methode.stringValue.Contains("Pourcentage"))
+                    if (methode.stringValue.Contains("Pourcentage"))
                     {
                         retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
                             + evenementCombat.baliseGuerPourc + argument.intValue + evenement.finBalise + " guerriers s'enfuient.";
@@ -104,15 +103,15 @@ public class EvenementEditor : Editor
                     else
                     {
                         argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_IntArgument");
-                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" 
-                            + evenementCombat.baliseGuer + argument.intValue + evenement.finBalise +" guerriers s'enfuient.";
+                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                            + evenementCombat.baliseGuer + argument.intValue + evenement.finBalise + " guerriers s'enfuient.";
                     }
                 }
-                else if(methode.stringValue.Contains("Tuer"))
-                {   
-                    if(methode.stringValue.Contains("Guerrier"))
+                else if (methode.stringValue.Contains("Tuer"))
+                {
+                    if (methode.stringValue.Contains("Guerrier"))
                     {
-                        if(methode.stringValue.Contains("Pourcentage"))
+                        if (methode.stringValue.Contains("Pourcentage"))
                         {
                             retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
                                + evenementCombat.baliseGuerPourc + argument.floatValue + evenement.finBalise + " guerriers tués";
@@ -120,23 +119,56 @@ public class EvenementEditor : Editor
                         else
                         {
                             argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_IntArgument");
-                            retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" 
+                            retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
                                 + evenementCombat.baliseGuer + argument.intValue + evenement.finBalise + " guerriers tués";
                         }
                     }
-                    else if(methode.stringValue.Contains("Ennemis"))
+                    else if (methode.stringValue.Contains("Ennemis"))
                     {
-                        if(methode.stringValue.Contains("Pourcentage"))
+                        if (methode.stringValue.Contains("Pourcentage"))
                         {
-                            
-                            retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.CouleurTexteBonus) + ">" 
+
+                            retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">"
                                 + evenementCombat.baliseEnnPourc + argument.floatValue + evenement.finBalise + " ennemis meurent";
                         }
                         else
                         {
                             argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_IntArgument");
-                            retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.CouleurTexteBonus) + ">"
+                            retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">"
                                 + evenementCombat.baliseEnn + argument.intValue + evenement.finBalise + " ennemis meurent";
+                        }
+                    }
+                }
+                else if (methode.stringValue.Contains("Piocher"))
+                {
+                    int index = 0; 
+                    retour = "";
+
+                    ClusterEvenement cluster = (ClusterEvenement)cible.objectReferenceValue;
+                    for (int g = 0; g < cluster.listeEvenements.Count; g++)
+                    {
+                        if (cluster.listeEvenements[g].descriptionRapide != "")
+                        {
+                            if (index > 0) retour += "\n";
+                            if (cluster.listeEvenements[g].proba <= 25)
+                            {
+                                retour += " - <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                               + "Faible chance " + "<color=\"white\">"
+                               + cluster.listeEvenements[g].descriptionRapide;
+                            }
+                            else if (cluster.listeEvenements[g].proba > 25 && cluster.listeEvenements[g].proba <= 60)
+                            {
+                                retour += " - <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteMoyenne) + ">"
+                               + "Chance moyenne " + "<color=\"white\">"
+                               + cluster.listeEvenements[g].descriptionRapide;
+                            }
+                            else
+                            {
+                                retour += " - <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">"
+                               + "Forte chance " + "<color=\"white\">"
+                               + cluster.listeEvenements[g].descriptionRapide;
+                            }
+                            index++;
                         }
                     }
                 }

@@ -6,10 +6,15 @@ public class FenetreEvenementCombat : FenetreEvenement
 {
     [Header("Interface Combat")]
     private Combat combat;
+    public Combat CombatActuel
+    {
+        get
+        {
+            return combat;
+        }
+    }
     [SerializeField] private StatsCombat statsJoueur;
     [SerializeField] private StatsCombat statsEnnemi;
-
-
 
     public override Evenement EvenementActuel
     {
@@ -32,7 +37,7 @@ public class FenetreEvenementCombat : FenetreEvenement
 
     private void MAJInterfaceCombat()
     {
-        statsJoueur.MAJStats(combat.Guerrier.nbrGuerrier, combat.Guerrier.attaque, combat.Guerrier.defense);
+        statsJoueur.MAJStats(combat.Guerrier);
         statsEnnemi.MAJStats(combat.Hostile.nbrCombattant, combat.Hostile.attaque, combat.Hostile.defense);
     }
 

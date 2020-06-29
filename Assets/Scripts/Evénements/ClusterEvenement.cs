@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;  
 
 [CreateAssetMenu(fileName = "NvCluster", menuName = "Evénements/Cluster")]
 public class ClusterEvenement : ScriptableObject
 {
-    [SerializeField] private List<EvenementProbable> listeEvenement = new List<EvenementProbable>();
+    public List<EvenementProbable> listeEvenements = new List<EvenementProbable>();
 
     [Serializable]
-    private struct EvenementProbable
+    public struct EvenementProbable
     {
         [Range(0, 100)]
         public float proba;
@@ -20,24 +21,29 @@ public class ClusterEvenement : ScriptableObject
 
     public void PiocherEvenement()
     {
-        float aleaIactata = UnityEngine.Random.Range(0, 100);
-
+        float aleaIactata = UnityEngine.Random.Range(0, 100f);
+        float fond = 0;
         List<EvenementProbable> evenementsRetenus = new List<EvenementProbable>();
 
-        foreach (EvenementProbable evenement in listeEvenement)
+        if (aleaIactata == 0 && listeEvenements.Count > 0)
         {
-            if (evenement.proba >= aleaIactata)
+            listeEvenements[0].evenement.LancerEvenement();
+        }
+        else if(aleaIactata == 100 && listeEvenements.Count > 0)
+        {
+            listeEvenements[listeEvenements.Count - 1].evenement.LancerEvenement();
+        }
+        for (int i = 0; i < listeEvenements.Count; i++)
+        {
+            
+            if(aleaIactata <= listeEvenements[i].proba + fond && aleaIactata > fond)
             {
-                evenementsRetenus.Add(evenement);
+                listeEvenements[i].evenement.LancerEvenement();
+                return;
             }
+            fond += listeEvenements[i].proba;
         }
-
-        if(evenementsRetenus.Count > 0)
-        {
-            int aleumJactatum = UnityEngine.Random.Range(0, evenementsRetenus.Count - 1);
-            evenementsRetenus[aleumJactatum].evenement.LancerEvenement();
-        }
-
+        Debug.LogError("Le cluster d'événement " + name + " n'a pas été rempli");
     }
 
     

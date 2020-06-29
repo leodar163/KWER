@@ -38,7 +38,7 @@ public class InterfaceCombat : MonoBehaviour
         if(ennemi && guerrier)
         {
             statsEnnemi.MAJStats(ennemi.nbrCombattant, ennemi.attaque, ennemi.defense);
-            statsTribu.MAJStats(guerrier.nbrGuerrier, guerrier.attaque, guerrier.defense);
+            statsTribu.MAJStats(guerrier);
             eventMAJInterface.Invoke();
             MAJSlots();
         }

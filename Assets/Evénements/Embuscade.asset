@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cedc5a0637da843accdbbbf86735ea, type: 3}
   m_Name: Embuscade
   m_EditorClassIdentifier: 
-  listeEvenement: []
+  listeEvenements:
+  - proba: 39.417404
+    evenement: {fileID: 0}
+    descriptionRapide: 
+  - proba: 30.416101
+    evenement: {fileID: 0}
+    descriptionRapide: 
+  - proba: 30.166496
+    evenement: {fileID: 0}
+    descriptionRapide: 

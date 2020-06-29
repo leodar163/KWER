@@ -19,6 +19,9 @@ public class InterfaceEvenement : MonoBehaviour
         }
     }
 
+    [SerializeField] private ContentSizeFitter layoutPrincipalCombat;
+    [SerializeField] private ContentSizeFitter layoutPrincipalEvenement;
+    [Space]
     [SerializeField] private GameObject fondNoir;
     [SerializeField] private FenetreEvenement fenetreEvenement;
     [SerializeField] private FenetreEvenementCombat fenetreCombat;
@@ -44,8 +47,9 @@ public class InterfaceEvenement : MonoBehaviour
         EvenementCombat eC = ListeEvenementCombat.Defaut.PiocherEvenement(combat);
         eC.combat = combat;
         fenetreCombat.LancerCombat(combat, eC);
-        fondNoir.SetActive(false);
+        fondNoir.SetActive(true);
         fenetreCombat.gameObject.SetActive(true);
+        StartCoroutine(MAJCanvas());
     }
 
     public void FermerFenetreEvenement()
@@ -57,8 +61,41 @@ public class InterfaceEvenement : MonoBehaviour
 
     public void OuvrirFenetreEvenement(Evenement evenementALancer)
     {
-        fenetreEvenement.EvenementActuel = evenementALancer;
+        if (evenementALancer is EvenementCombat)
+        {
+            OuvrirFenetreEvenementCombat((EvenementCombat)evenementALancer);
+            fenetreCombat.gameObject.SetActive(true);
+        }
+        else
+        {
+            fenetreEvenement.EvenementActuel = evenementALancer;
+            fenetreEvenement.gameObject.SetActive(true);
+        }
         fondNoir.SetActive(true);
-        fenetreEvenement.gameObject.SetActive(true);
+        StartCoroutine(MAJCanvas());
+    }
+        
+
+    public void OuvrirFenetreEvenementCombat(EvenementCombat evenementALancer)
+    {
+        evenementALancer.combat = fenetreCombat.CombatActuel;
+        if (!evenementALancer.illustration)
+        {
+            evenementALancer.illustration = fenetreCombat.IllustrationActuelle.sprite;
+        }
+        fenetreCombat.LancerCombat(evenementALancer.combat, evenementALancer);
+        StartCoroutine(MAJCanvas());
+    }
+
+    private IEnumerator MAJCanvas()
+    {
+        yield return new WaitForEndOfFrame();
+        fenetreCombat.IllustrationActuelle.enabled = false;
+        fenetreEvenement.IllustrationActuelle.enabled = false;
+
+        yield return new WaitForEndOfFrame();
+
+        fenetreCombat.IllustrationActuelle.enabled = true;
+        fenetreEvenement.IllustrationActuelle.enabled = true;
     }
 }

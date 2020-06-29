@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cedc5a0637da843accdbbbf86735ea, type: 3}
   m_Name: Piege
   m_EditorClassIdentifier: 
-  listeEvenement:
-  - proba: 30
+  listeEvenements:
+  - proba: 69.97029
     evenement: {fileID: 11400000, guid: 3552b8567a95934439a41eb71f3d1c71, type: 2}
-    descriptionRapide: Une partie des ennemis meurt dans le piege.
-  - proba: 70
+    descriptionRapide: "que le pi\xE8ge fonctionne."
+  - proba: 30.029713
     evenement: {fileID: 11400000, guid: 1cde73f037512dc40b9cfd8c47e8276e, type: 2}
-    descriptionRapide: "Les ennemis rep\xE8rent le piege."
+    descriptionRapide: "que le pi\xE8ge soit rep\xE9r\xE9."
