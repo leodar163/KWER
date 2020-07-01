@@ -871,6 +871,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tribu: {fileID: 1618904120558817127}
+  attaqueBonus: 0
+  defenseBonus: 0
 --- !u!1 &1851803354221569983
 GameObject:
   m_ObjectHideFlags: 0
