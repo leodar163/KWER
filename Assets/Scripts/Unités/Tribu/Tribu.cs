@@ -7,7 +7,24 @@ public class Tribu : MonoBehaviour
     public int idTribu;
 
     SpriteRenderer spriteRenderer;
-    
+
+    #region SINGLETON
+    static public Tribu tribuQuiJoue
+    {
+        get
+        {
+            Tribu[] listeTribus = FindObjectsOfType<Tribu>();
+            for (int i = 0; i < listeTribus.Length; i++)
+            {
+                if(listeTribus[i].idTribu == ControleSouris.Actuel.idTribuControlee)
+                {
+                    return listeTribus[i];
+                }
+            }
+            return null;
+        }
+    }
+    #endregion
 
     [HideInInspector] public bool estEntreCampement = false;
     

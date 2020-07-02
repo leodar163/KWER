@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class InterfaceEvenement : MonoBehaviour
@@ -26,7 +27,7 @@ public class InterfaceEvenement : MonoBehaviour
     [SerializeField] private FenetreEvenement fenetreEvenement;
     [SerializeField] private FenetreEvenementCombat fenetreCombat;
 
-    
+    public UnityEvent eventFinEvenement;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,17 @@ public class InterfaceEvenement : MonoBehaviour
         fondNoir.SetActive(false);
         fenetreEvenement.gameObject.SetActive(false);
         fenetreCombat.gameObject.SetActive(false);
+    }
+
+    private IEnumerator VerifierEvenementFini()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
+        if(!fenetreCombat.gameObject.activeSelf && !fenetreCombat.gameObject.activeSelf)
+        {
+            eventFinEvenement.Invoke();
+        }
     }
 
     public void OuvrirFenetreEvenement(Evenement evenementALancer)

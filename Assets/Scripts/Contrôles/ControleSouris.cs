@@ -26,7 +26,7 @@ public class ControleSouris : MonoBehaviour
 
     //GameObject objetSelectionne;
     public Tribu tribuControlee;
-    [SerializeField] private int idTribuControlee;
+    public int idTribuControlee;
     CameraControle camControle;
 
 
