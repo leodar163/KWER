@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEditor;
 using Unity.Mathematics;
@@ -65,7 +66,7 @@ public class EvenementEditor : Editor
         {
             effet = so.FindProperty("listeChoix.Array.data[" + i + "].effets.m_PersistentCalls.m_Calls.Array");
             Evenement.Choix choix = evenement.listeChoix[i];
-            InitiliserListeRetour(choix.retoursEffets, effet.arraySize);
+            InitialiserListeRetour(choix.retoursEffets, effet.arraySize);
 
             for (int j = 0; j < effet.arraySize; j++)
             {
@@ -82,15 +83,13 @@ public class EvenementEditor : Editor
                     if (argument.floatValue > 0)
                     {
 
-                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+" + argument.floatValue;
+                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
+                            + argument.floatValue;
                     }
                     else if (argument.floatValue < 0)
                     {
-                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> " + argument.floatValue;
-                    }
-                    else if (argument.floatValue == 0)
-                    {
-                        retour = "";
+                        retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" 
+                            + argument.floatValue;
                     }
                 }
                 else if (methode.stringValue.Contains("Fuir"))
@@ -172,6 +171,46 @@ public class EvenementEditor : Editor
                         }
                     }
                 }
+                else if (cible.objectReferenceValue is Buff)
+                {
+                    Buff buff = (Buff)cible.objectReferenceValue;
+                    retour = buff.Retours;
+                }
+                else if (methode.stringValue.Contains("Bonus"))
+                {
+                    if (methode.stringValue.Contains("Attaque"))
+                    {
+                        char pluriel = '\0';
+                        if (math.abs(argument.intValue) != 1) pluriel = 's';
+
+                        if(argument.intValue > 0)
+                        {
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) +">+" 
+                                + argument.intValue + "point"+ pluriel +" d'attaque ";
+                        }
+                        else if(argument.intValue < 0)
+                        {
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                                + argument.intValue + "point" + pluriel + " d'attaque ";
+                        }
+                    }
+                    else if (methode.stringValue.Contains("Defense"))
+                    {
+                        char pluriel = '\0';
+                        if (Math.Abs(argument.intValue) != 1) pluriel = 's';
+
+                        if (argument.intValue > 0)
+                        {
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
+                                + argument.intValue + "point" + pluriel + " de défense ";
+                        }
+                        else if (argument.intValue < 0)
+                        {
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                                + argument.intValue + "point" + pluriel + " de défense ";
+                        }
+                    }
+                }
                 else
                 {
                     continue;
@@ -181,7 +220,7 @@ public class EvenementEditor : Editor
         }
     }
 
-    private void InitiliserListeRetour(List<string> retours, int ettendue)
+    private void InitialiserListeRetour(List<string> retours, int ettendue)
     {
         int difference = ettendue - retours.Count;
         if(difference > 0)

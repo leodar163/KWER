@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEditor;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 [CustomEditor(typeof(Buff), true)]
@@ -34,6 +33,10 @@ public class BuffEditor : Editor
         {
             Sauvegarder();
         }
+
+        EcrireEffets();
+
+        buff.nombreTour = Math.Abs(buff.nombreTour);
     }
 
     private void DessinerBoutonType()
@@ -81,10 +84,113 @@ public class BuffEditor : Editor
         }
     }
 
+    private void EcrireEffets()
+    {
+        SerializedProperty effet;
+        SerializedProperty cible;
+        SerializedProperty methode;
+        SerializedProperty argumentFloat;
+        SerializedProperty argumentInt;
+
+        SerializedObject so = new SerializedObject(buff);
+
+        effet = so.FindProperty("effets.m_PersistentCalls.m_Calls.Array");
+
+        InitialiserListeRetour(buff.listeEffetsRetours, effet.arraySize);
+        
+        for (int i = 0; i < effet.arraySize; i++)
+        {
+            cible = effet.FindPropertyRelative("data[" + i + "].m_Target");
+            methode = effet.FindPropertyRelative("data[" + i + "].m_MethodName");
+            argumentFloat = effet.FindPropertyRelative("data[" + i + "].m_Arguments.m_FloatArgument");
+            argumentInt = effet.FindPropertyRelative("data[" + i + "].m_Arguments.m_IntArgument");
+            string retour = "";
+
+
+
+            if (methode.stringValue.Contains("Bonus"))
+            {
+                if (methode.stringValue.Contains("Attaque"))
+                {
+                    char pluriel = '\0';
+                    if (Math.Abs(argumentInt.intValue) != 1) pluriel = 's';
+                    if (argumentInt.intValue > 0)
+                    {
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
+                            + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " d'attaque ";
+                    }
+                    else if (argumentInt.intValue < 0)
+                    {
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                            + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " d'attaque ";
+                    }
+                }
+                else if (methode.stringValue.Contains("Defense"))
+                {
+                    char pluriel = '\0';
+                    if (Math.Abs(argumentInt.intValue) != 1) pluriel = 's';
+                    if (argumentInt.intValue > 0)
+                    {
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
+                            + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " de défense ";
+                    }
+                    else if (argumentInt.intValue < 0)
+                    {
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                            + argumentInt.intValue + "<color=\"white\">"+ " point" + pluriel + " de défense ";
+                    }
+                }
+            }
+
+            if (buff.compteurTour)
+            {
+                char pluriel = '\0';
+                if (buff.nombreTour > 0) pluriel = 's';
+                retour += "pendant " + buff.nombreTour + " tour" + pluriel;
+            }
+            else if (buff.tpsDuneTechno)
+            {
+
+            }
+            else if(buff.tpsDunEvent)
+            {
+                retour += "jusqu'à la fin de l'évenement";
+            }
+
+            buff.listeEffetsRetours[i] = retour;
+
+            //cible.GetType().GetMethod(methode.stringValue).CreateDelegate()
+        }
+    
+    }
+    private void InitialiserListeRetour(List<string> retours, int ettendue)
+    {
+        int difference = ettendue - retours.Count;
+        if (difference > 0)
+        {
+            for (int i = 0; i < retours.Count; i++)
+            {
+                retours[i] = "";
+            }
+            for (int i = 0; i < difference; i++)
+            {
+                retours.Add("");
+            }
+        }
+        else if (difference <= 0)
+        {
+            for (int i = 0; i < retours.Count; i++)
+            {
+                retours[i] = "";
+            }
+        }
+    }
+
     private void Sauvegarder()
     {
         AssetDatabase.Refresh();
         EditorUtility.SetDirty(target);
         AssetDatabase.SaveAssets();
+        EcrireEffets();
     }
 }
