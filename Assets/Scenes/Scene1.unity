@@ -8632,7 +8632,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
-  tailleTuile: 1
+  tailleTuile: 1.0118343
   garniture: {fileID: 1141666424}
   spritesBase:
   - {fileID: 21300000, guid: 1796123766024ed448d8bb721c16ef6f, type: 3}
@@ -8664,8 +8664,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 53cd47e54f856924db1c82496af8098c, type: 3}
   - {fileID: 21300000, guid: 2b47adb487dcdf44ea9e609876edd6cf, type: 3}
   - {fileID: 21300000, guid: 2acf28750de31c643a980eb6805f1d60, type: 3}
-  indexGarniture: 6
-  indexBase: 13
+  indexGarniture: 10
+  indexBase: 7
   couleurTuileAPortee: {r: 0.6383055, g: 0.8301887, b: 0.7869529, a: 1}
   couleurTuileSurChemin: {r: 0.9433962, g: 0.8555208, b: 0.6452474, a: 1}
   terrainTuile: {fileID: 471693525}
@@ -8740,7 +8740,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dcc010b7c2626284e885fa8ce0890a8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f373da4938832d49b63f913a204b25a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9385,7 +9385,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 858f3a696166d9a4194c28cf19913e96, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2c635ce3ab2e3a4b99fa51f69df6b32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10046,7 +10046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 290.4, y: 0}
   m_SizeDelta: {x: 580.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288756201
@@ -15575,7 +15575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: 638.9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &493605091
@@ -17507,7 +17507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 319.45, y: 0}
   m_SizeDelta: {x: 580.8, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &565572637
@@ -24552,7 +24552,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
-  tailleTuile: 1
+  tailleTuile: 1.0118343
   garniture: {fileID: 1242473564}
   spritesBase:
   - {fileID: 21300000, guid: 1796123766024ed448d8bb721c16ef6f, type: 3}
@@ -24584,11 +24584,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 53cd47e54f856924db1c82496af8098c, type: 3}
   - {fileID: 21300000, guid: 2b47adb487dcdf44ea9e609876edd6cf, type: 3}
   - {fileID: 21300000, guid: 2acf28750de31c643a980eb6805f1d60, type: 3}
-  indexGarniture: 8
-  indexBase: 8
+  indexGarniture: 12
+  indexBase: 4
   couleurTuileAPortee: {r: 0.6383055, g: 0.8301887, b: 0.7869529, a: 1}
   couleurTuileSurChemin: {r: 0.9433962, g: 0.8555208, b: 0.6452474, a: 1}
-  terrainTuile: {fileID: 471693528}
+  terrainTuile: {fileID: 471693525}
   revendication: {fileID: 806703319}
 --- !u!60 &806703322
 PolygonCollider2D:
@@ -24660,7 +24660,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f4d6481e5b6c50147a7982b130b7aeeb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02adacb1fa03f454dae626fadb6637f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -29529,7 +29529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 290.4, y: 0}
   m_SizeDelta: {x: 580.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &926908923
@@ -32920,7 +32920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: 638.9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1077632958
@@ -34164,7 +34164,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7991f0f900c589842bb9308693054965, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d770d080fb99dea4dab99aac15a5133c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -34213,7 +34213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 319.45, y: 0}
   m_SizeDelta: {x: 580.8, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1146286886
@@ -38804,7 +38804,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5a656add575dc6044a4d29b861d429dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 09289c0fa8af0384abc064496577d817, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -39858,7 +39858,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: 443.4, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1290040152
@@ -42758,7 +42758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: 443.4, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1365781142
@@ -47305,7 +47305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 319.45, y: 0}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1476232759
@@ -54977,7 +54977,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
-  tailleTuile: 1
+  tailleTuile: 1.0118343
   garniture: {fileID: 280130167}
   spritesBase:
   - {fileID: 21300000, guid: 1796123766024ed448d8bb721c16ef6f, type: 3}
@@ -55009,11 +55009,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 53cd47e54f856924db1c82496af8098c, type: 3}
   - {fileID: 21300000, guid: 2b47adb487dcdf44ea9e609876edd6cf, type: 3}
   - {fileID: 21300000, guid: 2acf28750de31c643a980eb6805f1d60, type: 3}
-  indexGarniture: 11
-  indexBase: 4
+  indexGarniture: 7
+  indexBase: 2
   couleurTuileAPortee: {r: 0.6383055, g: 0.8301887, b: 0.7869529, a: 1}
   couleurTuileSurChemin: {r: 0.9433962, g: 0.8555208, b: 0.6452474, a: 1}
-  terrainTuile: {fileID: 471693525}
+  terrainTuile: {fileID: 471693528}
   revendication: {fileID: 1665647752}
 --- !u!60 &1665647755
 PolygonCollider2D:
@@ -55085,7 +55085,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 02adacb1fa03f454dae626fadb6637f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b2fbe6746e8cfd4d93cc3c9601a4e84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -57371,7 +57371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 319.45, y: 0}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1780773351
@@ -62470,7 +62470,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
-  tailleTuile: 1
+  tailleTuile: 1.0118343
   garniture: {fileID: 2104888852}
   spritesBase:
   - {fileID: 21300000, guid: 1796123766024ed448d8bb721c16ef6f, type: 3}
@@ -62502,8 +62502,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 53cd47e54f856924db1c82496af8098c, type: 3}
   - {fileID: 21300000, guid: 2b47adb487dcdf44ea9e609876edd6cf, type: 3}
   - {fileID: 21300000, guid: 2acf28750de31c643a980eb6805f1d60, type: 3}
-  indexGarniture: 2
-  indexBase: 4
+  indexGarniture: 4
+  indexBase: 5
   couleurTuileAPortee: {r: 0.6383055, g: 0.8301887, b: 0.7869529, a: 1}
   couleurTuileSurChemin: {r: 0.9433962, g: 0.8555208, b: 0.6452474, a: 1}
   terrainTuile: {fileID: 471693525}
@@ -62578,7 +62578,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 02adacb1fa03f454dae626fadb6637f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01258576bf91e174ab9ab8926f3453c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -65029,7 +65029,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2b2fbe6746e8cfd4d93cc3c9601a4e84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02adacb1fa03f454dae626fadb6637f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

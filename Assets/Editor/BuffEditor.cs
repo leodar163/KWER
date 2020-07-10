@@ -8,6 +8,7 @@ using UnityEngine;
 [CustomEditor(typeof(Buff), true)]
 public class BuffEditor : Editor 
 {
+    [SerializeField] private GameObject effetRef;
     Buff buff;
     Color typeSelectionne = new Color(20, 20, 150);
 
@@ -107,7 +108,6 @@ public class BuffEditor : Editor
             string retour = "";
 
 
-
             if (methode.stringValue.Contains("Bonus"))
             {
                 if (methode.stringValue.Contains("Attaque"))
@@ -124,6 +124,11 @@ public class BuffEditor : Editor
                         retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
                             + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " d'attaque ";
                     }
+
+                    buff.antiEffets.effets.Add(delegate
+                    {
+                        effetRef.GetComponent<EffetBonus>().ajouterBonusAttaque(argumentInt.intValue, buff.antiEffets.tribuAffectee);
+                    });
                 }
                 else if (methode.stringValue.Contains("Defense"))
                 {
@@ -139,6 +144,9 @@ public class BuffEditor : Editor
                         retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
                             + argumentInt.intValue + "<color=\"white\">"+ " point" + pluriel + " de défense ";
                     }
+
+                    buff.antiEffets.AddListener(delegate {
+                        effetRef.GetComponent<EffetBonus>().ajouterBonusDefense(argumentInt.intValue * -1);});
                 }
             }
 
@@ -158,8 +166,6 @@ public class BuffEditor : Editor
             }
 
             buff.listeEffetsRetours[i] = retour;
-
-            //cible.GetType().GetMethod(methode.stringValue).CreateDelegate()
         }
     
     }
