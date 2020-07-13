@@ -97,6 +97,8 @@ public class TuileManager : MonoBehaviour
         }
     }
 
+
+    #region GRAPHE
     private void TrouverConnections(int nbrConnectionAttendue, float decalageDegre)
     {
 
@@ -129,12 +131,9 @@ public class TuileManager : MonoBehaviour
 
                 if (checkRiviere)
                 {
-
                     connectionsDistance[i]++;
                 }
             }
-            
-
             index += Mathf.PI * 2 / nbrConnectionAttendue;
         }
     }
@@ -171,18 +170,22 @@ public class TuileManager : MonoBehaviour
 
                 if (checkRiviere)
                 {
-
                     connectionsDistance[i]++;
                 }
             }
-
-
             index += Mathf.PI * 2 / nbrConnectionAttendue;
         }
     }
 
-    
-
+    public int RecupIndexConnection(TuileManager connection)
+    {
+        for (int i = 0; i < connections.Count; i++)
+        {
+            if (connections[i] == connection) return i;
+        }
+        return -1;
+    }
+    #endregion
 
     public void SetTerrain(TuileTerrain terrain)
     {

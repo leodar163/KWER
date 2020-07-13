@@ -38,18 +38,24 @@ public class ListeEvenementCombat : MonoBehaviour
 
     public EvenementCombat PiocherEvenement(Combat combat)
     {
-        if(combat.Hostile.troupeau.megaFaune)
+        if(combat.Hostile.pion is Troupeau)
         {
-            return strategiesContreMegaFaune[Random.Range(0, strategiesContreMegaFaune.Count - 1)];
+            Troupeau troupeau = (Troupeau)combat.Hostile.pion;
+            if (troupeau.megaFaune)
+            {
+                return strategiesContreMegaFaune[Random.Range(0, strategiesContreMegaFaune.Count - 1)];
+            }
+            else if (troupeau.predateur)
+            {
+                return strategiesContrePredateurs[Random.Range(0, strategiesContrePredateurs.Count - 1)];
+            }
         }
-        else if (combat.Hostile.troupeau.predateur)
-        {
-            return strategiesContrePredateurs[Random.Range(0, strategiesContrePredateurs.Count - 1)];
-        }
-        else
+        else if(combat.Hostile.pion is Pillard)
         {
             print("J'ai pas encore implémenter les pillard...");
             return null;
         }
+
+        return null;
     }
 }

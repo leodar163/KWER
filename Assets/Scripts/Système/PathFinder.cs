@@ -5,7 +5,7 @@ using UnityEngine;
 public class PathFinder : MonoBehaviour
 {
     //Génère le graphe de toutes les tuiles à portée
-    public  List<TuileManager> CreerGrapheTuilesAPortee(TuileManager tuileOrigine, float portee)
+    public List<TuileManager> CreerGrapheTuilesAPortee(TuileManager tuileOrigine, float portee)
     {
         ReinitGraphe();
         List<TuileManager> grapheAPortee = new List<TuileManager>();
@@ -16,13 +16,13 @@ public class PathFinder : MonoBehaviour
         tuileOrigine.parcouru = true;
 
         //Parcours en largeur (BFS)
-        while(fileTuiles.Count > 0)
+        while (fileTuiles.Count > 0)
         {
             TuileManager tuileObservee = fileTuiles.Dequeue();
 
             tuileObservee.EstAPortee();
 
-            if(tuileObservee.distance < portee)
+            if (tuileObservee.distance < portee)
             {
                 for (int i = 0; i < tuileObservee.connections.Count; i++)
                 {
@@ -94,21 +94,118 @@ public class PathFinder : MonoBehaviour
                             }
                         }
                     }
-                } 
+                }
             }
 
         }
         return grapheAPortee;
     }
 
+    //algo de Dijkstra
+    public Stack<TuileManager> TrouverCheminPlusCourt(TuileManager tuileDepart, TuileManager tuileCible)
+    {
+        ReinitGraphe(); // Juste par sécurité
+        List<TuileManager> graphe = new List<TuileManager>(FindObjectsOfType<TuileManager>());
+
+        TuileManager tuileObservee;
+
+        //On initialise toutes les distance à infini
+        for (int i = 0; i < graphe.Count; i++)
+        {
+            graphe[i].distance = Mathf.Infinity;
+        }
+        tuileDepart.distance = 0;
+
+        while (graphe.Count > 0)
+        {
+            tuileObservee = trouverTuileConnectPlusProche(graphe);
+            if (!tuileObservee) Debug.LogError("Pourquoi la tuile observée est null ?");
+            graphe.Remove(tuileObservee);
+
+            //On met à jour les distances
+            for (int i = 0; i < tuileObservee.connections.Count; i++)
+            {
+                TuileManager connection = tuileObservee.connections[i];
+
+                if(connection.distance > tuileObservee.distance + 
+                    tuileObservee.connectionsDistance[tuileObservee.RecupIndexConnection(connection)])
+                {
+                    connection.distance = tuileObservee.distance +
+                    tuileObservee.connectionsDistance[tuileObservee.RecupIndexConnection(connection)];
+
+                    connection.predecesseur = tuileObservee;
+                }
+            }
+        }
+        ReinitGraphe();
+
+        return TrouverChemin(tuileDepart, tuileCible);
+    }
+
+    public Stack<TuileManager> TrouverCheminPlusCourt(TuileManager tuileDepart, TuileManager tuileCible, bool traversEau)
+    {
+        ReinitGraphe(); // Juste par sécurité
+        List<TuileManager> graphe = new List<TuileManager>(FindObjectsOfType<TuileManager>());
+
+        TuileManager tuileObservee;
+
+        //On initialise toutes les distance à infini
+        for (int i = 0; i < graphe.Count; i++)
+        {
+            graphe[i].distance = Mathf.Infinity;
+        }
+        tuileDepart.distance = 0;
+
+        while (graphe.Count > 0)
+        {
+            tuileObservee = trouverTuileConnectPlusProche(graphe);
+            if (!tuileObservee) Debug.LogError("Pourquoi la tuile observée est null ?");
+            graphe.Remove(tuileObservee);
+
+            if (tuileObservee.terrainTuile.ettendueEau && !traversEau) continue;
+
+            //On met à jour les distances
+            for (int i = 0; i < tuileObservee.connections.Count; i++)
+            {
+                TuileManager connection = tuileObservee.connections[i];
+
+                if (connection.distance > tuileObservee.distance +
+                    tuileObservee.connectionsDistance[tuileObservee.RecupIndexConnection(connection)])
+                {
+                    connection.distance = tuileObservee.distance +
+                    tuileObservee.connectionsDistance[tuileObservee.RecupIndexConnection(connection)];
+
+                    connection.predecesseur = tuileObservee;
+                }
+            }
+        }
+        ReinitGraphe();
+
+        return TrouverChemin(tuileDepart, tuileCible);
+    }
+
+    private TuileManager trouverTuileConnectPlusProche(List<TuileManager> graphe)
+    {
+        float minim = Mathf.Infinity;
+        TuileManager sommet = null;
+
+        for (int i = 0; i < graphe.Count; i++)
+        {
+            if(graphe[i].distance < minim)
+            {
+                minim = graphe[i].distance;
+                sommet = graphe[i];
+            }
+        }
+        return sommet;
+    }
 
     // Génère le chemin à partir du graphe de "prédécesseur" créé par la fonction CreerGrapheTuilesAPortee()
     public Stack<TuileManager> TrouverChemin(TuileManager tuileOrigine, TuileManager tuileCible)
     {
         Stack<TuileManager> chemin = new Stack<TuileManager>();
 
-
-        if(tuileCible.predecesseur != null)//Ne calcule ce faisant pas une tuile cible si elle n'est pas à portée. 
+        if (tuileCible.predecesseur != null)//Ne calcule ce faisant pas une tuile cible si elle n'est pas à portée. 
         {
             TuileManager tuileObservee = tuileCible;
             while (tuileObservee != tuileOrigine)
@@ -120,27 +217,6 @@ public class PathFinder : MonoBehaviour
 
         return chemin;
     }
-
-    /* Obsolète ; préferez utiliser MiniMax.TrouverMinim();
-    private TuileManager TrouverMinimum(List<TuileManager> listeNoeuds)
-    {
-        float minim = Mathf.Infinity;
-        TuileManager noeudRetour = null;
-
-        foreach(TuileManager tM in listeNoeuds)
-        {
-            print("Distance de : " +tM.gameObject.name + " : " + tM.distance);
-            if (tM.distance < minim)
-            {
-                
-                minim = tM.distance;
-                noeudRetour = tM;
-            }
-        }
-        print(noeudRetour.gameObject.name);
-        return noeudRetour;
-    }
-    */
 
     public void ColorerGraphe(List<TuileManager> graphe, Color couleur)
     {
@@ -161,14 +237,15 @@ public class PathFinder : MonoBehaviour
 
 
     public void ReinitGraphe()
+    {
+        TuileManager[] graphe = FindObjectsOfType<TuileManager>();
+
+        foreach (TuileManager noeud in graphe)
         {
-            TuileManager[] graphe = FindObjectsOfType<TuileManager>();
-
-            foreach (TuileManager noeud in graphe)
-            {
-
-                noeud.TuileReinit();
-            }
+            noeud.TuileReinit();
         }
+    } 
+
+
  }
 

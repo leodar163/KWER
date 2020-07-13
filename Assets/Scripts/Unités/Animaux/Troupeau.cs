@@ -4,13 +4,12 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 
 [RequireComponent(typeof(Migration))]
-public class Troupeau : MonoBehaviour
+public class Troupeau : Pion
 {
     public Migration migration;
     public Hostile hostile;
     public ProductionTroupeau productionTroupeau;
     public SpriteRenderer spriteRenderer;
-    public Revendication revendication;
 
     [HideInInspector] public bool domesticable;
     [HideInInspector] public bool megaFaune;
@@ -41,7 +40,7 @@ public class Troupeau : MonoBehaviour
         StartCoroutine(DeroulerTour());
     }
 
-    [HideInInspector] public bool aFaitUneAction = false;
+    
     private IEnumerator DeroulerTour()
     {
         while(migration.PeutBouger || (hostile != null && hostile.PeutAttaquer))

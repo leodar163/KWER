@@ -65,7 +65,7 @@ public class TroupeauEditor : Editor
                 hostile = troupeau.gameObject.AddComponent<Hostile>();
             }
 
-            hostile.troupeau = troupeau;
+            hostile.pion = troupeau;
             troupeau.hostile = hostile;
         }
         ColorerSelection(troupeau.predateur);
@@ -82,7 +82,7 @@ public class TroupeauEditor : Editor
                 hostile = troupeau.gameObject.AddComponent<Hostile>();
             }
 
-            hostile.troupeau = troupeau;
+            hostile.pion = troupeau;
             troupeau.hostile = hostile;
         }
     }

@@ -125,10 +125,10 @@ public class BuffEditor : Editor
                             + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " d'attaque ";
                     }
 
-                    buff.antiEffets.effets.Add(delegate
-                    {
-                        effetRef.GetComponent<EffetBonus>().ajouterBonusAttaque(argumentInt.intValue, buff.antiEffets.tribuAffectee);
-                    });
+                    //buff.antiEffets.effets.Add(delegate
+                    //{
+                    //    effetRef.GetComponent<EffetBonus>().ajouterBonusAttaque(argumentInt.intValue, buff.antiEffets.tribuAffectee);
+                    //});
                 }
                 else if (methode.stringValue.Contains("Defense"))
                 {
@@ -145,8 +145,8 @@ public class BuffEditor : Editor
                             + argumentInt.intValue + "<color=\"white\">"+ " point" + pluriel + " de défense ";
                     }
 
-                    buff.antiEffets.AddListener(delegate {
-                        effetRef.GetComponent<EffetBonus>().ajouterBonusDefense(argumentInt.intValue * -1);});
+                    //buff.antiEffets.AddListener(delegate {
+                    //    effetRef.GetComponent<EffetBonus>().ajouterBonusDefense(argumentInt.intValue * -1);});
                 }
             }
 

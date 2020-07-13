@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Hostile : MonoBehaviour
 {
-    public Troupeau troupeau;
+    public Pion pion;
 
     private List<Tribu> ciblesAPortee = new List<Tribu>();
 
@@ -22,7 +22,16 @@ public class Hostile : MonoBehaviour
     {
         get
         {
-            if(troupeau.predateur)
+            if(pion is Troupeau)
+            {
+                Troupeau troupeau = (Troupeau)pion;
+                if (troupeau.predateur)
+                {
+                    if (ciblesAPortee.Count > 0) return true;
+                }
+
+            }
+            else if (pion is Pillard)
             {
                 if (ciblesAPortee.Count > 0) return true;
             }
@@ -48,7 +57,7 @@ public class Hostile : MonoBehaviour
         TerminerCombat();
         yield return new WaitWhile(() => combatEnCours);
 
-        troupeau.aFaitUneAction = true;
+        pion.aFaitUneAction = true;
     }
 
     private void AttaquerCible(Tribu cible)
@@ -67,7 +76,7 @@ public class Hostile : MonoBehaviour
     public void TrouverCiblesAPortee()
     {
         ciblesAPortee.Clear();
-        foreach(Revendication cible in troupeau.revendication.TrouverRevendicateursAPortee())
+        foreach(Revendication cible in pion.revendication.TrouverRevendicateursAPortee())
         {
             if(cible.EstTribu && !ciblesAPortee.Contains((Tribu)cible.parent))
             {
