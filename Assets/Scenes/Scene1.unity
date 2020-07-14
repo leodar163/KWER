@@ -13306,7 +13306,7 @@ GameObject:
   - component: {fileID: 429056405}
   - component: {fileID: 429056406}
   m_Layer: 5
-  m_Name: ButtonTourSuivant
+  m_Name: ButtonPasserTour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24739,7 +24739,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TOUR SUIVANT
+  m_Text: PASSER TOUR
 --- !u!222 &814054046
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26652,11 +26652,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aFaitUneAction: 0
+  aPasseSonTour: 0
   revendication: {fileID: 0}
   hostile: {fileID: 0}
   pathFinder: {fileID: 0}
   tuileActuelle: {fileID: 0}
-  ptsDeplacement: 0
+  ptsDeplacementDefaut: 0
   vitesse: 0
 --- !u!212 &853656416
 SpriteRenderer:
