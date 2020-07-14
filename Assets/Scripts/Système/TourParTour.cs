@@ -20,17 +20,12 @@ public class TourParTour : MonoBehaviour
 
     Tribu[] tribus;
     Troupeau[] animaux;
-    Migration[] tousMigrateurs; //Loups et troupeaux
+    Pillard[] pillards;
     int nbrTour;
 
-    public UnityEvent eventNouveauTour;
+    [HideInInspector] public UnityEvent eventNouveauTour;
 
     public bool calendrierMAJ = false;
-    bool hostilesOntAttaque;
-    bool passageTour;
-
-    private int nbrJoueurAyantPasseTour = 0;
-    private int nbrAnimalAyantPasseTour = 0;
 
     private void Start()
     {
@@ -40,14 +35,8 @@ public class TourParTour : MonoBehaviour
 
     public void JoueurPasseTour()
     {
-        nbrJoueurAyantPasseTour++;
+        Tribu.tribuQuiJoue.aPasseSonTour = true;
     }
-
-    public void AnimalPasseTour()
-    {
-        nbrAnimalAyantPasseTour++;
-    }
-
 
 
     #region DEROULEMENT D'UN TOUR
@@ -63,13 +52,12 @@ public class TourParTour : MonoBehaviour
             BoutonTourSuivant.Actuel.Activer(true);
             foreach(Tribu tribu in tribus)
             {
-                tribu.PasserTour();
+                tribu.DemarrerTour();
             }
         }
 
-        yield return new WaitWhile(() => nbrJoueurAyantPasseTour < tribus.Length);
+        yield return new AttendreFiniDeJouer<Tribu>();
 
-        nbrJoueurAyantPasseTour = 0;
         BoutonTourSuivant.Actuel.Activer(false);
         ControleSouris.Actuel.controlesActives = false;
         nbrTour++;
@@ -95,17 +83,29 @@ public class TourParTour : MonoBehaviour
     private IEnumerator TourAnimaux()
     {
         animaux = FindObjectsOfType<Troupeau>();
-        
-        foreach(Troupeau animal in animaux)
+
+        for (int i = 0; i < animaux.Length; i++)
         {
-            animal.DemarrerTour();
+            animaux[i].DemarrerTour();
+            yield return new WaitUntil(() => animaux[i].aPasseSonTour);
         }
 
-        yield return new WaitWhile(() => nbrAnimalAyantPasseTour < animaux.Length);
-
-        nbrAnimalAyantPasseTour = 0;
-
         print("Animaux ont fini leur tour");
+
+        StartCoroutine(TourPillards());
+    }
+
+    private IEnumerator TourPillards()
+    {
+        pillards = FindObjectsOfType<Pillard>();
+
+        for (int i = 0; i < pillards.Length; i++)
+        {
+            pillards[i].DemarrerTour();
+            yield return new WaitUntil(() => pillards[i].aPasseSonTour);
+        }
+
+        print("Pillards ont fini leur tour");
 
         StartCoroutine(Evenements());
     }

@@ -10,16 +10,24 @@ public class Pillard : Pion
     [Header("Déplacements")]
     public PathFinder pathFinder;
     public TuileManager tuileActuelle;
-    public float ptsDeplacement;
+    public float ptsDeplacementDefaut;
+    private float ptsDeplacement;
     public float vitesse;
 
     private TuileManager prochaineTuile;
     private Stack<TuileManager> chemin;
     private bool traverseFleuve;
 
+    private Tribu tribuCible;
+    private int entetementDefaut = 4;
+    private int entetement;
+
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+        entetement = entetementDefaut;
+        TourParTour.Defaut.eventNouveauTour.AddListener(() => entetement--);
         TrouverTuileActuelle();
     }
 
@@ -29,6 +37,70 @@ public class Pillard : Pion
         
     }
 
+
+    #region IA
+
+    public override void DemarrerTour()
+    {
+        base.DemarrerTour();
+        ptsDeplacement = ptsDeplacementDefaut;
+        StartCoroutine(DeroulerTour());
+    }
+
+    private IEnumerator DeroulerTour()
+    {
+        while (ptsDeplacement > 0)
+        {
+            if(hostile.PeutAttaquer)
+            {
+                StartCoroutine(hostile.Attaquer());
+            }
+            else
+            {
+                if(!tribuCible || entetement <= 0)
+                {
+                    entetement = entetementDefaut;
+                    tribuCible = TrouverTribuPlusProche();
+                }
+
+                chemin = pathFinder.TrouverCheminPlusCourt(tuileActuelle, tribuCible.tuileActuelle);
+
+                StartCoroutine(SeDeplacer());
+            }
+
+            yield return new WaitUntil(() => aFaitUneAction);
+            aFaitUneAction = false;
+        }
+
+        aPasseSonTour = true;
+    }
+
+    private Tribu TrouverTribuPlusProche()
+    {
+        Tribu[] tribus = FindObjectsOfType<Tribu>();
+        float[] distances = new float[tribus.Length];
+
+        for (int i = 0; i < tribus.Length; i++)
+        {
+            distances[i] = pathFinder.CalculerLongeurChemin(pathFinder.TrouverCheminPlusCourt(tuileActuelle, tribus[i].tuileActuelle));
+        }
+
+        float minim = MiniMax.TrouverMinimum(distances);
+        int indexMinim = 0;
+
+        for (int i = 0; i < distances.Length; i++)
+        {
+            if(distances[i] == minim)
+            {
+                indexMinim = i;
+                break;
+            }
+        }
+
+        return tribuCible = tribus[indexMinim];
+    }
+
+    #endregion
 
     #region DEPLACEMENTS
     private void TrouverTuileActuelle()
@@ -108,7 +180,7 @@ public class Pillard : Pion
 
             //On abandonne le territoire tantôt à portée, 
             //puis on trouve la tuile actuelle, 
-            //puis on revendique le territoire maintenant à porté
+            //puis on revendique le territoire maintenant à portée
             revendication.RevendiquerTerritoire(tuileActuelle, false);
             TrouverTuileActuelle();
             revendication.RevendiquerTerritoire(tuileActuelle, true);

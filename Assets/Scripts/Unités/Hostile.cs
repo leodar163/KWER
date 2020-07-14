@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,10 @@ public class Hostile : MonoBehaviour
 
     [SerializeField] private  GameObject combat;
 
-
+    /// <summary>
+    /// quand est dépensé, ne peut plus attaquer jusqu'au tour prochain
+    /// </summary>
+    private bool jetonAttaque = true;
     public int nbrCombattant = 0;
     public int attaque = 0;
     public int defense = 0;
@@ -22,18 +26,21 @@ public class Hostile : MonoBehaviour
     {
         get
         {
-            if(pion is Troupeau)
+            if(jetonAttaque)
             {
-                Troupeau troupeau = (Troupeau)pion;
-                if (troupeau.predateur)
+                if(pion is Troupeau)
+                {
+                    Troupeau troupeau = (Troupeau)pion;
+                    if (troupeau.predateur)
+                    {
+                        if (ciblesAPortee.Count > 0) return true;
+                    }
+
+                }
+                else if (pion is Pillard)
                 {
                     if (ciblesAPortee.Count > 0) return true;
                 }
-
-            }
-            else if (pion is Pillard)
-            {
-                if (ciblesAPortee.Count > 0) return true;
             }
             return false;
         }
@@ -42,6 +49,7 @@ public class Hostile : MonoBehaviour
     void Start()
     {
         TrouverCiblesAPortee();
+        TourParTour.Defaut.eventNouveauTour.AddListener(() => jetonAttaque = true);
     }
 
     // Update is called once per frame

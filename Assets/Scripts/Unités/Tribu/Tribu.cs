@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Tribu : MonoBehaviour
+public class Tribu : Pion
 {
     public int idTribu;
 
@@ -49,7 +49,6 @@ public class Tribu : MonoBehaviour
 
     [Header("Campement")]
     public Campement campement;
-    public Revendication revendication;
     [SerializeField] private GameObject banniere;
 
     [Header("Sprites")]
@@ -67,8 +66,10 @@ public class Tribu : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         Init();
         revendication.RevendiquerTerritoire(tuileActuelle, true);
         expedition.LancerExpeditions();
@@ -83,8 +84,10 @@ public class Tribu : MonoBehaviour
         Deplacement();
     }
 
-    public void PasserTour()
+   
+    public override void DemarrerTour()
     {
+        base.DemarrerTour();
         pointsAction = pointActionDeffaut;
 
         tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle,pointsAction,false);
@@ -102,7 +105,7 @@ public class Tribu : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         SprCampementEte = spriteRenderer.sprite;
 
-        Calendrier.Actuel.EventChangementDeSaison.AddListener(TrouverTuileActuelle);  
+        Calendrier.Actuel.EventChangementDeSaison.AddListener(RevetirSpriteSaison);  
     }
 
     private IEnumerator MAJTuilesAPortee()

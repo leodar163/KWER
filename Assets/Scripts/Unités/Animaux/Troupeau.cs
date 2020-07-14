@@ -21,21 +21,22 @@ public class Troupeau : Pion
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-
+        base.Start();
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
 
     }
 
-    #region iNTELLIGENCE ARTIFICIELLE
-    public void DemarrerTour()
+    #region IA
+    public override void DemarrerTour()
     {
+        base.DemarrerTour();
         migration.InitialiserPointsDeplacement();
         StartCoroutine(DeroulerTour());
     }
@@ -61,7 +62,7 @@ public class Troupeau : Pion
             aFaitUneAction = false;
         }
 
-        TourParTour.Defaut.AnimalPasseTour();
+        aPasseSonTour = true;
     }
     #endregion
 

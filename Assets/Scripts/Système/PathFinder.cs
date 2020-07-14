@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using UnityEngine;
 
 public class PathFinder : MonoBehaviour
@@ -109,6 +110,11 @@ public class PathFinder : MonoBehaviour
 
         TuileManager tuileObservee;
 
+        foreach (TuileManager noeud in graphe)
+        {
+            if (noeud.estOccupee) graphe.Remove(noeud);
+        }
+
         //On initialise toutes les distance à infini
         for (int i = 0; i < graphe.Count; i++)
         {
@@ -216,6 +222,19 @@ public class PathFinder : MonoBehaviour
         }
 
         return chemin;
+    }
+
+    public float CalculerLongeurChemin(Stack<TuileManager> chemin)
+    {
+        float distance = 0;
+        List<TuileManager> listeTuile = new List<TuileManager>(chemin);
+
+        for (int i = 0; i < listeTuile.Count -1; i++)
+        {
+            distance += listeTuile[i].connectionsDistance[listeTuile[i].RecupIndexConnection(listeTuile[i + 1])];
+        }
+
+        return distance;
     }
 
     public void ColorerGraphe(List<TuileManager> graphe, Color couleur)
