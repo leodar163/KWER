@@ -110,12 +110,17 @@ public class PathFinder : MonoBehaviour
 
         TuileManager tuileObservee;
 
+        //Retire les tuiles qui sont déjà occupées et donc infranchissables
+        List<TuileManager> listeTampon = new List<TuileManager>(graphe);
         foreach (TuileManager noeud in graphe)
         {
-            if (noeud.estOccupee) graphe.Remove(noeud);
+            if (noeud.estOccupee) listeTampon.Remove(noeud);
         }
+        graphe = listeTampon;
+        graphe.Add(tuileDepart);
+        graphe.Add(tuileCible);
 
-        //On initialise toutes les distance à infini
+        //On initialise toutes les distance à infini sauf la tuile de départ
         for (int i = 0; i < graphe.Count; i++)
         {
             graphe[i].distance = Mathf.Infinity;
@@ -134,16 +139,15 @@ public class PathFinder : MonoBehaviour
                 TuileManager connection = tuileObservee.connections[i];
 
                 if(connection.distance > tuileObservee.distance + 
-                    tuileObservee.connectionsDistance[tuileObservee.RecupIndexConnection(connection)])
+                    tuileObservee.connectionsDistance[i])
                 {
                     connection.distance = tuileObservee.distance +
-                    tuileObservee.connectionsDistance[tuileObservee.RecupIndexConnection(connection)];
+                    tuileObservee.connectionsDistance[i];
 
                     connection.predecesseur = tuileObservee;
                 }
             }
         }
-        ReinitGraphe();
 
         return TrouverChemin(tuileDepart, tuileCible);
     }
@@ -154,6 +158,16 @@ public class PathFinder : MonoBehaviour
         List<TuileManager> graphe = new List<TuileManager>(FindObjectsOfType<TuileManager>());
 
         TuileManager tuileObservee;
+
+        //Retire les tuiles qui sont déjà occupées et donc infranchissables
+        List<TuileManager> listeTampon = new List<TuileManager>(graphe);
+        foreach (TuileManager noeud in graphe)
+        {
+            if (noeud.estOccupee) listeTampon.Remove(noeud);
+        }
+        graphe = listeTampon;
+        graphe.Add(tuileDepart);
+        graphe.Add(tuileCible);
 
         //On initialise toutes les distance à infini
         for (int i = 0; i < graphe.Count; i++)
@@ -169,23 +183,24 @@ public class PathFinder : MonoBehaviour
             graphe.Remove(tuileObservee);
 
             if (tuileObservee.terrainTuile.ettendueEau && !traversEau) continue;
-
+            
             //On met à jour les distances
             for (int i = 0; i < tuileObservee.connections.Count; i++)
             {
                 TuileManager connection = tuileObservee.connections[i];
 
-                if (connection.distance > tuileObservee.distance +
-                    tuileObservee.connectionsDistance[tuileObservee.RecupIndexConnection(connection)])
+                if (connection.distance > 
+                        tuileObservee.distance +
+                        tuileObservee.connectionsDistance[tuileObservee.RecupIndexConnection(connection)])
                 {
-                    connection.distance = tuileObservee.distance +
-                    tuileObservee.connectionsDistance[tuileObservee.RecupIndexConnection(connection)];
+                    connection.distance = 
+                        tuileObservee.distance +
+                        tuileObservee.connectionsDistance[tuileObservee.RecupIndexConnection(connection)];
 
                     connection.predecesseur = tuileObservee;
                 }
             }
         }
-        ReinitGraphe();
 
         return TrouverChemin(tuileDepart, tuileCible);
     }
@@ -206,7 +221,7 @@ public class PathFinder : MonoBehaviour
         return sommet;
     }
 
-    // Génère le chemin à partir du graphe de "prédécesseur" créé par la fonction CreerGrapheTuilesAPortee()
+    // Génère le chemin à partir du graphe de "prédécesseur" créé par la fonction CreerGrapheTuilesAPortee() et TrouverCheminPlusCourt()
     public Stack<TuileManager> TrouverChemin(TuileManager tuileOrigine, TuileManager tuileCible)
     {
         Stack<TuileManager> chemin = new Stack<TuileManager>();

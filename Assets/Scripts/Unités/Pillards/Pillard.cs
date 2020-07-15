@@ -13,6 +13,7 @@ public class Pillard : Pion
     public float ptsDeplacementDefaut;
     private float ptsDeplacement;
     public float vitesse;
+    public bool peutTraverserEau;
 
     private TuileManager prochaineTuile;
     private Stack<TuileManager> chemin;
@@ -63,7 +64,7 @@ public class Pillard : Pion
                     tribuCible = TrouverTribuPlusProche();
                 }
 
-                chemin = pathFinder.TrouverCheminPlusCourt(tuileActuelle, tribuCible.tuileActuelle);
+                chemin = pathFinder.TrouverCheminPlusCourt(tuileActuelle, tribuCible.tuileActuelle, peutTraverserEau);
 
                 StartCoroutine(SeDeplacer());
             }
@@ -82,7 +83,8 @@ public class Pillard : Pion
 
         for (int i = 0; i < tribus.Length; i++)
         {
-            distances[i] = pathFinder.CalculerLongeurChemin(pathFinder.TrouverCheminPlusCourt(tuileActuelle, tribus[i].tuileActuelle));
+            Stack<TuileManager> cheminTribu = pathFinder.TrouverCheminPlusCourt(tuileActuelle, tribus[i].tuileActuelle, peutTraverserEau);
+            distances[i] = pathFinder.CalculerLongeurChemin(cheminTribu);
         }
 
         float minim = MiniMax.TrouverMinimum(distances);

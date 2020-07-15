@@ -44,7 +44,6 @@ public class TourParTour : MonoBehaviour
     {
         tribus = FindObjectsOfType<Tribu>();
 
-        
         if(nbrTour != 0) 
         {
             eventNouveauTour.Invoke();

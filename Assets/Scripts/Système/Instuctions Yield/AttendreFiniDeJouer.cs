@@ -6,7 +6,7 @@ public class AttendreFiniDeJouer<T> : CustomYieldInstruction
     public override bool keepWaiting
     {
         get
-        {
+        { 
             return CheckerZonFiniDeJouer();
         }
     }
@@ -24,9 +24,10 @@ public class AttendreFiniDeJouer<T> : CustomYieldInstruction
 
         foreach(T pion in pions)
         {
+            
             if (!pion.aPasseSonTour)
-                return false;
+                return true;
         }
-        return true;
+        return false;
     }
 }

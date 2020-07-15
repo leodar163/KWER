@@ -190,90 +190,9 @@ public class TuileManager : MonoBehaviour
     public void SetTerrain(TuileTerrain terrain)
     {
         terrainTuile = terrain;
-        //print(terrainTuile.nom);
-        //print(terrain.nom);
 
             Init();
     }
-
-    /* OBSOLET
-    private void TrouverConnections()//     /!\  Penser à transformer le tablo de connection pour intégrer les poids des arrêtes /!\
-    {
-
-        if (tuileHexa)// On pourrait transformer àa en algorithme qui suit les rayons d'un cercle, un truc dans le genre. Avec sinus et cosinus.
-        {
-            connections = new GameObject[6];
-
-            Vector2 positionObjet = transform.position;
-
-            LayerMask layerMaskTuile = LayerMask.GetMask("Tuile");
-
-            Collider2D checkDroite = Physics2D.OverlapBox(positionObjet + Vector2.right * tailleTuile, new Vector2(tailleTuile / 4, tailleTuile / 4), 0, layerMaskTuile);
-            Collider2D checkGauche = Physics2D.OverlapBox(positionObjet - Vector2.right * tailleTuile, new Vector2(tailleTuile / 4, tailleTuile / 4), 0, layerMaskTuile);
-            Collider2D checkDroiteHaut = Physics2D.OverlapBox(positionObjet + new Vector2(tailleTuile/2, tailleTuile), new Vector2(tailleTuile / 4, tailleTuile / 4), 0, layerMaskTuile);
-            Collider2D checkDroiteBas = Physics2D.OverlapBox(positionObjet + new Vector2(tailleTuile / 2, -tailleTuile), new Vector2(tailleTuile / 4, tailleTuile / 4), 0, layerMaskTuile);
-            Collider2D checkGaucheHaut = Physics2D.OverlapBox(positionObjet + new Vector2(-tailleTuile / 2, tailleTuile), new Vector2(tailleTuile / 4, tailleTuile / 4), 0, layerMaskTuile);
-            Collider2D checkGaucheBas = Physics2D.OverlapBox(positionObjet + new Vector2(-tailleTuile / 2, -tailleTuile), new Vector2(tailleTuile / 4, tailleTuile / 4), 0, layerMaskTuile);
-
-
-            if (checkDroite)
-            {
-                connections[0] = checkDroite.gameObject;
-            }
-            if (checkGauche)
-            {
-                connections[1] = checkGauche.gameObject;
-            }
-            if (checkDroiteHaut)
-            {
-                connections[2] = checkDroiteHaut.gameObject;
-            }
-            if (checkDroiteBas)
-            {
-                connections[3] = checkDroiteBas.gameObject;
-            }
-            if (checkGaucheHaut)
-            {
-                connections[4] = checkGaucheHaut.gameObject;
-            }
-            if (checkGaucheBas)
-            {
-                connections[5] = checkGaucheBas.gameObject;
-            }
-        }
-        else
-        {
-            connections = new GameObject[4];
-
-            Vector2 positionObjet = transform.position;
-
-            LayerMask layerMaskTuile = LayerMask.GetMask("Tuile");
-
-            Collider2D checkHaut = Physics2D.OverlapBox(positionObjet + Vector2.up * tailleTuile, new Vector2(tailleTuile / 2, tailleTuile / 2), 0, layerMaskTuile);
-            Collider2D checkBas = Physics2D.OverlapBox(positionObjet + -Vector2.up * tailleTuile, new Vector2(tailleTuile / 2, tailleTuile / 2), 0, layerMaskTuile);
-            Collider2D checkDroite = Physics2D.OverlapBox(positionObjet + Vector2.right * tailleTuile, new Vector2(tailleTuile / 2, tailleTuile / 2), 0, layerMaskTuile);
-            Collider2D checkGauche = Physics2D.OverlapBox(positionObjet + -Vector2.right * tailleTuile, new Vector2(tailleTuile / 2, tailleTuile / 2), 0, layerMaskTuile);
-
-
-            if (checkHaut)
-            {
-                connections[0] = checkHaut.gameObject;
-            }
-            if (checkBas)
-            {
-                connections[1] = checkBas.gameObject;
-            }
-            if (checkDroite)
-            {
-                connections[2] = checkDroite.gameObject;
-            }
-            if (checkGauche)
-            {
-                connections[3] = checkGauche.gameObject;
-            }
-        }
-    }
-    */
 
     #region INTERFACE
 
@@ -313,27 +232,13 @@ public class TuileManager : MonoBehaviour
     {
 
     }
-
-    /* OBSOLET
-    public void SetTerrain(Terrains.TypeTerrain nvoTerrain)
-    {
-        Init();
-        sprite.sprite = nvoTerrain.sprite;
-        coutFranchissement = nvoTerrain.coutfranchissement;
-        estEttendueEau = nvoTerrain.ettendueEau;
-        terrain = nvoTerrain;
-    }
-    */
-
     
-
-    /* OBSOLET
-    public void SetTerrain()
+    public void MontrerPredecesseur()
     {
-        Init();
-        sprite.sprite = terrain.sprite;
-        coutFranchissement = terrain.coutfranchissement;
-        estEttendueEau = terrain.ettendueEau;
+        if (predecesseur)
+        {
+            Debug.DrawLine(garniture.transform.position + Vector3.up, predecesseur.garniture.transform.position + Vector3.up, Color.cyan, float.PositiveInfinity);
+        }
+        else ColorerTuile(Color.blue);
     }
-    */
 }

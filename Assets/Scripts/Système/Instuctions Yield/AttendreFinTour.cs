@@ -10,7 +10,7 @@ public class AttendreFinTour : CustomYieldInstruction
     {
         get
         {
-            return nbrTour <= 0;
+            return nbrTour > 0;
         }
     }
 

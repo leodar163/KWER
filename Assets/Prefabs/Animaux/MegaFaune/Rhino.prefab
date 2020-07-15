@@ -49,15 +49,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cae5fc8f92ed59409d86f95ff3642bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aFaitUneAction: 0
+  aPasseSonTour: 0
+  revendication: {fileID: 9055846603267299339}
   migration: {fileID: 2523344375351965229}
   hostile: {fileID: 1159643476458633933}
   productionTroupeau: {fileID: 1714641867515581847}
   spriteRenderer: {fileID: 6269753663623220688}
-  revendication: {fileID: 9055846603267299339}
   domesticable: 0
   megaFaune: 1
   predateur: 0
-  aFaitUneAction: 0
 --- !u!70 &3796760071837312150
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda67a0ef89633f4b86b6ea8adef0258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  troupeau: {fileID: 4240119684360671227}
+  pion: {fileID: 4240119684360671227, guid: a847b54e5bd421243b7a0f385a7c3143, type: 3}
   combat: {fileID: 9043204819795068831, guid: 9209567ac640936478e6b19e2b526bfa, type: 3}
   nbrCombattant: 5
   attaque: 2
