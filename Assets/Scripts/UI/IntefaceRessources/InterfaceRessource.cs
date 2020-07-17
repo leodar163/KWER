@@ -22,7 +22,7 @@ public class InterfaceRessource : MonoBehaviour
     private List<PanelInfoRessource> listePanelsInfoRessource = new List<PanelInfoRessource>();
 
     [HideInInspector] public UnityEvent EventInterfaceMAJ;
-    public float tauxRafraichissementSeconde = 0.2f;
+    public float tauxRafraichissementSeconde = 0.1f;
 
     // Start is called before the first frame update
     void Start()

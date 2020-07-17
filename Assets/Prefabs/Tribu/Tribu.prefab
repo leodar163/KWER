@@ -488,7 +488,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2890272258402080123}
+      - m_Target: {fileID: 2573456614893114323}
         m_MethodName: SupprimerPop
         m_Mode: 1
         m_Arguments:
@@ -521,7 +521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1190294052928454321}
-  - component: {fileID: 2890272258402080123}
+  - component: {fileID: 2573456614893114323}
   m_Layer: 9
   m_Name: Demographie
   m_TagString: Untagged
@@ -550,7 +550,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2890272258402080123
+--- !u!114 &2573456614893114323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -565,8 +565,8 @@ MonoBehaviour:
   popParent: {fileID: 5172677523249622558}
   tribu: {fileID: 1618904120558817127}
   affichage: {fileID: 1062186752523472291}
-  boutonAjout: {fileID: 4774276859412062003}
-  boutonSuppression: {fileID: 1109858389889970956}
+  boutonAjout: {fileID: 1144597418313827221}
+  boutonSuppression: {fileID: 4869641270622538698}
   CoutPop: {fileID: 11400000, guid: 4eaa644a14238454e8e8b08db01b89bb, type: 2}
   GainSacrificePop: {fileID: 11400000, guid: 527a73f2deb42f34b80e35d8ce588a02, type: 2}
   listePopsCampement: []
@@ -796,7 +796,7 @@ MonoBehaviour:
   tuilesAPortee: []
   expedition: {fileID: 5645824234354430084}
   stockRessources: {fileID: 51998110753543547}
-  demographie: {fileID: 2890272258402080123}
+  demographie: {fileID: 2573456614893114323}
   campement: {fileID: 346511199273669100}
   SprCampementHiver: {fileID: 21300000, guid: c20456faf8b128a4bae764b0c54255d3, type: 3}
   guerrier: {fileID: 4469811351211270403}
@@ -2351,7 +2351,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2890272258402080123}
+      - m_Target: {fileID: 2573456614893114323}
         m_MethodName: AjouterPop
         m_Mode: 1
         m_Arguments:

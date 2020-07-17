@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Demographie : MonoBehaviour
 {
@@ -9,8 +11,8 @@ public class Demographie : MonoBehaviour
 
     [Header("Interface")]
     [SerializeField] private GameObject affichage;
-    [SerializeField] private GameObject boutonAjout;
-    [SerializeField] private GameObject boutonSuppression;
+    [SerializeField] private Button boutonAjout;
+    [SerializeField] private Button boutonSuppression;
 
     [Header("Couts et gains")]
     [SerializeField] private Production CoutPop;
@@ -28,17 +30,29 @@ public class Demographie : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         popParent.SetActive(false);
         Invoke("AjouterPop", 0.5f);
+        InstancierProduction();
+        InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJBoutonsPop);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    private void InstancierProduction()
+    {
+        Production nvCoutPop = ScriptableObject.CreateInstance<Production>();
+        nvCoutPop.gains = (float[])CoutPop.gains.Clone();
+        CoutPop = nvCoutPop;
+
+        Production nvGainSacrificie = ScriptableObject.CreateInstance<Production>();
+        nvGainSacrificie.gains = (float[])GainSacrificePop.gains.Clone();
+        GainSacrificePop = nvGainSacrificie;
     }
 
     private void AjusterRouePopulation()
@@ -71,6 +85,8 @@ public class Demographie : MonoBehaviour
 
     public void AjouterPop()
     {
+        tribu.stockRessources.RessourcesEnStock -= CoutPop;
+
         GameObject nvPop = Instantiate(popParent, transform);
         nvPop.SetActive(true);
         listePopsCampement.Add(nvPop.GetComponent<Pop>());
@@ -156,9 +172,83 @@ public class Demographie : MonoBehaviour
         return popRetiree;
     }
 
+
+    public void SupprimerPop()
+    {
+        if(taillePopulation > 1)
+        {
+            if(listePopsCampement.Count > 0)
+            {
+                Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1]; 
+                listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
+                Destroy(popRetiree.gameObject);
+            }
+        }
+    }
+
+    #region INTERFACE
     public void AfficherIntefacePop(bool afficher)
     {
         gameObject.SetActive(afficher);
     }
 
+    private void MAJBoutonsPop()
+    {
+        MAJBoutonAjout();
+        MAJBoutonSuppression();
+    }
+
+    private void MAJBoutonAjout()
+    {
+        InfoBulle infoblleBouton = boutonAjout.GetComponent<InfoBulle>();
+        infoblleBouton.textInfoBulle = "Augmenter Population";
+        bool manqueRessource = false;
+
+        for (int i = 0; i < CoutPop.gains.Length; i++)
+        {
+            //écrit le coût dans l'infobulle
+            if(CoutPop.gains[i] > 0)
+            {
+                infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">-"
+                    + CoutPop.gains[i] + "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
+
+                if (tribu.stockRessources.RessourcesEnStock.gains[i] < CoutPop.gains[i])
+                {
+                    manqueRessource = true;
+                    infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> (insuffisant)";
+                }
+            }
+        }
+        boutonAjout.interactable = !manqueRessource;
+    }
+
+    private void MAJBoutonSuppression()
+    {
+        InfoBulle infoblleBouton = boutonSuppression.GetComponent<InfoBulle>();
+        infoblleBouton.textInfoBulle = "Sacrifier Population";
+        for (int i = 0; i < GainSacrificePop.gains.Length; i++)
+        {
+            //écrit le gain dans l'infobulle
+            if (GainSacrificePop.gains[i] > 0)
+            {
+                infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
+                    + CoutPop.gains[i] + "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
+
+            }
+        }
+        if (taillePopulation == 1)
+        {
+            boutonSuppression.interactable = false;
+            infoblleBouton.textInfoBulle += "\n<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                + "Pas assez de population pour en sacrifier" + "<color=\"white\"> " ;
+        }
+        else if (listePopsCampement.Count == 0)
+        {
+            boutonSuppression.interactable = false;
+            infoblleBouton.textInfoBulle += "\n<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                + "Impossible de sacrifier des populations occupées" + "<color=\"white\"> ";
+        }
+        else boutonSuppression.interactable = true;
+    }
+    #endregion
 }
