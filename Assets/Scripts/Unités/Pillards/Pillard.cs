@@ -30,6 +30,7 @@ public class Pillard : Pion
         entetement = entetementDefaut;
         TourParTour.Defaut.eventNouveauTour.AddListener(() => entetement--);
         TrouverTuileActuelle();
+        revendication.RevendiquerTerritoire(tuileActuelle, true);
     }
 
     // Update is called once per frame

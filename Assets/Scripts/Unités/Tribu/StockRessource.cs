@@ -24,7 +24,7 @@ public class StockRessource : MonoBehaviour
         set
         {
             capaciteDeStockage = value;
-            MiseAJourInterfaceRessource();
+            LimiterStock();
         }
         get
         {
@@ -36,7 +36,7 @@ public class StockRessource : MonoBehaviour
         set
         {
             ressourcesEnStock = value;
-            MiseAJourInterfaceRessource();
+            LimiterStock();
         }
         get
         {
@@ -60,7 +60,6 @@ public class StockRessource : MonoBehaviour
     void Start()
     {
         LimiterStock();
-        Invoke("MiseAJourInterfaceRessource",0.5f);
     }
 
     // Update is called once per frame
@@ -123,7 +122,7 @@ public class StockRessource : MonoBehaviour
             else projectionGain += consoParPop * tribu.demographie.taillePopulation;
         }
 
-        MiseAJourInterfaceRessource();
+        LimiterStock();
     }
 
     private void LimiterGain()
@@ -145,6 +144,7 @@ public class StockRessource : MonoBehaviour
             {
                 ressourcesEnStock.gains[i] = capaciteDeStockage.gains[i];
             }
+            if (ressourcesEnStock.gains[i] < 0) ressourcesEnStock.gains[i] = 0;
         }
     }
 
@@ -155,24 +155,13 @@ public class StockRessource : MonoBehaviour
             ressourcesEnStock.gains[i] += projectionGain.gains[i];
         }
 
-        MiseAJourInterfaceRessource();
-    }
-
-    private void MiseAJourInterfaceRessource()
-    {
         LimiterStock();
-        if (InterfaceRessource.Actuel)
-        {
-            InterfaceRessource.Actuel.MiseAJourCapacite(capaciteDeStockage);
-            InterfaceRessource.Actuel.MiseAJourStock(ressourcesEnStock);
-            InterfaceRessource.Actuel.MiseAjourGain(projectionGain);
-        }
     }
 
     public void EncaisserRessource(string nomRessource, float montant)
     {
         ressourcesEnStock.AugmenterGain(nomRessource, montant);
-        MiseAJourInterfaceRessource();
+        LimiterStock();
     }
 
     public void AjouterCapacitePop()
@@ -181,7 +170,7 @@ public class StockRessource : MonoBehaviour
         {
             capaciteDeStockage.gains[i] += capaciteParPop.gains[i];
         }
-        MiseAJourInterfaceRessource();
+        LimiterStock();
     }
 
     public void RetirerCapacitePop()
@@ -190,6 +179,6 @@ public class StockRessource : MonoBehaviour
         {
             capaciteDeStockage.gains[i] -= capaciteParPop.gains[i];
         }
-        MiseAJourInterfaceRessource();
+        LimiterStock();
     }
 }

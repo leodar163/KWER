@@ -6,7 +6,15 @@ public class Demographie : MonoBehaviour
 {
     [SerializeField] private GameObject popParent;
     [SerializeField] private Tribu tribu;
+
+    [Header("Interface")]
     [SerializeField] private GameObject affichage;
+    [SerializeField] private GameObject boutonAjout;
+    [SerializeField] private GameObject boutonSuppression;
+
+    [Header("Couts et gains")]
+    [SerializeField] private Production CoutPop;
+    [SerializeField] private Production GainSacrificePop;
 
     public List<Pop> listePopsCampement = new List<Pop>();
     public List<Pop> listePopsExpedition = new List<Pop>();
@@ -30,6 +38,7 @@ public class Demographie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
 
     private void AjusterRouePopulation()

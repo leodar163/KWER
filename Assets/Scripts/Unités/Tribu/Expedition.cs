@@ -72,23 +72,11 @@ public class Expedition : MonoBehaviour
         hostilesAPortee.Clear();
         foreach (Revendication cible in tribu.revendication.TrouverRevendicateursAPortee())
         {
-            if (cible.EstPredateur || cible.EstMegaFaune)
-            {
-                Troupeau animal = (Troupeau)cible.parent;
+            Hostile hostileObserve = cible.GetComponent<Hostile>();
 
-                if(!hostilesAPortee.Contains(animal.hostile))
-                {
-                    hostilesAPortee.Add(animal.hostile);
-                }
-            }
-            if(cible.EstPillard)
+            if(hostileObserve)
             {
-                Pillard pillard = (Pillard)cible.parent;
-
-                if(!hostilesAPortee.Contains(pillard.hostile))
-                {
-                    hostilesAPortee.Add(pillard.hostile);
-                }
+                hostilesAPortee.Add(hostileObserve);
             }
         }
     }

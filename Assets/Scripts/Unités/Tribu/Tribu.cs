@@ -49,7 +49,6 @@ public class Tribu : Pion
 
     [Header("Campement")]
     public Campement campement;
-    [SerializeField] private GameObject banniere;
 
     [Header("Sprites")]
     [SerializeField] private Sprite SprCampementHiver;
