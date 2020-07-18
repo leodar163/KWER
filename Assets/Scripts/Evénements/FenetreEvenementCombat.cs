@@ -32,7 +32,7 @@ public class FenetreEvenementCombat : FenetreEvenement
         evenement = evenementCombat;
         DessinerEvenement();
         combat = combatALancer;
-        MAJInterfaceCombat();
+        Invoke("MAJInterfaceCombat", 0.2f);
     }
 
     private void MAJInterfaceCombat()

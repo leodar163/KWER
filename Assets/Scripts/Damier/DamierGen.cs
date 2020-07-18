@@ -412,6 +412,7 @@ public class DamierGen : MonoBehaviour
         
     }
 
+    #region RECUPERATION
     public TuileManager[,] RecupDamier() 
     {
         TuileManager[,] damier = new TuileManager[colonnes, lignes];
@@ -428,23 +429,136 @@ public class DamierGen : MonoBehaviour
                 index++;
             }
         }
-    
         return damier;
     }
 
-    /* OBSOLET
-    //Fonction de débugg
-    private void ColorerModuloMappehauteur(float[,] mappeHauteur, TuileManager[,] damier)
+    public Vector2Int RecupererCoordonneesTuile(TuileManager tuile)
     {
-        for (int y = 0; y < mappeHauteur.GetLength(1); y++)
+        string nomTuile = tuile.gameObject.name;
+        int x;
+        int y;
+
+        nomTuile = nomTuile.Remove(0, "Tuile".Length);
+        string[] coordonnees = nomTuile.Split(':');
+        x = int.Parse(coordonnees[0]);
+        y = int.Parse(coordonnees[1]);
+
+        return new Vector2Int(x, y);
+    }
+
+    public TuileManager[] RecupTuilesFrontalieres()
+    {
+        TuileManager[] retour = new TuileManager[2*lignes + 2*colonnes];
+
+        int index = 0;
+
+        TuileManager[] premierLigne = TrouverTuilesParLigne(0);
+        TuileManager[] derniereLigne = TrouverTuilesParLigne(lignes - 1);
+
+        TuileManager[] premiereColonne = TrouverTuilesParColonne(0);
+        TuileManager[] derniereColonne = TrouverTuilesParColonne(colonnes - 1);
+
+        while (index < retour.Length)
         {
-            for (int x = 0; x < mappeHauteur.GetLength(0); x++)
+            if(index < premierLigne.Length)
             {
-                damier[x, y].ColorerTuile(new Color(mappeHauteur[x, y], 0, 0));
+                retour[index] = premierLigne[index];
+            }
+            else if(index < derniereLigne.Length + premierLigne.Length)
+            {
+                retour[index] = derniereLigne[index - premierLigne.Length];
+            }
+            else if(index < premiereColonne.Length + derniereLigne.Length + premierLigne.Length)
+            {
+                retour[index] = premiereColonne[index - (derniereLigne.Length + premierLigne.Length)];
+            }
+            else
+            {
+                retour[index] = derniereColonne[index - (premiereColonne.Length + derniereLigne.Length + premierLigne.Length)];
+            }
+
+            index++;
+        }
+
+        return retour;
+    }
+
+    /// <summary>
+    /// Trouve la tuile qui correspond aux coordonnées
+    /// </summary>
+    /// <param name="axeX">Coordonnée sur l'axe x</param>
+    /// <param name="axeY">Coordonnée sur l'axe y</param>
+    /// <returns></returns>
+    public TuileManager TrouverTuileParCoordonnee(int axeX, int axeY)
+    {
+        return RecupDamier()[axeX, axeY];
+    }
+
+    public TuileManager TrouverTuileParCoordonnee(Vector2Int coordonnees)
+    {
+        return RecupDamier()[coordonnees.x, coordonnees.y];
+    }
+
+    public TuileManager[] TrouverTuilesParEtendue(int minX, int minY, int maxX, int maxY)
+    {
+        TuileManager[,] damier = RecupDamier();
+        TuileManager[] retour = new TuileManager[(maxX - minX) * (maxY -minY)];
+
+        int index = 0;
+
+        for (int i = minY; i < maxY; i++)
+        {
+            for (int j = minX; j < maxX; j++)
+            {
+                retour[index] = damier[j, i];
+                index++;
             }
         }
+        return retour;
     }
-    */
 
-    
+    public TuileManager[] TrouverTuilesParEtendue(Vector2Int coordonneesDeb, Vector2Int coordonneesFin)
+    {
+        TuileManager[,] damier = RecupDamier();
+        TuileManager[] retour = new TuileManager[(coordonneesFin.x - coordonneesDeb.x) * (coordonneesFin.y - coordonneesDeb.y)];
+
+        int index = 0;
+
+        for (int i = coordonneesDeb.y; i < coordonneesFin.y; i++)
+        {
+            for (int j = coordonneesDeb.x; j < coordonneesFin.x; j++)
+            {
+                retour[index] = damier[j, i];
+                index++;
+            }
+        }
+        return retour;
+    }
+
+    public TuileManager[] TrouverTuilesParColonne(int indexColonne)
+    {
+        TuileManager[,] damier = RecupDamier();
+        TuileManager[] retour = new TuileManager[damier.GetLength(1)];
+
+        for (int i = 0; i < damier.GetLength(1); i++)
+        {
+            retour[i] = damier[indexColonne, i];
+        }
+
+        return retour;
+    }
+
+    public TuileManager[] TrouverTuilesParLigne(int indexLigne)
+    {
+        TuileManager[,] damier = RecupDamier();
+        TuileManager[] retour = new TuileManager[damier.GetLength(0)];
+
+        for (int i = 0; i < damier.GetLength(0); i++)
+        {
+            retour[i] = damier[i, indexLigne];
+        }
+
+        return retour;
+    }
+    #endregion
 }

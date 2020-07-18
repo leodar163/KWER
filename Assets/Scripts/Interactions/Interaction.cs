@@ -5,6 +5,18 @@ using UnityEngine.UI;
 
 public abstract class Interaction : MonoBehaviour
 {
+    public static Interaction EnCours
+    {
+        get
+        {
+            Interaction[] interactions = FindObjectsOfType<Interaction>();
+            foreach (Interaction interaction in interactions)
+            {
+                if (interaction.enInteraction) return interaction;
+            }
+            return null;
+        }
+    }
     public bool enInteraction;
     public bool interactable;
     [SerializeField] protected Button boutonInteraction;
@@ -13,7 +25,6 @@ public abstract class Interaction : MonoBehaviour
     protected virtual void Start()
     {
         boutonRetour.onClick.AddListener(delegate { EntrerEnInteraction(false); });
-        boutonRetour.onClick.AddListener(delegate { ControleSouris.Actuel.ActiverModeInteraction(this, false); });
     }
 
     public virtual void EntrerEnInteraction(bool entrer)
@@ -30,6 +41,7 @@ public abstract class Interaction : MonoBehaviour
             else
             {
                 CameraControle.Actuel.controlesActives = true;
+                ControleSouris.Actuel.ActiverModeInteraction(this, false);
             }
         }
     }

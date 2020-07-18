@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class EffetBonus : MonoBehaviour
 {
+    private Tribu tribuKiSubit;
 
+    public Tribu TribuKiSubit
+    {
+        get
+        {
+            if (tribuKiSubit == null) return Tribu.tribuQuiJoue;
+            else return tribuKiSubit;
+        }
+        set
+        {
+            tribuKiSubit = value;
+        }
+    }
     public void ajouterBonusAttaque(int montant)
     {
-        Tribu.tribuQuiJoue.bonus.attaqueBonus += montant;
-    }
-
-    public void ajouterBonusAttaque(int montant, Tribu tribu)
-    {
-        tribu.bonus.attaqueBonus += montant;
+        TribuKiSubit.bonus.attaqueBonus += montant;
     }
 
     public void ajouterBonusDefense(int montant)
     {
-        Tribu.tribuQuiJoue.bonus.defenseBonus += montant;
-    }
-
-    public void ajouterBonusDefense(int montant, Tribu tribu)
-    {
-        tribu.bonus.defenseBonus += montant;
+        TribuKiSubit.bonus.defenseBonus += montant;
     }
 }

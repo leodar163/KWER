@@ -112,7 +112,6 @@ public class Evenement : ScriptableObject
             string retour = texte;
             retour = retour.Replace(balise, "");
             retour = retour.Replace(finBalise,"");
-            Debug.Log(retour);
             return retour;
         }
         else return null;

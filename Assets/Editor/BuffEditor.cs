@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEditor;
+using UnityEditor.Events;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CustomEditor(typeof(Buff), true)]
 public class BuffEditor : Editor 
@@ -98,7 +100,8 @@ public class BuffEditor : Editor
         effet = so.FindProperty("effets.m_PersistentCalls.m_Calls.Array");
 
         InitialiserListeRetour(buff.listeEffetsRetours, effet.arraySize);
-        
+
+        EffetBonus bonus = effetRef.GetComponent<EffetBonus>();
         for (int i = 0; i < effet.arraySize; i++)
         {
             cible = effet.FindPropertyRelative("data[" + i + "].m_Target");
@@ -107,6 +110,11 @@ public class BuffEditor : Editor
             argumentInt = effet.FindPropertyRelative("data[" + i + "].m_Arguments.m_IntArgument");
             string retour = "";
 
+            //Remet à 0 le nombre de listener persitent
+            for (int j = 0; j < buff.antiEffets.GetPersistentEventCount(); j++)
+            {
+                UnityEventTools.RemovePersistentListener(buff.antiEffets, j);
+            }
 
             if (methode.stringValue.Contains("Bonus"))
             {
@@ -124,11 +132,16 @@ public class BuffEditor : Editor
                         retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
                             + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " d'attaque ";
                     }
+                    //UnityEventTools.AddPersistentListener<int,Tribu>(buff.antiEffets, new UnityAction<int, Tribu>(
+                    //    () => bonus.ajouterBonusAttaque(argumentInt.intValue * -1, buff.antiEffets.tribu)));
 
-                    //buff.antiEffets.effets.Add(delegate
-                    //{
-                    //    effetRef.GetComponent<EffetBonus>().ajouterBonusAttaque(argumentInt.intValue, buff.antiEffets.tribuAffectee);
-                    //});
+                    //UnityAction<int, Tribu> callback = new UnityAction<int, Tribu>(bonus.ajouterBonusAttaque);
+                    //UnityEventTools.AddPersistentListener(buff.antiEffets, () => bonus.ajouterBonusAttaque(2));
+
+                    //buff.antiEffets.Add(() => bonus.ajouterBonusAttaque(argumentInt.intValue * -1, buff.antiEffets.tribu));
+
+                    UnityAction<int> callback = new UnityAction<int>(bonus.ajouterBonusAttaque);
+                    UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
                 }
                 else if (methode.stringValue.Contains("Defense"))
                 {
@@ -145,8 +158,13 @@ public class BuffEditor : Editor
                             + argumentInt.intValue + "<color=\"white\">"+ " point" + pluriel + " de défense ";
                     }
 
-                    //buff.antiEffets.AddListener(delegate {
-                    //    effetRef.GetComponent<EffetBonus>().ajouterBonusDefense(argumentInt.intValue * -1);});
+                    //UnityEventTools.AddPersistentListener(buff.antiEffets, new UnityAction(
+                    //    () => bonus.ajouterBonusDefense(argumentInt.intValue * -1, buff.antiEffets.tribu)));
+
+                    //buff.antiEffets.Add(() => bonus.ajouterBonusDefense(argumentInt.intValue * -1, buff.antiEffets.tribu));
+
+                    UnityAction<int> callback = new UnityAction<int>(bonus.ajouterBonusDefense);
+                    UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
                 }
             }
 

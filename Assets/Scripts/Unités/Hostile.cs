@@ -22,6 +22,22 @@ public class Hostile : MonoBehaviour
     public int attaque = 0;
     public int defense = 0;
 
+    [Header("Generation")]
+    [Tooltip("-1 si pas de valeur min")]
+    public int attaqueMin = -1;
+    [Tooltip("-1 si pas de valeur max")]
+    public int attaqueMax = -1;
+    [Space]
+    [Tooltip("-1 si pas de valeur min")]
+    public int defenseMin = -1;
+    [Tooltip("-1 si pas de valeur max")]
+    public int defenseMax = -1;
+    [Space]
+    [Tooltip("-1 si pas de valeur min")]
+    public int nbrCombattantMin = -1;
+    [Tooltip("-1 si pas de valeur max")]
+    public int nbrCombattantMax = -1;
+
     public bool PeutAttaquer
     {
         get

@@ -58,16 +58,19 @@ public class InterfaceEvenement : MonoBehaviour
         fondNoir.SetActive(false);
         fenetreEvenement.gameObject.SetActive(false);
         fenetreCombat.gameObject.SetActive(false);
+
+        StartCoroutine(VerifierEvenementFini());
     }
 
     private IEnumerator VerifierEvenementFini()
     {
         yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
 
         if(!fenetreCombat.gameObject.activeSelf && !fenetreCombat.gameObject.activeSelf)
         {
             eventFinEvenement.Invoke();
+            if(Interaction.EnCours) Interaction.EnCours.EntrerEnInteraction(false);
+            print("Evenement terminé");
         }
     }
 
@@ -104,6 +107,7 @@ public class InterfaceEvenement : MonoBehaviour
         yield return new WaitForEndOfFrame();
         fenetreCombat.IllustrationActuelle.enabled = false;
         fenetreEvenement.IllustrationActuelle.enabled = false;
+        
 
         yield return new WaitForEndOfFrame();
 

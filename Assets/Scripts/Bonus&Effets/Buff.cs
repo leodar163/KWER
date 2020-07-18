@@ -8,30 +8,10 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "NvBuff", menuName = "Bonus & Effets/Buff")]
 public class Buff : ScriptableObject
 {
-    [SerializeField] private GameObject effet;
+    [SerializeField] private EffetBonus effet;
 
     [SerializeField] private UnityEvent effets;
-    public AntiEffet antiEffets = new AntiEffet();
-    public struct AntiEffet
-    {
-        public Tribu tribuAffectee;
-        public List<Delegate> effets;
-
-        public AntiEffet(Tribu tribu, List<Delegate> effet)
-        {
-            tribuAffectee = tribu;
-            effets = effet;
-        }
-
-        public AntiEffet(AntiEffet antiEffets)
-        {
-            tribuAffectee = antiEffets.tribuAffectee;
-            effets = antiEffets.effets;
-        }
-    }
-
-
-    //[HideInInspector] public EventTribu antiEffets;
+    [HideInInspector] public UnityEvent antiEffets;
 
     [HideInInspector] public bool compteurTour;
     [HideInInspector] public bool tpsDunEvent;
@@ -68,20 +48,42 @@ public class Buff : ScriptableObject
         {
             Tribu.tribuQuiJoue.StartCoroutine(ActivationTPT());   
         }
+        else if (tpsDunEvent)
+        {
+            Tribu.tribuQuiJoue.StartCoroutine(ActivationEvenement());
+        }
     }
 
     private IEnumerator ActivationTPT()
     {
         effets.Invoke();
 
-        AntiEffet nvAntiEffets = new AntiEffet(antiEffets);
-        nvAntiEffets.tribuAffectee = Tribu.tribuQuiJoue;
+        Tribu tribuKiSubit = Tribu.tribuQuiJoue;
 
         yield return new AttendreFinTour(nombreTour);
 
-        foreach (Delegate effet in nvAntiEffets.effets)
-        {
-            effet.DynamicInvoke();
-        }
+        effet.TribuKiSubit = tribuKiSubit;
+
+        antiEffets.Invoke();
+
+        effet.TribuKiSubit = null;
+    }
+
+    private IEnumerator ActivationEvenement()
+    {
+        effets.Invoke();
+
+        bool eventFini = false;
+        Tribu tribuKiSubit = Tribu.tribuQuiJoue;
+        InterfaceEvenement.Defaut.eventFinEvenement.AddListener(() => eventFini = true);
+
+        yield return new WaitUntil(() => eventFini);
+
+        effet.TribuKiSubit = tribuKiSubit;
+
+        antiEffets.Invoke();
+
+        effet.TribuKiSubit = null;
+
     }
 }
