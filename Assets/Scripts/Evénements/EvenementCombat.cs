@@ -77,6 +77,11 @@ public class EvenementCombat : Evenement
     {
         combat.Hostile.nbrCombattant -= CaperArgumentPourcentage(pourcentage, true);
     }
+
+    public void LancerCombat()
+    {
+        combat.LancerCombat();
+    }
     #endregion
 
     private int CaperArgumentInt(int argument, bool ennemi)

@@ -43,7 +43,12 @@ public class InterfaceEvenement : MonoBehaviour
     }
 
 
-    public void LancerCombat(Combat combat)
+    public void OuvrirRecapCombat(int attaqueGuerrier, int defenseGuerrier, int attaqueHostile, int defenseHostile, int mortsGuerrier, int mortsHostile, bool ennemiFuit, Combat combat)
+    {
+
+    }
+
+    public void OuvrirFenetreEvenementCombat(Combat combat)
     {
         EvenementCombat eC = ListeEvenementCombat.Defaut.PiocherEvenement(combat);
         eC.combat = combat;
@@ -114,4 +119,6 @@ public class InterfaceEvenement : MonoBehaviour
         fenetreCombat.IllustrationActuelle.enabled = true;
         fenetreEvenement.IllustrationActuelle.enabled = true;
     }
+
+
 }

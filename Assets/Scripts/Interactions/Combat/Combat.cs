@@ -71,7 +71,7 @@ public class Combat : Interaction
 
     private void CommencerCombat()
     {
-        InterfaceEvenement.Defaut.LancerCombat(this);
+        InterfaceEvenement.Defaut.OuvrirFenetreEvenementCombat(this);
     }
 
     private void MAJBouton()
@@ -84,5 +84,59 @@ public class Combat : Interaction
         {
             ActiverBouton(true);
         }
+    }
+
+    public void LancerCombat()
+    {
+        int attaqueGuerrier = 0;
+        int defenseGuerrier = 0;
+
+        int attaqueHostile = 0;
+        int defenseHostile = 0;
+
+        for (int i = 0; i < guerrier.nbrGuerrier; i++)
+        {
+            for (int j = 0; j < guerrier.attaqueTotale; j++)
+            {
+                if (Random.Range(0, 1) == 0)
+                {
+                    attaqueGuerrier++;
+                }
+            }
+            for (int j = 0; j < guerrier.defenseTotale; j++)
+            {
+                if (Random.Range(0, 1) == 0)
+                {
+                    defenseGuerrier++;
+                }
+            }
+        }
+
+        for (int i = 0; i < hostile.nbrCombattant; i++)
+        {
+            for (int j = 0; j < hostile.attaque; j++)
+            {
+                if (Random.Range(0, 1) == 1) attaqueHostile++;
+            }
+            for (int j = 0; j < hostile.defense; j++)
+            {
+                if (Random.Range(0, 1) == 1) defenseHostile++;
+            }
+        }
+
+        int mortsGuerrier = defenseGuerrier < attaqueHostile ? attaqueHostile - defenseGuerrier : 0;
+        int mortsHostile = defenseHostile < attaqueGuerrier ? attaqueGuerrier - defenseHostile : 0;
+
+        bool ennemiFuit = false;
+
+        for (int i = 0; i < mortsHostile; i++)
+        {
+            if (Random.Range(0, 100) <= guerrier.degatsMoraux - hostile.resistanceMorale) ennemiFuit = true;
+        }
+
+        guerrier.nbrGuerrier = guerrier.nbrGuerrier > mortsGuerrier ? guerrier.nbrGuerrier - mortsGuerrier : 0;
+        hostile.nbrCombattant = hostile.nbrCombattant > mortsHostile ? hostile.nbrCombattant - mortsHostile : 0;
+
+        InterfaceEvenement.Defaut.OuvrirRecapCombat(attaqueGuerrier, defenseGuerrier, attaqueHostile, defenseHostile, mortsGuerrier, mortsHostile, ennemiFuit, this);
     }
 }

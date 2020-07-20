@@ -860,6 +860,7 @@ MonoBehaviour:
   nbrGuerrier: 0
   attaque: 1
   defense: 1
+  degatsMoraux: 25
 --- !u!114 &8044188089232333488
 MonoBehaviour:
   m_ObjectHideFlags: 0

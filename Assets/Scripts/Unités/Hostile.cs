@@ -18,9 +18,13 @@ public class Hostile : MonoBehaviour
     /// quand est dépensé, ne peut plus attaquer jusqu'au tour prochain
     /// </summary>
     private bool jetonAttaque = true;
-    public int nbrCombattant = 0;
+    [HideInInspector]public int nbrCombattant = 0;
     public int attaque = 0;
     public int defense = 0;
+
+    [Tooltip("Soustrait les dégats moraux subit par le joueur.\n(100 signifie que l'ennemi ne fuira jamais)")]
+    [Range(0, 100)]
+    public int resistanceMorale;
 
     [Header("Generation")]
     [Tooltip("-1 si pas de valeur min")]
