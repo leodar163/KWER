@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11909677792bacb4a9b85c07f960002c, type: 3}
+  m_Name: ArriveePillard
+  m_EditorClassIdentifier: 
+  effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
+  titre: ARRIVEE DE PILLARD
+  description: "La nouvelle de notre installation sur ces terre fertile semble s'\xEAtre
+    r\xE9pendue jusqu'aux oreilles de peuplades plus belliqueuses. A pr\xE9sent,
+    des dangereux pillard menacent de nous attaquer.\n"
+  illustration: {fileID: 21300000, guid: 1a2a83dbe1289db48816942f487f0ddf, type: 3}
+  listeChoix:
+  - description: Que nos guerriers prennent les armes !
+    infobulle: Une bande de pillard apparait sur la mappe
+    retoursEffets:
+    - 
+    - 
+    effets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_MethodName: FermerFenetreEvenement
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 8827664118766306942, guid: 6115afa423c1d3f478d5b6cf58bd13dd,
+            type: 3}
+          m_MethodName: SpawnPillard
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  finBalise: <fin>
+  probaEte: 100
+  probaHiver: 100
+  infobulle: ARRIVEE DE PILLARD

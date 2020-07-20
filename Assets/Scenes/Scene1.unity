@@ -2762,7 +2762,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f40ba6110334b4b935e35dc1634faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listeEvenementsTemporels: []
+  listeEvenementsTemporels:
+  - {fileID: 11400000, guid: 5135a575da50f2044982d22fe4229479, type: 2}
+  - {fileID: 11400000, guid: 251196baaac6aa440ad921ff47cd7630, type: 2}
+  - {fileID: 11400000, guid: d8920bee015b8f848a874ebc85db9a0a, type: 2}
 --- !u!4 &83710997
 Transform:
   m_ObjectHideFlags: 0
@@ -13303,7 +13306,6 @@ GameObject:
   - component: {fileID: 429056404}
   - component: {fileID: 429056403}
   - component: {fileID: 429056402}
-  - component: {fileID: 429056405}
   - component: {fileID: 429056406}
   m_Layer: 5
   m_Name: ButtonPasserTour
@@ -13413,7 +13415,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &429056404
 CanvasRenderer:
@@ -13423,18 +13425,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429056400}
   m_CullTransparentMesh: 0
---- !u!114 &429056405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429056400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8878503a95413f46934edd4f66ed586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &429056406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24777,7 +24767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.754717, g: 0.6759413, b: 0.29547882, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -52747,8 +52737,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283149504
-  m_fontColor: {r: 0.75294125, g: 0.6745098, b: 0.29411766, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

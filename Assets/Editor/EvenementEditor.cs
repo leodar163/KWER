@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEditor;
 using Unity.Mathematics;
+using Unity.Collections.LowLevel.Unsafe;
 
 [CustomEditor(typeof(Evenement), true)]
 public class EvenementEditor : Editor
@@ -74,7 +75,8 @@ public class EvenementEditor : Editor
                 methode = effet.FindPropertyRelative("data[" + j + "].m_MethodName");
                 argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_FloatArgument");
                 string retour = "";
-                EvenementCombat evenementCombat = (EvenementCombat)evenement;
+                EvenementCombat evenementCombat = null;
+                if (evenement is EvenementCombat) evenementCombat = (EvenementCombat)evenement;
 
                 if (methode.stringValue.Contains("Gain"))
                 {

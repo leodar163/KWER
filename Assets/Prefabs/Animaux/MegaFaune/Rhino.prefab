@@ -89,7 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troupeau: {fileID: 4240119684360671227}
   tuileActuelle: {fileID: 0}
-  vitesse: 2
+  vitesse: 4
   ptsDeplacementDefaut: 2
 --- !u!114 &1714641867515581847
 MonoBehaviour:
@@ -137,6 +137,12 @@ MonoBehaviour:
   nbrCombattant: 5
   attaque: 2
   defense: 3
+  attaqueMin: -1
+  attaqueMax: -1
+  defenseMin: -1
+  defenseMax: -1
+  nbrCombattantMin: -1
+  nbrCombattantMax: -1
 --- !u!1 &6651748277873408838
 GameObject:
   m_ObjectHideFlags: 0

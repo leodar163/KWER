@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11909677792bacb4a9b85c07f960002c, type: 3}
+  m_Name: ArriveeLoup
+  m_EditorClassIdentifier: 
+  effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
+  titre: AU LOUP !
+  description: "Notre r\xE9gion riche en gibier a attir\xE9 \xE0 elle une meute de
+    loup. "
+  illustration: {fileID: 21300000, guid: f067f4dd7553b7d4ba82df7e8e891d73, type: 3}
+  listeChoix:
+  - description: "Ils gouteront \xE0 nos lances"
+    infobulle: Une meute de loup fait son apparition sur la mappe
+    retoursEffets:
+    - 
+    - 
+    effets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_MethodName: FermerFenetreEvenement
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 8827664118766306942, guid: 6115afa423c1d3f478d5b6cf58bd13dd,
+            type: 3}
+          m_MethodName: SpawnLoup
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  finBalise: <fin>
+  probaEte: 100
+  probaHiver: 100
+  infobulle: LE LOUP EST LA
