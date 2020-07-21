@@ -83,7 +83,6 @@ public class Tribu : Pion
         Deplacement();
     }
 
-   
     public override void DemarrerTour()
     {
         base.DemarrerTour();
@@ -144,7 +143,6 @@ public class Tribu : Pion
     }
 
     #region GRAPHISMES
-
     public void RevetirSpriteSaison()
     {
         if(Calendrier.Actuel.Hiver)
@@ -156,11 +154,9 @@ public class Tribu : Pion
             spriteRenderer.sprite = SprCampementEte;
         }
     }
-
     #endregion
 
     #region INTERFACE
-
     public void EntrerCampement(bool selectionner)
     {
         estEntreCampement = selectionner;

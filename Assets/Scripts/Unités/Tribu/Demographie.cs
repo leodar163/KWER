@@ -22,6 +22,8 @@ public class Demographie : MonoBehaviour
     public List<Pop> listePopsExpedition = new List<Pop>();
     public List<Pop> listePopsGuerrier = new List<Pop>();
 
+    private bool modePopInfinie = false;
+
     public int taillePopulation
     {
         get
@@ -41,7 +43,11 @@ public class Demographie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetKeyUp(KeyCode.P))
+        {
+            modePopInfinie = !modePopInfinie;
+            MAJBoutonsPop();
+        }
     }
 
     private void InstancierProduction()
@@ -85,7 +91,7 @@ public class Demographie : MonoBehaviour
 
     public void AjouterPop()
     {
-        tribu.stockRessources.RessourcesEnStock -= CoutPop;
+        if(!modePopInfinie)tribu.stockRessources.RessourcesEnStock -= CoutPop;
 
         GameObject nvPop = Instantiate(popParent, transform);
         nvPop.SetActive(true);
@@ -182,6 +188,7 @@ public class Demographie : MonoBehaviour
                 Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1]; 
                 listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
                 Destroy(popRetiree.gameObject);
+                AjusterRouePopulation();
             }
         }
     }
@@ -204,51 +211,59 @@ public class Demographie : MonoBehaviour
         infoblleBouton.textInfoBulle = "Augmenter Population";
         bool manqueRessource = false;
 
-        for (int i = 0; i < CoutPop.gains.Length; i++)
+        if (modePopInfinie) boutonAjout.interactable = true;
+        else
         {
-            //écrit le coût dans l'infobulle
-            if(CoutPop.gains[i] > 0)
+            for (int i = 0; i < CoutPop.gains.Length; i++)
             {
-                infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">-"
-                    + CoutPop.gains[i] + "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
-
-                if (tribu.stockRessources.RessourcesEnStock.gains[i] < CoutPop.gains[i])
+                //écrit le coût dans l'infobulle
+                if (CoutPop.gains[i] > 0)
                 {
-                    manqueRessource = true;
-                    infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> (insuffisant)";
+                    infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">-"
+                        + CoutPop.gains[i] + "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
+
+                    if (tribu.stockRessources.RessourcesEnStock.gains[i] < CoutPop.gains[i])
+                    {
+                        manqueRessource = true;
+                        infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> (insuffisant)";
+                    }
                 }
             }
+            boutonAjout.interactable = !manqueRessource;
         }
-        boutonAjout.interactable = !manqueRessource;
     }
 
     private void MAJBoutonSuppression()
     {
         InfoBulle infoblleBouton = boutonSuppression.GetComponent<InfoBulle>();
         infoblleBouton.textInfoBulle = "Sacrifier Population";
-        for (int i = 0; i < GainSacrificePop.gains.Length; i++)
+        if (modePopInfinie) boutonSuppression.interactable = true;
+        else
         {
-            //écrit le gain dans l'infobulle
-            if (GainSacrificePop.gains[i] > 0)
+            for (int i = 0; i < GainSacrificePop.gains.Length; i++)
             {
-                infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
-                    + CoutPop.gains[i] + "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
+                //écrit le gain dans l'infobulle
+                if (GainSacrificePop.gains[i] > 0)
+                {
+                    infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
+                        + CoutPop.gains[i] + "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
 
+                }
             }
+            if (taillePopulation == 1)
+            {
+                boutonSuppression.interactable = false;
+                infoblleBouton.textInfoBulle += "\n<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                    + "Pas assez de population pour en sacrifier" + "<color=\"white\"> " ;
+            }
+            else if (listePopsCampement.Count == 0)
+            {
+                boutonSuppression.interactable = false;
+                infoblleBouton.textInfoBulle += "\n<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                    + "Impossible de sacrifier des populations occupées" + "<color=\"white\"> ";
+            }
+            else boutonSuppression.interactable = true;
         }
-        if (taillePopulation == 1)
-        {
-            boutonSuppression.interactable = false;
-            infoblleBouton.textInfoBulle += "\n<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
-                + "Pas assez de population pour en sacrifier" + "<color=\"white\"> " ;
-        }
-        else if (listePopsCampement.Count == 0)
-        {
-            boutonSuppression.interactable = false;
-            infoblleBouton.textInfoBulle += "\n<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
-                + "Impossible de sacrifier des populations occupées" + "<color=\"white\"> ";
-        }
-        else boutonSuppression.interactable = true;
     }
     #endregion
 }

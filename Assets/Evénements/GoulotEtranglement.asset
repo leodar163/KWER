@@ -24,7 +24,8 @@ MonoBehaviour:
     - 
     - " - <color=#83C755FF>Forte chance <color=\"white\">que le pi\xE8ge fonctionne.\n
       - <color=#F2D82DFF>Chance moyenne <color=\"white\">que le pi\xE8ge soit rep\xE9r\xE9."
-    - <color=#83C755FF>+5<color="white"> points d'attaque  pendant 2 tours
+    - "<color=#83C755FF>+2<color=\"white\"> points d'attaque jusqu'\xE0 la fin de
+      l'\xE9venement"
     - 
     effets:
       m_PersistentCalls:

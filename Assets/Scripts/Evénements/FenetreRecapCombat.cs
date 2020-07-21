@@ -4,9 +4,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class FenetreRecapCombat : FenetreEvenementCombat
+public class FenetreRecapCombat : MonoBehaviour
 {   
-    [Space]
+    
+    [Header("Récap'")]
     [SerializeField] private TextMeshProUGUI attaqueGuerrier = null;
     [SerializeField] private TextMeshProUGUI defenseGuerrier = null;
     [Space]
@@ -15,10 +16,34 @@ public class FenetreRecapCombat : FenetreEvenementCombat
     [Space]
     [SerializeField] private TextMeshProUGUI mortsGuerrier = null;
     [SerializeField] private TextMeshProUGUI mortsHostile = null;
+    [Space]
+    [Header("Stats de Combat")]
+    [SerializeField] private StatsCombat statsGuerrier = null;
+    [SerializeField] private StatsCombat statsHostile = null;
+    [Space]
+    [Header("Evénement")]
+    [SerializeField] private GameObject objChoix = null;
+    public Image illustration = null;
 
-    // Update is called once per frame
-    void Update()
+    public void AfficherRecap(Combat.RecapCombat recap, Combat combat, Evenement.Choix choix)
     {
-        
+        attaqueGuerrier.text = recap.attaqueGuerrier.ToString();
+        defenseGuerrier.text = recap.defenseGuerrier.ToString();
+        attaqueHostile.text = recap.attaqueHostile.ToString();
+        defenseHostile.text = recap.defenseHostile.ToString();
+        mortsGuerrier.text = recap.mortsGuerrier.ToString();
+        mortsHostile.text = recap.mortsHostile.ToString();
+
+        statsGuerrier.MAJStats(combat.Guerrier);
+        statsHostile.MAJStats(combat.Hostile);
+
+        AssignationChoix(choix);
+    }
+
+    private void AssignationChoix(Evenement.Choix choix)
+    {
+        objChoix.GetComponent<TextMeshProUGUI>().text = choix.description;
+        objChoix.GetComponent<InfoBulle>().textInfoBulle = choix.infobulle;
+        objChoix.GetComponent<Button>().onClick.AddListener(choix.effets.Invoke);
     }
 }

@@ -137,12 +137,14 @@ MonoBehaviour:
   nbrCombattant: 5
   attaque: 2
   defense: 3
+  resistanceMorale: 0
   attaqueMin: -1
   attaqueMax: -1
   defenseMin: -1
   defenseMax: -1
   nbrCombattantMin: -1
   nbrCombattantMax: -1
+  loot: {fileID: 11400000, guid: 8593c812f5ab2bb42a3330e496cea295, type: 2}
 --- !u!1 &6651748277873408838
 GameObject:
   m_ObjectHideFlags: 0

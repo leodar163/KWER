@@ -140,6 +140,14 @@ public class EvenementEditor : Editor
                         }
                     }
                 }
+                else if(methode.stringValue.Contains("LancerCombat"))
+                {
+                    retour = "Le combat commence";
+                }
+                else if(methode.stringValue.Contains("LooterEnnemi"))
+                {
+                    retour = "S'emparer du butin de l'ennemi";
+                }
                 else if (methode.stringValue.Contains("Piocher"))
                 {
                     int index = 0; 

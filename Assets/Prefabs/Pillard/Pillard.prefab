@@ -106,6 +106,7 @@ MonoBehaviour:
   tuileActuelle: {fileID: 0}
   ptsDeplacementDefaut: 3
   vitesse: 4
+  peutTraverserEau: 0
 --- !u!114 &6476901781432542656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +124,14 @@ MonoBehaviour:
   nbrCombattant: 4
   attaque: 2
   defense: 1
+  resistanceMorale: 0
+  attaqueMin: -1
+  attaqueMax: -1
+  defenseMin: -1
+  defenseMax: -1
+  nbrCombattantMin: -1
+  nbrCombattantMax: -1
+  loot: {fileID: 11400000, guid: 83c6775c70254d74b87b448758c4982a, type: 2}
 --- !u!114 &-192724641433448097
 MonoBehaviour:
   m_ObjectHideFlags: 0

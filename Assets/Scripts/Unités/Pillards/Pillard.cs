@@ -157,6 +157,7 @@ public class Pillard : Pion
 
     public IEnumerator SeDeplacer()
     {
+        if (chemin.Count <= 1) ptsDeplacement = 0;
         if (ptsDeplacement > 0)
         {
             prochaineTuile = chemin.Pop();

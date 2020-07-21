@@ -41,7 +41,8 @@ public class Hostile : MonoBehaviour
     public int nbrCombattantMin = -1;
     [Tooltip("-1 si pas de valeur max")]
     public int nbrCombattantMax = -1;
-
+    [Space]
+    public Production loot;
     public bool PeutAttaquer
     {
         get

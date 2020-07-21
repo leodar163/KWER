@@ -37,6 +37,28 @@ public class Combat : Interaction
 
     public InterfaceCombat interfaceCombat;
 
+    public struct RecapCombat
+    {
+        public int attaqueGuerrier;
+        public int defenseGuerrier;
+        public int attaqueHostile;
+        public int defenseHostile;
+        public int mortsGuerrier;
+        public int mortsHostile;
+        public bool ennemiFuit;
+
+        public RecapCombat(int attGuerrier, int defGerrier, int attHost, int defHost, int mortsGuer, int mortsHost, bool fuiteEnnemi)
+        {
+            attaqueGuerrier = attGuerrier;
+            defenseGuerrier = defGerrier;
+            attaqueHostile = attHost;
+            defenseHostile = defHost;
+            mortsGuerrier = mortsGuer;
+            mortsHostile = mortsHost;
+            ennemiFuit = fuiteEnnemi;
+        }
+    }
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -49,6 +71,11 @@ public class Combat : Interaction
     void Update()
     {
         
+    }
+
+    public void looterEnnemi()
+    {
+        guerrier.tribu.stockRessources.RessourcesEnStock += hostile.loot;
     }
 
     public override void EntrerEnInteraction(bool entrer)
@@ -98,14 +125,14 @@ public class Combat : Interaction
         {
             for (int j = 0; j < guerrier.attaqueTotale; j++)
             {
-                if (Random.Range(0, 1) == 0)
+                if (Random.Range(0, 2) == 1)
                 {
                     attaqueGuerrier++;
                 }
             }
             for (int j = 0; j < guerrier.defenseTotale; j++)
             {
-                if (Random.Range(0, 1) == 0)
+                if (Random.Range(0, 2) == 1)
                 {
                     defenseGuerrier++;
                 }
@@ -116,16 +143,19 @@ public class Combat : Interaction
         {
             for (int j = 0; j < hostile.attaque; j++)
             {
-                if (Random.Range(0, 1) == 1) attaqueHostile++;
+                if (Random.Range(0, 2) == 1) attaqueHostile++;
             }
             for (int j = 0; j < hostile.defense; j++)
             {
-                if (Random.Range(0, 1) == 1) defenseHostile++;
+                if (Random.Range(0, 2) == 1) defenseHostile++;
             }
         }
 
         int mortsGuerrier = defenseGuerrier < attaqueHostile ? attaqueHostile - defenseGuerrier : 0;
         int mortsHostile = defenseHostile < attaqueGuerrier ? attaqueGuerrier - defenseHostile : 0;
+
+        mortsGuerrier = mortsGuerrier < guerrier.nbrGuerrier ? mortsGuerrier : guerrier.nbrGuerrier;
+        mortsHostile = mortsHostile < hostile.nbrCombattant ? mortsHostile : hostile.nbrCombattant;
 
         bool ennemiFuit = false;
 
@@ -137,6 +167,6 @@ public class Combat : Interaction
         guerrier.nbrGuerrier = guerrier.nbrGuerrier > mortsGuerrier ? guerrier.nbrGuerrier - mortsGuerrier : 0;
         hostile.nbrCombattant = hostile.nbrCombattant > mortsHostile ? hostile.nbrCombattant - mortsHostile : 0;
 
-        InterfaceEvenement.Defaut.OuvrirRecapCombat(attaqueGuerrier, defenseGuerrier, attaqueHostile, defenseHostile, mortsGuerrier, mortsHostile, ennemiFuit, this);
+        InterfaceEvenement.Defaut.OuvrirRecapCombat(new RecapCombat(attaqueGuerrier, defenseGuerrier, attaqueHostile, defenseHostile, mortsGuerrier, mortsHostile, ennemiFuit), this);
     }
 }

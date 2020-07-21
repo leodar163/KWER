@@ -13,6 +13,10 @@ public class FenetreEvenement : MonoBehaviour
         {
             return illustration;
         }
+        set
+        {
+            illustration = value;
+        }
     }
     [SerializeField] private TextMeshProUGUI titre;
     [SerializeField] private TextMeshProUGUI description;

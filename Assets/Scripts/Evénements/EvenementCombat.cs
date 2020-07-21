@@ -82,6 +82,11 @@ public class EvenementCombat : Evenement
     {
         combat.LancerCombat();
     }
+
+    public void LooterEnnemi()
+    {
+        combat.looterEnnemi();
+    }
     #endregion
 
     private int CaperArgumentInt(int argument, bool ennemi)

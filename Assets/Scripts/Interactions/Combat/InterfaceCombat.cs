@@ -49,9 +49,9 @@ public class InterfaceCombat : MonoBehaviour
     {
         if(guerrier)
         {
-            if(listeSlots.Count != guerrier.tribu.demographie.taillePopulation)
+            if(listeSlots.Count != guerrier.tribu.demographie.taillePopulation -1)
             {
-                GenererSlot(guerrier.tribu.demographie.taillePopulation - listeSlots.Count);
+                GenererSlot(guerrier.tribu.demographie.taillePopulation - 1 - listeSlots.Count);
             }
         }
     }
