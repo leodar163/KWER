@@ -44,6 +44,8 @@ public class Troupeau : Pion
     
     private IEnumerator DeroulerTour()
     {
+        if(predateur)hostile.TrouverCiblesAPortee();
+
         while(migration.PeutBouger || (hostile != null && hostile.PeutAttaquer))
         {
             if(predateur && (hostile != null && hostile.PeutAttaquer))
@@ -68,11 +70,34 @@ public class Troupeau : Pion
 
 
     #region INTERFACE
-   
+
     #endregion
 
+    public override void TrouverTuileActuelle()
+    { 
+        if (tuileActuelle)
+        {
+            revendication.RevendiquerTerritoire(tuileActuelle, false);
+            tuileActuelle.productionTuile.ReinitBonusOutil();
+            tuileActuelle.estOccupee = false;
+            tuileActuelle.estInterdite = false;
+        }
+        LayerMask layerMaskTuile = LayerMask.GetMask("Tuile");
 
+        Collider2D checkTuile = Physics2D.OverlapBox(transform.position, new Vector2(0.1f, 0.1f), 0, layerMaskTuile);
 
+        if (checkTuile)
+        {
+            tuileActuelle = checkTuile.gameObject.GetComponent<TuileManager>();
+            transform.position = new Vector3(tuileActuelle.transform.position.x, tuileActuelle.transform.position.y, transform.position.z);
+        }
+
+        tuileActuelle.estOccupee = true;
+        if (predateur || megaFaune) tuileActuelle.estInterdite = false;
+        if (predateur) hostile.TrouverCiblesAPortee();
+        revendication.RevendiquerTerritoire(tuileActuelle, true);
+        productionTroupeau.FertiliserTuile();
+    }
 
 
 }

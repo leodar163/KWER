@@ -65,12 +65,27 @@ public class Combat : Interaction
         base.Start();
         interfaceCombat.gameObject.SetActive(false);
         interfaceCombat.eventMAJInterface.AddListener(MAJBouton);
+        InterfaceEvenement.Defaut.eventFinEvenement.AddListener(TerminerCombat);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void TerminerCombat()
+    {
+        if (hostile.nbrCombattant <= 0) Destroy(hostile.gameObject);
+        if (guerrier.tribu.demographie.taillePopulation <= 0) guerrier.tribu.GameOver();
+        else
+        {
+            if (interfaceCombat)
+            {
+                interfaceCombat.DesengagerTousGuerriers();
+            }
+            hostile.combatEnCours = false;
+        }
     }
 
     public void looterEnnemi()

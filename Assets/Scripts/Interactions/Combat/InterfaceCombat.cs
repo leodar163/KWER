@@ -45,6 +45,14 @@ public class InterfaceCombat : MonoBehaviour
     }
 
     #region SLOTS
+    public void DesengagerTousGuerriers()
+    {
+        foreach(SlotCombat slot in listeSlots)
+        {
+            if(slot.estOccupe)slot.CliquerSurSlot();
+        }
+    }
+
     private void MAJSlots()
     {
         if(guerrier)

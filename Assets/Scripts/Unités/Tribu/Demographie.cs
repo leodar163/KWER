@@ -35,7 +35,7 @@ public class Demographie : MonoBehaviour
     void Start()
     {
         popParent.SetActive(false);
-        Invoke("AjouterPop", 0.5f);
+        AjouterPop();
         InstancierProduction();
         InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJBoutonsPop);
     }

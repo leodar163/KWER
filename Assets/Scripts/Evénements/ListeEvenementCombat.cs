@@ -19,9 +19,13 @@ public class ListeEvenementCombat : MonoBehaviour
         }
     }
 
-    [SerializeField] private List<EvenementCombat> strategiesContrePillard = new List<EvenementCombat>();
-    [SerializeField] private List<EvenementCombat> strategiesContrePredateurs = new List<EvenementCombat>();
-    [SerializeField] private List<EvenementCombat> strategiesContreMegaFaune = new List<EvenementCombat>();
+    [SerializeField] private List<EvenementCombat> strategiesCommunes = new List<EvenementCombat>();
+    [Space]
+    [SerializeField] private List<EvenementCombat> strategiesPillards = new List<EvenementCombat>();
+    [Space]
+    [SerializeField] private List<EvenementCombat> strategiesPredateurs = new List<EvenementCombat>();
+    [Space]
+    [SerializeField] private List<EvenementCombat> strategiesMegaFaune = new List<EvenementCombat>();
 
 
     // Start is called before the first frame update
@@ -38,24 +42,33 @@ public class ListeEvenementCombat : MonoBehaviour
 
     public EvenementCombat PiocherEvenement(Combat combat)
     {
+        List<EvenementCombat> listeAPiocher = new List<EvenementCombat>(strategiesCommunes);
         if(combat.Hostile.pion is Troupeau)
         {
             Troupeau troupeau = (Troupeau)combat.Hostile.pion;
             if (troupeau.megaFaune)
             {
-                return strategiesContreMegaFaune[Random.Range(0, strategiesContreMegaFaune.Count - 1)];
+                for (int i = 0; i < strategiesMegaFaune.Count; i++)
+                {
+                    listeAPiocher.Add(strategiesMegaFaune[i]);
+                } 
             }
             else if (troupeau.predateur)
             {
-                return strategiesContrePredateurs[Random.Range(0, strategiesContrePredateurs.Count - 1)];
+                for (int i = 0; i < strategiesPredateurs.Count; i++)
+                {
+                    listeAPiocher.Add(strategiesPredateurs[i]);
+                }
             }
         }
         else if(combat.Hostile.pion is Pillard)
         {
-            print("J'ai pas encore implémenter les pillard...");
-            return null;
+            for (int i = 0; i < strategiesPillards.Count; i++)
+            {
+                listeAPiocher.Add(strategiesPillards[i]);
+            }
         }
 
-        return null;
+        return listeAPiocher[Random.Range(0, listeAPiocher.Count - 1)];
     }
 }

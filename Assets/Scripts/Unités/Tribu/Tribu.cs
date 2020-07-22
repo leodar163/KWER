@@ -29,19 +29,13 @@ public class Tribu : Pion
     [HideInInspector] public bool estEntreCampement = false;
     
     [Header("Déplacements")]
-    public PathFinder pathFinder;
-    [HideInInspector]public TuileManager tuileActuelle;
-    public float pointActionDeffaut = 3;
-    public float pointsAction;
-    public float vitesse = 10;
     Stack<TuileManager> cheminASuivre = new Stack<TuileManager>();
-    public bool peutEmbarquer = false;
     public List<TuileManager> tuilesAPortee;
 
     private bool traverseFleuve;
 
     [Header("Economie")]
-    [SerializeField] private Expedition expedition;
+    [SerializeField] public Expedition expedition;
     [SerializeField] public StockRessource stockRessources;
 
     [Header("Démographie")]
@@ -86,18 +80,17 @@ public class Tribu : Pion
     public override void DemarrerTour()
     {
         base.DemarrerTour();
-        pointsAction = pointActionDeffaut;
+        ptsDeplacement = ptsDeplacementDefaut;
+        guerrier.jetonAttaque = true;
 
-        tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle,pointsAction,false);
+        tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle,ptsDeplacement,false);
         expedition.GenererCombats();
         stockRessources.EncaisserGain();
     }
 
     public void Init()
     {
-        TrouverTuileActuelle();
-
-        pointsAction = pointActionDeffaut;
+        ptsDeplacement = ptsDeplacementDefaut;
         StartCoroutine(MAJTuilesAPortee());
 
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -110,7 +103,7 @@ public class Tribu : Pion
     {
         while(Application.isPlaying)
         {
-            tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, pointsAction, false);
+            tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, ptsDeplacement, false);
             
             if(!estEntreCampement && ControleSouris.Actuel.controlesActives)
             {
@@ -125,9 +118,12 @@ public class Tribu : Pion
         }
     }
 
-    private void TrouverTuileActuelle()
+    public override void TrouverTuileActuelle()
     {
-        if (tuileActuelle) tuileActuelle.estOccupee = false;
+        if (tuileActuelle)
+        {
+            tuileActuelle.estOccupee = false;
+        }
 
         LayerMask layerMaskTuile = LayerMask.GetMask("Tuile");
 
@@ -223,18 +219,18 @@ public class Tribu : Pion
             else //Quand il est arrivé à destination
             {
                 
-                pointsAction -= cheminASuivre.Peek().GetComponent<TuileManager>().terrainTuile.coutFranchissement;
+                ptsDeplacement -= cheminASuivre.Peek().GetComponent<TuileManager>().terrainTuile.coutFranchissement;
 
                 if(traverseFleuve)
                 {
-                    pointsAction --;
+                    ptsDeplacement --;
                     traverseFleuve = false;
                 }
 
                 cheminASuivre.Pop();
 
                 TrouverTuileActuelle();
-                tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, pointsAction, false);
+                tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, ptsDeplacement, false);
 
                 if(cheminASuivre.Count == 0)
                 {
@@ -250,4 +246,12 @@ public class Tribu : Pion
         transform.position = Vector3.MoveTowards(transform.position, direction, vitesse*Time.deltaTime);
     }
     #endregion
+
+    public void GameOver()
+    {
+        print("GameOver !");
+        print(demographie.taillePopulation);
+        expedition.RappelerExpeditions();
+        Destroy(gameObject);
+    }
 }

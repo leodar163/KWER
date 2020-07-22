@@ -52,6 +52,12 @@ MonoBehaviour:
   aFaitUneAction: 0
   aPasseSonTour: 0
   revendication: {fileID: 9055846603267299339}
+  tuileActuelle: {fileID: 0}
+  pathFinder: {fileID: 0}
+  ptsDeplacementDefaut: 3
+  ptsDeplacement: 0
+  vitesse: 4
+  peutEmbarquer: 0
   migration: {fileID: 2523344375351965229}
   hostile: {fileID: 1159643476458633933}
   productionTroupeau: {fileID: 1714641867515581847}
@@ -89,8 +95,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troupeau: {fileID: 4240119684360671227}
   tuileActuelle: {fileID: 0}
-  vitesse: 4
-  ptsDeplacementDefaut: 2
 --- !u!114 &1714641867515581847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pion: {fileID: 4240119684360671227}
+  combatEnCours: 0
   combat: {fileID: 9043204819795068831, guid: 9209567ac640936478e6b19e2b526bfa, type: 3}
   nbrCombattant: 5
   attaque: 2

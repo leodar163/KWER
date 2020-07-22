@@ -25,54 +25,19 @@ public class DamierGen : MonoBehaviour
 
     [HideInInspector] public bool genererEnTuileCarree = false;
     [HideInInspector] public bool genererEnTuileHexa = true;
-    public TuileManager[,] damier;
+    private TuileManager[,] damier;
+
+    public TuileManager[,] Damier
+    {
+        get
+        {
+            if (damier == null) damier = RecupDamier();
+            return damier;
+        }
+    }
 
     public int colonnes = 1;
     public int lignes = 1;
-
-    /* OBSOLET
-    [Header("Génération Procédurale")]
-    [SerializeField] bool genererProceduralement;
-    [SerializeField] public int colonnes = 1;
-    [SerializeField] public int lignes = 1;
-    [SerializeField] public float zoom;
-    [Range(0.00001f,1)]
-    [SerializeField] public float persistance;
-    [SerializeField] public float lacunarite;
-    [SerializeField] public int octaves;
-    [SerializeField] public int seed;
-    [SerializeField] public Vector2 decalage;
-    */
-
-    /*OBSOLET
-   private void OnValidate()
-   {
-       
-       if(colonnes < 1)
-       {
-           colonnes = 1;
-       }
-       if(lignes < 1)
-       {
-           lignes = 1;
-       }
-       if(zoom < 0)
-       {
-           zoom = 0;
-       }
-       if(lacunarite < 0)
-       {
-           lacunarite = 0;
-       }
-       if(octaves<1)
-       {
-           octaves = 1;
-       }
-       
-}
-*/
-
-      
     
     // Start is called before the first frame update
     void Start()
@@ -85,45 +50,6 @@ public class DamierGen : MonoBehaviour
     {
 
     }
-
-
-    /* OBSOLET
-    public void GenDamierCarre(int x, int y)
-    { 
-        int col = 0;
-        int ligne = -1;
-
-
-        float tailleTuile = tuileCarree.GetComponent<SpriteRenderer>().bounds.size.x;
-
-        Vector3 positionTuile = new Vector3();
-
-
-        for(int i = 0; i < x*y; i++)
-        {
-            if (i % x != 0)
-            {
-
-                col++;
-            }
-            else if (ligne <= y)
-            {
-
-                col = 0;
-                ligne++;
-            }
-
-            positionTuile.x = col * tailleTuile;
-            positionTuile.y = ligne * tailleTuile;
-
-            GameObject nvlTuile = Instantiate(tuileCarree, transform);
-            nvlTuile.transform.position += positionTuile;
-            nvlTuile.name = "Tuile" + i;
-
-
-        }
-    }
-    */
 
     #region GENERATEUR
     public void GenDamier(MappeSysteme.Mappe mappe)
@@ -313,16 +239,16 @@ public class DamierGen : MonoBehaviour
         RenommerTuilesDamier();
 
         damierFleuve.AjouterNoeuds(nbrColonne, nbrLigne);
+        damier = RecupDamier();
     }
 
     public void RetirerTuiles(int nbrColonne, int nbrLigne)
     {
-        damier = RecupDamier();
-        for (int y = 0; y < damier.GetLength(1); y++)
+        for (int y = 0; y < Damier.GetLength(1); y++)
         {
-            for (int x = 0; x < damier.GetLength(0); x++)
+            for (int x = 0; x < Damier.GetLength(0); x++)
             {
-                char[] nomTuile = damier[x, y].gameObject.name.ToCharArray();
+                char[] nomTuile = Damier[x, y].gameObject.name.ToCharArray();
                 int col = 0;
                 int lig = 0;
 
@@ -351,11 +277,11 @@ public class DamierGen : MonoBehaviour
                 //Compare les coordonnées au nombre de ligne et de colonne qui doit être retiré
                 if (col >= colonnes - nbrColonne)
                 {
-                    DestroyImmediate(damier[x, y].gameObject);
+                    DestroyImmediate(Damier[x, y].gameObject);
                 }
                 else if(lig >= lignes - nbrLigne)
                 {
-                    DestroyImmediate(damier[x, y].gameObject);
+                    DestroyImmediate(Damier[x, y].gameObject);
                 }
             }
         }
@@ -366,16 +292,16 @@ public class DamierGen : MonoBehaviour
         RenommerTuilesDamier();
 
         damierFleuve.RetirerNoeuds(nbrColonne, nbrLigne);
+
+        damier = RecupDamier();
     }
 
     private void RenommerTuilesDamier()
     {
-        damier = RecupDamier();
-
         //Renommer les tuiles 
-        int col = 0;
+        int col;
         int lig = 0;
-        for (int i = 0; i < damier.Length; i++)
+        for (int i = 0; i < Damier.Length; i++)
         {
             col = i % colonnes;
 
@@ -384,36 +310,14 @@ public class DamierGen : MonoBehaviour
                 lig++;
             }
 
-            damier[col, lig].gameObject.name = "Tuile" + col + ":" + lig;
-            //print("intération " + i + " : " + damier[col, lig].gameObject.name + " : "+ damier[col, lig].transform.GetSiblingIndex());
+            Damier[col, lig].gameObject.name = "Tuile" + col + ":" + lig;
         }
     }
 
     #endregion
 
-    public void ClearDamier(bool utiliseDestroyImmediate)
-    {
-        GameObject[] damier = GameObject.FindGameObjectsWithTag("Tuile");
-
-        if(utiliseDestroyImmediate)
-        {
-            foreach (GameObject go in damier)
-            {
-                DestroyImmediate(go);
-            }
-        }
-        else
-        {
-            foreach (GameObject go in damier)
-            {
-                Destroy(go);
-            }
-        }
-        
-    }
-
     #region RECUPERATION
-    public TuileManager[,] RecupDamier() 
+    private TuileManager[,] RecupDamier() 
     {
         TuileManager[,] damier = new TuileManager[colonnes, lignes];
         TuileManager[] damierRef = GetComponentsInChildren<TuileManager>();
@@ -491,17 +395,17 @@ public class DamierGen : MonoBehaviour
     /// <returns></returns>
     public TuileManager TrouverTuileParCoordonnee(int axeX, int axeY)
     {
-        return RecupDamier()[axeX, axeY];
+        return Damier[axeX, axeY];
     }
 
     public TuileManager TrouverTuileParCoordonnee(Vector2Int coordonnees)
     {
-        return RecupDamier()[coordonnees.x, coordonnees.y];
+        return Damier[coordonnees.x, coordonnees.y];
     }
 
     public TuileManager[] TrouverTuilesParEtendue(int minX, int minY, int maxX, int maxY)
     {
-        TuileManager[,] damier = RecupDamier();
+        TuileManager[,] damier = Damier;
         TuileManager[] retour = new TuileManager[(maxX - minX) * (maxY -minY)];
 
         int index = 0;
@@ -517,9 +421,15 @@ public class DamierGen : MonoBehaviour
         return retour;
     }
 
+    /// <summary>
+    /// Marche pas, faut pas l'utiliser
+    /// </summary>
+    /// <param name="coordonneesDeb"></param>
+    /// <param name="coordonneesFin"></param>
+    /// <returns></returns>
     public TuileManager[] TrouverTuilesParEtendue(Vector2Int coordonneesDeb, Vector2Int coordonneesFin)
     {
-        TuileManager[,] damier = RecupDamier();
+        TuileManager[,] damier = Damier;
         TuileManager[] retour = new TuileManager[(coordonneesFin.x - coordonneesDeb.x) * (coordonneesFin.y - coordonneesDeb.y)];
 
         int index = 0;
@@ -537,7 +447,7 @@ public class DamierGen : MonoBehaviour
 
     public TuileManager[] TrouverTuilesParColonne(int indexColonne)
     {
-        TuileManager[,] damier = RecupDamier();
+        TuileManager[,] damier = Damier;
         TuileManager[] retour = new TuileManager[damier.GetLength(1)];
 
         for (int i = 0; i < damier.GetLength(1); i++)
@@ -550,7 +460,7 @@ public class DamierGen : MonoBehaviour
 
     public TuileManager[] TrouverTuilesParLigne(int indexLigne)
     {
-        TuileManager[,] damier = RecupDamier();
+        TuileManager[,] damier = Damier;
         TuileManager[] retour = new TuileManager[damier.GetLength(0)];
 
         for (int i = 0; i < damier.GetLength(0); i++)
@@ -561,4 +471,26 @@ public class DamierGen : MonoBehaviour
         return retour;
     }
     #endregion
+
+    public void ClearDamier(bool utiliseDestroyImmediate)
+    {
+        TuileManager[,] damier = Damier;
+
+        if(utiliseDestroyImmediate)
+        {
+            foreach (TuileManager tuile in damier)
+            {
+                DestroyImmediate(tuile.gameObject);
+            }
+        }
+        else
+        {
+            foreach (TuileManager tuile in damier)
+            {
+                Destroy(tuile.gameObject);
+            }
+        }
+        
+    }
+
 }

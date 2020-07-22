@@ -81,7 +81,7 @@ public class InterfaceEvenement : MonoBehaviour
             {
                 choix.description = "Nous avons gagné !";
                 choix.effets.AddListener(combat.looterEnnemi);
-                choix.infobulle = "A nous le butin :";
+                choix.infobulle = "L'unitée ennemie est détruite";
                 for (int i = 0; i < combat.Hostile.loot.gains.Length; i++)
                 {
                     if(combat.Hostile.loot.gains[i] > 0)

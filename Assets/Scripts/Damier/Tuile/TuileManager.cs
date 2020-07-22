@@ -19,6 +19,7 @@ public class TuileManager : MonoBehaviour
     [HideInInspector] public bool aPortee = false;
     [HideInInspector] public TuileManager predecesseur;
     public bool estOccupee;
+    public bool estInterdite;
     [HideInInspector] public float tailleTuile;
     
 

@@ -20,7 +20,7 @@ public class EffetSpawn : MonoBehaviour
         TuileManager tuileSpawn = tuilesFront[Random.Range(0, piocheTuile.Count - 1)];
 
         Vector3 positionSpawn = tuileSpawn.transform.position;
-        positionSpawn.z = -3;
+        positionSpawn.z = -3.5f;
 
         Pillard nvPillard = Instantiate(pillard, positionSpawn, new Quaternion()).GetComponent<Pillard>();
 
@@ -72,6 +72,7 @@ public class EffetSpawn : MonoBehaviour
         else max = pillardHost.nbrCombattantMax;
 
         pillardHost.nbrCombattant = Random.Range(min, max);
+        nvPillard.name = "Pillard";
 
         CameraControle.Actuel.CentrerCamera(nvPillard.transform.position);
     }
@@ -94,9 +95,10 @@ public class EffetSpawn : MonoBehaviour
         TuileManager tuileSpawn = tuilesPlaine[Random.Range(0, tuilesPlaine.Count - 1)];
 
         Vector3 positionSpawn = tuileSpawn.transform.position;
-        positionSpawn.z = -3;
+        positionSpawn.z = -3.5f;
 
         GameObject nvTroupeau = Instantiate(troupeauASpawn, positionSpawn, new Quaternion());
+        nvTroupeau.name = troupeauASpawn.name;
 
         CameraControle.Actuel.CentrerCamera(nvTroupeau.transform.position);
     }
@@ -128,7 +130,7 @@ public class EffetSpawn : MonoBehaviour
         if (Loup)
         {
             Vector3 positionSpawn = tuileSpawn.transform.position;
-            positionSpawn.z = -3;
+            positionSpawn.z = -3.5f;
 
             Hostile nvHostile = Instantiate(Loup, positionSpawn, new Quaternion()).GetComponent<Hostile>();
 
@@ -179,7 +181,7 @@ public class EffetSpawn : MonoBehaviour
             else max = nvHostile.nbrCombattantMax;
 
             nvHostile.nbrCombattant = Random.Range(min, max);
-
+            nvHostile.name = "Loup";
             CameraControle.Actuel.CentrerCamera(nvHostile.transform.position);
         }
         else Debug.LogError("Y a pas de Loup dans la liste des animaux !!!");

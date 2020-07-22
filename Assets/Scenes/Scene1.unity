@@ -207,6 +207,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1410949090}
   spritesBase:
@@ -394,9 +395,9 @@ RectTransform:
   m_Father: {fileID: 218713425}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &11072284
@@ -954,6 +955,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1375469315}
   spritesBase:
@@ -1240,6 +1242,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 26602580}
   spritesBase:
@@ -1623,6 +1626,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1188551016}
   spritesBase:
@@ -2821,7 +2825,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &83710996
 MonoBehaviour:
@@ -2865,10 +2869,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cdb71cec572d949bd18342605b0491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strategiesContrePillard: []
-  strategiesContrePredateurs: []
-  strategiesContreMegaFaune:
+  strategiesCommunes:
   - {fileID: 11400000, guid: 73846cd760393e24bb636b3360a6284c, type: 2}
+  strategiesPillards: []
+  strategiesPredateurs: []
+  strategiesMegaFaune: []
 --- !u!1 &85651702
 GameObject:
   m_ObjectHideFlags: 0
@@ -4134,6 +4139,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1379052737}
   spritesBase:
@@ -4339,6 +4345,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1434468161}
   spritesBase:
@@ -4544,6 +4551,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 647414876}
   spritesBase:
@@ -4873,9 +4881,9 @@ RectTransform:
   m_Father: {fileID: 484245961}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146894782
@@ -5275,6 +5283,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 363392979}
   spritesBase:
@@ -5480,6 +5489,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 538907090}
   spritesBase:
@@ -5863,6 +5873,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1253233692}
   spritesBase:
@@ -6098,7 +6109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 319.45, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &194380294
@@ -6696,9 +6707,9 @@ RectTransform:
   m_Father: {fileID: 1763209328}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.17, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 112.34, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &218713426
@@ -6812,6 +6823,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 723241161}
   spritesBase:
@@ -7594,6 +7606,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 146304644}
   spritesBase:
@@ -8519,6 +8532,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 555048769}
   spritesBase:
@@ -8724,6 +8738,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1187153273}
   spritesBase:
@@ -8929,6 +8944,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1.0118343
   garniture: {fileID: 1141666424}
   spritesBase:
@@ -9116,9 +9132,9 @@ RectTransform:
   m_Father: {fileID: 484245961}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &273161146
@@ -9288,6 +9304,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1916862685}
   spritesBase:
@@ -9493,6 +9510,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1209481347}
   spritesBase:
@@ -9779,6 +9797,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 476135263}
   spritesBase:
@@ -9984,6 +10003,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1326835634}
   spritesBase:
@@ -10189,6 +10209,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 489430442}
   spritesBase:
@@ -10343,7 +10364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 290.4, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 580.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288756201
@@ -11065,6 +11086,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1848566986}
   spritesBase:
@@ -12146,9 +12168,9 @@ RectTransform:
   m_Father: {fileID: 2115501542}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 78.32, y: -20.84}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 43.36, y: 41.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &358048230
@@ -12722,6 +12744,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1989761912}
   spritesBase:
@@ -13377,6 +13400,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 751547739}
   spritesBase:
@@ -14916,6 +14940,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1728377088}
   spritesBase:
@@ -15524,6 +15549,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1801041580}
   spritesBase:
@@ -15947,9 +15973,9 @@ RectTransform:
   m_Father: {fileID: 1131104979}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.17, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 112.34, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &484245962
@@ -16291,7 +16317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 638.9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &493605091
@@ -16406,7 +16432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 443.4, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &496825548
@@ -16760,6 +16786,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 538738306}
   spritesBase:
@@ -17175,6 +17202,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1184650569}
   spritesBase:
@@ -17543,7 +17571,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.56256676, g: 0.65930444, b: 0.8113208, a: 0}
+  m_BackGroundColor: {r: 0.119482, g: 0.12808646, b: 0.14150941, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -17586,8 +17614,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2033703336}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17941,6 +17968,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 988278987}
   spritesBase:
@@ -18473,9 +18501,9 @@ RectTransform:
   m_Father: {fileID: 1763209328}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.17, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 112.34, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &565572635
@@ -18516,7 +18544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 319.45, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 580.8, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &565572637
@@ -19072,6 +19100,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 581290696}
   spritesBase:
@@ -19223,9 +19252,9 @@ RectTransform:
   m_Father: {fileID: 2016733016}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 102.34, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &577958325
@@ -20427,6 +20456,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 73508536}
   spritesBase:
@@ -20632,6 +20662,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 927836531}
   spritesBase:
@@ -20837,6 +20868,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 2119369386}
   spritesBase:
@@ -21511,6 +21543,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1032512844}
   spritesBase:
@@ -22034,6 +22067,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 567867744}
   spritesBase:
@@ -22535,9 +22569,9 @@ RectTransform:
   m_Father: {fileID: 1868555993}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 28.32, y: -20.84}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 56.64, y: 53.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663552037
@@ -22608,9 +22642,9 @@ RectTransform:
   m_Father: {fileID: 1606380351}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 102.34, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &668790502
@@ -22832,6 +22866,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1931784331}
   spritesBase:
@@ -23134,6 +23169,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 822703264}
   spritesBase:
@@ -23436,6 +23472,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 210298872}
   spritesBase:
@@ -23720,9 +23757,9 @@ RectTransform:
   m_Father: {fileID: 556771958}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &709589427
@@ -24253,6 +24290,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 621170863}
   spritesBase:
@@ -24638,6 +24676,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 508392857}
   spritesBase:
@@ -24924,6 +24963,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1351164786}
   spritesBase:
@@ -25129,6 +25169,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 21965989}
   spritesBase:
@@ -25334,6 +25375,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1104567077}
   spritesBase:
@@ -26001,6 +26043,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1409563163}
   spritesBase:
@@ -26262,6 +26305,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1.0118343
   garniture: {fileID: 1242473564}
   spritesBase:
@@ -26641,6 +26685,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 111901758}
   spritesBase:
@@ -26927,6 +26972,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1791670135}
   spritesBase:
@@ -27407,6 +27453,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 239510158}
   spritesBase:
@@ -27806,6 +27853,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 460012072}
   spritesBase:
@@ -28496,6 +28544,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 754167394}
   spritesBase:
@@ -28879,6 +28928,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 546104398}
   spritesBase:
@@ -29440,6 +29490,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1.0118343
   garniture: {fileID: 1463379013}
   spritesBase:
@@ -29979,6 +30030,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 2059752252}
   spritesBase:
@@ -30475,6 +30527,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 2033741954}
   spritesBase:
@@ -30680,6 +30733,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1820862945}
   spritesBase:
@@ -30885,6 +30939,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 990820235}
   spritesBase:
@@ -31395,7 +31450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 290.4, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 580.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &926908923
@@ -31698,6 +31753,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 179987819}
   spritesBase:
@@ -32365,6 +32421,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 890412654}
   spritesBase:
@@ -32835,7 +32892,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 638.9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &988161527
@@ -33360,9 +33417,9 @@ RectTransform:
   m_Father: {fileID: 2103237070}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 28.32, y: -20.84}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 56.64, y: 53.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1000013647
@@ -33983,9 +34040,9 @@ RectTransform:
   m_Father: {fileID: 1131104979}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.17, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 112.34, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1045780000
@@ -34906,6 +34963,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 2020415158}
   spritesBase:
@@ -35111,6 +35169,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 926891473}
   spritesBase:
@@ -35269,7 +35328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 638.9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1077632958
@@ -35808,9 +35867,9 @@ RectTransform:
   m_Father: {fileID: 2103237070}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 78.32, y: -20.84}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 43.36, y: 41.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1117001459
@@ -36115,6 +36174,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1084296031}
   spritesBase:
@@ -36553,6 +36613,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1049869395}
   spritesBase:
@@ -36791,7 +36852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 319.45, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 580.8, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1146286886
@@ -37241,9 +37302,9 @@ RectTransform:
   m_Father: {fileID: 1442536021}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.17, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 112.34, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1154950576
@@ -37454,6 +37515,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 879801437}
   spritesBase:
@@ -38127,6 +38189,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 925341230}
   spritesBase:
@@ -38674,6 +38737,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1544659537}
   spritesBase:
@@ -39117,6 +39181,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 400398435}
   spritesBase:
@@ -39856,6 +39921,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 228514595}
   spritesBase:
@@ -40315,6 +40381,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1.0118343
   garniture: {fileID: 1799452163}
   spritesBase:
@@ -41097,6 +41164,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1989466631}
   spritesBase:
@@ -41302,6 +41370,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1310345081}
   spritesBase:
@@ -42064,9 +42133,9 @@ RectTransform:
   m_Father: {fileID: 1764208973}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 102.34, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1243800415
@@ -42641,6 +42710,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 2049990859}
   spritesBase:
@@ -43072,7 +43142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 443.4, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1290040152
@@ -43350,6 +43420,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1414440470}
   spritesBase:
@@ -44008,6 +44079,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1788462078}
   spritesBase:
@@ -44310,6 +44382,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1649504568}
   spritesBase:
@@ -44752,6 +44825,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1235382335}
   spritesBase:
@@ -45226,6 +45300,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 505824618}
   spritesBase:
@@ -45706,6 +45781,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 2118675762}
   spritesBase:
@@ -45959,7 +46035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 443.4, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1365781142
@@ -46786,6 +46862,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 321436628}
   spritesBase:
@@ -47969,6 +48046,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 159823983}
   spritesBase:
@@ -48330,6 +48408,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1594199252}
   spritesBase:
@@ -48794,6 +48873,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 870967763}
   spritesBase:
@@ -49434,6 +49514,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 827222246}
   spritesBase:
@@ -49898,6 +49979,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1436553202}
   spritesBase:
@@ -50200,6 +50282,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1259422345}
   spritesBase:
@@ -50645,7 +50728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 319.45, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1476232759
@@ -50846,6 +50929,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1657169526}
   spritesBase:
@@ -51051,6 +51135,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1.0118343
   garniture: {fileID: 612436815}
   spritesBase:
@@ -51852,6 +51937,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1041528889}
   spritesBase:
@@ -52154,6 +52240,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1987783846}
   spritesBase:
@@ -52812,6 +52899,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1454278065}
   spritesBase:
@@ -53211,6 +53299,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1.0118343
   garniture: {fileID: 1437191374}
   spritesBase:
@@ -53594,6 +53683,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1280544602}
   spritesBase:
@@ -54026,6 +54116,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 243499677}
   spritesBase:
@@ -54312,6 +54403,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1.0118343
   garniture: {fileID: 223006053}
   spritesBase:
@@ -54463,9 +54555,9 @@ RectTransform:
   m_Father: {fileID: 1868555993}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 78.32, y: -20.84}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 43.36, y: 41.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1561397648
@@ -54673,6 +54765,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 972486778}
   spritesBase:
@@ -55072,6 +55165,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1583826449}
   spritesBase:
@@ -56390,9 +56484,9 @@ RectTransform:
   m_Father: {fileID: 1051739487}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.17, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 112.34, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606380352
@@ -57242,6 +57336,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 41391423}
   spritesBase:
@@ -57544,6 +57639,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 648279811}
   spritesBase:
@@ -57889,9 +57985,9 @@ RectTransform:
   m_Father: {fileID: 2115501542}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 28.32, y: -20.84}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 56.64, y: 53.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1641321441
@@ -58191,6 +58287,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 854473063}
   spritesBase:
@@ -58753,6 +58850,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 2061175882}
   spritesBase:
@@ -58958,6 +59056,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1.0118343
   garniture: {fileID: 280130167}
   spritesBase:
@@ -59454,6 +59553,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1733795032}
   spritesBase:
@@ -59815,6 +59915,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 290817112}
   spritesBase:
@@ -60020,6 +60121,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1767021931}
   spritesBase:
@@ -61172,9 +61274,9 @@ RectTransform:
   m_Father: {fileID: 1442536021}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.17, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 112.34, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1764208974
@@ -61415,7 +61517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 319.45, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1780773351
@@ -61543,6 +61645,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1217685328}
   spritesBase:
@@ -61748,6 +61851,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1523619704}
   spritesBase:
@@ -62158,9 +62262,9 @@ RectTransform:
   m_Father: {fileID: 1196192354}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 78.32, y: -20.84}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 43.36, y: 41.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799154445
@@ -62530,6 +62634,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 653613751}
   spritesBase:
@@ -62966,6 +63071,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1557738458}
   spritesBase:
@@ -63408,9 +63514,9 @@ RectTransform:
   m_Father: {fileID: 1045779999}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1844606213
@@ -63994,9 +64100,9 @@ RectTransform:
   m_Father: {fileID: 1196192354}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 28.32, y: -20.84}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 56.64, y: 53.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1880858986
@@ -64931,6 +65037,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 2108208532}
   spritesBase:
@@ -65492,6 +65599,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 273161146}
   spritesBase:
@@ -65679,9 +65787,9 @@ RectTransform:
   m_Father: {fileID: 218713425}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1936704822
@@ -65770,6 +65878,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1514694559}
   spritesBase:
@@ -66072,6 +66181,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1165888471}
   spritesBase:
@@ -66520,6 +66630,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1826675306}
   spritesBase:
@@ -66671,9 +66782,9 @@ RectTransform:
   m_Father: {fileID: 1154950575}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 102.34, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1987321850
@@ -67041,6 +67152,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1.0118343
   garniture: {fileID: 2104888852}
   spritesBase:
@@ -67246,6 +67358,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 416192162}
   spritesBase:
@@ -67451,6 +67564,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 600738745}
   spritesBase:
@@ -67699,9 +67813,9 @@ RectTransform:
   m_Father: {fileID: 1051739487}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.17, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 112.34, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2016733017
@@ -68068,6 +68182,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1309305333}
   spritesBase:
@@ -68182,92 +68297,6 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &2033703335
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2033703336}
-  - component: {fileID: 2033703337}
-  m_Layer: 0
-  m_Name: Fond
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2033703336
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033703335}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 519420032}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 1}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!212 &2033703337
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033703335}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eac1d59a692f65343a481d07c552ffc3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 38.4, y: 25.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -68440,6 +68469,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1928098840}
   spritesBase:
@@ -69208,6 +69238,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 182455911}
   spritesBase:
@@ -69413,6 +69444,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1221097429}
   spritesBase:
@@ -70051,7 +70083,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 319.45, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2098720146
@@ -70628,6 +70660,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1502345987}
   spritesBase:
@@ -70930,6 +70963,7 @@ MonoBehaviour:
   aPortee: 0
   predecesseur: {fileID: 0}
   estOccupee: 0
+  estInterdite: 0
   tailleTuile: 1
   garniture: {fileID: 1215475512}
   spritesBase:
@@ -71561,6 +71595,11 @@ PrefabInstance:
       propertyPath: degatsMoraux
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 4469811351211270403, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: jetonAttaque
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4597710223264444188, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}
       propertyPath: m_IsActive
@@ -71740,6 +71779,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6476901781432542656, guid: 036b41cf1a3d6ab40a789e70cfb8fde3,
+        type: 3}
+      propertyPath: resistanceMorale
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6476901781432542659, guid: 036b41cf1a3d6ab40a789e70cfb8fde3,
         type: 3}
       propertyPath: m_Name
@@ -71758,7 +71802,7 @@ PrefabInstance:
     - target: {fileID: 6476901781432542719, guid: 036b41cf1a3d6ab40a789e70cfb8fde3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 6476901781432542719, guid: 036b41cf1a3d6ab40a789e70cfb8fde3,
         type: 3}

@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11909677792bacb4a9b85c07f960002c, type: 3}
-  m_Name: ArriveeLoup
+  m_Name: ArriveePillard
   m_EditorClassIdentifier: 
   effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
-  titre: AU LOUP !
-  description: "Notre r\xE9gion riche en gibier a attir\xE9 \xE0 elle une meute de
-    loup. "
-  illustration: {fileID: 21300000, guid: 88b0cfbeb6912f64b909efb386ffbc5b, type: 3}
+  titre: ARRIVEE DE PILLARD
+  description: "La nouvelle de notre installation sur ces terre fertile semble s'\xEAtre
+    r\xE9pendue jusqu'aux oreilles de peuplades plus belliqueuses. A pr\xE9sent,
+    des dangereux pillard menacent de nous attaquer.\n"
+  illustration: {fileID: 21300000, guid: 1a2a83dbe1289db48816942f487f0ddf, type: 3}
   listeChoix:
-  - description: "Ils gouteront \xE0 nos lances"
-    infobulle: Une meute de loup fait son apparition sur la mappe
+  - description: Que nos guerriers prennent les armes !
+    infobulle: Une bande de pillard apparait sur la mappe
     retoursEffets:
     - 
     - 
@@ -39,7 +40,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 8827664118766306942, guid: 6115afa423c1d3f478d5b6cf58bd13dd,
             type: 3}
-          m_MethodName: SpawnLoup
+          m_MethodName: SpawnPillard
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -50,6 +51,6 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   finBalise: <fin>
-  probaEte: 100
-  probaHiver: 100
-  infobulle: LE LOUP EST LA
+  probaEte: 40
+  probaHiver: 40
+  infobulle: ARRIVEE DE PILLARD

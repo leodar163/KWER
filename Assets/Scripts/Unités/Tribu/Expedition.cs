@@ -83,19 +83,22 @@ public class Expedition : MonoBehaviour
 
     public void GenererCombats()
     {
-        foreach(Combat combat in combatsMenables)
+        if(tribu.guerrier.jetonAttaque)
         {
-            Destroy(combat.gameObject);
-        }
-        combatsMenables.Clear();
+            foreach(Combat combat in combatsMenables)
+            {
+                Destroy(combat.gameObject);
+            }
+            combatsMenables.Clear();
 
-        TrouverHostilsAPortee();
+            TrouverHostilsAPortee();
 
-        foreach(Hostile hostile in hostilesAPortee)
-        {
-            Combat nvCombat = hostile.InstancierCombat();
-            nvCombat.Guerrier = tribu.guerrier;
-            combatsMenables.Add(nvCombat);
+            foreach(Hostile hostile in hostilesAPortee)
+            {
+                Combat nvCombat = hostile.InstancierCombat();
+                nvCombat.Guerrier = tribu.guerrier;
+                combatsMenables.Add(nvCombat);
+            }
         }
     }
 }

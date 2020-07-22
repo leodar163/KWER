@@ -48,23 +48,10 @@ static public class MappeSysteme
         listeTerrains = GameObject.FindGameObjectWithTag("ListeTerrains").GetComponents<TuileTerrain>();
 
         DamierGen damierGen = Object.FindObjectOfType<DamierGen>();
-        TuileTerrain[,] damierTerrains = CreerDamierTerrain(damierGen.RecupDamier());
+        TuileTerrain[,] damierTerrains = CreerDamierTerrain(damierGen.Damier);
         Fleuve[] listeFleuves = GameObject.FindObjectsOfType<Fleuve>();
 
         Mappe mappe = new Mappe(nomMappe, damierGen.colonnes, damierGen.lignes, damierTerrains, CreerListeFleuve(listeFleuves));
-
-        /* DEBUG
-        int index = 0;
-        for (int y = 0; y < mappe.mappeTerrains.GetLength(1); y++)
-        {
-            for (int x = 0; x < mappe.mappeTerrains.GetLength(0); x++)
-            {
-
-                Debug.Log("tuile" + index + " = " + mappe.mappeTerrains[x, y].nom);
-                index++;
-            }
-        }
-        */
 
         if(ecraserSave)
         {    

@@ -7,14 +7,6 @@ public class Pillard : Pion
     [Header("Interactions")]
     public Hostile hostile;
 
-    [Header("Déplacements")]
-    public PathFinder pathFinder;
-    public TuileManager tuileActuelle;
-    public float ptsDeplacementDefaut;
-    private float ptsDeplacement;
-    public float vitesse;
-    public bool peutTraverserEau;
-
     private TuileManager prochaineTuile;
     private Stack<TuileManager> chemin;
     private bool traverseFleuve;
@@ -29,7 +21,6 @@ public class Pillard : Pion
         base.Start();
         entetement = entetementDefaut;
         TourParTour.Defaut.eventNouveauTour.AddListener(() => entetement--);
-        TrouverTuileActuelle();
         revendication.RevendiquerTerritoire(tuileActuelle, true);
     }
 
@@ -51,8 +42,11 @@ public class Pillard : Pion
 
     private IEnumerator DeroulerTour()
     {
+        hostile.TrouverCiblesAPortee();
+
         while (ptsDeplacement > 0)
         {
+            //print(hostile.PeutAttaquer);
             if(hostile.PeutAttaquer)
             {
                 StartCoroutine(hostile.Attaquer());
@@ -65,7 +59,7 @@ public class Pillard : Pion
                     tribuCible = TrouverTribuPlusProche();
                 }
 
-                chemin = pathFinder.TrouverCheminPlusCourt(tuileActuelle, tribuCible.tuileActuelle, peutTraverserEau);
+                chemin = pathFinder.TrouverCheminPlusCourt(tuileActuelle, tribuCible.tuileActuelle, peutEmbarquer);
 
                 StartCoroutine(SeDeplacer());
             }
@@ -84,7 +78,7 @@ public class Pillard : Pion
 
         for (int i = 0; i < tribus.Length; i++)
         {
-            Stack<TuileManager> cheminTribu = pathFinder.TrouverCheminPlusCourt(tuileActuelle, tribus[i].tuileActuelle, peutTraverserEau);
+            Stack<TuileManager> cheminTribu = pathFinder.TrouverCheminPlusCourt(tuileActuelle, tribus[i].tuileActuelle, peutEmbarquer);
             distances[i] = pathFinder.CalculerLongeurChemin(cheminTribu);
         }
 
@@ -106,9 +100,14 @@ public class Pillard : Pion
     #endregion
 
     #region DEPLACEMENTS
-    private void TrouverTuileActuelle()
+    public override void TrouverTuileActuelle()
     {
-        if (tuileActuelle) tuileActuelle.estOccupee = false;
+        if (tuileActuelle)
+        {
+            revendication.RevendiquerTerritoire(tuileActuelle, false);
+            tuileActuelle.estOccupee = false;
+            tuileActuelle.estInterdite = false;
+        }
 
         LayerMask layerMaskTuile = LayerMask.GetMask("Tuile");
 
@@ -120,7 +119,11 @@ public class Pillard : Pion
             transform.position = new Vector3(tuileActuelle.transform.position.x, tuileActuelle.transform.position.y, transform.position.z);
         }
 
+        
         tuileActuelle.estOccupee = true;
+        tuileActuelle.estInterdite = true;
+        revendication.RevendiquerTerritoire(tuileActuelle, true);
+        hostile.TrouverCiblesAPortee();
     }
 
     private bool EstArrivePrichaineTuile()
@@ -174,20 +177,14 @@ public class Pillard : Pion
                 SeDeplacerALaProchaineTuile();
                 yield return new WaitForEndOfFrame();
             }
-
+            
             //On diminue les points de deplacements disponibles fonction de si on a traversé un fleuve ou pas
             if (traverseFleuve)
             {
                 ptsDeplacement--;
             }
             ptsDeplacement -= tuileActuelle.connectionsDistance[tuileActuelle.RecupIndexConnection(prochaineTuile)];
-
-            //On abandonne le territoire tantôt à portée, 
-            //puis on trouve la tuile actuelle, 
-            //puis on revendique le territoire maintenant à portée
-            revendication.RevendiquerTerritoire(tuileActuelle, false);
             TrouverTuileActuelle();
-            revendication.RevendiquerTerritoire(tuileActuelle, true);
         }
 
         aFaitUneAction = true;

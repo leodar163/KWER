@@ -51,6 +51,6 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   finBalise: <fin>
-  probaEte: 100
-  probaHiver: 100
+  probaEte: 10
+  probaHiver: 50
   infobulle: UN TROUPEAU APPARAIT

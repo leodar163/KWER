@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
+using System.Security.Cryptography;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +12,7 @@ public class Hostile : MonoBehaviour
 
     private List<Tribu> ciblesAPortee = new List<Tribu>();
 
-    private bool combatEnCours = false;
+    public bool combatEnCours = false;
 
     [SerializeField] private  GameObject combat;
 
@@ -69,7 +71,6 @@ public class Hostile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TrouverCiblesAPortee();
         TourParTour.Defaut.eventNouveauTour.AddListener(() => jetonAttaque = true);
     }
 
@@ -82,24 +83,26 @@ public class Hostile : MonoBehaviour
     public IEnumerator Attaquer()
     {
         Tribu cible = ciblesAPortee[Random.Range(0, ciblesAPortee.Count - 1)];
+        cible.guerrier.EngagementGeneral();
         AttaquerCible(cible);
-        TerminerCombat();
+
         yield return new WaitWhile(() => combatEnCours);
 
+        cible.guerrier.DesengagementGeneral();
         pion.aFaitUneAction = true;
     }
 
     private void AttaquerCible(Tribu cible)
     {
-        print(gameObject.name + " attaque " + cible.gameObject.name);
-        ciblesAPortee.Add(cible);
-        combatEnCours = true;
-    }
+        jetonAttaque = false;
 
-    public void TerminerCombat()
-    {
-        print("Le combat est terminé");
-        combatEnCours = false;
+        Combat nvCombat = InstancierCombat();
+
+        nvCombat.Guerrier = cible.guerrier;
+
+        InterfaceEvenement.Defaut.OuvrirFenetreEvenementCombat(nvCombat);
+
+        combatEnCours = true;
     }
 
     public void TrouverCiblesAPortee()
@@ -109,6 +112,7 @@ public class Hostile : MonoBehaviour
         {
             if(cible.EstTribu && !ciblesAPortee.Contains((Tribu)cible.parent))
             {
+                print("tribu reprée");
                 ciblesAPortee.Add((Tribu)cible.parent);
             }
         }
@@ -121,6 +125,36 @@ public class Hostile : MonoBehaviour
         compCombat.Hostile = this;
 
         return compCombat;
+    }
+
+    public void Fuire(TuileManager tuileOpposee)
+    {
+        jetonAttaque = false;
+
+        Vector2 direction = transform.position - (tuileOpposee.transform.position - transform.position);
+
+        LayerMask maskTuile = LayerMask.GetMask("Tuile");
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, direction);
+
+        if(ray)
+        {
+            TuileManager tuileCible = ray.collider.GetComponent<TuileManager>();
+            if (!tuileCible.estOccupee || !tuileCible.terrainTuile.ettendueEau)
+            {
+                StartCoroutine(Fuire(direction));
+            }
+
+        }
+    }
+
+    private IEnumerator Fuire(Vector2 direction)
+    {
+        while ((Vector2)transform.position != direction)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, direction, pion.vitesse * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+        pion.TrouverTuileActuelle();
     }
 }
 

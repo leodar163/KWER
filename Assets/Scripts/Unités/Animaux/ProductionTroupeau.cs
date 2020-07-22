@@ -26,22 +26,22 @@ public class ProductionTroupeau : MonoBehaviour
     {
         if(troupeau.domesticable)
         {
-            for (int i = 0; i < troupeau.migration.tuileActuelle.productionTuile.BonusOutil.gains.Length; i++)
+            for (int i = 0; i < troupeau.tuileActuelle.productionTuile.BonusOutil.gains.Length; i++)
             {
-                troupeau.migration.tuileActuelle.productionTuile.BonusOutil.gains[i] += bonusOutil.gains[i];
+                troupeau.tuileActuelle.productionTuile.BonusOutil.gains[i] += bonusOutil.gains[i];
             }
-            for (int i = 0; i < troupeau.migration.tuileActuelle.productionTuile.Production.gains.Length; i++)
+            for (int i = 0; i < troupeau.tuileActuelle.productionTuile.Production.gains.Length; i++)
             {
-                troupeau.migration.tuileActuelle.productionTuile.Production.gains[i] += gainProduction.gains[i];
+                troupeau.tuileActuelle.productionTuile.Production.gains[i] += gainProduction.gains[i];
             }
-            troupeau.migration.tuileActuelle.productionTuile.nbrSlot += nbrSlot;
+            troupeau.tuileActuelle.productionTuile.nbrSlot += nbrSlot;
         }
     }
 
     public void ReinitTuile()
     {
-        troupeau.migration.tuileActuelle.productionTuile.ReinitProd();
-        troupeau.migration.tuileActuelle.productionTuile.ReinitBonusOutil();
-        troupeau.migration.tuileActuelle.productionTuile.nbrSlot -= nbrSlot;
+        troupeau.tuileActuelle.productionTuile.ReinitProd();
+        troupeau.tuileActuelle.productionTuile.ReinitBonusOutil();
+        troupeau.tuileActuelle.productionTuile.nbrSlot -= nbrSlot;
     }
 }

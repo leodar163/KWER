@@ -15,6 +15,8 @@ public class Guerrier : MonoBehaviour
     [Range(0, 100)]
     public int degatsMoraux = 20;
 
+    public bool jetonAttaque = true;
+
     public int attaqueTotale
     {
         get
@@ -28,6 +30,24 @@ public class Guerrier : MonoBehaviour
         get
         {
             return defense + tribu.bonus.defenseBonus;
+        }
+    }
+
+    public void EngagementGeneral()
+    {
+        tribu.expedition.RappelerExpeditions();
+        tribu.expedition.LancerExpeditions();
+        for (int i = 0; i < tribu.demographie.listePopsCampement.Count; i++)
+        {
+            tribu.demographie.EngagerGuerrier();
+        }
+    }
+
+    public void DesengagementGeneral()
+    {
+        for (int i = 0; i < nbrGuerrier; i++)
+        {
+            tribu.demographie.DesengagerGuerrier(false);
         }
     }
 }

@@ -6,10 +6,6 @@ public class Migration : MonoBehaviour
 {
     [SerializeField] private Troupeau troupeau;
 
-    public TuileManager tuileActuelle;
-    [SerializeField] float vitesse;
-    [SerializeField] float ptsDeplacementDefaut = 2;
-    float ptsDeplacement;
     TuileManager prochaineTuile = null;
     List<TuileManager> tuilesParcourues;
     bool traverseFleuve = false;
@@ -18,7 +14,7 @@ public class Migration : MonoBehaviour
     {
         get
         {
-            if (ptsDeplacement > 0 && Calendrier.Actuel.Hiver) return true;
+            if (troupeau.ptsDeplacement > 0 && Calendrier.Actuel.Hiver) return true;
             else return false;
         }
     }
@@ -37,7 +33,6 @@ public class Migration : MonoBehaviour
             troupeau = GetComponent<Troupeau>();
         }
 
-        TrouverTuileActuelle();
         Calendrier.Actuel.EventChangementDeSaison.AddListener(TerminerMigration);
     }
 
@@ -47,44 +42,21 @@ public class Migration : MonoBehaviour
 
     }
 
-    private void TrouverTuileActuelle()
-    {
-
-        if (tuileActuelle)
-        {
-            troupeau.revendication.RevendiquerTerritoire(tuileActuelle, false);
-            tuileActuelle.productionTuile.ReinitBonusOutil();
-            tuileActuelle.estOccupee = false;
-        }
-        LayerMask layerMaskTuile = LayerMask.GetMask("Tuile");
-
-        Collider2D checkTuile = Physics2D.OverlapBox(transform.position, new Vector2(0.1f, 0.1f), 0, layerMaskTuile);
-
-        if (checkTuile)
-        {
-            tuileActuelle = checkTuile.gameObject.GetComponent<TuileManager>();
-            transform.position = new Vector3(tuileActuelle.transform.position.x, tuileActuelle.transform.position.y, transform.position.z);
-        }
-
-        tuileActuelle.estOccupee = true;
-        if (troupeau.predateur) troupeau.hostile.TrouverCiblesAPortee();
-        troupeau.revendication.RevendiquerTerritoire(tuileActuelle, true);
-        troupeau.productionTroupeau.FertiliserTuile();
-    }
+    
 
 
     public void InitialiserPointsDeplacement()
     {
-        ptsDeplacement = ptsDeplacementDefaut;
-        tuilesParcourues.Add(tuileActuelle);
+        troupeau.ptsDeplacement = troupeau.ptsDeplacementDefaut;
+        tuilesParcourues.Add(troupeau.tuileActuelle);
     }
 
     //Boucle de déplacement
     public IEnumerator Migrer()
     {
-        if (ptsDeplacement > 0)
+        if (troupeau.ptsDeplacement > 0)
         {
-            tuilesParcourues.Add(tuileActuelle);
+            tuilesParcourues.Add(troupeau.tuileActuelle);
             prochaineTuile = ChoisirProchaineTuile();
 
             if (CheckerFleuve())
@@ -103,18 +75,17 @@ public class Migration : MonoBehaviour
             //On diminue les points de deplacements disponibles fonction de si on a traversé un fleuve ou pas
             if(traverseFleuve)
             {
-                ptsDeplacement--;
+                troupeau.ptsDeplacement--;
             }
-            ptsDeplacement--;
+            troupeau.ptsDeplacement--;
 
             //On abandonne le territoire tantôt à portée, 
             //puis on trouve la tuile actuelle, 
             //puis on revendique le territoire maintenant à porté
-            troupeau.revendication.RevendiquerTerritoire(tuileActuelle, false);
-            TrouverTuileActuelle();
-            troupeau.revendication.RevendiquerTerritoire(tuileActuelle, true);
-
-            tuilesParcourues.Add(tuileActuelle);
+            troupeau.revendication.RevendiquerTerritoire(troupeau.tuileActuelle, false);
+            troupeau.revendication.RevendiquerTerritoire(troupeau.tuileActuelle, true);
+            troupeau.TrouverTuileActuelle();
+            tuilesParcourues.Add(troupeau.tuileActuelle);
         }
 
         troupeau.aFaitUneAction = true;
@@ -129,7 +100,7 @@ public class Migration : MonoBehaviour
     {
         LayerMask maskFleuve = LayerMask.GetMask("Fleuve");
 
-        RaycastHit2D checkFleuve = Physics2D.Raycast(transform.position, prochaineTuile.transform.position, tuileActuelle.GetComponent<TuileManager>().tailleTuile, maskFleuve);
+        RaycastHit2D checkFleuve = Physics2D.Raycast(transform.position, prochaineTuile.transform.position, troupeau.tuileActuelle.GetComponent<TuileManager>().tailleTuile, maskFleuve);
 
         if (checkFleuve)
         {
@@ -163,7 +134,7 @@ public class Migration : MonoBehaviour
 
         List<TuileManager> directionPossibles = new List<TuileManager>();
 
-        foreach (TuileManager tuile in tuileActuelle.connections)
+        foreach (TuileManager tuile in troupeau.tuileActuelle.connections)
         {
             if (tuile && tuile.estOccupee == false)
             {
@@ -186,7 +157,7 @@ public class Migration : MonoBehaviour
 
         if (directionPossibles.Count == 0)
         {
-            foreach (TuileManager tuile in tuileActuelle.connections)
+            foreach (TuileManager tuile in troupeau.tuileActuelle.connections)
             {
                 if (tuile && tuile.estOccupee == false)
                 {
@@ -218,6 +189,6 @@ public class Migration : MonoBehaviour
         Vector3 direction = prochaineTuile.transform.position;
         direction.z = transform.position.z;
 
-        transform.position = Vector3.MoveTowards(transform.position, direction, vitesse * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, direction, troupeau.vitesse * Time.deltaTime);
     }
 }

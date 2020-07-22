@@ -785,14 +785,14 @@ MonoBehaviour:
   aFaitUneAction: 0
   aPasseSonTour: 0
   revendication: {fileID: 3311495747200995255}
+  tuileActuelle: {fileID: 0}
+  pathFinder: {fileID: 8930979129811697115}
+  ptsDeplacementDefaut: 3
+  ptsDeplacement: 0
+  vitesse: 4
+  peutEmbarquer: 0
   idTribu: 0
   estEntreCampement: 0
-  pathFinder: {fileID: 8930979129811697115}
-  tuileActuelle: {fileID: 0}
-  pointActionDeffaut: 3
-  pointsAction: 0
-  vitesse: 2
-  peutEmbarquer: 0
   tuilesAPortee: []
   expedition: {fileID: 5645824234354430084}
   stockRessources: {fileID: 51998110753543547}
@@ -861,6 +861,7 @@ MonoBehaviour:
   attaque: 1
   defense: 1
   degatsMoraux: 25
+  jetonAttaque: 1
 --- !u!114 &8044188089232333488
 MonoBehaviour:
   m_ObjectHideFlags: 0
