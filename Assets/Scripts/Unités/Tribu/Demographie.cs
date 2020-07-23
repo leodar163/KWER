@@ -208,7 +208,7 @@ public class Demographie : MonoBehaviour
     private void MAJBoutonAjout()
     {
         InfoBulle infoblleBouton = boutonAjout.GetComponent<InfoBulle>();
-        infoblleBouton.textInfoBulle = "Augmenter Population";
+        infoblleBouton.texteInfoBulle = "Augmenter Population";
         bool manqueRessource = false;
 
         if (modePopInfinie) boutonAjout.interactable = true;
@@ -219,13 +219,13 @@ public class Demographie : MonoBehaviour
                 //écrit le coût dans l'infobulle
                 if (CoutPop.gains[i] > 0)
                 {
-                    infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">-"
+                    infoblleBouton.texteInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">-"
                         + CoutPop.gains[i] + "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
 
                     if (tribu.stockRessources.RessourcesEnStock.gains[i] < CoutPop.gains[i])
                     {
                         manqueRessource = true;
-                        infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> (insuffisant)";
+                        infoblleBouton.texteInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> (insuffisant)";
                     }
                 }
             }
@@ -236,7 +236,7 @@ public class Demographie : MonoBehaviour
     private void MAJBoutonSuppression()
     {
         InfoBulle infoblleBouton = boutonSuppression.GetComponent<InfoBulle>();
-        infoblleBouton.textInfoBulle = "Sacrifier Population";
+        infoblleBouton.texteInfoBulle = "Sacrifier Population";
         if (modePopInfinie) boutonSuppression.interactable = true;
         else
         {
@@ -245,7 +245,7 @@ public class Demographie : MonoBehaviour
                 //écrit le gain dans l'infobulle
                 if (GainSacrificePop.gains[i] > 0)
                 {
-                    infoblleBouton.textInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
+                    infoblleBouton.texteInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
                         + CoutPop.gains[i] + "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
 
                 }
@@ -253,13 +253,13 @@ public class Demographie : MonoBehaviour
             if (taillePopulation == 1)
             {
                 boutonSuppression.interactable = false;
-                infoblleBouton.textInfoBulle += "\n<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                infoblleBouton.texteInfoBulle += "\n<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
                     + "Pas assez de population pour en sacrifier" + "<color=\"white\"> " ;
             }
             else if (listePopsCampement.Count == 0)
             {
                 boutonSuppression.interactable = false;
-                infoblleBouton.textInfoBulle += "\n<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
+                infoblleBouton.texteInfoBulle += "\n<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
                     + "Impossible de sacrifier des populations occupées" + "<color=\"white\"> ";
             }
             else boutonSuppression.interactable = true;

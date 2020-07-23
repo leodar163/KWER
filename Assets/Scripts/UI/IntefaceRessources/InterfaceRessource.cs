@@ -42,9 +42,9 @@ public class InterfaceRessource : MonoBehaviour
 
     private IEnumerator MAJInterfaceRessource()
     {
-        MiseAJourCapacite(Tribu.tribuQuiJoue.stockRessources.CapaciteDeStockage);
-        MiseAjourGain(Tribu.tribuQuiJoue.stockRessources.ProjectionGain);
-        MiseAJourStock(Tribu.tribuQuiJoue.stockRessources.RessourcesEnStock);
+        MiseAJourCapacite(Tribu.TribukiJoue.stockRessources.CapaciteDeStockage);
+        MiseAjourGain(Tribu.TribukiJoue.stockRessources.ProjectionGain);
+        MiseAJourStock(Tribu.TribukiJoue.stockRessources.RessourcesEnStock);
 
         yield return new WaitForSeconds(tauxRafraichissementSeconde);
 

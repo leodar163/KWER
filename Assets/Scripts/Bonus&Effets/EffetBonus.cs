@@ -10,7 +10,7 @@ public class EffetBonus : MonoBehaviour
     {
         get
         {
-            if (tribuKiSubit == null) return Tribu.tribuQuiJoue;
+            if (tribuKiSubit == null) return Tribu.TribukiJoue;
             else return tribuKiSubit;
         }
         set

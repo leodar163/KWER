@@ -6,16 +6,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using UnityEditorInternal;
 
 [ExecuteInEditMode]
-[RequireComponent(typeof(Image),typeof(Button))]
+[RequireComponent(typeof(Image),typeof(Button),typeof(InfoBulle))]
 public abstract class Slot : MonoBehaviour
 {
+    protected string texteInfobulleDefaut = "Cliquer pour assigner une population";
     protected Pop pop;
     protected Demographie demo;
     protected Image image;
     [SerializeField] protected Image iconePop;
+    public InfoBulle infobulle;
     protected Button bouton;
+    private bool textInfoBulleInit = false;
 
     public bool estOccupe
     {
@@ -29,7 +33,10 @@ public abstract class Slot : MonoBehaviour
         }
     }
 
-
+    private void Awake()
+    {
+        
+    }
     private void OnEnable()
     {
         ConstruirSlot();
@@ -80,6 +87,13 @@ public abstract class Slot : MonoBehaviour
             };
             bouton.navigation = nav;
         }
+
+        if (infobulle && !textInfoBulleInit)
+        {
+            infobulle.texteInfoBulle = texteInfobulleDefaut;
+            textInfoBulleInit = true;
+        }
+
     }
 
     public virtual void CliquerSurSlot()
@@ -118,5 +132,25 @@ public abstract class Slot : MonoBehaviour
         {
             demo.AjouterPop(pop);
         }
+    }
+
+    public void InterdireSlot(string message)
+    {
+        if (!bouton || !image) ConstruirSlot();
+        bouton.interactable = false;
+        image.color = Color.red;
+
+        textInfoBulleInit = true;
+        infobulle.texteInfoBulle = message;
+    }
+
+    public void AutoriserSlot()
+    {
+        if (!bouton || !image) ConstruirSlot();
+        bouton.interactable = true;
+        image.color = Color.white;
+
+        textInfoBulleInit = true;
+        infobulle.texteInfoBulle = texteInfobulleDefaut;
     }
 }

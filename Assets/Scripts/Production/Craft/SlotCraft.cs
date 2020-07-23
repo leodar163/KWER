@@ -40,13 +40,13 @@ public class SlotCraft : Slot
                         if (stocks.ProjectionGain.gains[i] < 0 && stocks.RessourcesEnStock.gains[i] < 0)
                         {
                             CliquerSurSlot();
-                            bouton.interactable = false;
+                            InterdireSlot("Pas assez de ressource");
                             MAJSlots();
                             return;
                         }
                     }
                 }
-                bouton.interactable = true;
+                AutoriserSlot();
             }
             else
             {
@@ -56,12 +56,13 @@ public class SlotCraft : Slot
                     {
                         if (stocks.ProjectionGain.gains[i] <= 0 && stocks.RessourcesEnStock.gains[i] <= 0)
                         {
-                            bouton.interactable = false;
+                            InterdireSlot("<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface)
+                                        + ">Pas assez de ressource<color=\"white\">");
                             return;
                         }
                     }
                 }
-                bouton.interactable = true;
+                AutoriserSlot();
             }
         }
     }

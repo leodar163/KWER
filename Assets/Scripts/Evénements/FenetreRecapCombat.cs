@@ -43,7 +43,7 @@ public class FenetreRecapCombat : MonoBehaviour
     private void AssignationChoix(Evenement.Choix choix)
     {
         objChoix.GetComponent<TextMeshProUGUI>().text = choix.description;
-        objChoix.GetComponent<InfoBulle>().textInfoBulle = choix.infobulle;
+        objChoix.GetComponent<InfoBulle>().texteInfoBulle = choix.infobulle;
         objChoix.GetComponent<Button>().onClick.AddListener(choix.effets.Invoke);
     }
 }

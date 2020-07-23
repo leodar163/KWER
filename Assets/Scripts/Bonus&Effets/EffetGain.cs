@@ -6,22 +6,23 @@ public class EffetGain : MonoBehaviour
 {
     public void GainNourriture(float montant)
     {
-        ControleSouris.Actuel.tribuControlee.stockRessources.EncaisserRessource("Nourriture", montant);
+
+        Tribu.TribukiJoue.stockRessources.EncaisserRessource("Nourriture", montant);
     }
     public void GainPierre(float montant)
     {
-        ControleSouris.Actuel.tribuControlee.stockRessources.EncaisserRessource("Pierre", montant);
+        Tribu.TribukiJoue.stockRessources.EncaisserRessource("Pierre", montant);
     }
     public void GainPeau(float montant)
     {
-        ControleSouris.Actuel.tribuControlee.stockRessources.EncaisserRessource("Peau", montant);
+        Tribu.TribukiJoue.stockRessources.EncaisserRessource("Peau", montant);
     }
     public void GainPigment(float montant)
     {
-        ControleSouris.Actuel.tribuControlee.stockRessources.EncaisserRessource("Pigment", montant);
+        Tribu.TribukiJoue.stockRessources.EncaisserRessource("Pigment", montant);
     }
     public void GainOutil(float montant)
     {
-        ControleSouris.Actuel.tribuControlee.stockRessources.EncaisserRessource("Outil", montant);
+        Tribu.TribukiJoue.stockRessources.EncaisserRessource("Outil", montant);
     }
 }

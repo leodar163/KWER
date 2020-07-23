@@ -101,12 +101,13 @@ MonoBehaviour:
   aFaitUneAction: 0
   aPasseSonTour: 0
   revendication: {fileID: -7466687714277559348}
-  hostile: {fileID: 6476901781432542656}
-  pathFinder: {fileID: 385801147116569801}
   tuileActuelle: {fileID: 0}
+  pathFinder: {fileID: 385801147116569801}
   ptsDeplacementDefaut: 3
+  ptsDeplacement: 0
   vitesse: 4
-  peutTraverserEau: 0
+  peutEmbarquer: 0
+  hostile: {fileID: 6476901781432542656}
 --- !u!114 &6476901781432542656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,11 +121,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pion: {fileID: 6476901781432542657}
+  combatEnCours: 0
   combat: {fileID: 9043204819795068831, guid: 9209567ac640936478e6b19e2b526bfa, type: 3}
   nbrCombattant: 4
   attaque: 2
   defense: 1
-  resistanceMorale: 0
+  resistanceMorale: 20
   attaqueMin: -1
   attaqueMax: -1
   defenseMin: -1

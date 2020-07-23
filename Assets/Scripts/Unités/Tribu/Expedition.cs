@@ -6,7 +6,7 @@ public class Expedition : MonoBehaviour
 {
     [SerializeField] public Tribu tribu;
     [SerializeField] private GameObject exploitation;
-    private List<Exploitation> listeExploitations = new List<Exploitation>();
+    [HideInInspector] public List<Exploitation> listeExploitations = new List<Exploitation>();
 
     private List<Hostile> hostilesAPortee = new List<Hostile>();
     private List<Combat> combatsMenables = new List<Combat>();

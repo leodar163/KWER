@@ -46,11 +46,11 @@ public class Buff : ScriptableObject
     {
         if(compteurTour)
         {
-            Tribu.tribuQuiJoue.StartCoroutine(ActivationTPT());   
+            Tribu.TribukiJoue.StartCoroutine(ActivationTPT());   
         }
         else if (tpsDunEvent)
         {
-            Tribu.tribuQuiJoue.StartCoroutine(ActivationEvenement());
+            Tribu.TribukiJoue.StartCoroutine(ActivationEvenement());
         }
     }
 
@@ -58,7 +58,7 @@ public class Buff : ScriptableObject
     {
         effets.Invoke();
 
-        Tribu tribuKiSubit = Tribu.tribuQuiJoue;
+        Tribu tribuKiSubit = Tribu.TribukiJoue;
 
         yield return new AttendreFinTour(nombreTour);
 
@@ -74,7 +74,7 @@ public class Buff : ScriptableObject
         effets.Invoke();
 
         bool eventFini = false;
-        Tribu tribuKiSubit = Tribu.tribuQuiJoue;
+        Tribu tribuKiSubit = Tribu.TribukiJoue;
         InterfaceEvenement.Defaut.eventFinEvenement.AddListener(() => eventFini = true);
 
         yield return new WaitUntil(() => eventFini);

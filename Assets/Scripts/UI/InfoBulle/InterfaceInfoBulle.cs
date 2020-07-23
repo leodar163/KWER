@@ -83,26 +83,32 @@ public class InterfaceInfoBulle : MonoBehaviour
 
     public void AfficherBulle(string texte)
     {
-        texteMP.text = texte;
+        if(texteMP) //juste une sécurité
+        {
+            texteMP.text = texte;
 
-        Color plusdalpha = texteMP.color;
-        plusdalpha.a = 1;
-        texteMP.color = plusdalpha;
+            Color plusdalpha = texteMP.color;
+            plusdalpha.a = 1;
+            texteMP.color = plusdalpha;
 
-        plusdalpha = image.color;
-        plusdalpha.a = alphaDefaut;
-        image.color = plusdalpha;
+            plusdalpha = image.color;
+            plusdalpha.a = alphaDefaut;
+            image.color = plusdalpha;
+        }
     }
 
     public void CacherBulle()
     {
-        Color plusdalpha = texteMP.color;
-        plusdalpha.a = 0;
-        texteMP.color = plusdalpha;
+        if(texteMP) //juste une sécurité
+        {
+            Color plusdalpha = texteMP.color;
+            plusdalpha.a = 0;
+            texteMP.color = plusdalpha;
 
-        plusdalpha = image.color;
-        plusdalpha.a = 0;
-        image.color = plusdalpha;
+            plusdalpha = image.color;
+            plusdalpha.a = 0;
+            image.color = plusdalpha;
+        }
     }
 
 }

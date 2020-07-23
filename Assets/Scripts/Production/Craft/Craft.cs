@@ -19,7 +19,6 @@ public class Craft : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.SetActive(false);
         panelRecette.gameObject.SetActive(false);
     }
 
@@ -32,7 +31,6 @@ public class Craft : MonoBehaviour
     public void AfficherInterfaceCraft(bool afficher)
     {
         gameObject.SetActive(afficher);
-        
     }
 
     public void GenererPanelsRecette()

@@ -7,12 +7,12 @@ using UnityEngine.EventSystems;
 public class InfoBulle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [TextArea]
-    public string textInfoBulle = "Texte d'information";
+    public string texteInfoBulle = "Texte d'information";
    
     private RectTransform bulleRect;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        InterfaceInfoBulle.Actuel.AfficherBulle(textInfoBulle);
+        InterfaceInfoBulle.Actuel.AfficherBulle(texteInfoBulle);
     }
 
     private void OnDestroy()

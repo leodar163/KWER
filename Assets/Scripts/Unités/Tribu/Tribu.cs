@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using System.IO;
 
 public class Tribu : Pion
 {
@@ -9,19 +10,31 @@ public class Tribu : Pion
     SpriteRenderer spriteRenderer;
 
     #region SINGLETON
-    static public Tribu tribuQuiJoue
+    static public Tribu TribukiJoue
     {
         get
         {
-            Tribu[] listeTribus = FindObjectsOfType<Tribu>();
-            for (int i = 0; i < listeTribus.Length; i++)
+            return ListeOrdonneeDesTribus[TourParTour.Defaut.idTribu];
+        }
+    }
+
+    static private Tribu[] listeOrdonneeTribus;
+    static public Tribu[] ListeOrdonneeDesTribus
+    {
+        get
+        {
+            if(listeOrdonneeTribus == null)
             {
-                if(listeTribus[i].idTribu == ControleSouris.Actuel.idTribuControlee)
+                Tribu[] tribus = FindObjectsOfType<Tribu>();
+                listeOrdonneeTribus = new Tribu[tribus.Length];
+
+                for (int i = 0; i < tribus.Length; i++)
                 {
-                    return listeTribus[i];
+                    listeOrdonneeTribus[tribus[i].idTribu] = tribus[i];
                 }
             }
-            return null;
+
+            return listeOrdonneeTribus;
         }
     }
     #endregion
@@ -43,6 +56,7 @@ public class Tribu : Pion
 
     [Header("Campement")]
     public Campement campement;
+    public InteractionTribu interactionTribu;
 
     [Header("Sprites")]
     [SerializeField] private Sprite SprCampementHiver;
@@ -56,6 +70,7 @@ public class Tribu : Pion
 
     private void Awake()
     {
+        
     }
 
     // Start is called before the first frame update
@@ -66,7 +81,7 @@ public class Tribu : Pion
         Init();
         revendication.RevendiquerTerritoire(tuileActuelle, true);
         expedition.LancerExpeditions();
-        
+
         campement.MonterCampement();
         EntrerCampement(false);
     }
@@ -101,19 +116,14 @@ public class Tribu : Pion
 
     private IEnumerator MAJTuilesAPortee()
     {
-        while(Application.isPlaying)
+        while (Application.isPlaying)
         {
-            tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, ptsDeplacement, false);
-            
-            if(!estEntreCampement && ControleSouris.Actuel.controlesActives)
+            if (!estEntreCampement && ControleSouris.Actuel.controlesActives && this == TribukiJoue)
             {
+                tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, ptsDeplacement, false);
                 pathFinder.ColorerGraphe(tuilesAPortee, tuileActuelle.couleurTuileAPortee);
             }
-            else
-            {
-                pathFinder.ColorerGraphe(tuilesAPortee, Color.white);
-            }
-
+            
             yield return new WaitForEndOfFrame();
         }
     }
@@ -162,6 +172,7 @@ public class Tribu : Pion
 
         if (selectionner)
         {
+            pathFinder.ReinitGraphe();
             CameraControle.Actuel.CentrerCamera(transform.position, true);
         }
         else

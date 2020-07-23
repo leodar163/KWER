@@ -57,7 +57,7 @@ public abstract class Interaction : MonoBehaviour
         boutonInteraction.gameObject.SetActive(false);
     }
 
-    protected void ActiverBouton(bool activer)
+    public void ActiverBouton(bool activer)
     {
         boutonInteraction.interactable = activer;
     }

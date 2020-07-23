@@ -159,7 +159,7 @@ public class InterfaceEvenement : MonoBehaviour
         if (!fenetreCombat.gameObject.activeSelf && !fenetreCombat.gameObject.activeSelf)
         {
             eventFinEvenement.Invoke();
-            if(Interaction.EnCours) Interaction.EnCours.EntrerEnInteraction(false);
+            if(Interaction.EnCours && (Interaction.EnCours is Combat || Interaction.EnCours is Anomalie)) Interaction.EnCours.EntrerEnInteraction(false);
             print("Evenement terminé");
         }
     }
