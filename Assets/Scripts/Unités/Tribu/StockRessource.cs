@@ -18,6 +18,10 @@ public class StockRessource : MonoBehaviour
     [SerializeField] private Production consoParPop;
     [SerializeField] private Production consoParPopHiver;
     [SerializeField] private Production capaciteParPop;
+    [Space]
+    [Header("Consommables")]
+    public int emplacementConsommable = 2;
+    [HideInInspector] public List<Consommable> consommables = new List<Consommable>();
 
     public Production CapaciteDeStockage
     {

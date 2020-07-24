@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,6 +25,12 @@ public class InterfaceRessource : MonoBehaviour
     [HideInInspector] public UnityEvent EventInterfaceMAJ;
     public float tauxRafraichissementSeconde = 0.1f;
 
+    [Space]
+    [Header("Consommables")]
+    [SerializeField] private GameObject panelConsommables;
+    [SerializeReference] private GameObject slotBase;
+    private List<SlotConsommable> listeSlotsConsommable = new List<SlotConsommable>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +52,7 @@ public class InterfaceRessource : MonoBehaviour
         MiseAJourCapacite(Tribu.TribukiJoue.stockRessources.CapaciteDeStockage);
         MiseAjourGain(Tribu.TribukiJoue.stockRessources.ProjectionGain);
         MiseAJourStock(Tribu.TribukiJoue.stockRessources.RessourcesEnStock);
+        MiseAJourConsommables();
 
         yield return new WaitForSeconds(tauxRafraichissementSeconde);
 
@@ -65,7 +73,44 @@ public class InterfaceRessource : MonoBehaviour
         }
     }
 
-    public void MiseAJourCapacite(Production capacite)
+    private void MiseAJourConsommables()
+    {
+        GenererConsommable(Tribu.TribukiJoue.stockRessources.emplacementConsommable - listeSlotsConsommable.Count);
+
+        for (int i = 0; i < listeSlotsConsommable.Count; i++)
+        {
+            if (Tribu.TribukiJoue.stockRessources.consommables.Count > i) 
+                listeSlotsConsommable[i].Consommable = Tribu.TribukiJoue.stockRessources.consommables[i];
+
+            else
+            {
+                listeSlotsConsommable[i].Consommable = null;
+            }
+            
+        }
+    }
+
+
+    private void GenererConsommable(int nombre)
+    {
+        if (nombre > 0)
+        {
+            for (int i = 0; i < nombre; i++)
+            {
+                GameObject nvSlot = Instantiate(slotBase, panelConsommables.transform);
+                listeSlotsConsommable.Add(nvSlot.GetComponent<SlotConsommable>());
+            }
+        }
+        else if (nombre < 0)
+        {
+            for (int i = 0; i < math.abs(nombre); i++)
+            {
+                Destroy(listeSlotsConsommable[listeSlotsConsommable.Count].gameObject);
+            }
+        }
+    }
+
+    private void MiseAJourCapacite(Production capacite)
     {
         for (int i = 0; i < listePanelsInfoRessource.Count; i++)
         {
@@ -73,7 +118,7 @@ public class InterfaceRessource : MonoBehaviour
         }
     }
 
-    public void MiseAJourStock(Production stock)
+    private void MiseAJourStock(Production stock)
     {
         for (int i = 0; i < listePanelsInfoRessource.Count; i++)
         {
@@ -81,7 +126,7 @@ public class InterfaceRessource : MonoBehaviour
         }
     }
 
-    public void MiseAjourGain(Production gain)
+    private void MiseAjourGain(Production gain)
     {
         for (int i = 0; i < listePanelsInfoRessource.Count; i++)
         {
