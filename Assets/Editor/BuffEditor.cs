@@ -125,20 +125,13 @@ public class BuffEditor : Editor
                     if (argumentInt.intValue > 0)
                     {
                         retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
-                            + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " d'attaque ";
+                            + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " d'attaque";
                     }
                     else if (argumentInt.intValue < 0)
                     {
                         retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
-                            + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " d'attaque ";
+                            + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " d'attaque";
                     }
-                    //UnityEventTools.AddPersistentListener<int,Tribu>(buff.antiEffets, new UnityAction<int, Tribu>(
-                    //    () => bonus.ajouterBonusAttaque(argumentInt.intValue * -1, buff.antiEffets.tribu)));
-
-                    //UnityAction<int, Tribu> callback = new UnityAction<int, Tribu>(bonus.ajouterBonusAttaque);
-                    //UnityEventTools.AddPersistentListener(buff.antiEffets, () => bonus.ajouterBonusAttaque(2));
-
-                    //buff.antiEffets.Add(() => bonus.ajouterBonusAttaque(argumentInt.intValue * -1, buff.antiEffets.tribu));
 
                     UnityAction<int> callback = new UnityAction<int>(bonus.ajouterBonusAttaque);
                     UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
@@ -150,29 +143,76 @@ public class BuffEditor : Editor
                     if (argumentInt.intValue > 0)
                     {
                         retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
-                            + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " de défense ";
+                            + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " de défense";
                     }
                     else if (argumentInt.intValue < 0)
                     {
                         retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
-                            + argumentInt.intValue + "<color=\"white\">"+ " point" + pluriel + " de défense ";
+                            + argumentInt.intValue + "<color=\"white\">" + " point" + pluriel + " de défense";
                     }
-
-                    //UnityEventTools.AddPersistentListener(buff.antiEffets, new UnityAction(
-                    //    () => bonus.ajouterBonusDefense(argumentInt.intValue * -1, buff.antiEffets.tribu)));
-
-                    //buff.antiEffets.Add(() => bonus.ajouterBonusDefense(argumentInt.intValue * -1, buff.antiEffets.tribu));
 
                     UnityAction<int> callback = new UnityAction<int>(bonus.ajouterBonusDefense);
                     UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
                 }
+                else if (methode.stringValue.Contains("DegatMoral"))
+                {
+                    if (argumentInt.intValue > 0)
+                    {
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">++" +
+                            "<color=\"white\"> dégat moral";
+                    }
+                    else if (argumentInt.intValue < 0)
+                    {
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">--" +
+                            "<color=\"white\"> dégat moral";
+
+                        UnityAction<int> callback = new UnityAction<int>(bonus.AjouterBonusDegatMoral);
+                        UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                    }
+                }
+            }
+            else if (methode.stringValue.Contains("MultiplicateurCoutPop"))
+            {
+                if (argumentFloat.floatValue > 1)
+                {
+                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
+                        "++<color=\"white\"> Cout d'une population";
+                }
+                else if (argumentFloat.floatValue < 1)
+                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
+                        "--<color=\"white\"> Cout d'une population";
+                if (argumentFloat.floatValue == 0)
+                {
+                    retour = "Cout d'une populaiton< color =#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + "> gratuit";
+                }
+
+                UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultiplicateurCoutPop);
+                UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
+            }
+            else if (methode.stringValue.Contains("MultiplicateurStockage"))
+            {
+                if (argumentFloat.floatValue > 1)
+                {
+                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
+                        "++<color=\"white\"> Capacité de stockage";
+                }
+                else if (argumentFloat.floatValue < 1)
+                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
+                        "--<color=\"white\"> Capacité de stockage";
+                if (argumentFloat.floatValue == 0)
+                {
+                    retour = "Capacité de stockage< color =#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
+                }
+
+                UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMutliplicateurStockage);
+                UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
             }
 
             if (buff.compteurTour)
             {
                 char pluriel = '\0';
                 if (buff.nombreTour > 0) pluriel = 's';
-                retour += "pendant " + buff.nombreTour + " tour" + pluriel;
+                retour += " pendant " + buff.nombreTour + " tour" + pluriel;
             }
             else if (buff.tpsDuneTechno)
             {
@@ -180,7 +220,7 @@ public class BuffEditor : Editor
             }
             else if(buff.tpsDunEvent)
             {
-                retour += "jusqu'à la fin de l'évenement";
+                retour += " jusqu'à la fin de l'évenement";
             }
 
             buff.listeEffetsRetours[i] = retour;
@@ -189,23 +229,26 @@ public class BuffEditor : Editor
     }
     private void InitialiserListeRetour(List<string> retours, int ettendue)
     {
-        int difference = ettendue - retours.Count;
-        if (difference > 0)
+        if(retours != null)
         {
-            for (int i = 0; i < retours.Count; i++)
+            int difference = ettendue - retours.Count;
+            if (difference > 0)
             {
-                retours[i] = "";
+                for (int i = 0; i < retours.Count; i++)
+                {
+                    retours[i] = "";
+                }
+                for (int i = 0; i < difference; i++)
+                {
+                    retours.Add("");
+                }
             }
-            for (int i = 0; i < difference; i++)
+            else if (difference <= 0)
             {
-                retours.Add("");
-            }
-        }
-        else if (difference <= 0)
-        {
-            for (int i = 0; i < retours.Count; i++)
-            {
-                retours[i] = "";
+                for (int i = 0; i < retours.Count; i++)
+                {
+                    retours[i] = "";
+                }
             }
         }
     }

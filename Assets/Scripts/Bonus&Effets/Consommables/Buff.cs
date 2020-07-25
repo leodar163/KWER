@@ -17,10 +17,15 @@ public class Buff : ScriptableObject
     [HideInInspector] public bool tpsDunEvent;
     [HideInInspector] public bool tpsDuneTechno;
     [HideInInspector] public int nombreTour;
+    /// <summary>
+    /// A n'utiliser que dans l'éditeur de buff
+    /// </summary>
     [HideInInspector] public List<string> listeEffetsRetours;
 
-
-    [HideInInspector]
+    /// <summary>
+    /// Text qui fait la liste des effets du buff
+    /// A assigné au texte de l'infobulle
+    /// </summary>
     public string Retours
     {
         get

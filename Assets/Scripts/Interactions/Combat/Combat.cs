@@ -176,7 +176,7 @@ public class Combat : Interaction
 
         for (int i = 0; i < mortsHostile; i++)
         {
-            if (Random.Range(0, 100) <= guerrier.degatsMoraux - hostile.resistanceMorale) ennemiFuit = true;
+            if (Random.Range(0, 100) <= guerrier.degatMoralTotal - hostile.resistanceMorale) ennemiFuit = true;
         }
 
         guerrier.nbrGuerrier = guerrier.nbrGuerrier > mortsGuerrier ? guerrier.nbrGuerrier - mortsGuerrier : 0;

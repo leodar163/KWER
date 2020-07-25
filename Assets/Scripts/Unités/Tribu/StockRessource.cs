@@ -32,7 +32,7 @@ public class StockRessource : MonoBehaviour
         }
         get
         {
-            return capaciteDeStockage;
+            return capaciteDeStockage * tribu.bonus.bonusMultStockage;
         }
     }
     public Production RessourcesEnStock
@@ -77,9 +77,9 @@ public class StockRessource : MonoBehaviour
         Production capacite = ScriptableObject.CreateInstance<Production>();
         if (capaciteDeStockage)
         {
-            capacite.gains = (float[])capaciteDeStockage.gains.Clone();
+            capacite.gains = (float[])CapaciteDeStockage.gains.Clone();
         }
-        capaciteDeStockage = capacite;
+        CapaciteDeStockage = capacite;
 
         Production stock = ScriptableObject.CreateInstance<Production>();
         if (ressourcesEnStock)
@@ -133,9 +133,9 @@ public class StockRessource : MonoBehaviour
     {
         for (int i = 0; i < projectionGain.gains.Length; i++)
         {
-            if(projectionGain.gains[i] > (capaciteDeStockage.gains[i] - ressourcesEnStock.gains[i]))
+            if(projectionGain.gains[i] > (CapaciteDeStockage.gains[i] - ressourcesEnStock.gains[i]))
             {
-                projectionGain.gains[i] = (capaciteDeStockage.gains[i] - ressourcesEnStock.gains[i]);
+                projectionGain.gains[i] = (CapaciteDeStockage.gains[i] - ressourcesEnStock.gains[i]);
             }
         }
     }
@@ -144,9 +144,9 @@ public class StockRessource : MonoBehaviour
     {
         for (int i = 0; i < ressourcesEnStock.gains.Length; i++)
         {
-            if(ressourcesEnStock.gains[i] > capaciteDeStockage.gains[i])
+            if(ressourcesEnStock.gains[i] > CapaciteDeStockage.gains[i])
             {
-                ressourcesEnStock.gains[i] = capaciteDeStockage.gains[i];
+                ressourcesEnStock.gains[i] = CapaciteDeStockage.gains[i];
             }
             if (ressourcesEnStock.gains[i] < 0) ressourcesEnStock.gains[i] = 0;
         }

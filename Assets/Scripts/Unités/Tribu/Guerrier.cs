@@ -13,7 +13,7 @@ public class Guerrier : MonoBehaviour
 
     [Tooltip("Pourcentage de chance que l'ennemi s'enfuit quand un des siens est tué. \nL'ennemi a une résistance morale qui soustrait cette valeur.")]
     [Range(0, 100)]
-    public int degatsMoraux = 20;
+    public int degatMoral = 20;
 
     public bool jetonAttaque = true;
 
@@ -21,7 +21,7 @@ public class Guerrier : MonoBehaviour
     {
         get
         {
-            return attaque + tribu.bonus.attaqueBonus;
+            return attaque + tribu.bonus.bonusAttaque;
         }
     }
 
@@ -29,7 +29,15 @@ public class Guerrier : MonoBehaviour
     {
         get
         {
-            return defense + tribu.bonus.defenseBonus;
+            return defense + tribu.bonus.bonusDefense;
+        }
+    }
+
+    public int degatMoralTotal
+    {
+        get
+        {
+            return degatMoral + tribu.bonus.bonusDegatMoral;
         }
     }
 

@@ -15,7 +15,18 @@ public class Demographie : MonoBehaviour
     [SerializeField] private Button boutonSuppression;
 
     [Header("Couts et gains")]
-    [SerializeField] private Production CoutPop;
+    [SerializeField] private Production coutPop;
+    private Production CoutPop
+    {
+        get
+        {
+            return coutPop * tribu.bonus.bonusMultCoutPop;
+        }
+        set
+        {
+            coutPop = value;
+        }
+    }
     [SerializeField] private Production GainSacrificePop;
 
     public List<Pop> listePopsCampement = new List<Pop>();

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PanelRecette : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PanelRecette : MonoBehaviour
     public GameObject listeGainRessource;
     public GameObject listeCoutRessource;
     [SerializeField] private GameObject affichageRessource;
+    [SerializeField] private GameObject affichageConsommable;
     private List<GainCraft> listeAffichageCout = new List<GainCraft>();
     private List<GainCraft> listeAffichageGain = new List<GainCraft>();
 
@@ -32,6 +34,7 @@ public class PanelRecette : MonoBehaviour
         TourParTour.Defaut.eventNouveauTour.AddListener(MiseAJourProduction);
         slotCraft.SetActive(false);
         affichageRessource.SetActive(false);
+        affichageConsommable.SetActive(false);
     }
 
     // Update is called once per frame
@@ -83,9 +86,9 @@ public class PanelRecette : MonoBehaviour
     private void GenererAffichageRecette()
     {
         //Création de l'affichage du coût
-        for (int i = 0; i < recette.cout.gains.Length; i++)
+        for (int i = 0; i < recette.inputParPop.gains.Length; i++)
         {
-            if(recette.cout.gains[i] > 0)
+            if(recette.inputParPop.gains[i] > 0)
             {
                 GameObject nvlAffichage = Instantiate(affichageRessource, listeCoutRessource.transform);
                 GainCraft nvGain = nvlAffichage.GetComponent<GainCraft>();
@@ -97,32 +100,54 @@ public class PanelRecette : MonoBehaviour
             }
         }
         //Création de l'affichage du gain
-        for (int i = 0; i < recette.production.gains.Length; i++)
+        if(recette.typeOutput == Recette.TypeOutput.Ressources)
         {
-            if (recette.production.gains[i] > 0)
+            for (int i = 0; i < recette.production.gains.Length; i++)
             {
-                GameObject nvlAffichage = Instantiate(affichageRessource, listeGainRessource.transform);
-                GainCraft nvGain = nvlAffichage.GetComponent<GainCraft>();
+                if (recette.production.gains[i] > 0)
+                {
+                    GameObject nvlAffichage = Instantiate(affichageRessource, listeGainRessource.transform);
+                    GainCraft nvGain = nvlAffichage.GetComponent<GainCraft>();
 
-                nvGain.Ressource = ListeRessources.Defaut.listeDesRessources[i];
+                    nvGain.Ressource = ListeRessources.Defaut.listeDesRessources[i];
 
-                nvlAffichage.SetActive(true);
-                listeAffichageGain.Add(nvGain);
+                    nvlAffichage.SetActive(true);
+                    listeAffichageGain.Add(nvGain);
+                }
             }
+        }
+        else if (recette.typeOutput == Recette.TypeOutput.Consommable)
+        {
+            GameObject nvlAffichage = Instantiate(affichageConsommable, listeGainRessource.transform);
+            nvlAffichage.SetActive(true);
+
+            nvlAffichage.GetComponentInChildren<TextMeshProUGUI>().text = "0 tour";
+            nvlAffichage.GetComponentInChildren<Image>().sprite = recette.consommable.icone;
+            nvlAffichage.GetComponentInChildren<InfoBulle>().texteInfoBulle = recette.consommable.TexteInfoBulle;
         }
     }
 
-    private void MAJAffichageRecette(Production gain)
+    private void MAJAffichageRecette()
     {
         //affiche les gains
         foreach(GainCraft affichage in listeAffichageGain)
         {
-            affichage.montant = gain.gains[ListeRessources.Defaut.TrouverIndexRessource(affichage.Ressource)];
+            if (recette.typeOutput == Recette.TypeOutput.Ressources) 
+                affichage.montant = GainRessource.gains[ListeRessources.Defaut.TrouverIndexRessource(affichage.Ressource)];
+            else if (recette.typeOutput == Recette.TypeOutput.Consommable)
+            {
+                new NotImplementedException("Affichage consommables pas implémenté");
+            }
         }
         //affiche les couts
         foreach(GainCraft affichage in listeAffichageCout)
         {
-            affichage.montant = Mathf.Abs(gain.gains[ListeRessources.Defaut.TrouverIndexRessource(affichage.Ressource)]);
+            if (recette.typeOutput == Recette.TypeOutput.Ressources) 
+                affichage.montant = Mathf.Abs(GainRessource.gains[ListeRessources.Defaut.TrouverIndexRessource(affichage.Ressource)]);
+            else if (recette.typeOutput == Recette.TypeOutput.Consommable)
+            {
+                new NotImplementedException("Affichage consommables pas implémenté");
+            }
         }
     }
 
@@ -166,8 +191,8 @@ public class PanelRecette : MonoBehaviour
 
     public void AfficherGainRessource()
     {
-        craft.campement.tribu.stockRessources.AjouterGain(GainRessource);
-        MAJAffichageRecette(GainRessource);
+        if (recette.typeOutput == Recette.TypeOutput.Ressources) craft.campement.tribu.stockRessources.AjouterGain(GainRessource);
+        MAJAffichageRecette();
     }
 
     private Production GainRessource
@@ -193,7 +218,7 @@ public class PanelRecette : MonoBehaviour
                if(recette)
                 {
                     gainRessource.gains[i] += recette.production.gains[i] * slotsOccupes;
-                    gainRessource.gains[i] -= recette.cout.gains[i] * slotsOccupes;
+                    gainRessource.gains[i] -= recette.inputParPop.gains[i] * slotsOccupes;
                 }
             }
 

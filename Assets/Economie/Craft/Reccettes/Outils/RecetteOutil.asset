@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373db5e09aaf8b142abd92ef60f30af5, type: 3}
+  m_Name: RecetteOutil
+  m_EditorClassIdentifier: 
+  nom: Outils
+  slots: 2
+  production: {fileID: 11400000, guid: 744a2d120440e0a498a165f230b2db62, type: 2}
+  consommable: {fileID: 0}
+  inputParPop: {fileID: 11400000, guid: 1cbc8f78814765646a366531c1a62da2, type: 2}
+  cout: {fileID: 11400000, guid: 1cbc8f78814765646a366531c1a62da2, type: 2}
+  typeOutput: 0

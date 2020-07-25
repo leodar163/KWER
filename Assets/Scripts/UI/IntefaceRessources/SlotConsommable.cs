@@ -1,12 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SlotConsommable : MonoBehaviour
 {
+    [SerializeField] private GameObject iconeConsommable;
+
     private Consommable consommable;
 
-    public Consommable Consommable
+    /// <summary>
+    /// Assigne la variable consommable et initialise le slot
+    /// </summary>
+    public Consommable ConsommableAssigne
     {
         get
         {
@@ -14,7 +21,15 @@ public class SlotConsommable : MonoBehaviour
         }
         set
         {
-            consommable = value;
+            if(value == null)
+            {
+                DesactiverConsommable();
+            }
+            else
+            {
+                consommable = value;
+                ActiverConsommable();
+            }
         }
     }
 
@@ -29,4 +44,29 @@ public class SlotConsommable : MonoBehaviour
     {
         
     }
+
+    private void ActiverConsommable()
+    {
+        iconeConsommable.SetActive(true);
+
+        iconeConsommable.GetComponent<Image>().sprite = consommable.icone;
+        iconeConsommable.GetComponent<InfoBulle>().texteInfoBulle = consommable.TexteInfoBulle;
+
+        Button boutonConso = iconeConsommable.GetComponent<Button>();
+        boutonConso.onClick.RemoveAllListeners();
+        if (consommable.type == Consommable.typeConsommable.amenagement)
+        {
+            boutonConso.onClick.AddListener(consommable.amenagement.ActiverAmenagement);
+        }
+        else if(consommable.type == Consommable.typeConsommable.buff)
+        {
+            boutonConso.onClick.AddListener(consommable.buff.activerBuff);
+        }
+    }
+
+    private void DesactiverConsommable()
+    {
+        iconeConsommable.SetActive(false);
+    }
+
 }

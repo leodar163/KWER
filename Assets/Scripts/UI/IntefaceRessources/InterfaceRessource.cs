@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -36,6 +37,7 @@ public class InterfaceRessource : MonoBehaviour
     {
         cela = this;
         PanelInfoRessource.SetActive(false);
+        slotBase.SetActive(false);
         GenererPanelsInfo();
 
         StartCoroutine(MAJInterfaceRessource());
@@ -77,14 +79,15 @@ public class InterfaceRessource : MonoBehaviour
     {
         GenererConsommable(Tribu.TribukiJoue.stockRessources.emplacementConsommable - listeSlotsConsommable.Count);
 
+        //assignation des consommable aux slots
         for (int i = 0; i < listeSlotsConsommable.Count; i++)
         {
             if (Tribu.TribukiJoue.stockRessources.consommables.Count > i) 
-                listeSlotsConsommable[i].Consommable = Tribu.TribukiJoue.stockRessources.consommables[i];
+                listeSlotsConsommable[i].ConsommableAssigne = Tribu.TribukiJoue.stockRessources.consommables[i];
 
             else
             {
-                listeSlotsConsommable[i].Consommable = null;
+                listeSlotsConsommable[i].ConsommableAssigne = null;
             }
             
         }
@@ -99,6 +102,7 @@ public class InterfaceRessource : MonoBehaviour
             {
                 GameObject nvSlot = Instantiate(slotBase, panelConsommables.transform);
                 listeSlotsConsommable.Add(nvSlot.GetComponent<SlotConsommable>());
+                nvSlot.SetActive(true);
             }
         }
         else if (nombre < 0)

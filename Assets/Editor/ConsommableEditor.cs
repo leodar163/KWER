@@ -29,6 +29,11 @@ public class ConsommableEditor : Editor
         {
             Sauvegarder();
         }
+
+        if(consommable.buff)
+        {
+            consommable.texteRetour = consommable.buff.Retours;
+        }
     }
 
     private void Sauvegarder()

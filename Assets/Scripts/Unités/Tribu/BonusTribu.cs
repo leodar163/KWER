@@ -7,6 +7,13 @@ public class BonusTribu : MonoBehaviour
     public Tribu tribu;
     
     [Header("Combat")]
-    public int attaqueBonus;
-    public int defenseBonus;
+    public int bonusAttaque;
+    public int bonusDefense;
+    public int bonusDegatMoral;
+
+    [Header("Population")]
+    public float bonusMultCoutPop;
+
+    [Header("Stockage")]
+    public float bonusMultStockage;
 }

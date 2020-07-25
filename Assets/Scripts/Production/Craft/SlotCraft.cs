@@ -33,9 +33,9 @@ public class SlotCraft : Slot
         {
             if (estOccupe)
             {
-                for (int i = 0; i < panelRecette.Recette.cout.gains.Length; i++)
+                for (int i = 0; i < panelRecette.Recette.inputParPop.gains.Length; i++)
                 {
-                    if (panelRecette.Recette.cout.gains[i] > 0)
+                    if (panelRecette.Recette.inputParPop.gains[i] > 0)
                     {
                         if (stocks.ProjectionGain.gains[i] < 0 && stocks.RessourcesEnStock.gains[i] < 0)
                         {
@@ -50,9 +50,9 @@ public class SlotCraft : Slot
             }
             else
             {
-                for (int i = 0; i < panelRecette.Recette.cout.gains.Length; i++)
+                for (int i = 0; i < panelRecette.Recette.inputParPop.gains.Length; i++)
                 {
-                    if (panelRecette.Recette.cout.gains[i] > 0)
+                    if (panelRecette.Recette.inputParPop.gains[i] > 0)
                     {
                         if (stocks.ProjectionGain.gains[i] <= 0 && stocks.RessourcesEnStock.gains[i] <= 0)
                         {

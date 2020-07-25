@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 020c8d0632e029e4792f74c41cb5c98a, type: 3}
+  m_Name: PeinturesGuerrieres
+  m_EditorClassIdentifier: 
+  amenagement: {fileID: 0}
+  buff: {fileID: 11400000, guid: 9cb7c66af052cc5468ffa61cd0c1e5ab, type: 2}
+  texteInfoBulle: "Peintures Guerri\xE8res"
+  texteRetour: "<color=#83C755FF>++<color=\"white\"> d\xE9gat moral pendant 4 tours"
+  icone: {fileID: 21300000, guid: cc12d21a1d75bb84fba59d2541b4e965, type: 3}
+  type: 1
