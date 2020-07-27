@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11909677792bacb4a9b85c07f960002c, type: 3}
+  m_Name: SaisonFertile
+  m_EditorClassIdentifier: 
+  effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
+  titre: SAISON FERTILE
+  description: "Les esprits sont de votre c\xF4t\xE9 en cette belle saison, la nourriture
+    y est abondante."
+  illustration: {fileID: 21300000, guid: d0a4571d4c78126499ba1dff6daa402e, type: 3}
+  listeChoix:
+  - description: "Vous r\xE9cuperez bien plus de nourriture en cette saison."
+    infobulle: "Rendement am\xE9lior\xE9 en nourriture."
+    retoursEffets:
+    - 
+    - 
+    effets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_MethodName: FermerFenetreEvenement
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  finBalise: <fin>
+  probaEte: 50
+  probaHiver: 0
+  infobulle: SAISON FERTILE
