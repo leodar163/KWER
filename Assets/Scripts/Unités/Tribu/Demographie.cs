@@ -218,10 +218,10 @@ public class Demographie : MonoBehaviour
 
     private void MAJBoutonAjout()
     {
-        InfoBulle infoblleBouton = boutonAjout.GetComponent<InfoBulle>();
-        infoblleBouton.texteInfoBulle = "Augmenter Population";
+        InfoBulle infobulleBouton = boutonAjout.GetComponent<InfoBulle>();
+        infobulleBouton.texteInfoBulle = "Augmenter Population";
         bool manqueRessource = false;
-
+        
         if (modePopInfinie) boutonAjout.interactable = true;
         else
         {
@@ -230,13 +230,14 @@ public class Demographie : MonoBehaviour
                 //écrit le coût dans l'infobulle
                 if (CoutPop.gains[i] > 0)
                 {
-                    infoblleBouton.texteInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">-"
+                    infobulleBouton.texteInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">-"
                         + CoutPop.gains[i] + "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
+
 
                     if (tribu.stockRessources.RessourcesEnStock.gains[i] < CoutPop.gains[i])
                     {
                         manqueRessource = true;
-                        infoblleBouton.texteInfoBulle += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> (insuffisant)";
+                        infobulleBouton.texteInfoBulle += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> (insuffisant)";
                     }
                 }
             }

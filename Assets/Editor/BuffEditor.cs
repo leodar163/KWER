@@ -210,9 +210,13 @@ public class BuffEditor : Editor
 
             if (buff.compteurTour)
             {
-                char pluriel = '\0';
-                if (buff.nombreTour > 0) pluriel = 's';
-                retour += " pendant " + buff.nombreTour + " tour" + pluriel;
+                if (!buff.name.Contains("SpawnTroupeau"))
+                {
+                    char pluriel = '\0';
+                    if (buff.nombreTour > 0) pluriel = 's';
+                    retour += " pendant " + buff.nombreTour + " tour" + pluriel;
+                }
+                else retour = "";
             }
             else if (buff.tpsDuneTechno)
             {
