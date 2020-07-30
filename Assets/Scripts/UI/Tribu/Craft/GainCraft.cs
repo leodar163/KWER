@@ -9,6 +9,7 @@ public class GainCraft : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI tMP;
     [SerializeField] private Image image;
+    [SerializeField] private InfoBulle infoBulle;
 
     private Ressource ressource;
 
@@ -34,6 +35,7 @@ public class GainCraft : MonoBehaviour
         {
             ressource = value;
             image.sprite = ListeIcones.Defaut.TrouverIconeRessource(ressource);
+            infoBulle.texteInfoBulle = ressource.texteInfobulle;
         }
     }
 

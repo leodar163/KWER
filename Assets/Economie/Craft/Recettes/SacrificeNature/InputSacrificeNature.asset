@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InputSacrificeNature
   m_EditorClassIdentifier: 
   gains:
-  - 2
+  - 3
   - 0
   - 0
   - 0

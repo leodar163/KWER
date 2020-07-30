@@ -142,6 +142,8 @@ public abstract class Slot : MonoBehaviour
 
         textInfoBulleInit = true;
         infobulle.texteInfoBulle = message;
+
+        if (estOccupe) CliquerSurSlot();
     }
 
     public void AutoriserSlot()

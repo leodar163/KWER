@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b829fb4a1c6f84bacf975af4159396, type: 3}
   m_Name: Pigment
   m_EditorClassIdentifier: 
-  name: 
-  icone: {fileID: 0}
+  icone: {fileID: 21300000, guid: 497429d5b61dd67468e117b4768fd7ec, type: 3}
+  texteInfobulle: "Pigment\nPour le moment \xE7a sert \xE0 rien..."

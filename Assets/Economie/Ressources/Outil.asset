@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b829fb4a1c6f84bacf975af4159396, type: 3}
   m_Name: Outil
   m_EditorClassIdentifier: 
-  name: 
-  icone: {fileID: 0}
+  icone: {fileID: 21300000, guid: db0ef61be32769e4691f09a458e1569b, type: 3}
+  texteInfobulle: "Outil\nSert \xE0 am\xE9liorer l'exploitation des tuiles et \xE0
+    les am\xE9nager\nNe se trouve pas \xE0 l'\xE9tat brut, doit \xEAtre fabriqu\xE9
+    dans le campement"

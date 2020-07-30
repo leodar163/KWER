@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,9 @@ public class PanelRecette : MonoBehaviour
 {
     public Craft craft;
 
+    //Consommable
+    private TextMeshProUGUI tempsConsommable;
+    private Production investissementConsommable;
 
     private Production gainRessource;
 
@@ -52,6 +57,7 @@ public class PanelRecette : MonoBehaviour
             nomRecette.text = recette.nom;
             GenererSlots();
             GenererAffichageRecette();
+
             Invoke("AfficherGainRessource",0.3f);
         }
         get
@@ -63,7 +69,41 @@ public class PanelRecette : MonoBehaviour
     private void MiseAJourProduction()
     {
         MiseAJourSlots();
+        if (recette.typeOutput == Recette.TypeOutput.Consommable)
+        {
+            MiseAJourConsommable();
+        }
         craft.campement.tribu.stockRessources.AjouterGain(GainRessource);
+
+    }
+
+    private void MiseAJourConsommable()
+    {
+        for (int i = 0; i < gainRessource.gains.Length; i++)
+        {
+            if(gainRessource.gains[i] < 0)
+            {
+                investissementConsommable.gains[i] -= gainRessource.gains[i];
+            }
+        }
+        for (int i = 0; i < recette.cout.gains.Length; i++)
+        {
+            if(recette.cout.gains[i] > investissementConsommable.gains[i])
+            {
+                return;
+            }
+        }
+        if(craft.campement.tribu.stockRessources.consommables.Count < craft.campement.tribu.stockRessources.emplacementConsommable)
+        {
+            for (int i = 0; i < recette.cout.gains.Length; i++)
+            {
+                if(recette.cout.gains[i] > 0)
+                {
+                    investissementConsommable.gains[i] -= recette.cout.gains[i];
+                }
+            }
+            craft.campement.tribu.stockRessources.consommables.Add(recette.consommable);
+        }
     }
 
     private void OnEnable()
@@ -121,32 +161,44 @@ public class PanelRecette : MonoBehaviour
             GameObject nvlAffichage = Instantiate(affichageConsommable, listeGainRessource.transform);
             nvlAffichage.SetActive(true);
 
-            nvlAffichage.GetComponentInChildren<TextMeshProUGUI>().text = "0 tour";
+            tempsConsommable = nvlAffichage.GetComponentInChildren<TextMeshProUGUI>();
+            tempsConsommable.text = "0 tour";
             nvlAffichage.GetComponentInChildren<Image>().sprite = recette.consommable.icone;
             nvlAffichage.GetComponentInChildren<InfoBulle>().texteInfoBulle = recette.consommable.TexteInfoBulle;
+
+            investissementConsommable = ScriptableObject.CreateInstance<Production>();
+            investissementConsommable.gains = new float[ListeRessources.Defaut.listeDesRessources.Length];
         }
     }
 
     private void MAJAffichageRecette()
     {
-        //affiche les gains
-        foreach(GainCraft affichage in listeAffichageGain)
-        {
-            if (recette.typeOutput == Recette.TypeOutput.Ressources) 
-                affichage.montant = GainRessource.gains[ListeRessources.Defaut.TrouverIndexRessource(affichage.Ressource)];
-            else if (recette.typeOutput == Recette.TypeOutput.Consommable)
-            {
-                new NotImplementedException("Affichage consommables pas implémenté");
-            }
-        }
         //affiche les couts
-        foreach(GainCraft affichage in listeAffichageCout)
+        foreach (GainCraft affichage in listeAffichageCout)
         {
-            if (recette.typeOutput == Recette.TypeOutput.Ressources) 
-                affichage.montant = Mathf.Abs(GainRessource.gains[ListeRessources.Defaut.TrouverIndexRessource(affichage.Ressource)]);
-            else if (recette.typeOutput == Recette.TypeOutput.Consommable)
+            affichage.montant = Mathf.Abs(GainRessource.gains[ListeRessources.Defaut.TrouverIndexRessource(affichage.Ressource)]);
+        }
+        //affiche les gains
+        if (recette.typeOutput == Recette.TypeOutput.Ressources)
+            foreach (GainCraft affichage in listeAffichageGain)
             {
-                new NotImplementedException("Affichage consommables pas implémenté");
+           
+                affichage.montant = GainRessource.gains[ListeRessources.Defaut.TrouverIndexRessource(affichage.Ressource)]; 
+            }
+        else if (recette.typeOutput == Recette.TypeOutput.Consommable)
+        {
+            for (int i = 0; i < recette.cout.gains.Length; i++)
+            {
+                if(recette.cout.gains[i] > 0)
+                {
+                    char pluriel = '\0';
+                    float temps = math.round((recette.cout.gains[i] - investissementConsommable.gains[i]) / math.abs(GainRessource.gains[i]));
+
+                    if (temps > 1) pluriel = 's';
+
+                    if (temps == float.PositiveInfinity) tempsConsommable.text = "";
+                    else tempsConsommable.text = temps + " Tour" + pluriel;
+                }
             }
         }
     }
@@ -217,7 +269,9 @@ public class PanelRecette : MonoBehaviour
             {
                if(recette)
                 {
-                    gainRessource.gains[i] += recette.production.gains[i] * slotsOccupes;
+                    if (recette.typeOutput == Recette.TypeOutput.Ressources) 
+                        gainRessource.gains[i] += recette.production.gains[i] * slotsOccupes;
+
                     gainRessource.gains[i] -= recette.inputParPop.gains[i] * slotsOccupes;
                 }
             }

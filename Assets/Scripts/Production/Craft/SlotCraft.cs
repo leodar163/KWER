@@ -13,9 +13,9 @@ public class SlotCraft : Slot
     void Start()
     {
         
-        InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJSlots);
+        InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJSlot);
         demo = panelRecette.craft.campement.tribu.demographie;
-        MAJSlots();
+        MAJSlot();
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class SlotCraft : Slot
     }
 
     //Active ou désactive le slot en fonction de s'il y a suffisament de ressource en stock
-    private void MAJSlots()
+    private void MAJSlot()
     {
         StockRessource stocks = panelRecette.craft.campement.tribu.stockRessources;
 
@@ -37,11 +37,10 @@ public class SlotCraft : Slot
                 {
                     if (panelRecette.Recette.inputParPop.gains[i] > 0)
                     {
-                        if (stocks.ProjectionGain.gains[i] < 0 && stocks.RessourcesEnStock.gains[i] < 0)
+                        if ((stocks.ProjectionGain.gains[i] < 0 && stocks.RessourcesEnStock.gains[i] <= 0) || stocks.consommables.Count >= stocks.emplacementConsommable)
                         {
-                            CliquerSurSlot();
-                            InterdireSlot("Pas assez de ressource");
-                            MAJSlots();
+                            InterdireSlot("<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface)
+                                        + ">Pas assez de ressource<color=\"white\">");
                             return;
                         }
                     }
@@ -54,7 +53,7 @@ public class SlotCraft : Slot
                 {
                     if (panelRecette.Recette.inputParPop.gains[i] > 0)
                     {
-                        if (stocks.ProjectionGain.gains[i] <= 0 && stocks.RessourcesEnStock.gains[i] <= 0)
+                        if ((stocks.ProjectionGain.gains[i] <= 0 && stocks.RessourcesEnStock.gains[i] <= 0) || stocks.consommables.Count >= stocks.emplacementConsommable)
                         {
                             InterdireSlot("<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface)
                                         + ">Pas assez de ressource<color=\"white\">");

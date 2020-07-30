@@ -9,6 +9,7 @@ public class PanelInfoRessource : MonoBehaviour
     [SerializeField] private TextMeshProUGUI stockCapacite;
     [SerializeField] private TextMeshProUGUI gain;
     [SerializeField] private Image icone;
+    [SerializeField] private  InfoBulle infobulle;
     private Ressource ressource;
     private float stock;
     private float capacite;
@@ -59,6 +60,7 @@ public class PanelInfoRessource : MonoBehaviour
         {
             ressource = value;
             icone.sprite = ListeIcones.Defaut.TrouverIconeRessource(ressource.nom);
+            infobulle.texteInfoBulle = ressource.texteInfobulle;
         }
         get
         {

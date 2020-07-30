@@ -14,5 +14,7 @@ public class Ressource : ScriptableObject
         }
     }
     
-    [HideInInspector]public Sprite icone;   
+    [HideInInspector]public Sprite icone;
+    [TextArea]
+    public string texteInfobulle;
 }
