@@ -19,7 +19,7 @@ public class CameraControle : MonoBehaviour
 
     float vitesse = 10f;
     Vector3 vecteurMove;
-    Camera cam;
+    public Camera cam;
 
     public float maxZoom = 10f;
     public float minZoom = 4f;
@@ -41,7 +41,6 @@ public class CameraControle : MonoBehaviour
         camControleActuel = this;
 
         controleSouris = FindObjectOfType<ControleSouris>();
-        cam = GetComponent<Camera>();
         vecteurMove = transform.position;
     }
 
