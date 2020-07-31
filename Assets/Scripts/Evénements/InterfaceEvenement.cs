@@ -34,13 +34,15 @@ public class InterfaceEvenement : MonoBehaviour
     [SerializeField] private Sprite illuPillard = null;
     [SerializeField] private Sprite illuPredateur = null;
     [SerializeField] private Sprite illuMegaFaune = null;
-    [HideInInspector] public UnityEvent eventFinEvenement;
 
+    [HideInInspector] public UnityEvent eventFinEvenement;
+    [HideInInspector] public bool evenementEnCours = false;
     // Start is called before the first frame update
     void Start()
     {
         cela = this;
         FermerFenetreEvenement();
+        eventFinEvenement.AddListener(() => evenementEnCours = false);
     }
 
     // Update is called once per frame
@@ -159,7 +161,8 @@ public class InterfaceEvenement : MonoBehaviour
         if (!fenetreCombat.gameObject.activeSelf && !fenetreCombat.gameObject.activeSelf)
         {
             eventFinEvenement.Invoke();
-            if(Interaction.EnCours && (Interaction.EnCours is Combat || Interaction.EnCours is Anomalie)) Interaction.EnCours.EntrerEnInteraction(false);
+            ControleSouris.Actuel.controlesActives = true;
+            if (Interaction.EnCours && (Interaction.EnCours is Combat || Interaction.EnCours is Anomalie)) Interaction.EnCours.EntrerEnInteraction(false);
             print("Evenement terminé");
         }
     }
@@ -177,6 +180,8 @@ public class InterfaceEvenement : MonoBehaviour
             fenetreEvenement.gameObject.SetActive(true);
         }
         fondNoir.SetActive(true);
+        evenementEnCours = true;
+        ControleSouris.Actuel.controlesActives = false;
         StartCoroutine(MAJCanvas());
     }
         

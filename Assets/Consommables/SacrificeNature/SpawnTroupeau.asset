@@ -16,9 +16,8 @@ MonoBehaviour:
   effets:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8827664118766306942, guid: 6115afa423c1d3f478d5b6cf58bd13dd,
-          type: 3}
-        m_MethodName: SpawnTroupeau
+      - m_Target: {fileID: 11400000, guid: d8920bee015b8f848a874ebc85db9a0a, type: 2}
+        m_MethodName: LancerEvenement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

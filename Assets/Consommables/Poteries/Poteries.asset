@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amenagement: {fileID: 0}
   buff: {fileID: 11400000, guid: 5d453cf8548b29349af86cc4183bb70b, type: 2}
-  texteInfoBulle: Poteries
+  texteInfoBulle: "Poteries\nAugmente la capacit\xE9 de sotockage de la tribu"
   texteRetour: ' pendant 10 tours'
   icone: {fileID: 21300000, guid: 79deb0e9e26fcd747ad41e505b75587a, type: 3}
   type: 1

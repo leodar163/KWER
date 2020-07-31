@@ -935,7 +935,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 319.09, y: 75}
+  m_SizeDelta: {x: 319.09, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5166828204750094951
 MonoBehaviour:
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 75, y: 75}
+  m_CellSize: {x: 60, y: 60}
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -1236,6 +1236,9 @@ MonoBehaviour:
   recettesDisponibles:
   - {fileID: 11400000, guid: dc00dc88441068a4c844887124e3a71b, type: 2}
   - {fileID: 11400000, guid: 3dc7d9eecc0b5b345918ec4dc00a9619, type: 2}
+  - {fileID: 11400000, guid: 7765b4d99259d5b439031be830757635, type: 2}
+  - {fileID: 11400000, guid: 420a5a6af2266bb49a9e3c142f0cf7ba, type: 2}
+  - {fileID: 11400000, guid: 4ad37b5e3e2e5c942bc5aaa785a3a46b, type: 2}
   panelRecette: {fileID: 8725605192702390918}
 --- !u!114 &504376140154349458
 MonoBehaviour:
@@ -1310,7 +1313,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 5
   m_Viewport: {fileID: 5570296004259920222}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 7642786901929326535}
@@ -1391,7 +1394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000076293945, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6706298234142213140
@@ -3267,7 +3270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 5b9fcaf9e49b3c9478f5ebc9cd5861ab, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3275,8 +3278,8 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_UseSpriteMesh: 1
+  m_PixelsPerUnitMultiplier: 10
 --- !u!1 &6336295538604856877
 GameObject:
   m_ObjectHideFlags: 0
@@ -4542,8 +4545,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -39, y: -1.2999878}
-  m_SizeDelta: {x: 20, y: 698.4}
+  m_AnchoredPosition: {x: -35.1, y: -1.2999878}
+  m_SizeDelta: {x: 27.8, y: 698.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1209758442398506152
 CanvasRenderer:
@@ -4571,7 +4574,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 2640b819354b51d4484a73ae35ed0696, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

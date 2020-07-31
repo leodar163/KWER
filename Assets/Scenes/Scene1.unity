@@ -3861,6 +3861,7 @@ MonoBehaviour:
   eventFinEvenement:
     m_PersistentCalls:
       m_Calls: []
+  evenementEnCours: 0
 --- !u!1 &116521315
 GameObject:
   m_ObjectHideFlags: 0
@@ -74254,6 +74255,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 504376140154349458, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_VerticalFit
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 629436417191757451, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}
       propertyPath: m_IsActive
@@ -74688,7 +74694,12 @@ PrefabInstance:
     - target: {fileID: 5114057259405774015, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00064086914
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114057259405774015, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5339738660845713487, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}

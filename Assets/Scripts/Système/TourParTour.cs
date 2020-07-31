@@ -61,7 +61,7 @@ public class TourParTour : MonoBehaviour
 
         for (int i = 0; i < tribus.Length; i++)
         {
-            tribus[i].interactionTribu.EntrerEnInteraction(true);
+            if(!InterfaceEvenement.Defaut.evenementEnCours)tribus[i].interactionTribu.EntrerEnInteraction(true);
 
             for (int j = 0; j < tribus.Length; j++)
             {

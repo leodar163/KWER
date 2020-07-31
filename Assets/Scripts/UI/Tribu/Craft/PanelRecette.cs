@@ -68,13 +68,15 @@ public class PanelRecette : MonoBehaviour
 
     private void MiseAJourProduction()
     {
-        MiseAJourSlots();
-        if (recette.typeOutput == Recette.TypeOutput.Consommable)
+        if(gameObject.activeSelf)
         {
-            MiseAJourConsommable();
+            MiseAJourSlots();
+            if (recette.typeOutput == Recette.TypeOutput.Consommable)
+            {
+                MiseAJourConsommable();
+            }
+            craft.campement.tribu.stockRessources.AjouterGain(GainRessource);
         }
-        craft.campement.tribu.stockRessources.AjouterGain(GainRessource);
-
     }
 
     private void MiseAJourConsommable()
@@ -243,7 +245,7 @@ public class PanelRecette : MonoBehaviour
 
     public void AfficherGainRessource()
     {
-        if (recette.typeOutput == Recette.TypeOutput.Ressources) craft.campement.tribu.stockRessources.AjouterGain(GainRessource);
+        craft.campement.tribu.stockRessources.AjouterGain(GainRessource);
         MAJAffichageRecette();
     }
 
@@ -269,9 +271,10 @@ public class PanelRecette : MonoBehaviour
             {
                if(recette)
                 {
-                    if (recette.typeOutput == Recette.TypeOutput.Ressources) 
+                    if (recette.typeOutput == Recette.TypeOutput.Ressources)
+                    {
                         gainRessource.gains[i] += recette.production.gains[i] * slotsOccupes;
-
+                    }
                     gainRessource.gains[i] -= recette.inputParPop.gains[i] * slotsOccupes;
                 }
             }

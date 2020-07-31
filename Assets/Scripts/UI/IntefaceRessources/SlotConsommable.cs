@@ -62,6 +62,13 @@ public class SlotConsommable : MonoBehaviour
         {
             boutonConso.onClick.AddListener(consommable.buff.activerBuff);
         }
+
+        boutonConso.onClick.AddListener(ConsommerConsommable);
+    }
+
+    private void ConsommerConsommable()
+    {
+        Tribu.TribukiJoue.stockRessources.consommables.Remove(consommable);
     }
 
     private void DesactiverConsommable()

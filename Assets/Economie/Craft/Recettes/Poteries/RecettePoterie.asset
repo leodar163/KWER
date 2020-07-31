@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373db5e09aaf8b142abd92ef60f30af5, type: 3}
+  m_Name: RecettePoterie
+  m_EditorClassIdentifier: 
+  nom: Poteries
+  slots: 4
+  typeOutput: 1
+  consommable: {fileID: 11400000, guid: 90c9d4b25d1bb1a489a67ce8bf95ec91, type: 2}
+  production: {fileID: 0}
+  inputParPop: {fileID: 11400000, guid: 6a2edfa64d352284daf5ef936a54a09f, type: 2}
+  cout: {fileID: 11400000, guid: 0e03ee3288a35094d9c1750d389e54a1, type: 2}

@@ -31,13 +31,17 @@ public class SlotCraft : Slot
 
         if(panelRecette.Recette)
         {
+            if(panelRecette.Recette.consommable && stocks.consommables.Count >= stocks.emplacementConsommable)
+                InterdireSlot("<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface)
+                                        + ">Pas d'emplacement de consommable disponible<color=\"white\">");
             if (estOccupe)
             {
                 for (int i = 0; i < panelRecette.Recette.inputParPop.gains.Length; i++)
                 {
                     if (panelRecette.Recette.inputParPop.gains[i] > 0)
                     {
-                        if ((stocks.ProjectionGain.gains[i] < 0 && stocks.RessourcesEnStock.gains[i] <= 0) || stocks.consommables.Count >= stocks.emplacementConsommable)
+                        if (stocks.ProjectionGain.gains[i] < 0 
+                            && stocks.RessourcesEnStock.gains[i] < panelRecette.Recette.inputParPop.gains[i])
                         {
                             InterdireSlot("<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface)
                                         + ">Pas assez de ressource<color=\"white\">");
@@ -53,7 +57,8 @@ public class SlotCraft : Slot
                 {
                     if (panelRecette.Recette.inputParPop.gains[i] > 0)
                     {
-                        if ((stocks.ProjectionGain.gains[i] <= 0 && stocks.RessourcesEnStock.gains[i] <= 0) || stocks.consommables.Count >= stocks.emplacementConsommable)
+                        if (stocks.ProjectionGain.gains[i] < panelRecette.Recette.inputParPop.gains[i] 
+                            && stocks.RessourcesEnStock.gains[i] < panelRecette.Recette.inputParPop.gains[i]) 
                         {
                             InterdireSlot("<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface)
                                         + ">Pas assez de ressource<color=\"white\">");

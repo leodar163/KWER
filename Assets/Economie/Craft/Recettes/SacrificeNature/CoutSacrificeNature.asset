@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CoutSacrificeNature
   m_EditorClassIdentifier: 
   gains:
-  - 15
+  - 10
   - 0
   - 0
   - 0

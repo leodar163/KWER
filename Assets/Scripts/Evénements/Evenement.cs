@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using TMPro;
 
 [CreateAssetMenu(fileName = "NvlEvenement", menuName = "Evénements/Evément")]
 public class Evenement : ScriptableObject
@@ -54,6 +55,7 @@ public class Evenement : ScriptableObject
         {
             InterfaceEvenement.Defaut.OuvrirFenetreEvenement(this);
         }
+        Tribu.TribukiJoue.interactionTribu.EntrerEnInteraction(false);
     }
 
     public string InfoBulleComplete(int index)
