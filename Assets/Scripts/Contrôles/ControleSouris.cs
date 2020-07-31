@@ -29,7 +29,7 @@ public class ControleSouris : MonoBehaviour
 
     [HideInInspector] public Vector3 pointAccrocheSouris;
 
-    public bool controlesActives = true;
+    public bool controleEstActif = true;
     private bool modeInteraction = false;
     private Interaction interactionEnCours;
 
@@ -71,7 +71,7 @@ public class ControleSouris : MonoBehaviour
     public void ActiverModeInteraction(Interaction interaction, bool activer)
     {
         modeInteraction = activer;
-        controlesActives = !activer;
+        controleEstActif = !activer;
         Interaction[] toutesInteractions = FindObjectsOfType<Interaction>();
 
         for (int i = 0; i < toutesInteractions.Length; i++)
@@ -102,7 +102,7 @@ public class ControleSouris : MonoBehaviour
 
     private void QuandClique()
     {
-        if (controlesActives)
+        if (controleEstActif)
         {
             //Gestion du clique gauche
             if (Input.GetMouseButtonUp(0))
@@ -170,7 +170,7 @@ public class ControleSouris : MonoBehaviour
             //Colore le chemin et le met à jour toutes les frames, si la tuile qu'on survole est à portee
             if (tuileSurvolee.aPortee)
             {
-                if (!Tribu.TribukiJoue.estEntreCampement && controlesActives)
+                if (!Tribu.TribukiJoue.estEntreCampement && controleEstActif)
                 {
                     Tribu.TribukiJoue.pathFinder.ColorerChemin(Tribu.TribukiJoue.pathFinder.
                         TrouverChemin(Tribu.TribukiJoue.tuileActuelle, tuileSurvolee), tuileSurvolee.couleurTuileSurChemin);

@@ -7,7 +7,7 @@ public class Revendication : MonoBehaviour
 {
 
     public MonoBehaviour parent;
-    private List<RevendicationTuile> tuilesRevendiquees = new List<RevendicationTuile>();
+    public List<RevendicationTuile> tuilesRevendiquees = new List<RevendicationTuile>();
 
     // Start is called before the first frame update
     void Start()

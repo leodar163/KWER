@@ -51,7 +51,7 @@ public class TourParTour : MonoBehaviour
         if (nbrTour != 0) 
         {
             eventNouveauTour.Invoke();
-            ControleSouris.Actuel.controlesActives = true;
+            ControleSouris.Actuel.controleEstActif = true;
             BoutonTourSuivant.Actuel.Activer(true);
             foreach(Tribu tribu in tribus)
             {
@@ -75,7 +75,7 @@ public class TourParTour : MonoBehaviour
         }
 
         BoutonTourSuivant.Actuel.Activer(false);
-        ControleSouris.Actuel.controlesActives = false;
+        ControleSouris.Actuel.controleEstActif = false;
         nbrTour++;
 
         print("Joueurs ont fini leur tour");

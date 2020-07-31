@@ -6,8 +6,10 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "NvlAmenagement", menuName = "Bonus & Effets/Amenagement")]
 public class Amenagement : ScriptableObject
 {
-    public void ActiverAmenagement()
-    {
+    public List<TuileTerrain> terrainsAmenageables = new List<TuileTerrain>();
 
+    public void AmenagerTuile(TuileManager tuile)
+    {
+        
     }
 }

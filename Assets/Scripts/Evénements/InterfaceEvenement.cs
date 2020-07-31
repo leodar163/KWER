@@ -161,7 +161,7 @@ public class InterfaceEvenement : MonoBehaviour
         if (!fenetreCombat.gameObject.activeSelf && !fenetreCombat.gameObject.activeSelf)
         {
             eventFinEvenement.Invoke();
-            ControleSouris.Actuel.controlesActives = true;
+            ControleSouris.Actuel.controleEstActif = true;
             if (Interaction.EnCours && (Interaction.EnCours is Combat || Interaction.EnCours is Anomalie)) Interaction.EnCours.EntrerEnInteraction(false);
             print("Evenement terminé");
         }
@@ -181,7 +181,7 @@ public class InterfaceEvenement : MonoBehaviour
         }
         fondNoir.SetActive(true);
         evenementEnCours = true;
-        ControleSouris.Actuel.controlesActives = false;
+        ControleSouris.Actuel.controleEstActif = false;
         StartCoroutine(MAJCanvas());
     }
         
