@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373db5e09aaf8b142abd92ef60f30af5, type: 3}
+  m_Name: RecetteKwer
+  m_EditorClassIdentifier: 
+  nom: Palier du Menhir Kwer
+  slots: 4
+  typeOutput: 1
+  consommable: {fileID: 11400000, guid: afb249f7c0d52b945a4ddcd38261375b, type: 2}
+  production: {fileID: 0}
+  inputParPop: {fileID: 11400000, guid: 0b5ad523e5f6f2f4e833d24f6fb6ef21, type: 2}
+  cout: {fileID: 11400000, guid: 0bb37925747a1a0498572af59b7749eb, type: 2}

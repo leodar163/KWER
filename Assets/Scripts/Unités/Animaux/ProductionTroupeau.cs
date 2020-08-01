@@ -34,7 +34,7 @@ public class ProductionTroupeau : MonoBehaviour
             {
                 troupeau.tuileActuelle.productionTuile.Production.gains[i] += gainProduction.gains[i];
             }
-            troupeau.tuileActuelle.productionTuile.nbrSlot += nbrSlot;
+            troupeau.tuileActuelle.productionTuile.NbrSlot += nbrSlot;
         }
     }
 
@@ -42,6 +42,6 @@ public class ProductionTroupeau : MonoBehaviour
     {
         troupeau.tuileActuelle.productionTuile.ReinitProd();
         troupeau.tuileActuelle.productionTuile.ReinitBonusOutil();
-        troupeau.tuileActuelle.productionTuile.nbrSlot -= nbrSlot;
+        troupeau.tuileActuelle.productionTuile.NbrSlot -= nbrSlot;
     }
 }

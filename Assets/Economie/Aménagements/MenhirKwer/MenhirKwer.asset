@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af46da582167904499a324952845adf, type: 3}
+  m_Name: MenhirKwer
+  m_EditorClassIdentifier: 
+  terrainsAmenageables:
+  - {fileID: 0}
+  - {fileID: 0}
+  Slots: 0
+  palier: 3
+  spritesEte:
+  - {fileID: 21300000, guid: e50ac044dd70fb0498dd7b41a6e4b324, type: 3}
+  - {fileID: 21300000, guid: 16ea3c54ad086b348a187714b92002de, type: 3}
+  - {fileID: 21300000, guid: cb65154847116a642a38282b66b4d974, type: 3}
+  spritesHiver:
+  - {fileID: 21300000, guid: 12eb4bd50f19eb842bf5a361cd19b7a0, type: 3}
+  - {fileID: 21300000, guid: 676b30a603162c841bcc7f5f053d623f, type: 3}
+  - {fileID: 21300000, guid: 14d2b0fabbb5aa04f9e6a013a744b1e6, type: 3}
+  gainAmenagementEte: {fileID: 11400000, guid: 183851b0540d31a498da4e0fdbd0ab79, type: 2}
+  gainAmenagementHiver: {fileID: 11400000, guid: 183851b0540d31a498da4e0fdbd0ab79,
+    type: 2}
+  texteInfobulle: "Palier du Projet Kwer\nTerminer cet am\xE9nagement pour fonder
+    une civilisation et terminer le jeu"

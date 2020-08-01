@@ -827,6 +827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1618904120558817127}
+  tuilesRevendiquees: []
 --- !u!114 &51998110753543547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,6 +1240,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7765b4d99259d5b439031be830757635, type: 2}
   - {fileID: 11400000, guid: 420a5a6af2266bb49a9e3c142f0cf7ba, type: 2}
   - {fileID: 11400000, guid: 4ad37b5e3e2e5c942bc5aaa785a3a46b, type: 2}
+  - {fileID: 11400000, guid: ba3ba331c395e944bbd4a057ad42d15a, type: 2}
+  - {fileID: 11400000, guid: cebc4192a8aebd0428a13e1e372cd4f5, type: 2}
+  - {fileID: 11400000, guid: 9cf14e1907081ff4e8ce57d8d59b9158, type: 2}
   panelRecette: {fileID: 8725605192702390918}
 --- !u!114 &504376140154349458
 MonoBehaviour:
@@ -1313,7 +1317,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 5
+  m_ScrollSensitivity: 30
   m_Viewport: {fileID: 5570296004259920222}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 7642786901929326535}

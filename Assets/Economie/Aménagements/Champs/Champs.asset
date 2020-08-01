@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af46da582167904499a324952845adf, type: 3}
+  m_Name: Champs
+  m_EditorClassIdentifier: 
+  terrainsAmenageables:
+  - {fileID: 0}
+  Slots: 3
+  palier: 1
+  spritesEte:
+  - {fileID: 21300000, guid: ee903fd6400e5654498ed9ccbca389d7, type: 3}
+  spritesHiver:
+  - {fileID: 21300000, guid: 82d5bfc874724de47ae4c363f07a2043, type: 3}
+  gainAmenagementEte: {fileID: 11400000, guid: d7d8ede74b9d3a44383c44d64950ab18, type: 2}
+  gainAmenagementHiver: {fileID: 11400000, guid: 528d1e34c3e3a1d42ba5c8e570e6d2a5,
+    type: 2}
+  texteInfobulle: 'Champs
+
+    Amenage une tuile de plaine pour produir de la nourriture'

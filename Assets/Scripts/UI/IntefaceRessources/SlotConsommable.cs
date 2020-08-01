@@ -37,7 +37,7 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
             else
             {
                 consommable = value;
-                ActiverConsommable();
+                ActiverSlotConsommable();
             }
         }
     }
@@ -75,15 +75,17 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
                     TuileManager tuile = checkTuile.GetComponent<TuileManager>();
                     if (tuilesAmenageables.Contains(tuile))
                     {
-                        ConsommerConsommable();
                         consommable.amenagement.AmenagerTuile(tuile);
+                        ConsommerConsommable();
+                        return;
                     }
                 }
+                ReinitConso();
             }
         }
     }
 
-    private void ActiverConsommable()
+    private void ActiverSlotConsommable()
     {
         iconeConsommable.SetActive(true);
 
@@ -116,7 +118,9 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
         for (int i = 0; i < Tribu.TribukiJoue.revendication.tuilesRevendiquees.Count; i++)
         {
             if (!consommable.amenagement.terrainsAmenageables.Contains(Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile.terrainTuile)
-                && Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile == Tribu.TribukiJoue.tuileActuelle)
+                && Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile == Tribu.TribukiJoue.tuileActuelle
+                && (Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile.tuileAmenagement.Amenagement == this 
+                    && !Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile.tuileAmenagement.amenagementEstActif))
             {
                 tuilesAmenageables.Add(Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile);
             }
@@ -133,11 +137,15 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
         }
     }
 
+    private void ReinitConso()
+    {
+        iconeConsommable.GetComponent<RectTransform>().position = GetComponent<RectTransform>().position;
+        dragNDrop = false;
+    }
     private void ConsommerConsommable()
     {
         Tribu.TribukiJoue.stockRessources.consommables.Remove(consommable);
-        iconeConsommable.GetComponent<RectTransform>().position = GetComponent<RectTransform>().position;
-        dragNDrop = false;
+        ReinitConso();
     }
 
     private void DesactiverConsommable()

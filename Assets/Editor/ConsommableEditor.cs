@@ -34,6 +34,10 @@ public class ConsommableEditor : Editor
         {
             consommable.texteRetour = consommable.buff.Retours;
         }
+        else if(consommable.amenagement)
+        {
+            consommable.texteRetour = consommable.amenagement.texteInfobulle;
+        }
     }
 
     private void Sauvegarder()

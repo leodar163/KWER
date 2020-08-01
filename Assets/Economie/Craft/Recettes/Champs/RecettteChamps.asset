@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373db5e09aaf8b142abd92ef60f30af5, type: 3}
+  m_Name: RecettteChamps
+  m_EditorClassIdentifier: 
+  nom: Champs
+  slots: 3
+  typeOutput: 1
+  consommable: {fileID: 11400000, guid: a3bf2942948904946a34d4679ddd960a, type: 2}
+  production: {fileID: 0}
+  inputParPop: {fileID: 11400000, guid: feb6a02810357ca42b5ef36b51dee987, type: 2}
+  cout: {fileID: 11400000, guid: 5ba1e3882bd8db041a7f04b062264f22, type: 2}

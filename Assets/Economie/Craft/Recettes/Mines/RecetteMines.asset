@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373db5e09aaf8b142abd92ef60f30af5, type: 3}
+  m_Name: RecetteMines
+  m_EditorClassIdentifier: 
+  nom: Mines
+  slots: 2
+  typeOutput: 1
+  consommable: {fileID: 11400000, guid: 828d7b78a5356b74981b3c2b1a2d8716, type: 2}
+  production: {fileID: 0}
+  inputParPop: {fileID: 11400000, guid: 4fd3e68b3ecea0a49af0bc00f020b0cd, type: 2}
+  cout: {fileID: 11400000, guid: d9539f9a34bc439418656ed7f247fa03, type: 2}

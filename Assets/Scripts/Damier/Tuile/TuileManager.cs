@@ -9,6 +9,7 @@ public class TuileManager : MonoBehaviour
 
     [Header("Production")]
     public ProductionTuile productionTuile;
+    public AmenagementTuile tuileAmenagement;
 
     [Header("Graphe")]
     public int nombreConnections;
@@ -96,6 +97,8 @@ public class TuileManager : MonoBehaviour
             spriteBase.sprite = spritesBase[indexBase];
             spriteGarniture.sprite = terrainTuile.garnitures[indexGarniture];
         }
+
+        tuileAmenagement.RevetirSpriteSaison();
     }
 
 

@@ -15,7 +15,7 @@ public class ProductionTuile : MonoBehaviour
         get
         {
             if (production == null) InstancierProduction();
-            return production;
+            return production + tuile.tuileAmenagement.gainAmenagement;
         }
         set
         {
@@ -34,8 +34,19 @@ public class ProductionTuile : MonoBehaviour
             production = value;
         }
     }
-    
-    public int nbrSlot;
+
+    private int nbrSlot;
+    public int NbrSlot
+    {
+        get
+        {
+            return nbrSlot + tuile.tuileAmenagement.slotsAmenagement;
+        }
+        set
+        {
+            nbrSlot = value;
+        }
+    }
 
     private void Awake()
     {
@@ -62,7 +73,7 @@ public class ProductionTuile : MonoBehaviour
         production = ScriptableObject.CreateInstance<Production>();
         production.gains = (float[])tuile.terrainTuile.production.gains.Clone();
 
-        nbrSlot = tuile.terrainTuile.nbrSlot;
+        NbrSlot = tuile.terrainTuile.nbrSlot;
     }
 
     public void ReinitBonusOutil()

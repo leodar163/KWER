@@ -118,4 +118,18 @@ public class Production : ScriptableObject
             gains[i] = 0;
         }
     }
+
+    public void Initialiser()
+    {
+        gains = new float[ListeRessources.Defaut.listeDesRessources.Length];
+    }
+
+    public Production Cloner()
+    {
+        Production clone = CreateInstance<Production>();
+
+        clone.gains = (float[])gains.Clone();
+
+        return clone;
+    }
 }
