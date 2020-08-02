@@ -10,28 +10,23 @@ public class ProductionTuile : MonoBehaviour
     private Production production;
     private Production bonusOutil;
 
-    [HideInInspector] public Production Production
+    /// <summary>
+    /// Ne pas assigner de valeur à aucune des propriétés de cet assesseur
+    /// </summary>
+    [HideInInspector] public Production ProductionTotale
     {
         get
         {
             if (production == null) InstancierProduction();
             return production + tuile.tuileAmenagement.gainAmenagement;
         }
-        set
-        {
-            production = value;
-        }
     }
     [HideInInspector] public Production BonusOutil
     {
         get
         {
-            if (production == null) InstancierProduction();
-            return production;
-        }
-        set
-        {
-            production = value;
+            if (bonusOutil == null) InstancierProduction();
+            return bonusOutil;
         }
     }
 
@@ -41,10 +36,6 @@ public class ProductionTuile : MonoBehaviour
         get
         {
             return nbrSlot + tuile.tuileAmenagement.slotsAmenagement;
-        }
-        set
-        {
-            nbrSlot = value;
         }
     }
 
@@ -64,6 +55,12 @@ public class ProductionTuile : MonoBehaviour
 
     }
     
+
+    public void AjouterSlots(int nombre)
+    {
+        nbrSlot += nombre;
+    }
+
     //Fait office d'initialisateur
     private void InstancierProduction()
     {
@@ -73,7 +70,7 @@ public class ProductionTuile : MonoBehaviour
         production = ScriptableObject.CreateInstance<Production>();
         production.gains = (float[])tuile.terrainTuile.production.gains.Clone();
 
-        NbrSlot = tuile.terrainTuile.nbrSlot;
+        nbrSlot = tuile.terrainTuile.nbrSlot;
     }
 
     public void ReinitBonusOutil()
@@ -84,6 +81,22 @@ public class ProductionTuile : MonoBehaviour
 
     public void ReinitProd()
     {
-        Production.gains = (float[])tuile.terrainTuile.production.gains.Clone();
+        ProductionTotale.gains = (float[])tuile.terrainTuile.production.gains.Clone();
+    }
+
+    public void AjouterProduction(Production prod)
+    {
+        for (int i = 0; i < production.gains.Length; i++)
+        {
+            production.gains[i] += prod.gains[i];
+        }
+    }
+
+    public void AjouterBonusOutil(Production prod)
+    {
+        for (int i = 0; i < bonusOutil.gains.Length; i++)
+        {
+            bonusOutil.gains[i] += prod.gains[i];
+        }
     }
 }

@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amenagement: {fileID: 11400000, guid: 5b7faf208fdefe2429bf5c37f708bd1d, type: 2}
   buff: {fileID: 0}
-  texteInfoBulle: 
-  texteRetour: 'Champs
-
-    Amenage une tuile de plaine pour produir de la nourriture'
+  texteInfoBulle: Champs
+  texteRetour: "Am\xE9nage des champs sur une tuile de plaine"
   icone: {fileID: 21300000, guid: fc1cbe0af548765458102c1d4ca0a360, type: 3}
   type: 0

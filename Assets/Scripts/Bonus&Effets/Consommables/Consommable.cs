@@ -16,6 +16,8 @@ public class Consommable : ScriptableObject
     {
         get
         {
+            string retour = texteInfoBulle;
+            retour += texteInfoBulle.Length > 0 ? '\n' + texteRetour : texteRetour;
             return texteInfoBulle + '\n' +texteRetour;
         }
     }

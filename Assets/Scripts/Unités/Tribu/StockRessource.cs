@@ -21,7 +21,7 @@ public class StockRessource : MonoBehaviour
     [Space]
     [Header("Consommables")]
     public int emplacementConsommable = 2;
-    [HideInInspector] public List<Consommable> consommables = new List<Consommable>();
+    public List<Consommable> consommables = new List<Consommable>();
 
     public Production CapaciteDeStockage
     {

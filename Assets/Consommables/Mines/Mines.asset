@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amenagement: {fileID: 11400000, guid: e98cc97def1ee21469151c9732f96293, type: 2}
   buff: {fileID: 0}
-  texteInfoBulle: 
-  texteRetour: 'Mines
-
-    Augmente le gain en pierre des montagnes'
+  texteInfoBulle: Mines
+  texteRetour: "Am\xE9nage des mines sur une tuile de montagne"
   icone: {fileID: 21300000, guid: ced36479889d20544b4d843fc7f8664b, type: 3}
   type: 0

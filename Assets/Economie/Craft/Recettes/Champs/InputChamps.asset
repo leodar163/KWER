@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: InputChamps
   m_EditorClassIdentifier: 
   gains:
-  - 1
+  - 0.25
   - 0
   - 0
   - 0
-  - 4
+  - 2

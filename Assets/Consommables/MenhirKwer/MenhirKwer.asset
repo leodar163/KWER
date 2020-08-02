@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amenagement: {fileID: 11400000, guid: ca734564e2cd9eb41b085ec74a88011e, type: 2}
   buff: {fileID: 0}
-  texteInfoBulle: 
-  texteRetour: "Palier du Projet Kwer\nTerminer cet am\xE9nagement pour fonder une
-    civilisation et terminer le jeu"
+  texteInfoBulle: "Palier du m\xE9nhir Kwer"
+  texteRetour: "Une fois les trois paliers valid\xE9s, permet de fonder une civilisation
+    et de gagner la partie"
   icone: {fileID: 21300000, guid: d8fe4d0c17df02948b7444cb50aa850b, type: 3}
   type: 0

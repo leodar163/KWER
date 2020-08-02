@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MenhirKwer
   m_EditorClassIdentifier: 
   terrainsAmenageables:
-  - {fileID: 0}
-  - {fileID: 0}
+  - Plaine
+  - Foret
   Slots: 0
   palier: 3
   spritesEte:
@@ -28,5 +28,5 @@ MonoBehaviour:
   gainAmenagementEte: {fileID: 11400000, guid: 183851b0540d31a498da4e0fdbd0ab79, type: 2}
   gainAmenagementHiver: {fileID: 11400000, guid: 183851b0540d31a498da4e0fdbd0ab79,
     type: 2}
-  texteInfobulle: "Palier du Projet Kwer\nTerminer cet am\xE9nagement pour fonder
-    une civilisation et terminer le jeu"
+  Effets: "Une fois les trois paliers valid\xE9s, permet de fonder une civilisation
+    et de gagner la partie"

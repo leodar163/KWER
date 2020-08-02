@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mines
   m_EditorClassIdentifier: 
   terrainsAmenageables:
-  - {fileID: 0}
+  - Montagne
   Slots: 2
   palier: 1
   spritesEte:
@@ -23,6 +23,4 @@ MonoBehaviour:
   gainAmenagementEte: {fileID: 11400000, guid: eb1db0aba29670b449fba70481dcbea7, type: 2}
   gainAmenagementHiver: {fileID: 11400000, guid: eb1db0aba29670b449fba70481dcbea7,
     type: 2}
-  texteInfobulle: 'Mines
-
-    Augmente le gain en pierre des montagnes'
+  Effets: "Am\xE9nage des mines sur une tuile de montagne"

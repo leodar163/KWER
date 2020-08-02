@@ -10,10 +10,13 @@ using UnityEngine.UI;
 public class SlotConsommable : MonoBehaviour, IPointerEnterHandler 
 {
     [SerializeField] private GameObject iconeConsommable;
+    [SerializeField] private InfoBulle infobulle;
+    private string texteInfoBulleDefaut;
     private RectTransform rectTConso;
-    private InfoBulle infoBulleConso;
     private Image imageConso;
     private Button boutonConso;
+
+    private bool controlesActifs = false;
 
     private Consommable consommable;
 
@@ -44,13 +47,18 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
 
     private bool dragNDrop = false;
 
+    private void Awake()
+    {
+        texteInfoBulleDefaut = infobulle.texteInfoBulle;
+        rectTConso = iconeConsommable.GetComponent<RectTransform>();
+        imageConso = iconeConsommable.GetComponent<Image>();
+        boutonConso = iconeConsommable.GetComponent<Button>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        rectTConso = iconeConsommable.GetComponent<RectTransform>();
-        infoBulleConso = iconeConsommable.GetComponent<InfoBulle>();
-        imageConso = iconeConsommable.GetComponent<Image>();
-        boutonConso = iconeConsommable.GetComponent<Button>();
+        
     }
 
     // Update is called once per frame
@@ -63,12 +71,12 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
                 tuile.ColorerTuile(tuile.couleurTuileSurChemin);
             }
             rectTConso.position = Input.mousePosition;
-            if(Input.GetMouseButtonUp(0))
+            if(Input.GetMouseButtonUp(0) && controlesActifs)
             {
                 ControleSouris.Actuel.controleEstActif = true;
                 LayerMask maskTuile = LayerMask.GetMask("Tuile");
 
-                Collider2D checkTuile = Physics2D.OverlapBox(Input.mousePosition, new Vector2(0.01f, 0.01f), 0, maskTuile);
+                Collider2D checkTuile = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0, maskTuile);
 
                 if(checkTuile)
                 {
@@ -82,6 +90,7 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
                 }
                 ReinitConso();
             }
+            if(dragNDrop)controlesActifs = true;
         }
     }
 
@@ -90,7 +99,7 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
         iconeConsommable.SetActive(true);
 
         imageConso.sprite = consommable.icone;
-        infoBulleConso.texteInfoBulle = consommable.TexteInfoBulle;
+        infobulle.texteInfoBulle = consommable.TexteInfoBulle;
 
         boutonConso.onClick.RemoveAllListeners();
         if (consommable.type == Consommable.typeConsommable.amenagement)
@@ -107,7 +116,7 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TrouverTuilesAmenageables();
+        if(consommable && consommable.amenagement)TrouverTuilesAmenageables();
     }
 
     private void TrouverTuilesAmenageables()
@@ -117,33 +126,48 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
         tuilesAmenageables.Clear();
         for (int i = 0; i < Tribu.TribukiJoue.revendication.tuilesRevendiquees.Count; i++)
         {
-            if (!consommable.amenagement.terrainsAmenageables.Contains(Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile.terrainTuile)
-                && Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile == Tribu.TribukiJoue.tuileActuelle
-                && (Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile.tuileAmenagement.Amenagement == this 
-                    && !Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile.tuileAmenagement.amenagementEstActif))
+            TuileManager tuile = Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile;
+
+            if (consommable.amenagement.terrainsAmenageables.Contains(tuile.terrainTuile.nom))
             {
-                tuilesAmenageables.Add(Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile);
+                if (tuile != Tribu.TribukiJoue.tuileActuelle)
+                {
+                    
+                    if ((tuile.tuileAmenagement.Amenagement == consommable.amenagement && !tuile.tuileAmenagement.amenagementEstActif)
+                        || tuile.tuileAmenagement.Amenagement == null)
+                    {
+
+                        tuilesAmenageables.Add(Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile);
+                    }
+                }
+                
             }
         }
 
         if (tuilesAmenageables.Count > 0)
         {
-            if (infoBulleConso.texteInfoBulle.Contains(messageAlerte))
-                infoBulleConso.texteInfoBulle = infoBulleConso.texteInfoBulle.Remove(infoBulleConso.texteInfoBulle.IndexOf(messageAlerte), messageAlerte.Length);
+            if (infobulle.texteInfoBulle.Contains(messageAlerte))
+                infobulle.texteInfoBulle = infobulle.texteInfoBulle.Remove(infobulle.texteInfoBulle.IndexOf(messageAlerte), messageAlerte.Length);
         }
         else
         {
-            if (!infoBulleConso.texteInfoBulle.Contains(messageAlerte)) iconeConsommable.GetComponent<InfoBulle>().texteInfoBulle += messageAlerte;
+            if (!infobulle.texteInfoBulle.Contains(messageAlerte)) iconeConsommable.GetComponent<InfoBulle>().texteInfoBulle += messageAlerte;
         }
     }
 
     private void ReinitConso()
     {
-        iconeConsommable.GetComponent<RectTransform>().position = GetComponent<RectTransform>().position;
+        foreach (TuileManager tuile in tuilesAmenageables)
+        {
+            tuile.ColorerTuile(Color.white);
+        }
+        rectTConso.position = GetComponent<RectTransform>().position;
         dragNDrop = false;
+        controlesActifs = false;
     }
     private void ConsommerConsommable()
     {
+        
         Tribu.TribukiJoue.stockRessources.consommables.Remove(consommable);
         ReinitConso();
     }
@@ -151,6 +175,7 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
     private void DesactiverConsommable()
     {
         iconeConsommable.SetActive(false);
+        infobulle.texteInfoBulle = texteInfoBulleDefaut;
     }
 
 

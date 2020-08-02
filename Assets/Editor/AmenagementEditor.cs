@@ -50,11 +50,13 @@ public class AmenagementEditor : Editor
         }
         GUILayout.Space(15);
 
+
+        base.OnInspectorGUI();
         DessinerSelecteurTerrainsAmenagables();
 
         GUILayout.Space(25);
-        GUILayout.Label("Texte Infobulle");
-        amenagement.texteInfobulle = EditorGUILayout.TextArea(amenagement.texteInfobulle);
+        GUILayout.Label("Effets");
+        amenagement.Effets = EditorGUILayout.TextArea(amenagement.Effets);
 
         GUILayout.Space(30);
         if (GUILayout.Button("SAUVEGARDER"))
@@ -66,28 +68,30 @@ public class AmenagementEditor : Editor
 
     private void DessinerSelecteurTerrainsAmenagables()
     {
-        GUILayout.Label("Terrains Amenageables");
+
         GUILayout.Space(10);
         Color defaut = GUI.backgroundColor;
         for (int i = 0; i < ListeTerrains.TousTerrains.Length; i++)
         {
             GUILayout.BeginHorizontal();
+
             GUILayout.Label(ListeTerrains.TousTerrains[i].nom);
 
-            if(!amenagement.terrainsAmenageables.Contains(ListeTerrains.TousTerrains[i]))
+            if(!amenagement.terrainsAmenageables.Contains(ListeTerrains.TousTerrains[i].nom))
                 GUI.backgroundColor = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
-            if (amenagement.terrainsAmenageables.Contains(ListeTerrains.TousTerrains[i]))
+            else
                 GUI.backgroundColor = ListeCouleurs.Defaut.couleurTexteBonus;
+
             GUILayoutOption[] options = new GUILayoutOption[2] { GUILayout.Width(40), GUILayout.Height(40) };
             if(GUILayout.Button("", options))
             {
-                if(amenagement.terrainsAmenageables.Contains(ListeTerrains.TousTerrains[i]))
+                if(amenagement.terrainsAmenageables.Contains(ListeTerrains.TousTerrains[i].nom))
                 {
-                    amenagement.terrainsAmenageables.Remove(ListeTerrains.TousTerrains[i]);
+                    amenagement.terrainsAmenageables.Remove(ListeTerrains.TousTerrains[i].nom);
                 }
                 else
                 {
-                    amenagement.terrainsAmenageables.Add(ListeTerrains.TousTerrains[i]);
+                    amenagement.terrainsAmenageables.Add(ListeTerrains.TousTerrains[i].nom);
                 }
             }
             GUILayout.Space(5);

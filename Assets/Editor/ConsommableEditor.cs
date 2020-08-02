@@ -36,7 +36,7 @@ public class ConsommableEditor : Editor
         }
         else if(consommable.amenagement)
         {
-            consommable.texteRetour = consommable.amenagement.texteInfobulle;
+            consommable.texteRetour = consommable.amenagement.Effets;
         }
     }
 

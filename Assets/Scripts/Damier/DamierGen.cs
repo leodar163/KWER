@@ -103,6 +103,8 @@ public class DamierGen : MonoBehaviour
             tuile.Init();
         }
 
+        damier = RecupDamier();
+
         RenommerTuilesDamier();
 
         damierFleuve.GenererDamierFleuve(mappe);
@@ -163,6 +165,8 @@ public class DamierGen : MonoBehaviour
         {
             tuile.Init();
         }
+
+        damier = RecupDamier();
 
         RenommerTuilesDamier();
 

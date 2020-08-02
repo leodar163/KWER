@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Android;
 using UnityEngine;
 
 public class ProductionTroupeau : MonoBehaviour
@@ -26,15 +27,9 @@ public class ProductionTroupeau : MonoBehaviour
     {
         if(troupeau.domesticable)
         {
-            for (int i = 0; i < troupeau.tuileActuelle.productionTuile.BonusOutil.gains.Length; i++)
-            {
-                troupeau.tuileActuelle.productionTuile.BonusOutil.gains[i] += bonusOutil.gains[i];
-            }
-            for (int i = 0; i < troupeau.tuileActuelle.productionTuile.Production.gains.Length; i++)
-            {
-                troupeau.tuileActuelle.productionTuile.Production.gains[i] += gainProduction.gains[i];
-            }
-            troupeau.tuileActuelle.productionTuile.NbrSlot += nbrSlot;
+            troupeau.tuileActuelle.productionTuile.AjouterBonusOutil(bonusOutil);
+            troupeau.tuileActuelle.productionTuile.AjouterProduction(gainProduction);
+            troupeau.tuileActuelle.productionTuile.AjouterSlots(nbrSlot);
         }
     }
 
@@ -42,6 +37,6 @@ public class ProductionTroupeau : MonoBehaviour
     {
         troupeau.tuileActuelle.productionTuile.ReinitProd();
         troupeau.tuileActuelle.productionTuile.ReinitBonusOutil();
-        troupeau.tuileActuelle.productionTuile.NbrSlot -= nbrSlot;
+        troupeau.tuileActuelle.productionTuile.AjouterSlots(-nbrSlot);
     }
 }

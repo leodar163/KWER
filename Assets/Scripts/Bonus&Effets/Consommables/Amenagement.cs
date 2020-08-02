@@ -1,24 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "NvlAmenagement", menuName = "Economie/Amenagement")]
 public class Amenagement : ScriptableObject
 {
-    public List<TuileTerrain> terrainsAmenageables = new List<TuileTerrain>();
+    public static UnityEvent eventAmenagement = new UnityEvent();
 
-    public int Slots;
+    [HideInInspector]public List<string> terrainsAmenageables = new List<string>();
 
-    public int palier;
+    [HideInInspector]public int Slots;
 
-    public List<Sprite> spritesEte = new List<Sprite>();
-    public List<Sprite> spritesHiver = new List<Sprite>();
+    [HideInInspector] public int palier;
 
-    public Production gainAmenagementEte;
-    public Production gainAmenagementHiver;
+    [HideInInspector] public List<Sprite> spritesEte = new List<Sprite>();
+    [HideInInspector] public List<Sprite> spritesHiver = new List<Sprite>();
 
-    public string texteInfobulle;
+    [HideInInspector] public Production gainAmenagementEte;
+    [HideInInspector] public Production gainAmenagementHiver;
+
+    [HideInInspector] public string Effets;
 
     public void AmenagerTuile(TuileManager tuile)
     {
@@ -35,7 +36,7 @@ public class Amenagement : ScriptableObject
         clone.spritesEte = new List<Sprite>(spritesEte);
         clone.spritesHiver = new List<Sprite>(spritesHiver);
         clone.gainAmenagementEte = gainAmenagementEte;
-        clone.texteInfobulle = texteInfobulle;
+        clone.Effets = Effets;
 
         return clone;
     }

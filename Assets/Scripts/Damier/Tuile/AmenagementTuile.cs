@@ -33,7 +33,7 @@ public class AmenagementTuile : MonoBehaviour
         {
             if (amenagementEstActif)
             {
-                if (Calendrier.Actuel.Hiver) return amenagement.gainAmenagementHiver;
+                if (Calendrier.Actuel && Calendrier.Actuel.Hiver) return amenagement.gainAmenagementHiver;
                 else return amenagement.gainAmenagementEte;
             }
             else
@@ -57,6 +57,8 @@ public class AmenagementTuile : MonoBehaviour
         {
             ValiderPalier();
         }
+
+        Amenagement.eventAmenagement.Invoke();
     }
 
     private void ValiderPalier()

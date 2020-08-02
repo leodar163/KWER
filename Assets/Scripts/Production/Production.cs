@@ -121,7 +121,7 @@ public class Production : ScriptableObject
 
     public void Initialiser()
     {
-        gains = new float[ListeRessources.Defaut.listeDesRessources.Length];
+        if(ListeRessources.Defaut)gains = new float[ListeRessources.Defaut.listeDesRessources.Length];
     }
 
     public Production Cloner()

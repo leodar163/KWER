@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Champs
   m_EditorClassIdentifier: 
   terrainsAmenageables:
-  - {fileID: 0}
+  - Plaine
   Slots: 3
   palier: 1
   spritesEte:
@@ -23,6 +23,4 @@ MonoBehaviour:
   gainAmenagementEte: {fileID: 11400000, guid: d7d8ede74b9d3a44383c44d64950ab18, type: 2}
   gainAmenagementHiver: {fileID: 11400000, guid: 528d1e34c3e3a1d42ba5c8e570e6d2a5,
     type: 2}
-  texteInfobulle: 'Champs
-
-    Amenage une tuile de plaine pour produir de la nourriture'
+  Effets: "Am\xE9nage des champs sur une tuile de plaine"
