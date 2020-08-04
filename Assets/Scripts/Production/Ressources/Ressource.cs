@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +15,6 @@ public class Ressource : ScriptableObject
     }
     
     [HideInInspector]public Sprite icone;
-    [TextArea]
+    [TextArea(10,20)]
     public string texteInfobulle;
 }

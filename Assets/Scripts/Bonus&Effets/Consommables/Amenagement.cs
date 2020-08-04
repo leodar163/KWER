@@ -7,7 +7,8 @@ public class Amenagement : ScriptableObject
 {
     public static UnityEvent eventAmenagement = new UnityEvent();
 
-    [HideInInspector]public List<string> terrainsAmenageables = new List<string>();
+    [HideInInspector
+        ]public List<string> terrainsAmenageables = new List<string>();
 
     [HideInInspector]public int Slots;
 

@@ -40,7 +40,6 @@ public class ProductionEditor : Editor
 
         float[] gains = new float[listeRessources.Length];
 
-
         for (int i = 0; i < gains.Length; i++)
         {
             GUILayout.BeginHorizontal();

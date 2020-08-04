@@ -6,10 +6,9 @@ using UnityEditor;
 [CustomEditor(typeof(Ressource), true)]
 public class RessourceEditor : Editor
 {
-
-    protected override void OnHeaderGUI()
+    public override void OnInspectorGUI()
     {
-        base.OnHeaderGUI();
+        base.OnInspectorGUI();
 
         if (GUILayout.Button("SAUVEGARDER"))
         {
