@@ -44,7 +44,7 @@ public class Expedition : MonoBehaviour
             expl.TuileExploitee = zoneExploitation[i];
             listeExploitations.Add(expl);
         }
-        Invoke("GenererCombats",0.1f);
+        if(tribu == Tribu.TribukiJoue)Invoke("GenererCombats",0.1f);
     }
 
     public void RappelerExpeditions()

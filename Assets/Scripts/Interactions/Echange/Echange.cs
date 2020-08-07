@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Echange : Interaction
 {
-    [HideInInspector] private Tribu tribuCible;
+    [HideInInspector] public Tribu tribuCible;
 
     protected override void Start()
     {

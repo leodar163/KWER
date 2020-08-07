@@ -240,10 +240,12 @@ public class DamierGen : MonoBehaviour
         colonnes += nbrColonne;
         lignes += nbrLigne;
 
-        RenommerTuilesDamier();
+        
 
         damierFleuve.AjouterNoeuds(nbrColonne, nbrLigne);
         damier = RecupDamier();
+
+        RenommerTuilesDamier();
     }
 
     public void RetirerTuiles(int nbrColonne, int nbrLigne)
@@ -293,11 +295,13 @@ public class DamierGen : MonoBehaviour
         colonnes -= nbrColonne;
         lignes -= nbrLigne;
 
-        RenommerTuilesDamier();
+        
 
         damierFleuve.RetirerNoeuds(nbrColonne, nbrLigne);
 
         damier = RecupDamier();
+
+        RenommerTuilesDamier();
     }
 
     private void RenommerTuilesDamier()
