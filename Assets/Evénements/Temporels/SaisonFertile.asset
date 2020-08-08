@@ -15,7 +15,8 @@ MonoBehaviour:
   effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
   titre: SAISON FERTILE
   description: "Les esprits sont de votre c\xF4t\xE9 en cette belle saison, la nourriture
-    y est abondante."
+    y est abondante. Les jeunes b\xEAtes sont grasses, les bosquets regorgent de
+    baies et les \xE9tendues d'eau fr\xE9tillent de poissons."
   illustration: {fileID: 21300000, guid: d0a4571d4c78126499ba1dff6daa402e, type: 3}
   listeChoix:
   - description: "Vous r\xE9cuperez bien plus de nourriture en cette saison."

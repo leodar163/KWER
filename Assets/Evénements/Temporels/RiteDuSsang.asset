@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
   titre: RITE DU SANG
-  description: "Vous en appelez aux pouvoirs des esprits pour galvaniser vos guerriers
-    lors d'une c\xE9r\xE9monie."
+  description: "Les astres sont en position, et la lune de sang encorc\xE8le les
+    \xEAtres des plaines d'une rage bestiale. Vous en appelez ainsi aux pouvoirs
+    des esprits pour galvaniser vos guerriers lors d'une ultime c\xE9r\xE9monie."
   illustration: {fileID: 21300000, guid: 4c956738be9ac0d439e289915c7b98ec, type: 3}
   listeChoix:
   - description: "Vos chasseurs sentent plus forts \xE0 pr\xE9sent !"
     infobulle: Les chasseurs ont un buff d'attaque +1 pendant 3 tours
     retoursEffets:
     - 
-    - 
+    - <color=#83C755FF>+3<color="white"> points d'attaque pendant 1 tours
     effets:
       m_PersistentCalls:
         m_Calls:
@@ -32,6 +33,17 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 9e3937a2723b12740bb746c0b80ab11c, type: 2}
+          m_MethodName: activerBuff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
