@@ -6,6 +6,7 @@ public class Expedition : MonoBehaviour
 {
     [SerializeField] public Tribu tribu;
     [SerializeField] private GameObject exploitation;
+    [SerializeField] private GameObject echange;
     [HideInInspector] public List<Exploitation> listeExploitations = new List<Exploitation>();
 
     private List<Hostile> hostilesAPortee = new List<Hostile>();
@@ -44,7 +45,7 @@ public class Expedition : MonoBehaviour
             expl.TuileExploitee = zoneExploitation[i];
             listeExploitations.Add(expl);
         }
-        if(tribu == Tribu.TribukiJoue)Invoke("GenererCombats",0.1f);
+        if(tribu == Tribu.TribukiJoue)Invoke("GenererInteractions", 0.1f);
     }
 
     public void RappelerExpeditions()
@@ -64,7 +65,6 @@ public class Expedition : MonoBehaviour
         {
             exploit.AfficherGainRessource();
         }
-        
     }
 
     private void TrouverHostilsAPortee()
@@ -81,7 +81,45 @@ public class Expedition : MonoBehaviour
         }
     }
 
-    public void GenererCombats()
+    private List<Tribu> TrouverTribusAPortee()
+    {
+        List<Tribu> tribusAPortee = new List<Tribu>();
+        foreach (Revendication cible in tribu.revendication.TrouverRevendicateursAPortee())
+        {
+            Tribu TribuObeserver = cible.GetComponent<Tribu>();
+
+            if (TribuObeserver)
+            {
+                tribusAPortee.Add(TribuObeserver);
+            }
+        }
+
+        return tribusAPortee;
+    }
+
+    public void GenererInteractions()
+    {
+        GenererCombats();
+        GenererEchanges();
+    }
+
+    private void GenererEchanges()
+    {
+        foreach (Echange echange in FindObjectsOfType<Echange>())
+        {
+            Destroy(echange.gameObject);
+        }
+
+        List<Tribu> tribusAPortee = TrouverTribusAPortee();
+
+        foreach (Tribu trib in tribusAPortee)
+        {
+            Echange nvlEchange = Instantiate(echange, trib.transform).GetComponent<Echange>();
+            nvlEchange.tribuCible = trib;
+        }
+    }
+
+    private void GenererCombats()
     {
         if(tribu.guerrier.jetonAttaque)
         {

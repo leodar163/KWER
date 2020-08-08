@@ -797,6 +797,7 @@ MonoBehaviour:
   expedition: {fileID: 5645824234354430084}
   stockRessources: {fileID: 51998110753543547}
   demographie: {fileID: 2573456614893114323}
+  banniere: {fileID: 6343172449743224675}
   campement: {fileID: 346511199273669100}
   interactionTribu: {fileID: 8044188089232333488}
   SprCampementHiver: {fileID: 21300000, guid: c20456faf8b128a4bae764b0c54255d3, type: 3}
@@ -2468,6 +2469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tribu: {fileID: 1618904120558817127}
   exploitation: {fileID: 8758092186605696053}
+  echange: {fileID: 8740010434256977902, guid: c20b6fb19d6955840b7a3069915943b3, type: 3}
   listeExploitations: []
 --- !u!1 &4774276859412062003
 GameObject:

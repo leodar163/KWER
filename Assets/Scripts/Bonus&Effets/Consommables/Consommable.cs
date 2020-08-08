@@ -8,7 +8,22 @@ public class Consommable : ScriptableObject
 {
     [HideInInspector] public Amenagement amenagement;
     [HideInInspector] public Buff buff;
+    public string nom
+    {
+        get
+        {
+            if (amenagement)
+            {
+                return amenagement.name;
+            }
+            else if (buff)
+            {
 
+                return buff.name;
+            }
+            else return "Erreur : Consommable non assigné avec un aménagement ou un buff";
+        }
+    }
     [TextArea]
     [SerializeField] private string texteInfoBulle;
     [HideInInspector] public string texteRetour;

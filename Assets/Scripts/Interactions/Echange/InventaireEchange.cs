@@ -7,6 +7,7 @@ using TMPro;
 public class InventaireEchange : MonoBehaviour
 {
     [SerializeField] private InterfaceEchange interfaceEchange;
+    [HideInInspector] public PlatoEchange platoActuel;
     [SerializeField] private GameObject slotRessourceBase;
     [SerializeField] private Transform fond;
     private RectTransform rectT;
@@ -38,9 +39,11 @@ public class InventaireEchange : MonoBehaviour
         }
     }
 
-    public void AfficherInventaire(Tribu tribu)
+    public void AfficherInventaire(Tribu tribu, PlatoEchange platoKiAppelle)
     {
-        interfaceEchange.ActiverInteraction(false);
+        platoActuel = platoKiAppelle;
+
+        platoActuel.ActiverInteraction(false);
 
         GenererInventaireSlot(tribu);
 
@@ -57,7 +60,7 @@ public class InventaireEchange : MonoBehaviour
         for (int i = 0; i < gains.Length; i++)
         {
             Ressource ressource = ListeRessources.Defaut.listeDesRessources[i];
-            if (gains[i] > 0 && !interfaceEchange.ressourcesEchangees.Contains(ressource.nom))
+            if (gains[i] >= 1 && !platoActuel.ressourcesEchangees.Contains(ressource.nom))
             {
                 GameObject nvSlot = Instantiate(slotRessourceBase, fond);
                 listeSlots.Add(nvSlot);
@@ -75,7 +78,7 @@ public class InventaireEchange : MonoBehaviour
                 Button nvBouton = nvSlot.GetComponentInChildren<Button>();
 
                 nvBouton.onClick.AddListener(() =>
-                interfaceEchange.AjouterSlotEchange(ressource, tribu));
+                platoActuel.AjouterSlotEchange(ressource));
                 nvBouton.onClick.AddListener(() => Destroy(nvSlot));
                 nvBouton.onClick.AddListener(CacherInventaire);
             }
@@ -93,32 +96,35 @@ public class InventaireEchange : MonoBehaviour
 
         foreach (Consommable consommable in inventaireConso.Keys)
         {
-            GameObject nvSlot = Instantiate(slotRessourceBase, fond);
-            listeSlots.Add(nvSlot);
-            nvSlot.SetActive(true);
-
-            foreach (Image image in nvSlot.GetComponentsInChildren<Image>())
+            if (!platoActuel.ressourcesEchangees.Contains(consommable.nom))
             {
-                if (image.name == "Icone")
+                GameObject nvSlot = Instantiate(slotRessourceBase, fond);
+                listeSlots.Add(nvSlot);
+                nvSlot.SetActive(true);
+
+                foreach (Image image in nvSlot.GetComponentsInChildren<Image>())
                 {
-                    image.sprite = consommable.icone;
+                    if (image.name == "Icone")
+                    {
+                        image.sprite = consommable.icone;
+                    }
                 }
+                nvSlot.GetComponentInChildren<TextMeshProUGUI>().text = "" + inventaireConso[consommable];
+
+                Button nvBouton = nvSlot.GetComponentInChildren<Button>();
+
+                nvBouton.onClick.AddListener(() =>
+                platoActuel.AjouterSlotEchange(consommable));
+                nvBouton.onClick.AddListener(() => Destroy(nvSlot));
+                nvBouton.onClick.AddListener(CacherInventaire);
             }
-            nvSlot.GetComponentInChildren<TextMeshProUGUI>().text = "" + inventaireConso[consommable];
-
-            Button nvBouton = nvSlot.GetComponentInChildren<Button>();
-
-            nvBouton.onClick.AddListener(() =>
-            interfaceEchange.AjouterSlotEchange(consommable, tribu));
-            nvBouton.onClick.AddListener(() => Destroy(nvSlot));
-            nvBouton.onClick.AddListener(CacherInventaire);
         }
     }
 
     private void CacherInventaire()
     {
         gameObject.SetActive(false);
-        interfaceEchange.ActiverInteraction(true);
+        platoActuel.ActiverInteraction(true);
     }
 
     private void NettoyerInventaire()

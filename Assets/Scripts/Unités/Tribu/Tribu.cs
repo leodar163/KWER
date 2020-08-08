@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
 public class Tribu : Pion
 {
@@ -55,6 +56,7 @@ public class Tribu : Pion
     [SerializeField] public Demographie demographie;
 
     [Header("Campement")]
+    public Image banniere;
     public Campement campement;
     public InteractionTribu interactionTribu;
 
@@ -99,7 +101,7 @@ public class Tribu : Pion
         guerrier.jetonAttaque = true;
 
         tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle,ptsDeplacement,false);
-        expedition.GenererCombats();
+        expedition.GenererInteractions();
         stockRessources.EncaisserGain();
     }
 

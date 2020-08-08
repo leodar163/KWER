@@ -18,7 +18,7 @@ MonoBehaviour:
     loup. "
   illustration: {fileID: 21300000, guid: 88b0cfbeb6912f64b909efb386ffbc5b, type: 3}
   listeChoix:
-  - description: "Ils gouteront \xE0 nos lances"
+  - description: "Ils gouteront \xE0 nos lances !"
     infobulle: Une meute de loup fait son apparition sur la mappe
     retoursEffets:
     - 

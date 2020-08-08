@@ -24,11 +24,7 @@ public class Echange : Interaction
 
         if(enInteraction)
         {
-
-        }
-        else
-        {
-
+            InterfaceEchange.Actuel.OuvrirEchange(this);
         }
     }
 

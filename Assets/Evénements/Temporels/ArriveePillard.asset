@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
   titre: ARRIVEE DE PILLARD
-  description: "La nouvelle de notre installation sur ces terre fertile semble s'\xEAtre
-    r\xE9pendue jusqu'aux oreilles de peuplades plus belliqueuses. A pr\xE9sent,
-    des dangereux pillard menacent de nous attaquer.\n"
+  description: "La nouvelle de notre installation sur ces terres fertiles semble
+    s'\xEAtre r\xE9pendue jusqu'aux oreilles de peuplades plus belliqueuses. A pr\xE9sent,
+    de dangereux pillards menacent de nous attaquer.\n"
   illustration: {fileID: 21300000, guid: 1a2a83dbe1289db48816942f487f0ddf, type: 3}
   listeChoix:
   - description: Que nos guerriers prennent les armes !

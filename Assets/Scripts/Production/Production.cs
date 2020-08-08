@@ -95,14 +95,13 @@ public class Production : ScriptableObject
             "Tip : Les Ressources commencent par une majuscule et sont en français");
     }
 
-    public float RecupuererGainRessource(string nomRessource, float multiplicateur)
+    public float RecupuererGainRessource(string nomRessource)
     {
         for (int i = 0; i < ListeRessources.Defaut.listeDesRessources.Length; i++)
         {
             if (nomRessource == ListeRessources.Defaut.listeDesRessources[i].nom)
             {
-                gains[i] *= multiplicateur;
-                return gains[i];
+               return gains[i];
             }
         }
         Debug.LogError("Impossible de récupérer le gain d'une ressource qui n'existe pas, ou le nom de la ressource est pas le bon. " +
