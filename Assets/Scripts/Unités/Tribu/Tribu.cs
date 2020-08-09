@@ -122,7 +122,8 @@ public class Tribu : Pion
         {
             if (!estEntreCampement && ControleSouris.Actuel.controleEstActif && this == TribukiJoue)
             {
-                tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, ptsDeplacement, false);
+                tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, 
+                    ptsDeplacement + bonus.bonusPointDeplacement, false);
                 pathFinder.ColorerGraphe(tuilesAPortee, tuileActuelle.couleurTuileAPortee);
             }
             

@@ -165,12 +165,39 @@ public class BuffEditor : Editor
                     {
                         retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">--" +
                             "<color=\"white\"> dégat moral";
-
-                        UnityAction<int> callback = new UnityAction<int>(bonus.AjouterBonusDegatMoral);
-                        UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
                     }
+                    UnityAction<int> callback = new UnityAction<int>(bonus.AjouterBonusDegatMoral);
+                    UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
                 }
             }
+            else if (methode.stringValue.Contains("Deplacement"))
+            {
+                char pluriel = '\0';
+                if (Math.Abs(argumentInt.intValue) != 1) pluriel = 's';
+                if (argumentInt.intValue > 0)
+                {
+                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
+                        + argumentInt.intValue + "<color=\"white\"> point"+pluriel+ " de déplacement";
+                }
+                else if (argumentInt.intValue < 0)
+                {
+                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) +
+                        argumentInt.intValue + "<color=\"white\"> point" + pluriel + " de déplacement";
+                }
+
+                if(methode.stringValue.Contains("ToutesTribus"))
+                {
+                    retour += " pour toutes les tribus";
+                    UnityAction<int> callback = new UnityAction<int>(bonus.AjouterBonusDeplacementToutesTribus);
+                    UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                }
+                else
+                {
+                    UnityAction<int> callback = new UnityAction<int>(bonus.AjouterBonusDeplacement);
+                    UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                }
+            }
+        
             else if (methode.stringValue.Contains("MultiplicateurCoutPop"))
             {
                 if (argumentFloat.floatValue > 1)
@@ -324,7 +351,6 @@ public class BuffEditor : Editor
                     UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
                 }
             }
-
 
             if (buff.compteurTour)
             {

@@ -75,4 +75,17 @@ public class EffetBonus : MonoBehaviour
     {
         tribuKiSubit.bonus.bonusMultProdPigment = montant;
     }
+
+    public void AjouterBonusDeplacement(int montant)
+    {
+        tribuKiSubit.bonus.bonusPointDeplacement += montant;
+    }
+
+    public void AjouterBonusDeplacementToutesTribus(int montant)
+    {
+        foreach (BonusTribu bonus in FindObjectsOfType<BonusTribu>())
+        {
+            tribuKiSubit.bonus.bonusPointDeplacement += montant;
+        }
+    }
 }

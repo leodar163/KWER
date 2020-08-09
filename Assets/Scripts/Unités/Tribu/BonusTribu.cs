@@ -24,4 +24,7 @@ public class BonusTribu : MonoBehaviour
     public float bonusMultProdOutil = 1;
     public float bonusMultProdPeau = 1;
     public float bonusMultProdPigment = 1;
+
+    [Header("Deplacement")]
+    public int bonusPointDeplacement;
 }
