@@ -166,7 +166,7 @@ public class PanelRecette : MonoBehaviour
             tempsConsommable = nvlAffichage.GetComponentInChildren<TextMeshProUGUI>();
             tempsConsommable.text = "0 tour";
             nvlAffichage.GetComponentInChildren<Image>().sprite = recette.consommable.icone;
-            nvlAffichage.GetComponentInChildren<InfoBulle>().texteInfoBulle = recette.consommable.TexteInfoBulle;
+            nvlAffichage.GetComponentInChildren<InfoBulle>().texteInfoBulle = recette.consommable.TexteInfobulle;
 
             investissementConsommable = ScriptableObject.CreateInstance<Production>();
             investissementConsommable.gains = new float[ListeRessources.Defaut.listeDesRessources.Length];

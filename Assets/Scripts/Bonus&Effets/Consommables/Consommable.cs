@@ -27,7 +27,7 @@ public class Consommable : ScriptableObject
     [TextArea]
     [SerializeField] private string texteInfoBulle;
     [HideInInspector] public string texteRetour;
-    public string TexteInfoBulle
+    public string TexteInfobulle
     {
         get
         {

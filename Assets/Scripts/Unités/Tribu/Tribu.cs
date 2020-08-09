@@ -174,7 +174,6 @@ public class Tribu : Pion
 
         if (selectionner)
         {
-            pathFinder.ReinitGraphe();
             CameraControle.Actuel.CentrerCamera(transform.position, true);
         }
         else

@@ -56,6 +56,24 @@ public class StockRessource : MonoBehaviour
         }
     }
 
+    public struct Inventaire
+    {
+        public Production stockRessource;
+        public List<Consommable> consommables;
+
+        public Inventaire(Production stock, List<Consommable> stockConsommable)
+        {
+            stockRessource = stock;
+            consommables = stockConsommable;
+        }
+        public Inventaire(Production stock)
+        {
+            stockRessource = stock;
+            consommables = new List<Consommable>();
+        }
+
+    }
+
     private void Awake()
     {
         InstancierProduction();
@@ -70,6 +88,30 @@ public class StockRessource : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void AjouterInventaire(Inventaire inventaire)
+    {
+        ressourcesEnStock += inventaire.stockRessource;
+
+        foreach(Consommable consommable in inventaire.consommables)
+        {
+            consommables.Add(consommable);
+        }
+
+        LimiterStock();
+    }
+
+    public void RetirerInventaire(Inventaire inventaire)
+    {
+        ressourcesEnStock -= inventaire.stockRessource;
+
+        foreach(Consommable consommable in inventaire.consommables)
+        {
+            if (consommables.Contains(consommable)) consommables.Remove(consommable);
+        }
+
+        LimiterStock();
     }
 
     private void InstancierProduction()

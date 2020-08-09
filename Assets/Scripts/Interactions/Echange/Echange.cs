@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Echange : Interaction
 {
@@ -9,7 +10,7 @@ public class Echange : Interaction
     protected override void Start()
     {
         base.Start();
-
+        boutonInteraction.onClick.AddListener(() => EntrerEnInteraction(true));
     }
 
     // Update is called once per frame

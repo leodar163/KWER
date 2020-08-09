@@ -86,11 +86,11 @@ public class Expedition : MonoBehaviour
         List<Tribu> tribusAPortee = new List<Tribu>();
         foreach (Revendication cible in tribu.revendication.TrouverRevendicateursAPortee())
         {
-            Tribu TribuObeserver = cible.GetComponent<Tribu>();
+            Tribu TribuObeservee = cible.GetComponent<Tribu>();
 
-            if (TribuObeserver)
+            if (TribuObeservee && TribuObeservee != tribu)
             {
-                tribusAPortee.Add(TribuObeserver);
+                tribusAPortee.Add(TribuObeservee);
             }
         }
 
@@ -116,6 +116,7 @@ public class Expedition : MonoBehaviour
         {
             Echange nvlEchange = Instantiate(echange, trib.transform).GetComponent<Echange>();
             nvlEchange.tribuCible = trib;
+            nvlEchange.transform.position += new Vector3(0, 0, -3);
         }
     }
 

@@ -72,6 +72,7 @@ public class ControleSouris : MonoBehaviour
     {
         modeInteraction = activer;
         controleEstActif = !activer;
+        Tribu.TribukiJoue.pathFinder.ReinitGraphe();
         Interaction[] toutesInteractions = FindObjectsOfType<Interaction>();
 
         for (int i = 0; i < toutesInteractions.Length; i++)
@@ -144,17 +145,17 @@ public class ControleSouris : MonoBehaviour
         if (modeInteraction)
         {
             //Quand on fait un clique droit et qu'on clique pas sur un enfant de l'interaction, on sort de l'interaction
-            if (Input.GetMouseButtonUp(1))
-            {
-                Collider2D check = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0);
+            //if (Input.GetMouseButtonUp(1))
+            //{
+            //    Collider2D check = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0);
 
-                if (check == null ||
-                check.GetComponentInParent<Interaction>() == null ||
-                check.GetComponentInParent<Interaction>() != interactionEnCours)
-                {
-                    ActiverModeInteraction(interactionEnCours, false);
-                }
-            }
+            //    if (check == null ||
+            //    check.GetComponentInParent<Interaction>() == null ||
+            //    check.GetComponentInParent<Interaction>() != interactionEnCours)
+            //    {
+            //        ActiverModeInteraction(interactionEnCours, false);
+            //    }
+            //}
         }
     }
 
@@ -163,17 +164,20 @@ public class ControleSouris : MonoBehaviour
     {
         Collider2D checkTuile = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0, maskTuile);
 
-        if (checkTuile && Tribu.TribukiJoue)
+        if(controleEstActif)
         {
-            TuileManager tuileSurvolee = checkTuile.GetComponent<TuileManager>();
-
-            //Colore le chemin et le met à jour toutes les frames, si la tuile qu'on survole est à portee
-            if (tuileSurvolee.aPortee)
+            if (checkTuile && Tribu.TribukiJoue)
             {
-                if (!Tribu.TribukiJoue.estEntreCampement && controleEstActif)
+                TuileManager tuileSurvolee = checkTuile.GetComponent<TuileManager>();
+
+                //Colore le chemin et le met à jour toutes les frames, si la tuile qu'on survole est à portee
+                if (tuileSurvolee.aPortee)
                 {
-                    Tribu.TribukiJoue.pathFinder.ColorerChemin(Tribu.TribukiJoue.pathFinder.
-                        TrouverChemin(Tribu.TribukiJoue.tuileActuelle, tuileSurvolee), tuileSurvolee.couleurTuileSurChemin);
+                    if (!Tribu.TribukiJoue.estEntreCampement && controleEstActif)
+                    {
+                        Tribu.TribukiJoue.pathFinder.ColorerChemin(Tribu.TribukiJoue.pathFinder.
+                            TrouverChemin(Tribu.TribukiJoue.tuileActuelle, tuileSurvolee), tuileSurvolee.couleurTuileSurChemin);
+                    }
                 }
             }
         }

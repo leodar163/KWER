@@ -24,16 +24,14 @@ public class InventaireEchange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckerClicEnDehors();
+
     }
 
     private void CheckerClicEnDehors()
     {
         if (Input.GetMouseButton(0) && gameObject.activeSelf &&
             !RectTransformUtility.RectangleContainsScreenPoint(
-                gameObject.GetComponent<RectTransform>(),
-                Input.mousePosition,
-                Camera.main))
+                gameObject.GetComponent<RectTransform>(), Input.mousePosition, Camera.main))
         {
             CacherInventaire();
         }
@@ -42,7 +40,7 @@ public class InventaireEchange : MonoBehaviour
     public void AfficherInventaire(Tribu tribu, PlatoEchange platoKiAppelle)
     {
         platoActuel = platoKiAppelle;
-
+        gameObject.SetActive(true);
         platoActuel.ActiverInteraction(false);
 
         GenererInventaireSlot(tribu);
@@ -74,6 +72,7 @@ public class InventaireEchange : MonoBehaviour
                     }
                 }
                 nvSlot.GetComponentInChildren<TextMeshProUGUI>().text = "" + gains[i];
+                nvSlot.GetComponentInChildren<InfoBulle>().texteInfoBulle = ressource.texteInfobulle;
 
                 Button nvBouton = nvSlot.GetComponentInChildren<Button>();
 
@@ -110,6 +109,7 @@ public class InventaireEchange : MonoBehaviour
                     }
                 }
                 nvSlot.GetComponentInChildren<TextMeshProUGUI>().text = "" + inventaireConso[consommable];
+                nvSlot.GetComponentInChildren<InfoBulle>().texteInfoBulle = consommable.TexteInfobulle;
 
                 Button nvBouton = nvSlot.GetComponentInChildren<Button>();
 

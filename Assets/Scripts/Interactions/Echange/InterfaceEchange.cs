@@ -26,8 +26,7 @@ public class InterfaceEchange : MonoBehaviour
     [Header("Platos")]
     [SerializeField] private PlatoEchange platoEchangeJoueur;
     [SerializeField] private PlatoEchange platoEchangeCible;
-    [Space]
-    [SerializeField] private InventaireEchange inventaire;
+    
 
     private Echange echange;
 
@@ -47,8 +46,6 @@ public class InterfaceEchange : MonoBehaviour
         
     }
 
-    
-
     private void MAJInterface()
     {
         platoEchangeCible.MAJPlato();
@@ -62,7 +59,10 @@ public class InterfaceEchange : MonoBehaviour
         echange = mercosur;
 
         platoEchangeCible.tribu = echange.tribuCible;
+        platoEchangeCible.ActiverInteraction(true);
+
         platoEchangeJoueur.tribu = Tribu.TribukiJoue;
+        platoEchangeJoueur.ActiverInteraction(true);
 
         banniereCible.sprite = echange.tribuCible.banniere.sprite;
         banniereJoueur.sprite = Tribu.TribukiJoue.banniere.sprite;
@@ -72,7 +72,7 @@ public class InterfaceEchange : MonoBehaviour
 
     public void FermerEchange()
     {
-        gameObject.SetActive(true);
+        gameObject.SetActive(false);
         echange.EntrerEnInteraction(false);
         platoEchangeCible.NettoyerPlato();
         platoEchangeJoueur.NettoyerPlato();
@@ -87,20 +87,11 @@ public class InterfaceEchange : MonoBehaviour
 
     public void EffectuerEchange()
     {
-        StockRessource stockEngageJoueur = platoEchangeJoueur.StockEngage;
-        StockRessource stockEngageCible = platoEchangeCible.StockEngage;
+        StockRessource.Inventaire stockEngageJoueur = platoEchangeJoueur.StockEngage;
+        StockRessource.Inventaire stockEngageCible = platoEchangeCible.StockEngage;
 
-        Tribu.TribukiJoue.stockRessources.RessourcesEnStock += stockEngageCible.RessourcesEnStock;
-        echange.tribuCible.stockRessources.RessourcesEnStock += stockEngageJoueur.RessourcesEnStock;
-
-        foreach (Consommable consommable in stockEngageJoueur.consommables)
-        {
-            echange.tribuCible.stockRessources.consommables.Add(consommable);
-        }
-        foreach (Consommable consommable in stockEngageCible.consommables)
-        {
-            Tribu.TribukiJoue.stockRessources.consommables.Add(consommable);
-        }
+        Tribu.TribukiJoue.stockRessources.AjouterInventaire(stockEngageCible);
+        echange.tribuCible.stockRessources.AjouterInventaire(stockEngageJoueur);
 
         FermerEchange();
     }

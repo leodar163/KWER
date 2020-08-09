@@ -99,7 +99,7 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
         iconeConsommable.SetActive(true);
 
         imageConso.sprite = consommable.icone;
-        infobulle.texteInfoBulle = consommable.TexteInfoBulle;
+        infobulle.texteInfoBulle = consommable.TexteInfobulle;
 
         boutonConso.onClick.RemoveAllListeners();
         if (consommable.type == Consommable.typeConsommable.amenagement)

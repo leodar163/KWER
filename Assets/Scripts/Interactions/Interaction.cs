@@ -24,7 +24,7 @@ public abstract class Interaction : MonoBehaviour
 
     protected virtual void Start()
     {
-        boutonRetour.onClick.AddListener(delegate { EntrerEnInteraction(false); });
+        boutonRetour.onClick.AddListener(() => EntrerEnInteraction(false));
     }
 
     public virtual void EntrerEnInteraction(bool entrer)

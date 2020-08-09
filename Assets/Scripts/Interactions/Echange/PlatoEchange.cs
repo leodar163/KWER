@@ -7,22 +7,21 @@ public class PlatoEchange : MonoBehaviour
 {
     private bool interactionActive;
 
-    private List<SlotEchange> listeSlots = new List<SlotEchange>();
-    public List<string> ressourcesEchangees = new List<string>();
+    [HideInInspector] public List<SlotEchange> listeSlots = new List<SlotEchange>();
+    [HideInInspector] public List<string> ressourcesEchangees = new List<string>();
 
     [SerializeField] private InventaireEchange inventaire;
-
+    [SerializeField] private GameObject fondSlots;
     [SerializeField] private Button boutonInventaire;
     [SerializeField] private GameObject slotEchangeBase;
     [HideInInspector] public Tribu tribu;
 
-    private StockRessource stockEngage;
+    private StockRessource.Inventaire stockEngage;
 
-    public StockRessource StockEngage
+    public StockRessource.Inventaire StockEngage
     {
         get
         {
-            if (stockEngage) Destroy(stockEngage);
             AssignerStockEngage();
             return stockEngage;
         }
@@ -32,7 +31,7 @@ public class PlatoEchange : MonoBehaviour
     void Start()
     {
         boutonInventaire.onClick.AddListener(() => inventaire.AfficherInventaire(tribu,this));
-        
+        slotEchangeBase.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,11 +44,13 @@ public class PlatoEchange : MonoBehaviour
         if (!ressourcesEchangees.Contains(consommable.nom))
         {
             ressourcesEchangees.Add(consommable.nom);
-            GameObject nvSlot = Instantiate(slotEchangeBase, transform);
+            GameObject nvSlot = Instantiate(slotEchangeBase, fondSlots.transform);
+            nvSlot.SetActive(true);
             SlotEchange nvSlotEchange = nvSlot.GetComponent<SlotEchange>();
 
             nvSlotEchange.Tribu = tribu;
             nvSlotEchange.Consommable = consommable;
+            nvSlotEchange.GetComponentInChildren<InfoBulle>().texteInfoBulle = consommable.TexteInfobulle;
 
             listeSlots.Add(nvSlotEchange);
         }
@@ -60,8 +61,13 @@ public class PlatoEchange : MonoBehaviour
         if (!ressourcesEchangees.Contains(ressource.nom))
         {
             ressourcesEchangees.Add(ressource.nom);
-            GameObject nvSlot = Instantiate(slotEchangeBase, transform);
+            GameObject nvSlot = Instantiate(slotEchangeBase, fondSlots.transform);
+            nvSlot.SetActive(true);
             SlotEchange nvSlotEchange = nvSlot.GetComponent<SlotEchange>();
+
+            nvSlotEchange.Tribu = tribu;
+            nvSlotEchange.Ressource = ressource;
+            nvSlotEchange.GetComponentInChildren<InfoBulle>().texteInfoBulle = ressource.texteInfobulle;
 
             listeSlots.Add(nvSlotEchange);
         }
@@ -99,10 +105,10 @@ public class PlatoEchange : MonoBehaviour
 
     private void AssignerStockEngage()
     {
-        stockEngage = gameObject.AddComponent<StockRessource>();
-
         Production prod = ScriptableObject.CreateInstance<Production>();
         prod.Initialiser();
+
+        stockEngage = new StockRessource.Inventaire(prod);
 
         foreach (SlotEchange slot in listeSlots)
         {
@@ -110,7 +116,7 @@ public class PlatoEchange : MonoBehaviour
             else if (slot.Consommable) stockEngage.consommables.Add(slot.Consommable);
         }
 
-        stockEngage.RessourcesEnStock = prod;
+        stockEngage.stockRessource = prod;
     }
 
     public void NettoyerPlato()

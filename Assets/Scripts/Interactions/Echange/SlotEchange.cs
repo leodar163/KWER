@@ -16,6 +16,8 @@ public class SlotEchange : MonoBehaviour
     [Header("Affichage Ressource")]
     [SerializeField] private Image icone;
     [SerializeField] private TextMeshProUGUI texteQuantite;
+    [Header("Ref Parent")]
+    [SerializeField] private PlatoEchange plato;
 
     private bool slotEstActif;
 
@@ -87,15 +89,22 @@ public class SlotEchange : MonoBehaviour
                 List<Consommable> consommables = tribu.stockRessources.consommables;
                 Dictionary<Consommable, int> inventaireConso = new Dictionary<Consommable, int>();
 
-                //Génère slots de consommables
                 for (int i = 0; i < consommables.Count; i++)
                 {
                     if (inventaireConso.ContainsKey(consommables[i])) inventaireConso[consommables[i]]++;
                     else inventaireConso.Add(consommables[i], 1);
                 }
 
-                boutonPlusPlus.interactable = inventaireConso[consommable] >= 5;
-                boutonPlus.interactable = inventaireConso[consommable] >= 1;
+                if(consommables.Contains(consommable))
+                {
+                    boutonPlusPlus.interactable = inventaireConso[consommable] >= 5;
+                    boutonPlus.interactable = inventaireConso[consommable] >= 1;
+                }
+                else
+                {
+                    boutonPlusPlus.interactable = false;
+                    boutonPlus.interactable = false;
+                }
             }
             else if (ressource)
             {
@@ -146,13 +155,21 @@ public class SlotEchange : MonoBehaviour
         }
         else if (ressource)
         {
-            tribu.stockRessources.RessourcesEnStock.AugmenterGain(ressource.nom, montant);
+            tribu.stockRessources.RessourcesEnStock.AugmenterGain(ressource.nom, -montant);
         }
 
         if (montant <= 0)
         {
-            Destroy(gameObject);
+            SupprimerSlot();
         }
+    }
+
+    private void SupprimerSlot()
+    {
+        if (consommable) plato.ressourcesEchangees.Remove(consommable.nom);
+        else if (ressource) plato.ressourcesEchangees.Remove(ressource.nom);
+        plato.listeSlots.Remove(this);
+        Destroy(gameObject);
     }
 
     public void ActiverSlot(bool activer)
