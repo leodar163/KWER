@@ -45,4 +45,34 @@ public class EffetBonus : MonoBehaviour
     {
         tribuKiSubit.bonus.bonusMultStockage = montant;
     }
+
+    public void AssignerMutliplicateurProduction(float montant)
+    {
+        tribuKiSubit.bonus.bonusMultProd = montant;
+    }
+
+    public void AssignerMutliplicateurProductionNourriture(float montant)
+    {
+        tribuKiSubit.bonus.bonusMultProdNourriture = montant;
+    }
+
+    public void AssignerMutliplicateurProductionPierre(float montant)
+    {
+        tribuKiSubit.bonus.bonusMultProdPierre = montant;
+    }
+
+    public void AssignerMutliplicateurProductionPeau(float montant)
+    {
+        tribuKiSubit.bonus.bonusMultProdPeau = montant;
+    }
+
+    public void AssignerMutliplicateurProductionOutil(float montant)
+    {
+        tribuKiSubit.bonus.bonusMultProdOutil = montant;
+    }
+
+    public void AssignerMutliplicateurProductionPigment(float montant)
+    {
+        tribuKiSubit.bonus.bonusMultProdPigment = montant;
+    }
 }

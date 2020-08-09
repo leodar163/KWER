@@ -279,6 +279,7 @@ public class PanelRecette : MonoBehaviour
                 }
             }
 
+            gainRessource.AppliquerBonusProduction(craft.campement.tribu.bonus);
             return gainRessource;
         }
     }

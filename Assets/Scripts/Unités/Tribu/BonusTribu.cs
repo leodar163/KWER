@@ -12,8 +12,16 @@ public class BonusTribu : MonoBehaviour
     public int bonusDegatMoral;
 
     [Header("Population")]
-    public float bonusMultCoutPop;
+    public float bonusMultCoutPop = 1;
 
     [Header("Stockage")]
-    public float bonusMultStockage;
+    public float bonusMultStockage = 1;
+
+    [Header("Production")]
+    public float bonusMultProd = 1;
+    public float bonusMultProdNourriture = 1;
+    public float bonusMultProdPierre = 1;
+    public float bonusMultProdOutil = 1;
+    public float bonusMultProdPeau = 1;
+    public float bonusMultProdPigment = 1;
 }

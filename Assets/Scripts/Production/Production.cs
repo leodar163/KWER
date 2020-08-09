@@ -95,6 +95,14 @@ public class Production : ScriptableObject
             "Tip : Les Ressources commencent par une majuscule et sont en français");
     }
 
+    public void MultiplierGain(float multiplicateur)
+    {
+        for (int i = 0; i < gains.Length; i++)
+        {
+            gains[i] *= multiplicateur;
+        }
+    }
+
     public float RecupuererGainRessource(string nomRessource)
     {
         for (int i = 0; i < ListeRessources.Defaut.listeDesRessources.Length; i++)
@@ -130,5 +138,15 @@ public class Production : ScriptableObject
         clone.gains = (float[])gains.Clone();
 
         return clone;
+    }
+
+    public void AppliquerBonusProduction(BonusTribu bonus)
+    {
+        MultiplierGain(bonus.bonusMultProd);
+        MultiplierGain("Nourriture", bonus.bonusMultProdNourriture);
+        MultiplierGain("Pierre", bonus.bonusMultProdPierre);
+        MultiplierGain("Peau", bonus.bonusMultProdPeau);
+        MultiplierGain("Outil", bonus.bonusMultProdOutil);
+        MultiplierGain("Pigment", bonus.bonusMultProdPigment);
     }
 }
