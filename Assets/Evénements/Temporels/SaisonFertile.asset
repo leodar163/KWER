@@ -23,7 +23,7 @@ MonoBehaviour:
     infobulle: "Rendement am\xE9lior\xE9 en nourriture."
     retoursEffets:
     - 
-    - 
+    - ' pendant 1 tours'
     effets:
       m_PersistentCalls:
         m_Calls:
@@ -33,6 +33,17 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: abc1d356ef984ee42a7b69ace5640576, type: 2}
+          m_MethodName: activerBuff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
