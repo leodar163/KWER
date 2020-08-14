@@ -50,6 +50,6 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   finBalise: <fin>
-  probaEte: 10
-  probaHiver: 50
+  probaEte: 3
+  probaHiver: 8
   infobulle: LE LOUP EST LA

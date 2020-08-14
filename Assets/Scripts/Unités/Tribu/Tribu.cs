@@ -94,6 +94,7 @@ public class Tribu : Pion
         Deplacement();
     }
 
+    #region TOUR PAR TOUR
     public override void DemarrerTour()
     {
         base.DemarrerTour();
@@ -104,6 +105,14 @@ public class Tribu : Pion
         expedition.GenererInteractions();
         stockRessources.EncaisserGain();
     }
+
+    public override void PasserTour()
+    {
+        base.PasserTour();
+        expedition.RappelerInteractions();
+    }
+    #endregion
+
 
     public void Init()
     {
@@ -127,7 +136,7 @@ public class Tribu : Pion
                 pathFinder.ColorerGraphe(tuilesAPortee, tuileActuelle.couleurTuileAPortee);
             }
             
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();   
         }
     }
 

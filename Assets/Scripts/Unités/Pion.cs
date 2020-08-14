@@ -21,7 +21,6 @@ public class Pion : MonoBehaviour
     protected virtual void Start()
     {
         TrouverTuileActuelle();
-
     }
 
     // Update is called once per frame
@@ -47,5 +46,10 @@ public class Pion : MonoBehaviour
     public virtual void TrouverTuileActuelle()
     {
 
+    }
+
+    public virtual void PasserTour()
+    {
+        aPasseSonTour = true;
     }
 }

@@ -51,6 +51,6 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   finBalise: <fin>
-  probaEte: 40
-  probaHiver: 40
+  probaEte: 5
+  probaHiver: 7
   infobulle: ARRIVEE DE PILLARD

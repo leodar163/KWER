@@ -38,7 +38,7 @@ public class TourParTour : MonoBehaviour
     public void JoueurPasseTour()
     {
         Tribu.TribukiJoue.pathFinder.ReinitGraphe();
-        Tribu.TribukiJoue.aPasseSonTour = true;
+        Tribu.TribukiJoue.PasserTour();
     }
 
 
@@ -61,7 +61,8 @@ public class TourParTour : MonoBehaviour
 
         for (int i = 0; i < tribus.Length; i++)
         {
-            if(!InterfaceEvenement.Defaut.evenementEnCours)tribus[i].interactionTribu.EntrerEnInteraction(true);
+            CameraControle.Actuel.CentrerCamera(tribus[i].transform.position);
+            //if(!InterfaceEvenement.Defaut.evenementEnCours)tribus[i].interactionTribu.EntrerEnInteraction(true);
 
             for (int j = 0; j < tribus.Length; j++)
             {

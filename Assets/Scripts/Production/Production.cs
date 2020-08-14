@@ -69,30 +69,36 @@ public class Production : ScriptableObject
 
     public void AugmenterGain(string nomRessource, float augmentation)
     {
-        for (int i = 0; i < ListeRessources.Defaut.listeDesRessources.Length; i++)
+        if (ListeRessources.Defaut)
         {
-            if(nomRessource == ListeRessources.Defaut.listeDesRessources[i].nom)
+            for (int i = 0; i < ListeRessources.Defaut.listeDesRessources.Length; i++)
             {
-                gains[i] += augmentation;
-                return;
+                if(nomRessource == ListeRessources.Defaut.listeDesRessources[i].nom)
+                {
+                    gains[i] += augmentation;
+                    return;
+                }
             }
+            Debug.LogError("Impossible d'augmenter le gain d'une ressource qui n'existe pas, ou le nom de la ressource est pas le bon. " +
+                "Tip : Les Ressources commencent par une majuscule et sont en français");
         }
-        Debug.LogError("Impossible d'augmenter le gain d'une ressource qui n'existe pas, ou le nom de la ressource est pas le bon. " +
-            "Tip : Les Ressources commencent par une majuscule et sont en français");
     }
 
     public void MultiplierGain(string nomRessource, float multiplicateur)
     {
-        for (int i = 0; i < ListeRessources.Defaut.listeDesRessources.Length; i++)
+        if(ListeRessources.Defaut)
         {
-            if (nomRessource == ListeRessources.Defaut.listeDesRessources[i].nom)
+            for (int i = 0; i < ListeRessources.Defaut.listeDesRessources.Length; i++)
             {
-                gains[i] *= multiplicateur;
-                return;
+                if (nomRessource == ListeRessources.Defaut.listeDesRessources[i].nom)
+                {
+                    gains[i] *= multiplicateur;
+                    return;
+                }
             }
+            Debug.LogError("Impossible de multiplier le gain d'une ressource qui n'existe pas, ou le nom de la ressource est pas le bon. " +
+                "Tip : Les Ressources commencent par une majuscule et sont en français");
         }
-        Debug.LogError("Impossible de multiplier le gain d'une ressource qui n'existe pas, ou le nom de la ressource est pas le bon. " +
-            "Tip : Les Ressources commencent par une majuscule et sont en français");
     }
 
     public void MultiplierGain(float multiplicateur)
@@ -105,15 +111,18 @@ public class Production : ScriptableObject
 
     public float RecupuererGainRessource(string nomRessource)
     {
-        for (int i = 0; i < ListeRessources.Defaut.listeDesRessources.Length; i++)
+        if (ListeRessources.Defaut)
         {
-            if (nomRessource == ListeRessources.Defaut.listeDesRessources[i].nom)
+            for (int i = 0; i < ListeRessources.Defaut.listeDesRessources.Length; i++)
             {
-               return gains[i];
+                if (nomRessource == ListeRessources.Defaut.listeDesRessources[i].nom)
+                {
+                   return gains[i];
+                }
             }
+            Debug.LogError("Impossible de récupérer le gain d'une ressource qui n'existe pas, ou le nom de la ressource est pas le bon. " +
+                "Tip : Les Ressources commencent par une majuscule et sont en français");
         }
-        Debug.LogError("Impossible de récupérer le gain d'une ressource qui n'existe pas, ou le nom de la ressource est pas le bon. " +
-            "Tip : Les Ressources commencent par une majuscule et sont en français");
         return 0;
     }
 

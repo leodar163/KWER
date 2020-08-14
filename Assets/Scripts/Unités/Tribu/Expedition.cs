@@ -32,6 +32,8 @@ public class Expedition : MonoBehaviour
 
     public void LancerExpeditions()
     {
+        RappelerInteractions();
+
         List<TuileManager> zoneExploitation = new List<TuileManager>(tribu.tuileActuelle.connections);
         zoneExploitation.Add(tribu.tuileActuelle);
 
@@ -48,12 +50,29 @@ public class Expedition : MonoBehaviour
         if(tribu == Tribu.TribukiJoue)Invoke("GenererInteractions", 0.1f);
     }
 
+    public void RappelerInteractions()
+    {
+        foreach (Combat combat in combatsMenables)
+        {
+            Destroy(combat);
+        }
+        combatsMenables.Clear();
+
+
+        foreach (Echange echange in FindObjectsOfType<Echange>())
+        {
+            Destroy(echange.gameObject);
+        }
+    }
+
     public void RappelerExpeditions()
     {
         for (int i = 0; i < listeExploitations.Count; i++)
         {
             Destroy(listeExploitations[i].gameObject);
         }
+
+
         listeExploitations.Clear();
     }
 
@@ -105,10 +124,7 @@ public class Expedition : MonoBehaviour
 
     private void GenererEchanges()
     {
-        foreach (Echange echange in FindObjectsOfType<Echange>())
-        {
-            Destroy(echange.gameObject);
-        }
+        
 
         List<Tribu> tribusAPortee = TrouverTribusAPortee();
 
@@ -124,11 +140,7 @@ public class Expedition : MonoBehaviour
     {
         if(tribu.guerrier.jetonAttaque)
         {
-            foreach(Combat combat in combatsMenables)
-            {
-                Destroy(combat.gameObject);
-            }
-            combatsMenables.Clear();
+
 
             TrouverHostilsAPortee();
 
