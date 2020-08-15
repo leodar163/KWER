@@ -9,7 +9,7 @@ public class Combat : Interaction
 {
     private Guerrier guerrier;
     private Hostile hostile;
-
+    
     public Guerrier Guerrier
     {
         get
@@ -35,6 +35,7 @@ public class Combat : Interaction
         }
     }
 
+    [SerializeField] private InfoBulle infobulle;
     public InterfaceCombat interfaceCombat;
 
     public struct RecapCombat
@@ -66,6 +67,7 @@ public class Combat : Interaction
         interfaceCombat.gameObject.SetActive(false);
         interfaceCombat.eventMAJInterface.AddListener(MAJBouton);
         InterfaceEvenement.Defaut.eventFinEvenement.AddListener(TerminerCombat);
+        infobulle.texteInfoBulle = hostile.name + "\nCliquer pour ouvrir l'interface de combat";
     }
 
     // Update is called once per frame
@@ -97,12 +99,15 @@ public class Combat : Interaction
     {
         base.EntrerEnInteraction(entrer);
         AfficherInterfaceCombat(entrer);
-        if (entrer) boutonInteraction.onClick.AddListener(CommencerCombat);
-        else boutonInteraction.onClick.RemoveListener(CommencerCombat);
-
-        if(!entrer)
+        if (entrer)
         {
+            boutonInteraction.onClick.AddListener(CommencerCombat);
+        }
+        else
+        {
+            boutonInteraction.onClick.RemoveListener(CommencerCombat);
             boutonInteraction.interactable = true;
+            infobulle.texteInfoBulle = hostile.name + "\nCliquer pour ouvrir l'interface de combat";
         }
     }
 
@@ -118,13 +123,19 @@ public class Combat : Interaction
 
     private void MAJBouton()
     {
-        if(guerrier.nbrGuerrier <= 0)
+        if(enInteraction)
         {
-            ActiverBouton(false);
-        }
-        else
-        {
-            ActiverBouton(true);
+            if(guerrier.nbrGuerrier <= 0)
+            {
+                ActiverBouton(false);
+                infobulle.texteInfoBulle = "<color=#"+ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface)
+                    +">Il faut assigner au moins une population pour commencer un combat";
+            }
+            else
+            {
+                ActiverBouton(true);
+                infobulle.texteInfoBulle = "Cliquer pour commencer le combat";
+            }
         }
     }
 

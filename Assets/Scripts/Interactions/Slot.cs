@@ -155,4 +155,14 @@ public abstract class Slot : MonoBehaviour
         textInfoBulleInit = true;
         infobulle.texteInfoBulle = texteInfobulleDefaut;
     }
+
+    public void AutoriserSlot(string message)
+    {
+        if (!bouton || !image) ConstruirSlot();
+        bouton.interactable = true;
+        image.color = Color.white;
+
+        textInfoBulleInit = true;
+        infobulle.texteInfoBulle = message;
+    }
 }

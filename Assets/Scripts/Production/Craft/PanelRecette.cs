@@ -275,7 +275,7 @@ public class PanelRecette : MonoBehaviour
                     {
                         gainRessource.gains[i] += recette.production.gains[i] * slotsOccupes;
                     }
-                    gainRessource.gains[i] -= recette.inputParPop.gains[i] * slotsOccupes;
+                    //gainRessource.gains[i] -= recette.inputParPop.gains[i] * slotsOccupes;
                 }
             }
 

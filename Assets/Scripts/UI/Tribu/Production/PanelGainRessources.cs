@@ -33,14 +33,14 @@ public class PanelGainRessources : MonoBehaviour
         {
             if (prod.gains[i] != 0)
             {
-                AjouterAffichage(prod.gains[i], ListeIcones.Defaut.TrouverIconeRessource(ListeRessources.Defaut.listeDesRessources[i].nom), i);
+                AjouterAffichage(prod.gains[i], ListeRessources.Defaut.listeDesRessources[i]);
             }
         }
     }
 
 
     //Ajoute une ressource dans l'affichage général
-    private void AjouterAffichage(float gain, Sprite icone, int indexRessource)
+    private void AjouterAffichage(float gain, Ressource ressource)
     {
         GameObject nvAffichage = Instantiate(affichageRessource, transform);
 
@@ -56,8 +56,9 @@ public class PanelGainRessources : MonoBehaviour
             txtMP.text = "" + gain;
         }
        
-        nvAffichage.GetComponentInChildren<Image>(true).sprite = icone;
+        nvAffichage.GetComponentInChildren<Image>(true).sprite = ressource.icone;
         nvAffichage.SetActive(true);
+        nvAffichage.GetComponentInChildren<InfoBulle>().texteInfoBulle = ressource.texteInfobulle;
 
         listeAffichages.Add(nvAffichage);
 
@@ -98,7 +99,8 @@ public class PanelGainRessources : MonoBehaviour
             {
                 if (affichage.GetComponentInChildren<Image>().sprite == ListeIcones.Defaut.TrouverIconeRessource(ressource))
                 {
-                    if (ListeCouleurs.Defaut) affichage.GetComponent<TextMeshProUGUI>().color = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
+                    if (ListeCouleurs.Defaut) affichage.GetComponent<TextMeshProUGUI>().color = 
+                            ListeCouleurs.Defaut.couleurAlerteTexteInterface;
                 }
             }
         }

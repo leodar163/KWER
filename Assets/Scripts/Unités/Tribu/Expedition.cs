@@ -124,7 +124,6 @@ public class Expedition : MonoBehaviour
 
     private void GenererEchanges()
     {
-        
 
         List<Tribu> tribusAPortee = TrouverTribusAPortee();
 

@@ -24,7 +24,6 @@ public class InterfaceRessource : MonoBehaviour
     private List<PanelInfoRessource> listePanelsInfoRessource = new List<PanelInfoRessource>();
 
     [HideInInspector] public UnityEvent EventInterfaceMAJ;
-    public float tauxRafraichissementSeconde = 0.1f;
 
     [Space]
     [Header("Consommables")]
@@ -56,7 +55,7 @@ public class InterfaceRessource : MonoBehaviour
         MiseAJourStock(Tribu.TribukiJoue.stockRessources.RessourcesEnStock);
         MiseAJourConsommables();
 
-        yield return new WaitForSeconds(tauxRafraichissementSeconde);
+        yield return new WaitForEndOfFrame();
 
         StartCoroutine(MAJInterfaceRessource());
         EventInterfaceMAJ.Invoke();

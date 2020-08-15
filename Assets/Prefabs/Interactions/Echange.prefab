@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 7582444509501970061}
   - component: {fileID: 1805794925914895686}
   - component: {fileID: 6004850605402319510}
+  - component: {fileID: 7597304581952004884}
   m_Layer: 9
   m_Name: BoutonEchange
   m_TagString: Untagged
@@ -373,6 +374,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7597304581952004884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889818312402754956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585d0b29c4dc1ea4d9c85e12555b0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texteInfoBulle: "Cliquez pour commencer un \xE9change avec cette tribu"
 --- !u!1 &6483695171163736557
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,3 +553,4 @@ MonoBehaviour:
   interactable: 0
   boutonInteraction: {fileID: 6004850605402319510}
   boutonRetour: {fileID: 6246464862669473821}
+  tribuCible: {fileID: 0}

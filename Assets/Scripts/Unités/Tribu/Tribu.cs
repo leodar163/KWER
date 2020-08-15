@@ -116,7 +116,6 @@ public class Tribu : Pion
         guerrier.jetonAttaque = true;
 
         tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, ptsDeplacement, false);
-        expedition.GenererInteractions();
         interactionTribu.ActiverBouton(true);
         interactionTribu.infobulle.texteInfoBulle = "Cliquez pour entrer en mode campement";
     }
