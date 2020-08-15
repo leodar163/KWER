@@ -34,9 +34,9 @@ public class Troupeau : Pion
     }
 
     #region IA
-    public override void DemarrerTour()
+    public override void DebutTour()
     {
-        base.DemarrerTour();
+        base.DebutTour();
         migration.InitialiserPointsDeplacement();
         StartCoroutine(DeroulerTour());
     }

@@ -884,6 +884,7 @@ MonoBehaviour:
   boutonInteraction: {fileID: 2527834908584504517}
   boutonRetour: {fileID: 5093777247025942992}
   tribu: {fileID: 1618904120558817127}
+  infobulle: {fileID: 5369482130324569218}
 --- !u!114 &1380142630860522206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2733,7 +2734,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 6343172449743224675}
   m_OnClick:
     m_PersistentCalls:
@@ -2761,7 +2762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585d0b29c4dc1ea4d9c85e12555b0391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texteInfoBulle: Cliquer pour entrer en mode campement
+  texteInfoBulle: "Tribu Alli\xE9e\nApprochez-vous pour \xE9changer des ressources"
 --- !u!1 &5172677523249622558
 GameObject:
   m_ObjectHideFlags: 0

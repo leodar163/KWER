@@ -55,20 +55,14 @@ public class TourParTour : MonoBehaviour
             BoutonTourSuivant.Actuel.Activer(true);
             foreach(Tribu tribu in tribus)
             {
-                tribu.DemarrerTour();
+                tribu.DebutTour();
             }
         }
 
         for (int i = 0; i < tribus.Length; i++)
         {
-            CameraControle.Actuel.CentrerCamera(tribus[i].transform.position);
+            tribus[i].CommencerTour();
             //if(!InterfaceEvenement.Defaut.evenementEnCours)tribus[i].interactionTribu.EntrerEnInteraction(true);
-
-            for (int j = 0; j < tribus.Length; j++)
-            {
-                if (tribus[j] != tribus[i]) tribus[j].interactionTribu.ActiverBouton(false);
-                else tribus[j].interactionTribu.ActiverBouton(true);
-            }
 
             yield return new WaitUntil(() => tribus[i].aPasseSonTour);
 
@@ -103,7 +97,7 @@ public class TourParTour : MonoBehaviour
 
         for (int i = 0; i < animaux.Length; i++)
         {
-            animaux[i].DemarrerTour();
+            animaux[i].DebutTour();
             yield return new WaitUntil(() => animaux[i].aPasseSonTour);
         }
 
@@ -118,7 +112,7 @@ public class TourParTour : MonoBehaviour
 
         for (int i = 0; i < pillards.Length; i++)
         {
-            pillards[i].DemarrerTour();
+            pillards[i].DebutTour();
             yield return new WaitUntil(() => pillards[i].aPasseSonTour);
         }
 

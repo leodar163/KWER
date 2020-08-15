@@ -33,9 +33,9 @@ public class Pillard : Pion
 
     #region IA
 
-    public override void DemarrerTour()
+    public override void DebutTour()
     {
-        base.DemarrerTour();
+        base.DebutTour();
         ptsDeplacement = ptsDeplacementDefaut;
         StartCoroutine(DeroulerTour());
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractionTribu : Interaction
 {
     [SerializeField] private Tribu tribu;
+    public InfoBulle infobulle;
     // Start is called before the first frame update
     protected override void Start()
     {

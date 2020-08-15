@@ -28,13 +28,27 @@ public class Pion : MonoBehaviour
     {
         
     }
-
     /// <summary>
     /// Est appelée au début du tour du pion (différent pour chaque type de pion)
     /// </summary>
-    public virtual void DemarrerTour()
+    public virtual void DebutTour()
     {
         aPasseSonTour = false;
+    }
+    /// <summary>
+    /// Est appelée quand le pion commence son tour (différent pour chaque pion)
+    /// </summary>
+    public virtual void CommencerTour()
+    {
+        CameraControle.Actuel.CentrerCamera(transform.position);
+    }
+
+    /// <summary>
+    /// Est appelée quand le pion a fini de jouer et passe son tour
+    /// </summary>
+    public virtual void PasserTour()
+    {
+        aPasseSonTour = true;
     }
 
     protected virtual void OnDestroy()
@@ -48,8 +62,5 @@ public class Pion : MonoBehaviour
 
     }
 
-    public virtual void PasserTour()
-    {
-        aPasseSonTour = true;
-    }
+
 }

@@ -95,21 +95,42 @@ public class Tribu : Pion
     }
 
     #region TOUR PAR TOUR
-    public override void DemarrerTour()
+    /// <summary>
+    /// Est appelée au début du tour des Tribus
+    /// </summary>
+    public override void DebutTour()
     {
-        base.DemarrerTour();
-        ptsDeplacement = ptsDeplacementDefaut;
-        guerrier.jetonAttaque = true;
-
-        tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle,ptsDeplacement,false);
-        expedition.GenererInteractions();
+        base.DebutTour();
+        
         stockRessources.EncaisserGain();
     }
 
+    /// <summary>
+    /// Est appelée quand la tribu commence son tour
+    /// </summary>
+    public override void CommencerTour()
+    {
+        base.CommencerTour();
+
+        ptsDeplacement = ptsDeplacementDefaut;
+        guerrier.jetonAttaque = true;
+
+        tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, ptsDeplacement, false);
+        expedition.GenererInteractions();
+        interactionTribu.ActiverBouton(true);
+        interactionTribu.infobulle.texteInfoBulle = "Cliquez pour entrer en mode campement";
+    }
+
+    /// <summary>
+    /// Est appelée quand la tribu a fini de jouer et passe son tour
+    /// </summary>
     public override void PasserTour()
     {
         base.PasserTour();
         expedition.RappelerInteractions();
+
+        interactionTribu.ActiverBouton(false);
+        interactionTribu.infobulle.texteInfoBulle = "Tribu Alliée\nApprochez-vous pour échanger des ressources";
     }
     #endregion
 
