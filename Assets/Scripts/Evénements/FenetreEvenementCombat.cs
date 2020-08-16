@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FenetreEvenementCombat : FenetreEvenement
 {
@@ -13,6 +14,13 @@ public class FenetreEvenementCombat : FenetreEvenement
             return combat;
         }
     }
+
+
+    [SerializeField] private Image banniereJoueur;
+    [SerializeField] private Image banniereHostile;
+    private InfoBulle infoBulleBanniereJoueur;
+    private InfoBulle infoBulleBanniereHostile;
+
     [SerializeField] private StatsCombat statsJoueur;
     [SerializeField] private StatsCombat statsEnnemi;
 
@@ -29,9 +37,22 @@ public class FenetreEvenementCombat : FenetreEvenement
 
     public void LancerCombat(Combat combatALancer, EvenementCombat evenementCombat)
     {
+        if (!infoBulleBanniereJoueur)
+            infoBulleBanniereJoueur = banniereJoueur.GetComponent<InfoBulle>();
+        if (!infoBulleBanniereHostile)
+            infoBulleBanniereHostile = banniereHostile.GetComponent<InfoBulle>();
+
         evenement = evenementCombat;
         DessinerEvenement();
         combat = combatALancer;
+
+        CameraControle.Actuel.CentrerCamera(combat.Guerrier.transform.position);
+
+        banniereJoueur.sprite = combat.Guerrier.tribu.banniere.sprite;
+        infoBulleBanniereJoueur.texteInfoBulle = combat.Guerrier.tribu.name;
+        banniereHostile.sprite = combat.Hostile.icone;
+        infoBulleBanniereHostile.texteInfoBulle = combat.Hostile.pion.name;
+
         Invoke("MAJInterfaceCombat", 0.2f);
     }
 

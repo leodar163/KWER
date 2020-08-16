@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585d0b29c4dc1ea4d9c85e12555b0391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texteInfoBulle: Texte d'information
+  texteInfoBulle: COUCOU
 --- !u!1 &1423057889506218151
 GameObject:
   m_ObjectHideFlags: 0

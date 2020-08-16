@@ -45,7 +45,7 @@ public class Guerrier : MonoBehaviour
     {
         tribu.expedition.RappelerExpeditions();
         tribu.expedition.LancerExpeditions();
-        for (int i = 0; i < tribu.demographie.listePopsCampement.Count; i++)
+        for (int i = 0; i < tribu.demographie.taillePopulation; i++)
         {
             tribu.demographie.EngagerGuerrier();
         }

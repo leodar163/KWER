@@ -24,8 +24,7 @@ MonoBehaviour:
     - 
     - " - <color=#83C755FF>Forte chance <color=\"white\">que le pi\xE8ge fonctionne.\n
       - <color=#F2D82DFF>Chance moyenne <color=\"white\">que le pi\xE8ge soit rep\xE9r\xE9."
-    - "<color=#83C755FF>+2<color=\"white\"> points d'attaque jusqu'\xE0 la fin de
-      l'\xE9venement"
+    - 
     - 
     effets:
       m_PersistentCalls:
@@ -43,17 +42,6 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 11400000, guid: ae50a04289bb07b479fe7eb6194ff63f, type: 2}
           m_MethodName: PiocherEvenement
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 11400000, guid: 07ca604e0b786154492f190e8f029b8b, type: 2}
-          m_MethodName: activerBuff
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

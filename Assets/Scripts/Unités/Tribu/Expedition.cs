@@ -54,7 +54,7 @@ public class Expedition : MonoBehaviour
     {
         foreach (Combat combat in combatsMenables)
         {
-            Destroy(combat);
+            Destroy(combat.gameObject);
         }
         combatsMenables.Clear();
 
@@ -139,7 +139,7 @@ public class Expedition : MonoBehaviour
     {
         if(tribu.guerrier.jetonAttaque)
         {
-
+            print("generation combat"); 
 
             TrouverHostilsAPortee();
 

@@ -1,8 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
-using System.Security.Cryptography;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,9 +9,10 @@ public class Hostile : MonoBehaviour
 
     private List<Tribu> ciblesAPortee = new List<Tribu>();
 
-    public bool combatEnCours = false;
+    public bool combatEstEnCours = false;
 
     [SerializeField] private  GameObject combat;
+    public Sprite icone;
 
     /// <summary>
     /// quand est dépensé, ne peut plus attaquer jusqu'au tour prochain
@@ -84,15 +82,16 @@ public class Hostile : MonoBehaviour
     {
         Tribu cible = ciblesAPortee[Random.Range(0, ciblesAPortee.Count - 1)];
         cible.guerrier.EngagementGeneral();
-        AttaquerCible(cible);
+        Combat combatEnCours = AttaquerCible(cible);
 
-        yield return new WaitWhile(() => combatEnCours);
+        yield return new WaitWhile(() => combatEstEnCours);
 
+        Destroy(combatEnCours.gameObject);
         cible.guerrier.DesengagementGeneral();
         pion.aFaitUneAction = true;
     }
 
-    private void AttaquerCible(Tribu cible)
+    private Combat AttaquerCible(Tribu cible)
     {
         jetonAttaque = false;
 
@@ -102,7 +101,9 @@ public class Hostile : MonoBehaviour
 
         InterfaceEvenement.Defaut.OuvrirFenetreEvenementCombat(nvCombat);
 
-        combatEnCours = true;
+        combatEstEnCours = true;
+
+        return nvCombat;
     }
 
     public void TrouverCiblesAPortee()
@@ -112,7 +113,6 @@ public class Hostile : MonoBehaviour
         {
             if(cible.EstTribu && !ciblesAPortee.Contains((Tribu)cible.parent))
             {
-                print("tribu reprée");
                 ciblesAPortee.Add((Tribu)cible.parent);
             }
         }

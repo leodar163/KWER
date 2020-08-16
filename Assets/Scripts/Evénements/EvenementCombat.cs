@@ -26,10 +26,6 @@ public class EvenementCombat : Evenement
         
     }
 
-    public void Combattre()
-    {
-    }
-
     public void Fuire()
     {
 

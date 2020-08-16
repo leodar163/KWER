@@ -120,7 +120,7 @@ public abstract class Slot : MonoBehaviour
 
     protected virtual void retirerPop()
     {
-        demo.AjouterPop(pop);
+        demo.RetournerPop(pop);
         pop.gameObject.SetActive(true);
         pop = null;
         iconePop.gameObject.SetActive(false);
@@ -130,7 +130,7 @@ public abstract class Slot : MonoBehaviour
     {
         if (pop)
         {
-            demo.AjouterPop(pop);
+            demo.RetournerPop(pop);
         }
     }
 

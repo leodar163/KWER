@@ -86,12 +86,14 @@ public class EvenementEditor : Editor
                     {
 
                         retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
-                            + argument.floatValue;
+                            + argument.floatValue +
+                               "<color=\"white\">";
                     }
                     else if (argument.floatValue < 0)
                     {
                         retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" 
-                            + argument.floatValue;
+                            + argument.floatValue +
+                               "<color=\"white\">";
                     }
                 }
                 else if (methode.stringValue.Contains("Fuir"))
@@ -99,13 +101,15 @@ public class EvenementEditor : Editor
                     if (methode.stringValue.Contains("Pourcentage"))
                     {
                         retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
-                            + evenementCombat.baliseGuerPourc + argument.intValue + evenement.finBalise + " guerriers s'enfuient.";
+                            + evenementCombat.baliseGuerPourc + argument.intValue + evenement.finBalise + " guerriers s'enfuient." +
+                               "<color=\"white\">";
                     }
                     else
                     {
                         argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_IntArgument");
                         retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
-                            + evenementCombat.baliseGuer + argument.intValue + evenement.finBalise + " guerriers s'enfuient.";
+                            + evenementCombat.baliseGuer + argument.intValue + evenement.finBalise + " guerriers s'enfuient." +
+                               "<color=\"white\">";
                     }
                 }
                 else if (methode.stringValue.Contains("Tuer"))
@@ -115,13 +119,15 @@ public class EvenementEditor : Editor
                         if (methode.stringValue.Contains("Pourcentage"))
                         {
                             retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
-                               + evenementCombat.baliseGuerPourc + argument.floatValue + evenement.finBalise + " guerriers tués";
+                               + evenementCombat.baliseGuerPourc + argument.floatValue + evenement.finBalise + " guerriers tués" +
+                               "<color=\"white\">";
                         }
                         else
                         {
                             argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_IntArgument");
                             retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
-                                + evenementCombat.baliseGuer + argument.intValue + evenement.finBalise + " guerriers tués";
+                                + evenementCombat.baliseGuer + argument.intValue + evenement.finBalise + " guerriers tués" +
+                               "<color=\"white\">";
                         }
                     }
                     else if (methode.stringValue.Contains("Ennemis"))
@@ -130,13 +136,15 @@ public class EvenementEditor : Editor
                         {
 
                             retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">"
-                                + evenementCombat.baliseEnnPourc + argument.floatValue + evenement.finBalise + " ennemis meurent";
+                                + evenementCombat.baliseEnnPourc + argument.floatValue + evenement.finBalise + " ennemis meurent" +
+                               "<color=\"white\">";
                         }
                         else
                         {
                             argument = effet.FindPropertyRelative("data[" + j + "].m_Arguments.m_IntArgument");
                             retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">"
-                                + evenementCombat.baliseEnn + argument.intValue + evenement.finBalise + " ennemis meurent";
+                                + evenementCombat.baliseEnn + argument.intValue + evenement.finBalise + " ennemis meurent" +
+                               "<color=\"white\">";
                         }
                     }
                 }
@@ -196,12 +204,12 @@ public class EvenementEditor : Editor
                         if(argument.intValue > 0)
                         {
                             retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) +">+" 
-                                + argument.intValue + "point"+ pluriel +" d'attaque ";
+                                + argument.intValue + "<color=\"white\">point" + pluriel +" d'attaque ";
                         }
                         else if(argument.intValue < 0)
                         {
                             retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
-                                + argument.intValue + "point" + pluriel + " d'attaque ";
+                                + argument.intValue + "<color=\"white\">point" + pluriel + " d'attaque ";
                         }
                     }
                     else if (methode.stringValue.Contains("Defense"))
@@ -212,12 +220,12 @@ public class EvenementEditor : Editor
                         if (argument.intValue > 0)
                         {
                             retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
-                                + argument.intValue + "point" + pluriel + " de défense ";
+                                + argument.intValue + "<color=\"white\">point" + pluriel + " de défense ";
                         }
                         else if (argument.intValue < 0)
                         {
                             retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">"
-                                + argument.intValue + "point" + pluriel + " de défense ";
+                                + argument.intValue + "<color=\"white\">point" + pluriel + " de défense ";
                         }
                     }
                 }

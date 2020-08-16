@@ -94,7 +94,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   troupeau: {fileID: 4240119684360671227}
-  tuileActuelle: {fileID: 0}
 --- !u!114 &1714641867515581847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 4240119684360671227}
+  tuilesRevendiquees: []
 --- !u!114 &1159643476458633933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,9 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda67a0ef89633f4b86b6ea8adef0258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pion: {fileID: 4240119684360671227, guid: a847b54e5bd421243b7a0f385a7c3143, type: 3}
+  pion: {fileID: 4240119684360671227}
   combatEnCours: 0
   combat: {fileID: 9043204819795068831, guid: 9209567ac640936478e6b19e2b526bfa, type: 3}
+  icone: {fileID: 21300000, guid: af85fa14bf5b15548824c4b1e5f844af, type: 3}
   nbrCombattant: 5
   attaque: 2
   defense: 3

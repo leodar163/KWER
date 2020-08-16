@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Demographie : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Demographie : MonoBehaviour
     [SerializeField] private GameObject affichage;
     [SerializeField] private Button boutonAjout;
     [SerializeField] private Button boutonSuppression;
+    [SerializeField] private TextMeshProUGUI texteTotalPop;
 
     [Header("Couts et gains")]
     [SerializeField] private Production coutPop;
@@ -49,6 +51,7 @@ public class Demographie : MonoBehaviour
         AjouterPop();
         InstancierProduction();
         InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJBoutonsPop);
+        InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJTotalPop);
     }
 
     // Update is called once per frame
@@ -59,6 +62,11 @@ public class Demographie : MonoBehaviour
             modePopInfinie = !modePopInfinie;
             MAJBoutonsPop();
         }
+    }
+
+    private void MAJTotalPop()
+    {
+        texteTotalPop.text = "" + taillePopulation;
     }
 
     private void InstancierProduction()
@@ -112,7 +120,7 @@ public class Demographie : MonoBehaviour
         AjusterRouePopulation();
     }
 
-    public void AjouterPop(Pop popAjoutee)
+    public void RetournerPop(Pop popAjoutee)
     {
         if(listePopsExpedition.Contains(popAjoutee))
         {
@@ -160,6 +168,7 @@ public class Demographie : MonoBehaviour
         tribu.stockRessources.CalculerGain();
         tribu.guerrier.nbrGuerrier--;
 
+        
         AjusterRouePopulation();
 
         return popRetiree;
@@ -192,16 +201,13 @@ public class Demographie : MonoBehaviour
 
     public void SupprimerPop()
     {
-        if(taillePopulation > 1)
+        if (listePopsCampement.Count > 0)
         {
-            if(listePopsCampement.Count > 0)
-            {
-                Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1]; 
-                listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
-                Destroy(popRetiree.gameObject);
-                AjusterRouePopulation();
-            }
-        }
+            Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1];
+            listePopsCampement.RemoveAt(listePopsCampement.Count - 1);
+            Destroy(popRetiree.gameObject);
+            tribu.stockRessources.RetirerCapacitePop();
+        }   AjusterRouePopulation();
     }
 
     #region INTERFACE
@@ -262,6 +268,7 @@ public class Demographie : MonoBehaviour
 
                 }
             }
+
             if (taillePopulation == 1)
             {
                 boutonSuppression.interactable = false;

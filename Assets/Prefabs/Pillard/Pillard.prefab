@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6476901781432542718}
   - component: {fileID: 6476901781432542657}
   - component: {fileID: 6476901781432542656}
-  - component: {fileID: -192724641433448097}
   - component: {fileID: -7466687714277559348}
   - component: {fileID: 385801147116569801}
   m_Layer: 0
@@ -121,8 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pion: {fileID: 6476901781432542657}
-  combatEnCours: 0
+  combatEstEnCours: 0
   combat: {fileID: 9043204819795068831, guid: 9209567ac640936478e6b19e2b526bfa, type: 3}
+  icone: {fileID: 21300000, guid: 8808c1ab8e9d0174a9a0e87f2f0e00b7, type: 3}
   nbrCombattant: 4
   attaque: 2
   defense: 1
@@ -134,22 +134,6 @@ MonoBehaviour:
   nbrCombattantMin: -1
   nbrCombattantMax: -1
   loot: {fileID: 11400000, guid: 83c6775c70254d74b87b448758c4982a, type: 2}
---- !u!114 &-192724641433448097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6476901781432542659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585d0b29c4dc1ea4d9c85e12555b0391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textInfoBulle: '<color="red">Pillards<color="white">
-
-    Attaquent les tribus
-    pour les piller'
 --- !u!114 &-7466687714277559348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 6476901781432542657}
+  tuilesRevendiquees: []
 --- !u!114 &385801147116569801
 MonoBehaviour:
   m_ObjectHideFlags: 0

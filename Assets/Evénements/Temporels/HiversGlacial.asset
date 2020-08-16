@@ -13,16 +13,13 @@ MonoBehaviour:
   m_Name: HiversGlacial
   m_EditorClassIdentifier: 
   effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
-  titre: UN HIVERS RUDE ARRIVE
-  description: "Vous le sentiez venir, un hivers difficile approche, avec moins de
-    ressources disponible vous devrez bien vous pr\xE9parer et r\xE9cup\xE9rer des
-    peaux si vous voulez survivre."
+  titre: HIVERS GLACIAL
+  description: "Vous le sentiez venir, un hivers difficile approche. Les source de
+    nourriture vont se faire plus rares et les d\xE9placements plus difficiles."
   illustration: {fileID: 21300000, guid: fde2c64ce4061474287acf8fcc9f93bd, type: 3}
   listeChoix:
   - description: 'Il nous faut survivre ensemble! '
-    infobulle: "Votre tribu va manquer de nourriture sur cette p\xE9riode difficile,
-      le froid mordant risque de tuer les plus fragils, pr\xE9parez des peaux en
-      guise de couvertures."
+    infobulle: 
     retoursEffets:
     - 
     - ' pendant 1 tours'
@@ -65,5 +62,5 @@ MonoBehaviour:
           m_CallState: 2
   finBalise: <fin>
   probaEte: 0
-  probaHiver: 59.7
+  probaHiver: 8
   infobulle: HIVERS GLACIAL

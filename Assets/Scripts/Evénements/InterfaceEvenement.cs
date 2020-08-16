@@ -158,7 +158,7 @@ public class InterfaceEvenement : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
 
-        if (!fenetreCombat.gameObject.activeSelf && !fenetreCombat.gameObject.activeSelf)
+        if (!fenetreCombat.gameObject.activeSelf && !fenetreCombat.gameObject.activeSelf && !recapCombat.gameObject.activeSelf)
         {
             eventFinEvenement.Invoke();
             ControleSouris.Actuel.controleEstActif = true;

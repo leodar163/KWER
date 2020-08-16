@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11909677792bacb4a9b85c07f960002c, type: 3}
-  m_Name: RiteDuSsang
+  m_Name: RiteDuSang
   m_EditorClassIdentifier: 
   effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
   titre: RITE DU SANG
-  description: "Les astres sont en position, et la lune de sang encorc\xE8le les
-    \xEAtres des plaines d'une rage bestiale. Vous en appelez ainsi aux pouvoirs
-    des esprits pour galvaniser vos guerriers lors d'une ultime c\xE9r\xE9monie."
+  description: "Les astres sont en position, et la lune de sang ensorc\xE8le les
+    \xEAtres des plaines d'une rage bestiale. Vous en appelez aux pouvoirs des esprits
+    pour galvaniser vos guerriers lors d'une c\xE9r\xE9monie."
   illustration: {fileID: 21300000, guid: 4c956738be9ac0d439e289915c7b98ec, type: 3}
   listeChoix:
   - description: "Vos chasseurs sentent plus forts \xE0 pr\xE9sent !"
-    infobulle: Les chasseurs ont un buff d'attaque +1 pendant 3 tours
+    infobulle: 
     retoursEffets:
     - 
-    - <color=#83C755FF>+3<color="white"> points d'attaque pendant 1 tours
+    - <color=#83C755FF>+1<color="white"> point
     effets:
       m_PersistentCalls:
         m_Calls:
@@ -50,6 +50,6 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   finBalise: <fin>
-  probaEte: 50
-  probaHiver: 48.2
-  infobulle: RITE DE SANG
+  probaEte: 4
+  probaHiver: 4
+  infobulle: RITE DU SANG

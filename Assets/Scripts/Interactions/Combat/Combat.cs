@@ -32,9 +32,9 @@ public class Combat : Interaction
         {
             hostile = value;
             interfaceCombat.ennemi = hostile;
+            infobulle.texteInfoBulle = hostile.name + "\nCliquer pour ouvrir l'interface de combat";
         }
     }
-
     [SerializeField] private InfoBulle infobulle;
     public InterfaceCombat interfaceCombat;
 
@@ -67,7 +67,7 @@ public class Combat : Interaction
         interfaceCombat.gameObject.SetActive(false);
         interfaceCombat.eventMAJInterface.AddListener(MAJBouton);
         InterfaceEvenement.Defaut.eventFinEvenement.AddListener(TerminerCombat);
-        infobulle.texteInfoBulle = hostile.name + "\nCliquer pour ouvrir l'interface de combat";
+        
     }
 
     // Update is called once per frame
@@ -86,7 +86,7 @@ public class Combat : Interaction
             {
                 interfaceCombat.DesengagerTousGuerriers();
             }
-            hostile.combatEnCours = false;
+            hostile.combatEstEnCours = false;
         }
     }
 
@@ -190,7 +190,12 @@ public class Combat : Interaction
             if (Random.Range(0, 100) <= guerrier.degatMoralTotal - hostile.resistanceMorale) ennemiFuit = true;
         }
 
-        guerrier.nbrGuerrier = guerrier.nbrGuerrier > mortsGuerrier ? guerrier.nbrGuerrier - mortsGuerrier : 0;
+        int nbrGuerrierATuer = guerrier.nbrGuerrier > mortsGuerrier ? mortsGuerrier : guerrier.nbrGuerrier;
+        for (int i = 0; i < nbrGuerrierATuer; i++)
+        {
+            guerrier.tribu.demographie.DesengagerGuerrier(true);
+        }
+
         hostile.nbrCombattant = hostile.nbrCombattant > mortsHostile ? hostile.nbrCombattant - mortsHostile : 0;
 
         InterfaceEvenement.Defaut.OuvrirRecapCombat(new RecapCombat(attaqueGuerrier, defenseGuerrier, attaqueHostile, defenseHostile, mortsGuerrier, mortsHostile, ennemiFuit), this);

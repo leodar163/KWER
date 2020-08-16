@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19aeb4dbce583154b9e71772c72b9c0f, type: 3}
-  m_Name: NvBuff
+  m_Name: BuffAttaque
   m_EditorClassIdentifier: 
   effet: {fileID: -5881852976285656317, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
   effets:
@@ -23,7 +23,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -38,14 +38,14 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: -2
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  compteurTour: 0
-  tpsDunEvent: 1
+  compteurTour: 1
+  tpsDunEvent: 0
   tpsDuneTechno: 0
-  nombreTour: 2
+  nombreTour: 3
   listeEffetsRetours:
-  - "<color=#83C755FF>+2<color=\"white\"> points d'attaque jusqu'\xE0 la fin de l'\xE9venement"
+  - <color=#83C755FF>+1<color="white"> point

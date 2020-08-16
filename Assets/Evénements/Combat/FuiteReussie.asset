@@ -17,4 +17,9 @@ MonoBehaviour:
   description: 
   illustration: {fileID: 0}
   listeChoix: []
+  finBalise: <fin>
   combat: {fileID: 0}
+  baliseGuer: <guer>
+  baliseGuerPourc: <guer%>
+  baliseEnnPourc: <enn%>
+  baliseEnn: <enn>

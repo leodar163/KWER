@@ -12,10 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50cedc5a0637da843accdbbbf86735ea, type: 3}
   m_Name: Fuite
   m_EditorClassIdentifier: 
-  listeEvenement:
-  - proba: 70
-    evenement: {fileID: 11400000, guid: ab027e75287effd4f8561f2f09988b31, type: 2}
-    descriptionRapide: 
-  - proba: 30
-    evenement: {fileID: 11400000, guid: 80f92f874c703fe44a720c188bc16183, type: 2}
-    descriptionRapide: 
+  listeEvenements: []
