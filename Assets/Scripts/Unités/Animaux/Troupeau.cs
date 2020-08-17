@@ -9,7 +9,6 @@ public class Troupeau : Pion
     public Migration migration;
     public Hostile hostile;
     public ProductionTroupeau productionTroupeau;
-    public SpriteRenderer spriteRenderer;
 
     [HideInInspector] public bool domesticable;
     [HideInInspector] public bool megaFaune;

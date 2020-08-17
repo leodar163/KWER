@@ -21038,6 +21038,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillard
       objectReference: {fileID: 0}
+    - target: {fileID: 6476901781432542659, guid: 036b41cf1a3d6ab40a789e70cfb8fde3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6476901781432542719, guid: 036b41cf1a3d6ab40a789e70cfb8fde3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25958,7 +25963,7 @@ PrefabInstance:
     - target: {fileID: 799528128373039931, guid: a847b54e5bd421243b7a0f385a7c3143,
         type: 3}
       propertyPath: m_Name
-      value: Mamouth
+      value: Mammouth
       objectReference: {fileID: 0}
     - target: {fileID: 1430924510803288443, guid: a847b54e5bd421243b7a0f385a7c3143,
         type: 3}
@@ -90481,7 +90486,7 @@ PrefabInstance:
     - target: {fileID: 5114057259405774015, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0002746582
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5114057259405774015, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}

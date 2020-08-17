@@ -72,7 +72,10 @@ public class AmenagementTuile : MonoBehaviour
 
     public void RevetirSpriteSaison()
     {
-        if (Calendrier.Actuel.Hiver) spriteRend.sprite = amenagement.spritesHiver[paliersValides - 1];
-        else spriteRend.sprite = amenagement.spritesEte[paliersValides - 1];
+        if(amenagement)
+        {
+            if (Calendrier.Actuel.Hiver) spriteRend.sprite = amenagement.spritesHiver[paliersValides - 1];
+            else spriteRend.sprite = amenagement.spritesEte[paliersValides - 1];
+        }
     }
 }

@@ -12,7 +12,6 @@ public class Hostile : MonoBehaviour
     public bool combatEstEnCours = false;
 
     [SerializeField] private  GameObject combat;
-    public Sprite icone;
 
     /// <summary>
     /// quand est dépensé, ne peut plus attaquer jusqu'au tour prochain

@@ -22,8 +22,8 @@ MonoBehaviour:
     infobulle: 
     retoursEffets:
     - 
-    - ' pendant 1 tours'
-    - ' pendant 1 tours'
+    - ' pendant 2 tours'
+    - <color=#D74A29FF-1<color="white"> point
     effets:
       m_PersistentCalls:
         m_Calls:

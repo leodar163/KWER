@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cae5fc8f92ed59409d86f95ff3642bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6269753663623220688}
   aFaitUneAction: 0
   aPasseSonTour: 0
   revendication: {fileID: 9055846603267299339}
@@ -61,7 +62,6 @@ MonoBehaviour:
   migration: {fileID: 2523344375351965229}
   hostile: {fileID: 2116350178684948164}
   productionTroupeau: {fileID: 1714641867515581847}
-  spriteRenderer: {fileID: 6269753663623220688}
   domesticable: 0
   megaFaune: 0
   predateur: 1
@@ -137,9 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pion: {fileID: 4240119684360671227, guid: 8ab06d223d641914a9f1d5aec8d68da9, type: 3}
-  combatEnCours: 0
+  combatEstEnCours: 0
   combat: {fileID: 9043204819795068831, guid: 9209567ac640936478e6b19e2b526bfa, type: 3}
-  icone: {fileID: 21300000, guid: d59a1cc5b596542498dee68cb626c5af, type: 3}
   nbrCombattant: 3
   attaque: 2
   defense: 1
@@ -221,7 +220,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d59a1cc5b596542498dee68cb626c5af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fcddbed56f67e7645967437cfb9ef2a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

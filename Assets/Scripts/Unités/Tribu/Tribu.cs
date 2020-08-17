@@ -8,8 +8,6 @@ public class Tribu : Pion
 {
     public int idTribu;
 
-    SpriteRenderer spriteRenderer;
-
     #region SINGLETON
     static public Tribu TribukiJoue
     {
@@ -61,7 +59,8 @@ public class Tribu : Pion
     public InteractionTribu interactionTribu;
 
     [Header("Sprites")]
-    [SerializeField] private Sprite SprCampementHiver;
+    [SerializeField] private Sprite sprCampementHiver;
+    [SerializeField] private Sprite sprTribuMvmt;
     private Sprite SprCampementEte;
 
     [Header("Combats")]
@@ -185,7 +184,7 @@ public class Tribu : Pion
     {
         if(Calendrier.Actuel.Hiver)
         {
-            spriteRenderer.sprite = SprCampementHiver;
+            spriteRenderer.sprite = sprCampementHiver;
         }
         else
         {
@@ -256,11 +255,13 @@ public class Tribu : Pion
                     traverseFleuve = true;
                 }
 
+                if (spriteRenderer.sprite != sprTribuMvmt) spriteRenderer.sprite = sprTribuMvmt;
+                banniere.gameObject.SetActive(false);
+
                 SeDeplacerALaProchaineTuile(direction);
             }
             else //Quand il est arrivé à destination
             {
-                
                 ptsDeplacement -= cheminASuivre.Peek().GetComponent<TuileManager>().terrainTuile.coutFranchissement;
 
                 if(traverseFleuve)
@@ -274,8 +275,12 @@ public class Tribu : Pion
                 TrouverTuileActuelle();
                 tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, ptsDeplacement, false);
 
+                //Quand on est arrivé à bon port
                 if(cheminASuivre.Count == 0)
                 {
+                    banniere.gameObject.SetActive(true);
+                    spriteRenderer.sprite = Calendrier.Actuel.Hiver ? sprCampementHiver : SprCampementEte;
+
                     revendication.RevendiquerTerritoire(tuileActuelle, true);
                     expedition.LancerExpeditions();
                 }

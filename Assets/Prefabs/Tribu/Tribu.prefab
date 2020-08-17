@@ -890,7 +890,8 @@ MonoBehaviour:
   banniere: {fileID: 6343172449743224675}
   campement: {fileID: 346511199273669100}
   interactionTribu: {fileID: 8044188089232333488}
-  SprCampementHiver: {fileID: 21300000, guid: c20456faf8b128a4bae764b0c54255d3, type: 3}
+  sprCampementHiver: {fileID: 21300000, guid: f0b2ffc1091f49443bb3a6895519e461, type: 3}
+  sprTribuMvmt: {fileID: 21300000, guid: cff1c7c7cd0b2604081163b10c38a2d7, type: 3}
   guerrier: {fileID: 4469811351211270403}
   bonus: {fileID: 1380142630860522206}
 --- !u!114 &8930979129811697115

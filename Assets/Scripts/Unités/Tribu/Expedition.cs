@@ -139,8 +139,6 @@ public class Expedition : MonoBehaviour
     {
         if(tribu.guerrier.jetonAttaque)
         {
-            print("generation combat"); 
-
             TrouverHostilsAPortee();
 
             foreach(Hostile hostile in hostilesAPortee)

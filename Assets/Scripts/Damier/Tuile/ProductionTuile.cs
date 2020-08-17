@@ -41,7 +41,7 @@ public class ProductionTuile : MonoBehaviour
 
     private void Awake()
     {
-        
+
     }
     // Start is called before the first frame update
     void Start()
@@ -86,7 +86,7 @@ public class ProductionTuile : MonoBehaviour
 
     public void AjouterProduction(Production prod)
     {
-        for (int i = 0; i < production.gains.Length; i++)
+        for (int i = 0; i < ProductionTotale.gains.Length; i++)
         {
             production.gains[i] += prod.gains[i];
         }
@@ -94,7 +94,7 @@ public class ProductionTuile : MonoBehaviour
 
     public void AjouterBonusOutil(Production prod)
     {
-        for (int i = 0; i < bonusOutil.gains.Length; i++)
+        for (int i = 0; i < BonusOutil.gains.Length; i++)
         {
             bonusOutil.gains[i] += prod.gains[i];
         }

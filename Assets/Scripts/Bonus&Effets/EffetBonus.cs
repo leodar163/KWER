@@ -38,54 +38,102 @@ public class EffetBonus : MonoBehaviour
 
     public void AssignerMultiplicateurCoutPop(float montant)
     {
-        tribuKiSubit.bonus.bonusMultCoutPop = montant;
+        TribuKiSubit.bonus.bonusMultCoutPop = montant;
     }
 
     public void AssignerMutliplicateurStockage(float montant)
     {
-        tribuKiSubit.bonus.bonusMultStockage = montant;
+        TribuKiSubit.bonus.bonusMultStockage = montant;
     }
 
-    public void AssignerMutliplicateurProduction(float montant)
+    public void AssignerMultProd(float montant)
     {
-        tribuKiSubit.bonus.bonusMultProd = montant;
+        TribuKiSubit.bonus.bonusMultProd = montant;
     }
 
-    public void AssignerMutliplicateurProductionNourriture(float montant)
+    public void AssignerMultProdNourriture(float montant)
     {
-        tribuKiSubit.bonus.bonusMultProdNourriture = montant;
+        TribuKiSubit.bonus.bonusMultProdNourriture = montant;
     }
 
-    public void AssignerMutliplicateurProductionPierre(float montant)
+    public void AssignerMultProdPierre(float montant)
     {
-        tribuKiSubit.bonus.bonusMultProdPierre = montant;
+        TribuKiSubit.bonus.bonusMultProdPierre = montant;
     }
 
-    public void AssignerMutliplicateurProductionPeau(float montant)
+    public void AssignerMultProdPeau(float montant)
     {
-        tribuKiSubit.bonus.bonusMultProdPeau = montant;
+        TribuKiSubit.bonus.bonusMultProdPeau = montant;
     }
 
-    public void AssignerMutliplicateurProductionOutil(float montant)
+    public void AssignerMultProdOutil(float montant)
     {
-        tribuKiSubit.bonus.bonusMultProdOutil = montant;
+        TribuKiSubit.bonus.bonusMultProdOutil = montant;
     }
 
-    public void AssignerMutliplicateurProductionPigment(float montant)
+    public void AssignerMultProdPigment(float montant)
     {
-        tribuKiSubit.bonus.bonusMultProdPigment = montant;
+        TribuKiSubit.bonus.bonusMultProdPigment = montant;
+    }
+
+    public void AssignerMultProdToutesTribus(float montant)
+    {
+        foreach (BonusTribu bonus in FindObjectsOfType<BonusTribu>())
+        {
+            bonus.bonusMultProd = montant;
+        }
+    }
+
+    public void AssignerMultProdNourritureToutesTribus(float montant)
+    {
+        foreach (BonusTribu bonus in FindObjectsOfType<BonusTribu>())
+        {
+            bonus.bonusMultProdNourriture = montant;
+        }
+    }
+
+    public void AssignerMultProdPierreToutesTribus(float montant)
+    {
+        foreach (BonusTribu bonus in FindObjectsOfType<BonusTribu>())
+        {
+            bonus.bonusMultProdPigment = montant;
+        }
+    }
+
+    public void AssignerMultProdPeauToutesTribus(float montant)
+    {
+        foreach (BonusTribu bonus in FindObjectsOfType<BonusTribu>())
+        {
+            bonus.bonusMultProdPeau = montant;
+        }
+    }
+
+    public void AssignerMultProdOutilToutesTribus(float montant)
+    {
+        foreach (BonusTribu bonus in FindObjectsOfType<BonusTribu>())
+        {
+            bonus.bonusMultProdOutil = montant;
+        }
+    }
+
+    public void AssignerMultProdPigmentToutesTribus(float montant)
+    {
+        foreach (BonusTribu bonus in FindObjectsOfType<BonusTribu>())
+        {
+            bonus.bonusMultProdPigment = montant;
+        }
     }
 
     public void AjouterBonusDeplacement(int montant)
     {
-        tribuKiSubit.bonus.bonusPointDeplacement += montant;
+        TribuKiSubit.bonus.bonusPointDeplacement += montant;
     }
 
     public void AjouterBonusDeplacementToutesTribus(int montant)
     {
         foreach (BonusTribu bonus in FindObjectsOfType<BonusTribu>())
         {
-            tribuKiSubit.bonus.bonusPointDeplacement += montant;
+            bonus.bonusPointDeplacement += montant;
         }
     }
 }

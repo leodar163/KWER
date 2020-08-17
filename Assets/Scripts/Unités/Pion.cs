@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Pion : MonoBehaviour
 {
-
+    public SpriteRenderer spriteRenderer;
+    [Space]
     [HideInInspector] public bool aFaitUneAction = false;
     [HideInInspector] public bool aPasseSonTour = false;
     public Revendication revendication;
     public TuileManager tuileActuelle;
+
+
 
     [Header("Déplacements")]
     public PathFinder pathFinder;

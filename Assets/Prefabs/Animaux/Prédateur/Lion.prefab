@@ -137,9 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pion: {fileID: 4240119684360671227}
-  combatEnCours: 0
+  combatEstEnCours: 0
   combat: {fileID: 9043204819795068831, guid: 9209567ac640936478e6b19e2b526bfa, type: 3}
-  icone: {fileID: 21300000, guid: 89d460a613ed9ff439fdb8807f92a166, type: 3}
   nbrCombattant: 3
   attaque: 2
   defense: 1
@@ -221,7 +220,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 89d460a613ed9ff439fdb8807f92a166, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 683cef0ab37d53b4f84c40717bd0201c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -23,7 +23,7 @@ MonoBehaviour:
     infobulle: 
     retoursEffets:
     - 
-    - ' pendant 1 tours'
+    - ' pendant 2 tours'
     effets:
       m_PersistentCalls:
         m_Calls:

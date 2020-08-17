@@ -50,7 +50,7 @@ public class FenetreRecapCombat : MonoBehaviour
 
         banniereJoueur.sprite = combat.Guerrier.tribu.banniere.sprite;
         infoBulleBanniereJoueur.texteInfoBulle = combat.Guerrier.tribu.name;
-        banniereHostile.sprite = combat.Hostile.icone;
+        banniereHostile.sprite = combat.Hostile.pion.spriteRenderer.sprite;
         infoBulleBanniereHostile.texteInfoBulle = combat.Hostile.pion.name;
 
         AssignationChoix(choix);

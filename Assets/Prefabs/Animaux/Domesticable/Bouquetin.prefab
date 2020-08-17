@@ -93,7 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   troupeau: {fileID: 4240119684360671227}
-  tuileActuelle: {fileID: 0}
 --- !u!114 &1714641867515581847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 4240119684360671227}
+  tuilesRevendiquees: []
 --- !u!1 &6651748277873408838
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bb4bf798ca8b9d243a8417cd306f95c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48fb51cd4d7ac4a46b7377beb27c19b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

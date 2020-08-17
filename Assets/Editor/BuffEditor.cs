@@ -169,189 +169,243 @@ public class BuffEditor : Editor
                     UnityAction<int> callback = new UnityAction<int>(bonus.AjouterBonusDegatMoral);
                     UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
                 }
-            }
-            else if (methode.stringValue.Contains("Deplacement"))
-            {
-                char pluriel = '\0';
-                if (Math.Abs(argumentInt.intValue) != 1) pluriel = 's';
-                if (argumentInt.intValue > 0)
+                else if (methode.stringValue.Contains("Deplacement"))
                 {
-                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
-                        + argumentInt.intValue + "<color=\"white\"> point"+pluriel+ " de déplacement";
-                }
-                else if (argumentInt.intValue < 0)
-                {
-                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) +
-                        argumentInt.intValue + "<color=\"white\"> point" + pluriel + " de déplacement";
-                }
+                    char pluriel = '\0';
+                    if (Math.Abs(argumentInt.intValue) != 1) pluriel = 's';
+                    if (argumentInt.intValue > 0)
+                    {
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">+"
+                            + argumentInt.intValue + "<color=\"white\"> point"+pluriel+ " de déplacement";
+                    }
+                    else if (argumentInt.intValue < 0)
+                    {
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) +
+                            argumentInt.intValue + "<color=\"white\"> point" + pluriel + " de déplacement";
+                    }
 
-                if(methode.stringValue.Contains("ToutesTribus"))
-                {
-                    retour += " pour toutes les tribus";
-                    UnityAction<int> callback = new UnityAction<int>(bonus.AjouterBonusDeplacementToutesTribus);
-                    UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                    if(methode.stringValue.Contains("ToutesTribus"))
+                    {
+                        retour += " pour toutes les tribus";
+                        UnityAction<int> callback = new UnityAction<int>(bonus.AjouterBonusDeplacementToutesTribus);
+                        UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                    }
+                    else
+                    {
+                        UnityAction<int> callback = new UnityAction<int>(bonus.AjouterBonusDeplacement);
+                        UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                    }
                 }
-                else
-                {
-                    UnityAction<int> callback = new UnityAction<int>(bonus.AjouterBonusDeplacement);
-                    UnityEventTools.AddIntPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
-                }
-            }
         
-            else if (methode.stringValue.Contains("MultiplicateurCoutPop"))
-            {
-                if (argumentFloat.floatValue > 1)
+                else if (methode.stringValue.Contains("MultiplicateurCoutPop"))
                 {
-                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
-                        "++<color=\"white\"> Cout d'une population";
+                    if (argumentFloat.floatValue > 1)
+                    {
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
+                            "++<color=\"white\"> Cout d'une population";
+                    }
+                    else if (argumentFloat.floatValue < 1)
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
+                            "--<color=\"white\"> Cout d'une population";
+                    if (argumentFloat.floatValue == 0)
+                    {
+                        retour = "Cout d'une populaiton< color =#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + "> gratuit";
+                    }
+
+                    UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultiplicateurCoutPop);
+                    UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
                 }
-                else if (argumentFloat.floatValue < 1)
-                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
-                        "--<color=\"white\"> Cout d'une population";
-                if (argumentFloat.floatValue == 0)
+                else if (methode.stringValue.Contains("MultiplicateurStockage"))
                 {
-                    retour = "Cout d'une populaiton< color =#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + "> gratuit";
+                    if (argumentFloat.floatValue > 1)
+                    {
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
+                            "++<color=\"white\"> Capacité de stockage";
+                    }
+                    else if (argumentFloat.floatValue < 1)
+                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
+                            "--<color=\"white\"> Capacité de stockage";
+                    if (argumentFloat.floatValue == 0)
+                    {
+                        retour = "Capacité de stockage< color =#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
+                    }
+
+                    UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMutliplicateurStockage);
+                    UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
+                }
+                else if (methode.stringValue.Contains("MultProd"))
+                {
+                    if(methode.stringValue.Contains("Nourriture"))
+                    {
+                        if (argumentFloat.floatValue > 1)
+                        {
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
+                                "++<color=\"white\"> Production Nourriture";
+                        }
+                        else if (argumentFloat.floatValue < 1)
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
+                                "--<color=\"white\"> Production Nourriture";
+                        if (argumentFloat.floatValue == 0)
+                        {
+                            retour = "Production Nourriture<color =#" + 
+                                ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
+                        }
+
+                        if (methode.stringValue.Contains("ToutesTribus"))
+                        {
+                            retour += " pour toutes les tribus";
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProdNourritureToutesTribus);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                        else
+                        {
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProdNourriture);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                    }
+                    else if (methode.stringValue.Contains("Pierre"))
+                    {
+                        if (argumentFloat.floatValue > 1)
+                        {
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
+                                "++<color=\"white\"> Production Pierre";
+                        }
+                        else if (argumentFloat.floatValue < 1)
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
+                                "--<color=\"white\"> Production Pierre";
+                        if (argumentFloat.floatValue == 0)
+                        {
+                            retour = "Production Pierre<color =#" +
+                                ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
+                        }
+
+                        if (methode.stringValue.Contains("ToutesTribus"))
+                        {
+                            retour += " pour toutes les tribus";
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProdPierreToutesTribus);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                        else
+                        {
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProdPierre);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                    }
+                    else if(methode.stringValue.Contains("Peau"))
+                    {
+                        if (argumentFloat.floatValue > 1)
+                        {
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
+                                "++<color=\"white\"> Production Peau";
+                        }
+                        else if (argumentFloat.floatValue < 1)
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
+                                "--<color=\"white\"> Production Peau";
+                        if (argumentFloat.floatValue == 0)
+                        {
+                            retour = "Production Peau<color =#" +
+                                ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
+                        }
+
+                        if (methode.stringValue.Contains("ToutesTribus"))
+                        {
+                            retour += " pour toutes les tribus";
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProdPeauToutesTribus);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                        else
+                        {
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProdPeau);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                    }
+                    else if (methode.stringValue.Contains("Outil"))
+                    {
+                        if (argumentFloat.floatValue > 1)
+                        {
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
+                                "++<color=\"white\"> Production Outil";
+                        }
+                        else if (argumentFloat.floatValue < 1)
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
+                                "--<color=\"white\"> Production Outil";
+                        if (argumentFloat.floatValue == 0)
+                        {
+                            retour = "Production Outil<color =#" +
+                                ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
+                        }
+
+                        if (methode.stringValue.Contains("ToutesTribus"))
+                        {
+                            retour += " pour toutes les tribus";
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProdOutilToutesTribus);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                        else
+                        {
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProdOutil);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                    }
+                    else if (methode.stringValue.Contains("Pigment"))
+                    {
+                        if (argumentFloat.floatValue > 1)
+                        {
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
+                                "++<color=\"white\"> Production Pigment";
+                        }
+                        else if (argumentFloat.floatValue < 1)
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
+                                "--<color=\"white\"> Production Pigment";
+                        if (argumentFloat.floatValue == 0)
+                        {
+                            retour = "Production Pigment<color =#" +
+                                ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
+                        }
+
+                        if (methode.stringValue.Contains("ToutesTribus"))
+                        {
+                            retour += " pour toutes les tribus";
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProdPigmentToutesTribus);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                        else
+                        {
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProdPigment);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                    }
+                    else
+                    {
+                        if (argumentFloat.floatValue > 1)
+                        {
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
+                                "++<color=\"white\"> Production";
+                        }
+                        else if (argumentFloat.floatValue < 1)
+                            retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
+                                "--<color=\"white\"> Production";
+                        if (argumentFloat.floatValue == 0)
+                        {
+                            retour = "Production<color =#" +
+                                ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
+                        }
+
+                        if (methode.stringValue.Contains("ToutesTribus"))
+                        {
+                            retour += " pour toutes les tribus";
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProdToutesTribus);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                        else
+                        {
+                            UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultProd);
+                            UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentInt.intValue * -1);
+                        }
+                    }
                 }
 
-                UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMultiplicateurCoutPop);
-                UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
             }
-            else if (methode.stringValue.Contains("MultiplicateurStockage"))
-            {
-                if (argumentFloat.floatValue > 1)
-                {
-                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
-                        "++<color=\"white\"> Capacité de stockage";
-                }
-                else if (argumentFloat.floatValue < 1)
-                    retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
-                        "--<color=\"white\"> Capacité de stockage";
-                if (argumentFloat.floatValue == 0)
-                {
-                    retour = "Capacité de stockage< color =#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
-                }
-
-                UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMutliplicateurStockage);
-                UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
-            }
-            else if (methode.stringValue.Contains("MultiplicateurProduction"))
-            {
-                if(methode.stringValue.Contains("Nourriture"))
-                {
-                    if (argumentFloat.floatValue > 1)
-                    {
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
-                            "++<color=\"white\"> Production Nourriture";
-                    }
-                    else if (argumentFloat.floatValue < 1)
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
-                            "--<color=\"white\"> Production Nourriture";
-                    if (argumentFloat.floatValue == 0)
-                    {
-                        retour = "Production Nourriture<color =#" + 
-                            ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
-                    }
-
-                    UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMutliplicateurProductionNourriture);
-                    UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
-                }
-                else if (methode.stringValue.Contains("Pierre"))
-                {
-                    if (argumentFloat.floatValue > 1)
-                    {
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
-                            "++<color=\"white\"> Production Pierre";
-                    }
-                    else if (argumentFloat.floatValue < 1)
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
-                            "--<color=\"white\"> Production Pierre";
-                    if (argumentFloat.floatValue == 0)
-                    {
-                        retour = "Production Pierre<color =#" +
-                            ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
-                    }
-
-                    UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMutliplicateurProductionPierre);
-                    UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
-                }
-                else if(methode.stringValue.Contains("Peau"))
-                {
-                    if (argumentFloat.floatValue > 1)
-                    {
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
-                            "++<color=\"white\"> Production Peau";
-                    }
-                    else if (argumentFloat.floatValue < 1)
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
-                            "--<color=\"white\"> Production Peau";
-                    if (argumentFloat.floatValue == 0)
-                    {
-                        retour = "Production Peau<color =#" +
-                            ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
-                    }
-
-                    UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMutliplicateurProductionPeau);
-                    UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
-                }
-                else if (methode.stringValue.Contains("Outil"))
-                {
-                    if (argumentFloat.floatValue > 1)
-                    {
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
-                            "++<color=\"white\"> Production Outil";
-                    }
-                    else if (argumentFloat.floatValue < 1)
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
-                            "--<color=\"white\"> Production Outil";
-                    if (argumentFloat.floatValue == 0)
-                    {
-                        retour = "Production Outil<color =#" +
-                            ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
-                    }
-
-                    UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMutliplicateurProductionOutil);
-                    UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
-                }
-                else if (methode.stringValue.Contains("Pigment"))
-                {
-                    if (argumentFloat.floatValue > 1)
-                    {
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
-                            "++<color=\"white\"> Production Pigment";
-                    }
-                    else if (argumentFloat.floatValue < 1)
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
-                            "--<color=\"white\"> Production Pigment";
-                    if (argumentFloat.floatValue == 0)
-                    {
-                        retour = "Production Pigment<color =#" +
-                            ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
-                    }
-
-                    UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMutliplicateurProductionPigment);
-                    UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
-                }
-                else
-                {
-                    if (argumentFloat.floatValue > 1)
-                    {
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">" +
-                            "++<color=\"white\"> Production";
-                    }
-                    else if (argumentFloat.floatValue < 1)
-                        retour = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus) + ">" +
-                            "--<color=\"white\"> Production";
-                    if (argumentFloat.floatValue == 0)
-                    {
-                        retour = "Production<color =#" +
-                            ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> ANNULEE";
-                    }
-
-                    UnityAction<float> callback = new UnityAction<float>(bonus.AssignerMutliplicateurProduction);
-                    UnityEventTools.AddFloatPersistentListener(buff.antiEffets, callback, argumentFloat.floatValue * -1);
-                }
-            }
-
             if (buff.compteurTour)
             {
                 if (!buff.name.Contains("SpawnTroupeau"))
