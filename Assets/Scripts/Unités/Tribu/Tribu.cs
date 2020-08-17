@@ -100,8 +100,6 @@ public class Tribu : Pion
     public override void DebutTour()
     {
         base.DebutTour();
-        
-        stockRessources.EncaisserGain();
     }
 
     /// <summary>

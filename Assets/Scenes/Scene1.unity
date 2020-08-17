@@ -21041,17 +21041,17 @@ PrefabInstance:
     - target: {fileID: 6476901781432542659, guid: 036b41cf1a3d6ab40a789e70cfb8fde3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6476901781432542719, guid: 036b41cf1a3d6ab40a789e70cfb8fde3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.4
+      value: 9.73
       objectReference: {fileID: 0}
     - target: {fileID: 6476901781432542719, guid: 036b41cf1a3d6ab40a789e70cfb8fde3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3
+      value: 1.91
       objectReference: {fileID: 0}
     - target: {fileID: 6476901781432542719, guid: 036b41cf1a3d6ab40a789e70cfb8fde3,
         type: 3}
@@ -28698,6 +28698,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &696245430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8048676195083792200, guid: 4cdde373df811184a965e956d92dccb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5095876108331789382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &697803594
 GameObject:
   m_ObjectHideFlags: 0
@@ -90211,12 +90223,12 @@ PrefabInstance:
     - target: {fileID: 2888651360219502087, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2888651360219502087, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 2888651360219502087, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}
@@ -90304,6 +90316,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3133859124997392655, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502318898958097426, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502318898958097426, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502318898958097426, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502318898958097426, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502318898958097426, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502318898958097426, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -90558,6 +90600,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6298610364951189201, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: boutonBonusOutil
+      value: 
+      objectReference: {fileID: 696245430}
     - target: {fileID: 6387338893845621938, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -90752,6 +90799,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481267239155654296, guid: 4cdde373df811184a965e956d92dccb3,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8653530204994056425, guid: 4cdde373df811184a965e956d92dccb3,
         type: 3}

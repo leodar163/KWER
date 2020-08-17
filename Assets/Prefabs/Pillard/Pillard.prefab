@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4828796d3d556244925ec68dfd674fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6476901781432542718}
   aFaitUneAction: 0
   aPasseSonTour: 0
   revendication: {fileID: -7466687714277559348}
@@ -122,7 +123,6 @@ MonoBehaviour:
   pion: {fileID: 6476901781432542657}
   combatEstEnCours: 0
   combat: {fileID: 9043204819795068831, guid: 9209567ac640936478e6b19e2b526bfa, type: 3}
-  icone: {fileID: 21300000, guid: 8808c1ab8e9d0174a9a0e87f2f0e00b7, type: 3}
   nbrCombattant: 4
   attaque: 2
   defense: 1

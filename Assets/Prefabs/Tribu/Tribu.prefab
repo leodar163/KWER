@@ -98,7 +98,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629436417191757451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -107,7 +107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000000029802322, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2839441445077286410
@@ -117,7 +117,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629436417191757451}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!114 &3573807185007249179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -872,6 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebd86dcdc617814898c995e25aa3390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
   aFaitUneAction: 0
   aPasseSonTour: 0
   revendication: {fileID: 3311495747200995255}
@@ -1743,6 +1744,7 @@ GameObject:
   - component: {fileID: 6085130353361449951}
   - component: {fileID: 8048676195083792200}
   - component: {fileID: 3465769130819497357}
+  - component: {fileID: 7727668438407907905}
   m_Layer: 9
   m_Name: BoutonBonusOutil
   m_TagString: Untagged
@@ -1761,13 +1763,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2888651360219502087}
+  m_Father: {fileID: 3502318898958097426}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0753, y: -0.07500076}
-  m_SizeDelta: {x: -0.054120004, y: -0.054130003}
+  m_AnchoredPosition: {x: 0.076, y: -0.077}
+  m_SizeDelta: {x: -0.0854, y: -0.0854}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3320477259712452514
 CanvasRenderer:
@@ -1776,7 +1778,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2808979350284803364}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!114 &6085130353361449951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1871,6 +1873,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8878503a95413f46934edd4f66ed586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7727668438407907905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2808979350284803364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585d0b29c4dc1ea4d9c85e12555b0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texteInfoBulle: 'Cliquez pour activer le bonus d''outil
+
+    <color="red">-1 <color="white">Outil'
 --- !u!1 &3132857432880921997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,6 +2804,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texteInfoBulle: Texte d'information
+--- !u!1 &4862674704054204994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3502318898958097426}
+  m_Layer: 9
+  m_Name: SlotBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3502318898958097426
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4862674704054204994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2888651360219502087}
+  - {fileID: 5314250744275956765}
+  m_Father: {fileID: 546609589713308112}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5007901588166776151
 GameObject:
   m_ObjectHideFlags: 0
@@ -4131,7 +4185,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2888651360219502087}
+  - {fileID: 3502318898958097426}
   m_Father: {fileID: 5573880778169360583}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4465,17 +4519,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7925485311230952957}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4132560114103754915}
-  - {fileID: 5314250744275956765}
-  m_Father: {fileID: 546609589713308112}
+  m_Father: {fileID: 3502318898958097426}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4486,7 +4539,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7925485311230952957}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!114 &7534835991256968528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4536,8 +4589,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
+    m_PressedColor: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -4573,7 +4626,7 @@ MonoBehaviour:
   iconePop: {fileID: 3573807185007249179}
   infobulle: {fileID: 1324022040366148985}
   exploitation: {fileID: 8697109127351591088}
-  boutonBonusOutil: {fileID: 2808979350284803364}
+  boutonBonusOutil: {fileID: 8048676195083792200}
   spriteBonusOutilActive: {fileID: 21300000, guid: b3211ce04794f9149ae3482fcfe8fcec,
     type: 3}
   bonusOutil: 0
@@ -5012,7 +5065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expedition: {fileID: 5645824234354430084}
-  slot: {fileID: 7925485311230952957}
+  slot: {fileID: 4862674704054204994}
   listeSlots: []
   panelGainRessource: {fileID: 7895008448511124328}
   zoneSlots: {fileID: 7377276399233419204}

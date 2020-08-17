@@ -10,10 +10,6 @@ public class InfoBulle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public string texteInfoBulle = "Texte d'information";
    
     private RectTransform bulleRect;
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        InterfaceInfoBulle.Actuel.AfficherBulle(texteInfoBulle);
-    }
 
     private void OnDestroy()
     {
@@ -23,6 +19,11 @@ public class InfoBulle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private void OnDisable()
     {
         if(InterfaceInfoBulle.Actuel)InterfaceInfoBulle.Actuel.CacherBulle();
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        
+        InterfaceInfoBulle.Actuel.AfficherBulle(texteInfoBulle);
     }
 
     public void OnPointerExit(PointerEventData eventData)

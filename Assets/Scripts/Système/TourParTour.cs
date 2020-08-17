@@ -73,6 +73,11 @@ public class TourParTour : MonoBehaviour
         ControleSouris.Actuel.controleEstActif = false;
         nbrTour++;
 
+        foreach (Tribu trib in tribus)
+        {
+            trib.stockRessources.EncaisserGain();
+        }
+
         print("Joueurs ont fini leur tour");
 
         StartCoroutine(TourCalendrier());

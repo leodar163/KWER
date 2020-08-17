@@ -44,7 +44,7 @@ public class Pillard : Pion
     {
         hostile.TrouverCiblesAPortee();
 
-        while (ptsDeplacement > 0)
+        while (ptsDeplacement > 0 || hostile.PeutAttaquer)
         {
             //print(hostile.PeutAttaquer);
             if(hostile.PeutAttaquer)
