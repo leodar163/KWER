@@ -34,15 +34,27 @@ public class InterfaceEvenement : MonoBehaviour
     [SerializeField] private Sprite illuPillard = null;
     [SerializeField] private Sprite illuPredateur = null;
     [SerializeField] private Sprite illuMegaFaune = null;
+    [Header("Saison")]
+    [SerializeField] private Evenement evenementHiver;
+    [SerializeField] private Evenement evenementEte;
+    [Header("Narration")]
+    [SerializeField] private Evenement evenementDebut;
+
 
     [HideInInspector] public UnityEvent eventFinEvenement;
     [HideInInspector] public bool evenementEnCours = false;
+
+    private bool changementSaisonEstMontre = true;
+
     // Start is called before the first frame update
     void Start()
     {
         cela = this;
         FermerFenetreEvenement();
         eventFinEvenement.AddListener(() => evenementEnCours = false);
+        Calendrier.Actuel.EventChangementDeSaison.AddListener(() => changementSaisonEstMontre = false);
+        TourParTour.Defaut.eventNouveauTour.AddListener(ChargerEvenementNouveauTour);
+        evenementDebut.LancerEvenement();
     }
 
     // Update is called once per frame
@@ -50,6 +62,67 @@ public class InterfaceEvenement : MonoBehaviour
     {
         
     }
+
+    #region EVENT TEMPO
+    private void ChargerEvenementNouveauTour()
+    {
+        if(!changementSaisonEstMontre)
+        {
+            StartCoroutine(OuvrirEvenementChangementSaison());
+        }
+    }
+
+    private IEnumerator OuvrirEvenementChangementSaison()
+    {
+        if(Calendrier.Actuel.Hiver)
+        {
+            evenementHiver.LancerEvenement();
+        }
+        else
+        {
+            evenementEte.LancerEvenement();
+        }
+
+        StartCoroutine(VerifierEvenementFini());
+        yield return new WaitWhile(() => evenementEnCours);
+
+        changementSaisonEstMontre = true;
+
+        TirerEvenementTempo();
+    }
+    private void TirerEvenementTempo()
+    {
+        float aleaJactata = 100 - Random.Range(0, 100);
+
+        List<EvenementTemporel> evenementsRetenus = new List<EvenementTemporel>();
+
+        foreach (EvenementTemporel evenementTemporel in ListeEvenements.Defaut.listeEvenementsTemporels)
+        {
+            if (Calendrier.Actuel.Hiver == true)
+            {
+                if (evenementTemporel.probaHiver >= aleaJactata)
+                {
+                    evenementsRetenus.Add(evenementTemporel);
+                }
+            }
+            else
+            {
+                if (evenementTemporel.probaEte >= aleaJactata)
+                {
+                    evenementsRetenus.Add(evenementTemporel);
+                }
+            }
+        }
+
+        if (evenementsRetenus.Count != 0)
+        {
+            int aleumJactatum = Random.Range(0, evenementsRetenus.Count - 1);
+            evenementsRetenus[aleumJactatum].LancerEvenement();
+        }
+    }
+
+    #endregion
+
 
     public void OuvrirRecapCombat(Combat.RecapCombat recap, Combat combat)
     {

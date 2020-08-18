@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b34c6adf52deb5419eec75a08d35d1e, type: 3}
+  m_Name: Ete
+  m_EditorClassIdentifier: 
+  effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
+  titre: C'EST L'ETE
+  description: "Les lacs grouillent \xE0 nouveau de poisson, les for\xEAts regorgent
+    de denr\xE9es et le froid n'est plus un danger. La saison bonne est de retour.\n\nConsommation
+    par tout par population :\n-1 Nourriture"
+  illustration: {fileID: 21300000, guid: 477abbf4c4471484c9d3dd3e0cb3600d, type: 3}
+  listeChoix:
+  - description: Plus besoin des gros manteaux de fourrure
+    infobulle: "L'\xE9t\xE9 commence"
+    retoursEffets:
+    - 
+    effets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_MethodName: FermerFenetreEvenement
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  finBalise: <fin>

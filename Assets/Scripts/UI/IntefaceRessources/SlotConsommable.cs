@@ -81,12 +81,9 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
                 if(checkTuile)
                 {
                     TuileManager tuile = checkTuile.GetComponent<TuileManager>();
-                    if (tuilesAmenageables.Contains(tuile))
-                    {
-                        consommable.amenagement.AmenagerTuile(tuile);
-                        ConsommerConsommable();
-                        return;
-                    }
+                    FenetreValidation.OuvrirFenetreValidation("Voulez-vous consommer cet aménagement et amnéger cette tuile ?",
+                    "Oui", "Non", () => ConsommerAmenagement(tuile), consommable.icone, consommable.texteRetour);
+                    return;
                 }
                 ReinitConso();
             }
@@ -109,9 +106,25 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
         }
         else if(consommable.type == Consommable.typeConsommable.buff)
         {
-            boutonConso.onClick.AddListener(consommable.buff.activerBuff);
-            boutonConso.onClick.AddListener(ConsommerConsommable);
+            boutonConso.onClick.AddListener(() => FenetreValidation.OuvrirFenetreValidation
+                ("Voulez-vous consommer ce rituel et activer son bonus ?",
+                    "Oui", "Non", ConsommerBuff, consommable.icone, consommable.texteRetour));
         }
+    }
+
+
+    private void ConsommerAmenagement(TuileManager tuile)
+    {
+        if (tuilesAmenageables.Contains(tuile))
+        {
+            consommable.amenagement.AmenagerTuile(tuile);
+            ConsommerConsommable();
+        }
+    }
+    private void ConsommerBuff()
+    {
+        consommable.buff.activerBuff();
+        ConsommerConsommable();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
