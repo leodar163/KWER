@@ -117,6 +117,21 @@ public class Tribu : Pion
         interactionTribu.infobulle.texteInfoBulle = "Cliquez pour entrer en mode campement";
     }
 
+    public void CheckerPasserTour()
+    {
+        if (stockRessources.Disette)
+        {
+            string description = "Vous n'avez pas assez de ressource pour maintenir votre population." +
+                " A moins d'un miracle ou que vos alliés ne vous aident, vous perdrez une population au prochain tour." +
+                " Êtes-vous sûr de vouloir passer votre tour ?" +
+                "\n\nRAPPEL\nConsommation par population par tour ";
+            if (Calendrier.Actuel.Hiver) description += "en hiver :\n" + stockRessources.consoParPopHiver.ToString(true);
+            else description += "en été :\n" + stockRessources.consoParPop.ToString(true);
+            FenetreValidation.OuvrirFenetreValidation(description, "Oui", "non", PasserTour);
+        }
+        else PasserTour();
+    }
+
     /// <summary>
     /// Est appelée quand la tribu a fini de jouer et passe son tour
     /// </summary>
@@ -127,6 +142,8 @@ public class Tribu : Pion
 
         interactionTribu.ActiverBouton(false);
         interactionTribu.infobulle.texteInfoBulle = "Tribu Alliée\nApprochez-vous pour échanger des ressources";
+
+        if (stockRessources.Disette) stockRessources.DeclancherDisette();
     }
     #endregion
 

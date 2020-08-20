@@ -985,6 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6202016258857656489}
   - component: {fileID: 5408414163005902403}
+  - component: {fileID: 8043079170950101251}
   m_Layer: 0
   m_Name: ZonePointsAttaque
   m_TagString: Untagged
@@ -1037,6 +1038,21 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &8043079170950101251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3113090580402796438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585d0b29c4dc1ea4d9c85e12555b0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texteInfoBulle: "Points d'attaque\nUn camp subit des d\xE9gats pour chaque point
+    d'attaque au-dessus des points de d\xE9fense\nChaque combattant a une chance
+    sur deux d'activer chaque point d'attaque et de d\xE9fense par combat"
 --- !u!1 &3481177105878861331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,6 +1467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1448327168365333408}
   - component: {fileID: 2656714975692132041}
+  - component: {fileID: 7227548859605778446}
   m_Layer: 0
   m_Name: ZonePointsAttaque
   m_TagString: Untagged
@@ -1503,6 +1520,21 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &7227548859605778446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4933295140109563971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585d0b29c4dc1ea4d9c85e12555b0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texteInfoBulle: "Points d'attaque\nUn camp subit des d\xE9gats pour chaque point
+    d'attaque au-dessus des points de d\xE9fense\nChaque combattant a une chance
+    sur deux d'activer chaque point d'attaque et de d\xE9fense par combat"
 --- !u!1 &5163792689750006218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,6 +1545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3842636405610812062}
   - component: {fileID: 907877266712665227}
+  - component: {fileID: 8916846460087065503}
   m_Layer: 0
   m_Name: ZonePointsDefense
   m_TagString: Untagged
@@ -1565,6 +1598,21 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &8916846460087065503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5163792689750006218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585d0b29c4dc1ea4d9c85e12555b0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texteInfoBulle: "Points de d\xE9fense\nUn camp subit des d\xE9gats pour chaque
+    point d'attaque au-dessus des points de d\xE9fense\nChaque combattant a une chance
+    sur deux d'activer chaque point d'attaque et de d\xE9fense par combat"
 --- !u!1 &6598464241306244413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,6 +1624,7 @@ GameObject:
   - component: {fileID: 3503050606532380098}
   - component: {fileID: 3489215216542957837}
   - component: {fileID: 7820088205061290701}
+  - component: {fileID: 6490693458201284935}
   m_Layer: 0
   m_Name: PointDefense
   m_TagString: Untagged
@@ -1638,6 +1687,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6490693458201284935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6598464241306244413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585d0b29c4dc1ea4d9c85e12555b0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texteInfoBulle: "Points de d\xE9fense\nUn camp subit des d\xE9gats pour chaque
+    point d'attaque au-dessus des points de d\xE9fense\nChaque combattant a une chance
+    sur deux d'activer chaque point d'attaque et de d\xE9fense par combat"
 --- !u!1 &7192596758988541811
 GameObject:
   m_ObjectHideFlags: 0

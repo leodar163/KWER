@@ -45,6 +45,9 @@ public class Demographie : MonoBehaviour
         }
     }
 
+
+    
+
     void Start()
     {
         popParent.SetActive(false);
@@ -199,7 +202,7 @@ public class Demographie : MonoBehaviour
         return popRetiree;
     }
 
-
+    //Présent dans le bouton sacrifierPop
     public void SupprimerPop()
     {
         if (listePopsCampement.Count > 0)

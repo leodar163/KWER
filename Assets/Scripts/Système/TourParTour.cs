@@ -38,7 +38,7 @@ public class TourParTour : MonoBehaviour
     public void JoueurPasseTour()
     {
         Tribu.TribukiJoue.pathFinder.ReinitGraphe();
-        Tribu.TribukiJoue.PasserTour();
+        Tribu.TribukiJoue.CheckerPasserTour();
     }
 
 

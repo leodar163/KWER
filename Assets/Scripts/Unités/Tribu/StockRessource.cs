@@ -15,8 +15,8 @@ public class StockRessource : MonoBehaviour
     private List<Production> gaineurs = new List<Production>();
 
     [Header("Population")]
-    [SerializeField] private Production consoParPop;
-    [SerializeField] private Production consoParPopHiver;
+    public Production consoParPop;
+    public Production consoParPopHiver;
     [SerializeField] private Production capaciteParPop;
     [Space]
     [Header("Consommables")]
@@ -72,6 +72,37 @@ public class StockRessource : MonoBehaviour
             consommables = new List<Consommable>();
         }
 
+    }
+
+    public bool Disette
+    {
+        get
+        {
+            Production conso = Calendrier.Actuel.Hiver ? consoParPopHiver : consoParPop;
+            for (int i = 0; i < conso.gains.Length; i++)
+            {
+                if (conso.gains[i] != 0)
+                {
+                    if (RessourcesEnStock.gains[i] + ProjectionGain.gains[i] < 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
+
+    public void DeclancherDisette()
+    {
+        StartCoroutine(SouffrirDisette());
+    }
+
+    private IEnumerator SouffrirDisette()
+    {
+        yield return new AttendreFinTour();
+
+        tribu.demographie.SupprimerPop();
     }
 
     private void Awake()
@@ -163,9 +194,9 @@ public class StockRessource : MonoBehaviour
         {
             if(Calendrier.Actuel.Hiver)
             {
-                projectionGain += consoParPopHiver * tribu.demographie.taillePopulation;
+                projectionGain -= consoParPopHiver * tribu.demographie.taillePopulation;
             }
-            else projectionGain += consoParPop * tribu.demographie.taillePopulation;
+            else projectionGain -= consoParPop * tribu.demographie.taillePopulation;
         }
 
         LimiterStock();

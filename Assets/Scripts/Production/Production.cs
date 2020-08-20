@@ -126,6 +126,52 @@ public class Production : ScriptableObject
         return 0;
     }
 
+    public string ToString(bool negatif)
+    {
+        int multNeg = negatif ? -1 : 1;
+
+        Color colNeg = negatif ? ListeCouleurs.Defaut.couleurTexteBonus : ListeCouleurs.Defaut.couleurAlerteTexteInterface;
+        Color colPos = !negatif ? ListeCouleurs.Defaut.couleurTexteBonus : ListeCouleurs.Defaut.couleurAlerteTexteInterface;
+
+        string retour = "";
+        int ligne = 0;
+
+        for (int i = 0; i < gains.Length; i++)
+        {
+            if (gains[i] != 0)
+            {
+                if (ligne > 0) retour += '\n';
+
+                if (gains[i] > 0) retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(colPos) + ">";
+                else retour += "<color=#" + ColorUtility.ToHtmlStringRGBA(colNeg) + ">";
+                if (gains[i] * multNeg > 0) retour += "+" + gains[i];
+                else retour += gains[i];
+                retour += "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
+                ligne++;
+            }
+        }
+
+        return retour;
+    }
+
+    public override string ToString()
+    {
+        string retour = "";
+        int ligne = 0;
+
+        for (int i = 0; i < gains.Length; i++)
+        {
+            if(gains[i] != 0)
+            {
+                if (ligne > 0) retour += '\n';
+
+                retour += gains[i] + " " + ListeRessources.Defaut.listeDesRessources[i].nom;
+                ligne++;
+            }
+        }
+
+        return retour;
+    }
 
     public void Clear()
     {
