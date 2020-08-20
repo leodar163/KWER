@@ -24,11 +24,15 @@ public class FenetreRecapCombat : MonoBehaviour
     [Header("Evénement")]
     [SerializeField] private GameObject objChoix = null;
     public Image illustration = null;
+    [Space]
     [Header("Interface")]
     [SerializeField] private Image banniereJoueur;
     [SerializeField] private Image banniereHostile;
     private InfoBulle infoBulleBanniereJoueur;
     private InfoBulle infoBulleBanniereHostile;
+    [Space]
+    [Header("Mode Simplifié")]
+    [SerializeField] private Button choixFuite;
 
     public void AfficherRecap(Combat.RecapCombat recap, Combat combat, Evenement.Choix choix)
     {
@@ -54,6 +58,15 @@ public class FenetreRecapCombat : MonoBehaviour
         infoBulleBanniereHostile.texteInfoBulle = combat.Hostile.pion.name;
 
         AssignationChoix(choix);
+
+        if (OptionsJeu.Defaut.modeCombatsSimplifies && combat.Hostile.nbrCombattant > 0 && combat.Guerrier.nbrGuerrier > 0)
+        {
+            choixFuite.onClick.AddListener(InterfaceEvenement.Defaut.FermerFenetreEvenement);
+            choixFuite.onClick.AddListener(combat.joueurFuit);
+            choixFuite.gameObject.SetActive(true);
+        }
+        else
+            choixFuite.gameObject.SetActive(false);
     }
 
     private void AssignationChoix(Evenement.Choix choix)

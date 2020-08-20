@@ -45,14 +45,15 @@ public class InterfaceCombat : MonoBehaviour
     }
 
     #region SLOTS
-    public void DesengagerTousGuerriers()
+    public void ReinitSlots()
     {
-        foreach(SlotCombat slot in listeSlots)
+        foreach(Slot slot in listeSlots)
         {
-            if(slot.estOccupe)slot.CliquerSurSlot();
+            Destroy(slot.gameObject);
         }
+        listeSlots.Clear();
     }
-
+     
     private void MAJSlots()
     {
         if(guerrier)
@@ -81,8 +82,8 @@ public class InterfaceCombat : MonoBehaviour
         {
             for (int i = 0; i < Math.Abs(nbrSlot); i++)
             {
-                Destroy(listeSlots[i]);
-                listeSlots.RemoveAt(i);
+                Destroy(listeSlots[listeSlots.Count - 1]);
+                listeSlots.RemoveAt(listeSlots.Count - 1);
             }
         }
         AjusterRoueSlot();

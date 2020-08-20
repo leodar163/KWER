@@ -29,7 +29,6 @@ public class InterfaceEvenement : MonoBehaviour
     [SerializeField] private FenetreEvenementCombat fenetreCombat = null;
     [SerializeField] private FenetreRecapCombat recapCombat = null;
     [Space]
-    [SerializeField] private EvenementCombat FuiteEnnemi = null;
     [Header("Combat")]
     [SerializeField] private Sprite illuPillard = null;
     [SerializeField] private Sprite illuPredateur = null;
@@ -135,13 +134,16 @@ public class InterfaceEvenement : MonoBehaviour
             if(recap.ennemiFuit)
             {
                 choix.description = "L'ennemi est démoralisé et fuit !";
-                choix.effets.AddListener(FuiteEnnemi.LancerEvenement);
+                choix.effets.AddListener(combat.EnnemiFuit);
                 choix.infobulle = "L'ennemi perd la volonté de se battre";
             }
             else
             {
                 choix.description = "Le combat continue";
-                choix.effets.AddListener(ListeEvenementCombat.Defaut.PiocherEvenement(combat).LancerEvenement);
+                if (!OptionsJeu.Defaut.modeCombatsSimplifies)
+                    choix.effets.AddListener(ListeEvenementCombat.Defaut.PiocherEvenement(combat).LancerEvenement);
+                else
+                    choix.effets.AddListener(combat.LancerCombat);
                 choix.infobulle = "Pouvons-nous vraiment continuer ce combat ?";
             }
         }
@@ -194,7 +196,7 @@ public class InterfaceEvenement : MonoBehaviour
     {
         EvenementCombat eC = ListeEvenementCombat.Defaut.PiocherEvenement(combat);
         eC.combat = combat;
-        fenetreCombat.LancerCombat(combat, eC);
+        fenetreCombat.LancerCombat(eC);
         fondNoir.SetActive(true);
         fenetreCombat.gameObject.SetActive(true);
 
@@ -214,6 +216,9 @@ public class InterfaceEvenement : MonoBehaviour
         StartCoroutine(MAJCanvas());
     }
 
+    /// <summary>
+    /// Toujours mettre en premier effet d'un choix d'événement
+    /// </summary>
     public void FermerFenetreEvenement()
     {
         fondNoir.SetActive(false);
@@ -261,12 +266,12 @@ public class InterfaceEvenement : MonoBehaviour
 
     public void OuvrirFenetreEvenementCombat(EvenementCombat evenementALancer)
     {
-        evenementALancer.combat = fenetreCombat.CombatActuel;
+        if(!OptionsJeu.Defaut.modeCombatsSimplifies)evenementALancer.combat = fenetreCombat.CombatActuel;
         if (!evenementALancer.illustration)
         {
             evenementALancer.illustration = fenetreCombat.IllustrationActuelle.sprite;
         }
-        fenetreCombat.LancerCombat(evenementALancer.combat, evenementALancer);
+        fenetreCombat.LancerCombat(evenementALancer);
         StartCoroutine(MAJCanvas());
     }
 

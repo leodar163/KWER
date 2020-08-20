@@ -9,7 +9,6 @@ public class Combat : Interaction
 {
     private Guerrier guerrier;
     private Hostile hostile;
-    
     public Guerrier Guerrier
     {
         get
@@ -60,6 +59,11 @@ public class Combat : Interaction
         }
     }
 
+    private void OnDestroy()
+    {
+        guerrier.DesengagementGeneral();
+    }
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -73,20 +77,116 @@ public class Combat : Interaction
     // Update is called once per frame
     void Update()
     {
-        
+   
     }
 
-    private void TerminerCombat()
+    public void joueurFuit()
     {
-        if (hostile.nbrCombattant <= 0) Destroy(hostile.gameObject);
-        if (guerrier.tribu.demographie.taillePopulation <= 0) guerrier.tribu.GameOver();
+        int guerriersTues = 0;
+        for (int i = 0; i < guerrier.nbrGuerrier; i++)
+        {
+            int alea = Random.Range(0, 99);
+            
+            if(alea < 25)
+            {
+                guerriersTues++;
+            }
+        }
+
+        EvenementCombat fuiteJoueur = ScriptableObject.CreateInstance<EvenementCombat>();
+
+        string texteInfobulle;
+        string descriptionChoix;
+
+        if (guerriersTues > 0)
+        {
+            texteInfobulle = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface)
+            + ">" + guerriersTues + " <color=\"white\">guerriers meurent";
+            descriptionChoix = "Nous avons subit des pertes";
+            fuiteJoueur.description = "En plus de l'humilation de la défaite, certains de nos guerriers ont dû mourrir sans se battre. La fuite ne s'est pas bien passée";
+            fuiteJoueur.titre = "ECHEC DE LA FUITE";
+        }
         else
         {
-            if (interfaceCombat)
+            texteInfobulle = "Dans les fourrés !";
+            descriptionChoix = "Aucun guerriere ne meurt";
+            fuiteJoueur.description = "Il semble que nos guerriers courent mieux qu'ils se battent." +
+                "A défaut d'avoir remporté la victoire, la retraite a été un succès.";
+            fuiteJoueur.titre = "RETRAITE REUSSIE";
+        }
+        
+        Evenement.Choix choix = new Evenement.Choix(descriptionChoix, texteInfobulle);
+
+        choix.effets.AddListener(InterfaceEvenement.Defaut.FermerFenetreEvenement);
+        choix.effets.AddListener(() => fuiteJoueur.TuerGuerrier(guerriersTues));
+        
+        fuiteJoueur.listeChoix.Add(choix);
+        fuiteJoueur.combat = this;
+        fuiteJoueur.LancerEvenement();
+    }
+
+    public void EnnemiFuit()
+    {
+        int hostilesTues = 0;
+        for (int i = 0; i < hostile.nbrCombattant; i++)
+        {
+            int alea = Random.Range(0, 99);
+
+            if (alea < 25)
             {
-                interfaceCombat.DesengagerTousGuerriers();
+                hostilesTues++;
             }
-            hostile.combatEstEnCours = false;
+        }
+
+        EvenementCombat fuiteHostile = ScriptableObject.CreateInstance<EvenementCombat>();
+
+        string texteInfobulle;
+        string descriptionChoix;
+
+        if (hostilesTues > 0)
+        {
+            texteInfobulle = "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurTexteBonus)
+            + ">" + hostilesTues + " <color=\"white\">ennemis meurent";
+            descriptionChoix = "L'ennemi goute à nos pointes !";
+            fuiteHostile.description = "L'ennemi a tenté de fuire, mais nous avons réussi à tuer certains d'entre eux avant !";
+            fuiteHostile.titre = "ENNEMIS RATTRAPES";
+        }
+        else
+        {
+            texteInfobulle = "Maudits soient-ils !";
+            descriptionChoix = "Aucun ennemi ne meurt";
+            fuiteHostile.description = "L'ennemi a fuit et nous avons été incapable de l'intercepter." +
+                "A l'heure qu'il est ils doivent être en train de se rassembler pour préparer un nouvel assaut.";
+            fuiteHostile.titre = "L'ENNEMI S'ENFUIT";
+        }
+
+        Evenement.Choix choix = new Evenement.Choix(descriptionChoix, texteInfobulle);
+
+        choix.effets.AddListener(InterfaceEvenement.Defaut.FermerFenetreEvenement);
+        choix.effets.AddListener(() => fuiteHostile.TuerEnnemis(hostilesTues));
+        
+
+        fuiteHostile.listeChoix.Add(choix);
+        fuiteHostile.combat = this;
+        fuiteHostile.LancerEvenement();
+    }
+
+    //Se lance automatiquement quand un evenement combat prend fin
+    private void TerminerCombat()
+    {
+        if(hostile.combatEstEnCours)
+        {
+            if (hostile.nbrCombattant <= 0) Destroy(hostile.gameObject);
+            if (guerrier.tribu.demographie.taillePopulation <= 0) guerrier.tribu.GameOver();
+            else
+            {
+                if (interfaceCombat)
+                {
+                    interfaceCombat.ReinitSlots();
+                    guerrier.DesengagementGeneral();
+                }
+                hostile.combatEstEnCours = false;
+            }
         }
     }
 
@@ -118,7 +218,14 @@ public class Combat : Interaction
 
     private void CommencerCombat()
     {
-        InterfaceEvenement.Defaut.OuvrirFenetreEvenementCombat(this);
+        if(!OptionsJeu.Defaut.modeCombatsSimplifies)
+            FenetreValidation.OuvrirFenetreValidation("Êtes-vous sûr de vouloir démarer un combat avec des " + Hostile.name + "s ?"
+            , "Attaquer !", "Renoncer", () => InterfaceEvenement.Defaut.OuvrirFenetreEvenementCombat(this)
+            , Hostile.pion.spriteRenderer.sprite, Hostile.name);
+        else
+            FenetreValidation.OuvrirFenetreValidation("Êtes-vous sûr de vouloir démarer un combat avec des " + Hostile.name + "s ?"
+            , "Attaquer !", "Renoncer", LancerCombat
+            , Hostile.pion.spriteRenderer.sprite, Hostile.name);
     }
 
     private void MAJBouton()
@@ -141,6 +248,8 @@ public class Combat : Interaction
 
     public void LancerCombat()
     {
+        hostile.combatEstEnCours = true;
+
         int attaqueGuerrier = 0;
         int defenseGuerrier = 0;
 

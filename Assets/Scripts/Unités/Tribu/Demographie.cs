@@ -163,6 +163,7 @@ public class Demographie : MonoBehaviour
         else
         {
             listePopsCampement.Add(popRetiree);
+            popRetiree.gameObject.SetActive(true);
         }
 
         tribu.stockRessources.CalculerGain();

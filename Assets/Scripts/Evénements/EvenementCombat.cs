@@ -14,18 +14,6 @@ public class EvenementCombat : Evenement
     [HideInInspector] public string baliseEnnPourc = "<enn%>";
     [HideInInspector] public string baliseEnn = "<enn>";
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Fuire()
     {
 

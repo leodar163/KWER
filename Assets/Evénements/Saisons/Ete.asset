@@ -16,7 +16,7 @@ MonoBehaviour:
   titre: C'EST L'ETE
   description: "Les lacs grouillent \xE0 nouveau de poisson, les for\xEAts regorgent
     de denr\xE9es et le froid n'est plus un danger. La saison bonne est de retour.\n\nConsommation
-    par tout par population :\n-1 Nourriture"
+    par tour par population :\n-1 Nourriture"
   illustration: {fileID: 21300000, guid: 477abbf4c4471484c9d3dd3e0cb3600d, type: 3}
   listeChoix:
   - description: Plus besoin des gros manteaux de fourrure

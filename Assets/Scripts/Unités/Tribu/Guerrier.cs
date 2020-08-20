@@ -53,7 +53,8 @@ public class Guerrier : MonoBehaviour
 
     public void DesengagementGeneral()
     {
-        for (int i = 0; i < nbrGuerrier; i++)
+        int nbrGuerriers = nbrGuerrier;
+        for (int i = 0; i < nbrGuerriers; i++)
         {
             tribu.demographie.DesengagerGuerrier(false);
         }

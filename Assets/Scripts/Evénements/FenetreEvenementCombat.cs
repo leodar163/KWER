@@ -35,7 +35,7 @@ public class FenetreEvenementCombat : FenetreEvenement
         
     }
 
-    public void LancerCombat(Combat combatALancer, EvenementCombat evenementCombat)
+    public void LancerCombat(EvenementCombat evenementCombat)
     {
         if (!infoBulleBanniereJoueur)
             infoBulleBanniereJoueur = banniereJoueur.GetComponent<InfoBulle>();
@@ -44,7 +44,7 @@ public class FenetreEvenementCombat : FenetreEvenement
 
         evenement = evenementCombat;
         DessinerEvenement();
-        combat = combatALancer;
+        combat = evenementCombat.combat;
 
         CameraControle.Actuel.CentrerCamera(combat.Guerrier.transform.position);
 
