@@ -13,7 +13,9 @@ public class Tribu : Pion
     {
         get
         {
-            return ListeOrdonneeDesTribus[TourParTour.Defaut.idTribu];
+            if (ListeOrdonneeDesTribus.Length > 0)
+                return ListeOrdonneeDesTribus[TourParTour.Defaut.idTribu];
+            else return null;
         }
     }
 
@@ -22,7 +24,16 @@ public class Tribu : Pion
     {
         get
         {
-            if(listeOrdonneeTribus == null)
+            bool tribuMort = false;
+            if(listeOrdonneeTribus != null)
+            {
+                for (int i = 0; i < listeOrdonneeTribus.Length; i++)
+                {
+                    if (listeOrdonneeTribus[i] == null)
+                        tribuMort = true;
+                }
+            }
+            if(listeOrdonneeTribus == null || tribuMort)
             {
                 Tribu[] tribus = FindObjectsOfType<Tribu>();
                 listeOrdonneeTribus = new Tribu[tribus.Length];
@@ -85,6 +96,7 @@ public class Tribu : Pion
 
         campement.MonterCampement();
         EntrerCampement(false);
+        StartCoroutine(CheckerGameOver());
     }
 
     // Update is called once per frame
@@ -309,10 +321,10 @@ public class Tribu : Pion
     }
     #endregion
 
-    public void GameOver()
+    public IEnumerator CheckerGameOver()
     {
-        print("GameOver !");
-        print(demographie.taillePopulation);
+        yield return new WaitUntil(() => demographie.taillePopulation <= 0);
+        InterfaceEvenement.Defaut.evenementGameoverTrib.LancerEvenement();
         expedition.RappelerExpeditions();
         Destroy(gameObject);
     }

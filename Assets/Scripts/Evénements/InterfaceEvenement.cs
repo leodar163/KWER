@@ -38,6 +38,10 @@ public class InterfaceEvenement : MonoBehaviour
     [SerializeField] private Evenement evenementEte;
     [Header("Narration")]
     [SerializeField] private Evenement evenementDebut;
+    public Evenement evenementGameoverGen;
+    public Evenement evenementGameoverTrib;
+    public Evenement evenementVictoire;
+
 
 
     [HideInInspector] public UnityEvent eventFinEvenement;

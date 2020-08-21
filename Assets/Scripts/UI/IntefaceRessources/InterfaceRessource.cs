@@ -50,10 +50,14 @@ public class InterfaceRessource : MonoBehaviour
 
     private IEnumerator MAJInterfaceRessource()
     {
-        MiseAJourCapacite(Tribu.TribukiJoue.stockRessources.CapaciteDeStockage);
-        MiseAjourGain(Tribu.TribukiJoue.stockRessources.ProjectionGain);
-        MiseAJourStock(Tribu.TribukiJoue.stockRessources.RessourcesEnStock);
-        MiseAJourConsommables();
+        if(Tribu.TribukiJoue)
+        {
+            MiseAJourCapacite(Tribu.TribukiJoue.stockRessources.CapaciteDeStockage);
+            MiseAjourGain(Tribu.TribukiJoue.stockRessources.ProjectionGain);
+            MiseAJourStock(Tribu.TribukiJoue.stockRessources.RessourcesEnStock);
+            MiseAJourConsommables();
+        }
+        
 
         yield return new WaitForEndOfFrame();
 

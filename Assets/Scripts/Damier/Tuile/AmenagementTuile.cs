@@ -68,6 +68,10 @@ public class AmenagementTuile : MonoBehaviour
         RevetirSpriteSaison();
 
         if (paliersValides == Amenagement.palier) amenagementEstActif = true;
+        if(amenagementEstActif && amenagement.name == "MenhirKwer")
+        {
+            InterfaceEvenement.Defaut.evenementVictoire.LancerEvenement();
+        }
     }
 
     public void RevetirSpriteSaison()

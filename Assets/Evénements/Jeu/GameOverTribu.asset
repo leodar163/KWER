@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b34c6adf52deb5419eec75a08d35d1e, type: 3}
+  m_Name: GameOverTribu
+  m_EditorClassIdentifier: 
+  effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
+  titre: UNE TRIBU DISPARAIT
+  description: "Une de nos tribus soeurs a succomb\xE9 aux intemp\xE9ries et aux
+    attaques d'hostiles. Les rares survivants ont rejoint les autres tribus, ou sont
+    morts en essayant. Cette nuit nous prirons pour qu'ils rejoignent les esprits."
+  illustration: {fileID: 21300000, guid: e514896cc02e4df4fb65b904cc8c4772, type: 3}
+  listeChoix:
+  - description: "Pourvu qu'il ne nous arrive pas la m\xEAme chose"
+    infobulle: "Une tribu dispara\xEEt"
+    retoursEffets:
+    - 
+    - 
+    - 
+    effets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_MethodName: FermerFenetreEvenement
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4183059956619556038, guid: 6115afa423c1d3f478d5b6cf58bd13dd,
+            type: 3}
+          m_MethodName: CheckerGameOverGeneral
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  finBalise: <fin>

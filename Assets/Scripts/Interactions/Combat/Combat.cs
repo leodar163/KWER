@@ -177,7 +177,6 @@ public class Combat : Interaction
         if(hostile.combatEstEnCours)
         {
             if (hostile.nbrCombattant <= 0) Destroy(hostile.gameObject);
-            if (guerrier.tribu.demographie.taillePopulation <= 0) guerrier.tribu.GameOver();
             else
             {
                 if (interfaceCombat)

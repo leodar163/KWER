@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b34c6adf52deb5419eec75a08d35d1e, type: 3}
+  m_Name: Victoire
+  m_EditorClassIdentifier: 
+  effets: {fileID: 7022393356525407335, guid: 6115afa423c1d3f478d5b6cf58bd13dd, type: 3}
+  titre: UNE NOUVELLE AUBE
+  description: "Nous avons \xE9rig\xE9 un monument \xE0 la gloire de nos tribus,
+    un m\xE9galithe qui symbolise l'unit\xE9 de nos fr\xE8res et nos soeurs. Nous
+    entrons dans une \xE8re de civilisation et progr\xE8s. \n"
+  illustration: {fileID: 21300000, guid: 4c956738be9ac0d439e289915c7b98ec, type: 3}
+  listeChoix:
+  - description: 'Le monde nous appartient ! '
+    infobulle: "Vous remportez la partie\nF\xE9licitation !"
+    retoursEffets:
+    - 
+    - 
+    - 
+    effets:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_MethodName: FermerFenetreEvenement
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 4183059956619556038, guid: 6115afa423c1d3f478d5b6cf58bd13dd,
+            type: 3}
+          m_MethodName: QuitterJeu
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  finBalise: <fin>
