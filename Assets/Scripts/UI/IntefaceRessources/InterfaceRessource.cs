@@ -50,11 +50,11 @@ public class InterfaceRessource : MonoBehaviour
 
     private IEnumerator MAJInterfaceRessource()
     {
-        if(Tribu.TribukiJoue)
+        if(InfoTribus.TribukiJoue)
         {
-            MiseAJourCapacite(Tribu.TribukiJoue.stockRessources.CapaciteDeStockage);
-            MiseAjourGain(Tribu.TribukiJoue.stockRessources.ProjectionGain);
-            MiseAJourStock(Tribu.TribukiJoue.stockRessources.RessourcesEnStock);
+            MiseAJourCapacite(InfoTribus.TribukiJoue.stockRessources.CapaciteDeStockage);
+            MiseAjourGain(InfoTribus.TribukiJoue.stockRessources.ProjectionGain);
+            MiseAJourStock(InfoTribus.TribukiJoue.stockRessources.RessourcesEnStock);
             MiseAJourConsommables();
         }
         
@@ -80,13 +80,13 @@ public class InterfaceRessource : MonoBehaviour
 
     private void MiseAJourConsommables()
     {
-        GenererConsommable(Tribu.TribukiJoue.stockRessources.emplacementConsommable - listeSlotsConsommable.Count);
+        GenererConsommable(InfoTribus.TribukiJoue.stockRessources.emplacementConsommable - listeSlotsConsommable.Count);
 
         //assignation des consommable aux slots
         for (int i = 0; i < listeSlotsConsommable.Count; i++)
         {
-            if (Tribu.TribukiJoue.stockRessources.consommables.Count > i) 
-                listeSlotsConsommable[i].ConsommableAssigne = Tribu.TribukiJoue.stockRessources.consommables[i];
+            if (InfoTribus.TribukiJoue.stockRessources.consommables.Count > i) 
+                listeSlotsConsommable[i].ConsommableAssigne = InfoTribus.TribukiJoue.stockRessources.consommables[i];
 
             else
             {

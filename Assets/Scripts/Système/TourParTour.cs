@@ -37,15 +37,15 @@ public class TourParTour : MonoBehaviour
 
     public void JoueurPasseTour()
     {
-        Tribu.TribukiJoue.pathFinder.ReinitGraphe();
-        Tribu.TribukiJoue.CheckerPasserTour();
+        InfoTribus.TribukiJoue.pathFinder.ReinitGraphe();
+        InfoTribus.TribukiJoue.CheckerPasserTour();
     }
 
 
     #region DEROULEMENT D'UN TOUR
     private IEnumerator TourJoueur()
     {
-        tribus = Tribu.ListeOrdonneeDesTribus;
+        tribus = InfoTribus.ListeOrdonneeDesTribus;
         idTribu = 0;
         
         if (nbrTour != 0) 

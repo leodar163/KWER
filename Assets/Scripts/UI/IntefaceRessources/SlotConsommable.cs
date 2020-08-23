@@ -137,20 +137,20 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
         string messageAlerte = "\n<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface)
             + ">Aucune tuile à portée ne peut être aménager<color=\"white\">";
         tuilesAmenageables.Clear();
-        for (int i = 0; i < Tribu.TribukiJoue.revendication.tuilesRevendiquees.Count; i++)
+        for (int i = 0; i < InfoTribus.TribukiJoue.revendication.tuilesRevendiquees.Count; i++)
         {
-            TuileManager tuile = Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile;
+            TuileManager tuile = InfoTribus.TribukiJoue.revendication.tuilesRevendiquees[i].tuile;
 
             if (consommable.amenagement.terrainsAmenageables.Contains(tuile.terrainTuile.nom))
             {
-                if (tuile != Tribu.TribukiJoue.tuileActuelle)
+                if (tuile != InfoTribus.TribukiJoue.tuileActuelle)
                 {
                     
                     if ((tuile.tuileAmenagement.Amenagement == consommable.amenagement && !tuile.tuileAmenagement.amenagementEstActif)
                         || tuile.tuileAmenagement.Amenagement == null)
                     {
 
-                        tuilesAmenageables.Add(Tribu.TribukiJoue.revendication.tuilesRevendiquees[i].tuile);
+                        tuilesAmenageables.Add(InfoTribus.TribukiJoue.revendication.tuilesRevendiquees[i].tuile);
                     }
                 }
                 
@@ -180,8 +180,8 @@ public class SlotConsommable : MonoBehaviour, IPointerEnterHandler
     }
     private void ConsommerConsommable()
     {
-        
-        Tribu.TribukiJoue.stockRessources.consommables.Remove(consommable);
+
+        InfoTribus.TribukiJoue.stockRessources.consommables.Remove(consommable);
         ReinitConso();
     }
 

@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class EffetSpawn : MonoBehaviour
 {
-    [SerializeField] private GameObject pillard;
     public void SpawnPillard()
     {
+        GameObject pillard = ListeAnimaux.Defaut.pillard;
         TuileManager[] tuilesFront = DamierGen.Actuel.RecupTuilesFrontalieres();
 
         List<TuileManager> piocheTuile = new List<TuileManager>();

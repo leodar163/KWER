@@ -19,8 +19,12 @@ public class ListeAnimaux : MonoBehaviour
     }
 
     public List<GameObject> domesticables = new List<GameObject>();
+    [Space]
     public List<GameObject> MegaFaune = new List<GameObject>();
+    [Space]
     public List<GameObject> Predateurs = new List<GameObject>();
+    [Space]
+    public GameObject pillard;
     
     // Start is called before the first frame update
     void Start()

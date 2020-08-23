@@ -61,11 +61,11 @@ public class InterfaceEchange : MonoBehaviour
         platoEchangeCible.tribu = echange.tribuCible;
         platoEchangeCible.ActiverInteraction(true);
 
-        platoEchangeJoueur.tribu = Tribu.TribukiJoue;
+        platoEchangeJoueur.tribu = InfoTribus.TribukiJoue;
         platoEchangeJoueur.ActiverInteraction(true);
 
         banniereCible.sprite = echange.tribuCible.banniere.sprite;
-        banniereJoueur.sprite = Tribu.TribukiJoue.banniere.sprite;
+        banniereJoueur.sprite = InfoTribus.TribukiJoue.banniere.sprite;
 
         gameObject.SetActive(true);
     }
@@ -90,7 +90,7 @@ public class InterfaceEchange : MonoBehaviour
         StockRessource.Inventaire stockEngageJoueur = platoEchangeJoueur.StockEngage;
         StockRessource.Inventaire stockEngageCible = platoEchangeCible.StockEngage;
 
-        Tribu.TribukiJoue.stockRessources.AjouterInventaire(stockEngageCible);
+        InfoTribus.TribukiJoue.stockRessources.AjouterInventaire(stockEngageCible);
         echange.tribuCible.stockRessources.AjouterInventaire(stockEngageJoueur);
 
         FermerEchange();

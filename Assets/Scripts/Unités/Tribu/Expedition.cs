@@ -47,7 +47,7 @@ public class Expedition : MonoBehaviour
             expl.TuileExploitee = zoneExploitation[i];
             listeExploitations.Add(expl);
         }
-        if(tribu == Tribu.TribukiJoue)Invoke("GenererInteractions", 0.1f);
+        if(tribu == InfoTribus.TribukiJoue)Invoke("GenererInteractions", 0.1f);
     }
 
     public void RappelerInteractions()

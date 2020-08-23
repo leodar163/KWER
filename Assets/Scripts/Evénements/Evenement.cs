@@ -55,7 +55,7 @@ public class Evenement : ScriptableObject
         {
             InterfaceEvenement.Defaut.OuvrirFenetreEvenement(this);
         }
-        if(Tribu.TribukiJoue) Tribu.TribukiJoue.interactionTribu.EntrerEnInteraction(false);
+        if(InfoTribus.TribukiJoue) InfoTribus.TribukiJoue.interactionTribu.EntrerEnInteraction(false);
     }
 
     public string InfoBulleComplete(int index)

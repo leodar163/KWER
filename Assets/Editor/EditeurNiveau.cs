@@ -12,7 +12,8 @@ public class EditeurNiveau : EditorWindow
     bool modePeinture = false;
     string nomMappeSauvegarde = "NomSauvegarde";
 
-    
+    Color couleurBGDefaut;
+
     TuileTerrain[] listeTerrains;
     TuileTerrain terrainSelectionne;
 
@@ -43,6 +44,10 @@ public class EditeurNiveau : EditorWindow
     int indexSelectionFleuve = -1;
     #endregion
 
+    System.Type typePionAAjouter;
+    string nomPionAAjouter;
+    string labelPlacementPion;
+
     [MenuItem("Window/Editeur de Nivo")]
     public static void AfficherFenetre()
     {
@@ -57,8 +62,10 @@ public class EditeurNiveau : EditorWindow
 
     private void Init()
     {
-        damierGen = FindObjectOfType<DamierGen>();
-        damierFleuve = FindObjectOfType<DamierFleuveGen>();
+        couleurBGDefaut = GUI.backgroundColor;
+
+        damierGen = DamierGen.Actuel;
+        damierFleuve = DamierFleuveGen.Actuel;
         colonnes = damierGen.colonnes;
         lignes = damierGen.lignes;
 
@@ -90,9 +97,10 @@ public class EditeurNiveau : EditorWindow
         Peindre();
 
 
-        GUILayout.Space(15);
+        GUILayout.Space(20);
 
-        DessinerInterfacePinceauFleuve();
+        DessinerPlacementPions();
+        PlacerPion();
 
         GUILayout.Space(15);
 
@@ -742,6 +750,111 @@ public class EditeurNiveau : EditorWindow
     }
     #endregion
 
+    #region PlacementPions
+    private void DessinerPlacementPions()
+    {
+        GUILayout.Label("Placements de pions");
+        GUILayout.Label(labelPlacementPion);
+        GUILayout.Space(10);
+        DessinerPaletteTribu();
+    }
+
+    private void DessinerPaletteTribu()
+    {
+        GUILayout.Label("Tribus");
+        GUILayout.Space(5);
+
+        for (int i = 0; i < InfoTribus.ListeOrdonneeDesTribus.Length; i++)
+        {
+            DessinerInterfaceTribu(InfoTribus.ListeOrdonneeDesTribus[i]);
+        }
+        
+        if (InfoTribus.ListeOrdonneeDesTribus.Length < InfoTribus.Defaut.nbrTribuMax)
+        {
+            if(typePionAAjouter != null)
+            {
+                GUILayoutOption[] options = new GUILayoutOption[2] { GUILayout.Height(40), GUILayout.Width(70) };
+                GUI.backgroundColor = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
+                if (GUILayout.Button("Annuler", options))
+                {
+                    DesactiverPlacementPion();
+                }
+                GUI.backgroundColor = couleurBGDefaut;
+            }
+            else
+            {
+                GUILayoutOption[] options = new GUILayoutOption[2] { GUILayout.Height(40), GUILayout.Width(40) };
+                GUI.backgroundColor = ListeCouleurs.Defaut.couleurTexteBonus;
+                if(GUILayout.Button("+",options))
+                {
+                    ActiverPlacementPion(typeof(Tribu));
+                }
+                GUI.backgroundColor = couleurBGDefaut;
+            }
+        }
+    }
+
+    private void DessinerInterfaceTribu(Tribu tribu)
+    {
+        GUILayoutOption[] options = new GUILayoutOption[2] { GUILayout.Height(30), GUILayout.Width(60)};
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button(tribu.gameObject.name, options))
+        {
+            SceneView.lastActiveSceneView.LookAt(tribu.transform.position);
+        }
+
+        GUI.backgroundColor = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
+        if (GUILayout.Button("Retirer", options))
+        {
+            InfoTribus.RetirerTribu(tribu);
+        }
+        GUI.backgroundColor = couleurBGDefaut;
+
+        GUILayout.EndHorizontal();
+    }
+
+    private void ActiverPlacementPion(System.Type typePion)
+    {
+        labelPlacementPion = "Clique sur une case pour placer ton pion";
+            typePionAAjouter = typePion;
+            ActiverCanvas(false);   
+    }
+    private void ActiverPlacementPion(System.Type typePion, string nomTroupeau)
+    {
+        ActiverPlacementPion(typePion);
+        nomPionAAjouter = nomTroupeau;
+    }
+
+    private void DesactiverPlacementPion()
+    {
+        labelPlacementPion = "";
+        typePionAAjouter = null;
+        ActiverCanvas(true);
+    }
+
+    private void PlacerPion()
+    {
+        if (typePionAAjouter != null)
+        {
+            foreach (GameObject go in Selection.gameObjects)
+            {
+                TuileManager tuile = go.GetComponentInParent<TuileManager>();
+                if (tuile != null && tuile.terrainTuile.GetType() != typeof(TerrainCote))
+                {
+                    if (typePionAAjouter == typeof(Tribu))
+                    {
+                        InfoTribus.AjouterTribu(tuile.transform.position);
+                    }
+
+                    DesactiverPlacementPion();
+                    break;
+                }
+            }
+            Deselection();
+        }
+        
+    }
+    #endregion
 
     private void ActiverCanvas(bool activer)
     {
@@ -754,6 +867,7 @@ public class EditeurNiveau : EditorWindow
                 canvas.gameObject.SetActive(activer);
             }
         }
+        CameraControle.Actuel.gameObject.SetActive(activer);
     }
 
     private void Deselection()

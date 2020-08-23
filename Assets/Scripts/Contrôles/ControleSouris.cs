@@ -58,7 +58,7 @@ public class ControleSouris : MonoBehaviour
                 Tribu tribu;
                 if (parent.TryGetComponent<Tribu>(out tribu))
                 {
-                    if(tribu == Tribu.TribukiJoue)
+                    if(tribu == InfoTribus.TribukiJoue)
                     {
                         return true;
                     }
@@ -72,7 +72,7 @@ public class ControleSouris : MonoBehaviour
     {
         modeInteraction = activer;
         controleEstActif = !activer;
-        Tribu.TribukiJoue.pathFinder.ReinitGraphe();
+        InfoTribus.TribukiJoue.pathFinder.ReinitGraphe();
         Interaction[] toutesInteractions = FindObjectsOfType<Interaction>();
 
         for (int i = 0; i < toutesInteractions.Length; i++)
@@ -115,18 +115,18 @@ public class ControleSouris : MonoBehaviour
             {
                 Collider2D checkTuile = Physics2D.OverlapBox(Camera.main.ScreenToWorldPoint(Input.mousePosition), new Vector2(0.01f, 0.01f), 0, maskTuile);
 
-                if (Tribu.TribukiJoue && checkTuile && !modeInteraction)
+                if (InfoTribus.TribukiJoue && checkTuile && !modeInteraction)
                 {
                     TuileManager tuileSelectionnee = checkTuile.GetComponent<TuileManager>();
 
                     //On se déplace sur la tuile sur laquelle on a cliqué, si elle est à portée
-                    if (Tribu.TribukiJoue.tuilesAPortee.Contains(tuileSelectionnee) && !Tribu.TribukiJoue.estEntreCampement)
+                    if (InfoTribus.TribukiJoue.tuilesAPortee.Contains(tuileSelectionnee) && !InfoTribus.TribukiJoue.estEntreCampement)
                     {
-                        Tribu.TribukiJoue.Destination = tuileSelectionnee;
+                        InfoTribus.TribukiJoue.Destination = tuileSelectionnee;
                     }
-                    else if (Tribu.TribukiJoue.estEntreCampement)
+                    else if (InfoTribus.TribukiJoue.estEntreCampement)
                     {
-                        Tribu.TribukiJoue.EntrerCampement(false);
+                        InfoTribus.TribukiJoue.EntrerCampement(false);
                     }
                 }
             }
@@ -166,17 +166,17 @@ public class ControleSouris : MonoBehaviour
 
         if(controleEstActif)
         {
-            if (checkTuile && Tribu.TribukiJoue)
+            if (checkTuile && InfoTribus.TribukiJoue)
             {
                 TuileManager tuileSurvolee = checkTuile.GetComponent<TuileManager>();
 
                 //Colore le chemin et le met à jour toutes les frames, si la tuile qu'on survole est à portee
                 if (tuileSurvolee.aPortee)
                 {
-                    if (!Tribu.TribukiJoue.estEntreCampement && controleEstActif)
+                    if (!InfoTribus.TribukiJoue.estEntreCampement && controleEstActif)
                     {
-                        Tribu.TribukiJoue.pathFinder.ColorerChemin(Tribu.TribukiJoue.pathFinder.
-                            TrouverChemin(Tribu.TribukiJoue.tuileActuelle, tuileSurvolee), tuileSurvolee.couleurTuileSurChemin);
+                        InfoTribus.TribukiJoue.pathFinder.ColorerChemin(InfoTribus.TribukiJoue.pathFinder.
+                            TrouverChemin(InfoTribus.TribukiJoue.tuileActuelle, tuileSurvolee), tuileSurvolee.couleurTuileSurChemin);
                     }
                 }
             }

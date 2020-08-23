@@ -8,47 +8,6 @@ public class Tribu : Pion
 {
     public int idTribu;
 
-    #region SINGLETON
-    static public Tribu TribukiJoue
-    {
-        get
-        {
-            if (ListeOrdonneeDesTribus.Length > 0)
-                return ListeOrdonneeDesTribus[TourParTour.Defaut.idTribu];
-            else return null;
-        }
-    }
-
-    static private Tribu[] listeOrdonneeTribus;
-    static public Tribu[] ListeOrdonneeDesTribus
-    {
-        get
-        {
-            bool tribuMort = false;
-            if(listeOrdonneeTribus != null)
-            {
-                for (int i = 0; i < listeOrdonneeTribus.Length; i++)
-                {
-                    if (listeOrdonneeTribus[i] == null)
-                        tribuMort = true;
-                }
-            }
-            if(listeOrdonneeTribus == null || tribuMort)
-            {
-                Tribu[] tribus = FindObjectsOfType<Tribu>();
-                listeOrdonneeTribus = new Tribu[tribus.Length];
-
-                for (int i = 0; i < tribus.Length; i++)
-                {
-                    listeOrdonneeTribus[tribus[i].idTribu] = tribus[i];
-                }
-            }
-
-            return listeOrdonneeTribus;
-        }
-    }
-    #endregion
-
     [HideInInspector] public bool estEntreCampement = false;
     
     [Header("Déplacements")]
@@ -71,7 +30,7 @@ public class Tribu : Pion
 
     [Header("Sprites")]
     [SerializeField] private Sprite sprCampementHiver;
-    [SerializeField] private Sprite sprTribuMvmt;
+    private Sprite sprTribuMvmt;
     private Sprite SprCampementEte;
 
     [Header("Combats")]
@@ -162,6 +121,9 @@ public class Tribu : Pion
 
     public void Init()
     {
+        banniere.sprite = InfoTribus.Defaut.bannieresTribus[idTribu];
+        sprTribuMvmt = InfoTribus.Defaut.pionTribus[idTribu];
+
         ptsDeplacement = ptsDeplacementDefaut;
         StartCoroutine(MAJTuilesAPortee());
 
@@ -175,7 +137,7 @@ public class Tribu : Pion
     {
         while (Application.isPlaying)
         {
-            if (!estEntreCampement && ControleSouris.Actuel.controleEstActif && this == TribukiJoue)
+            if (!estEntreCampement && ControleSouris.Actuel.controleEstActif && this == InfoTribus.TribukiJoue)
             {
                 tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, 
                     ptsDeplacement + bonus.bonusPointDeplacement, false);
