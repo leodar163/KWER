@@ -86,6 +86,7 @@ public class Tribu : Pion
         tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, ptsDeplacement, false);
         interactionTribu.ActiverBouton(true);
         interactionTribu.infobulle.texteInfoBulle = "Cliquez pour entrer en mode campement";
+        expedition.GenererInteractions();
     }
 
     public void CheckerPasserTour()
