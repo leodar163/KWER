@@ -19,7 +19,7 @@ public class ProductionTuile : MonoBehaviour
         get
         {
             if (productionEte == null ||productionHiver == null) InstancierProduction();
-            if (Calendrier.Actuel.Hiver) return productionHiver + tuile.tuileAmenagement.gainAmenagement;
+            if (Calendrier.Actuel && Calendrier.Actuel.Hiver) return productionHiver + tuile.tuileAmenagement.gainAmenagement;
             else return productionEte + tuile.tuileAmenagement.gainAmenagement;
         }
     }

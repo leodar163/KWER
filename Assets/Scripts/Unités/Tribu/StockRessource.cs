@@ -185,21 +185,24 @@ public class StockRessource : MonoBehaviour
 
     public void CalculerGain()
     {
-        projectionGain.Clear();
-        foreach (Production gain in gaineurs)
-        {   
-            projectionGain += gain;
-        }
-        if(Calendrier.Actuel)
+        if (projectionGain)
         {
-            if(Calendrier.Actuel.Hiver)
-            {
-                projectionGain -= consoParPopHiver * tribu.demographie.taillePopulation;
+            projectionGain.Clear();
+            foreach (Production gain in gaineurs)
+            {   
+                projectionGain += gain;
             }
-            else projectionGain -= consoParPop * tribu.demographie.taillePopulation;
-        }
+            if(Calendrier.Actuel)
+            {
+                if(Calendrier.Actuel.Hiver)
+                {
+                    projectionGain -= consoParPopHiver * tribu.demographie.taillePopulation;
+                }
+                else projectionGain -= consoParPop * tribu.demographie.taillePopulation;
+            }
 
-        LimiterStock();
+            LimiterStock();
+        }
     }
 
     private void LimiterGain()

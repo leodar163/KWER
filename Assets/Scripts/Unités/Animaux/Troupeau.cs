@@ -43,11 +43,10 @@ public class Troupeau : Pion
     
     private IEnumerator DeroulerTour()
     {
-        if(predateur)hostile.TrouverCiblesAPortee();
-
-        while(migration.PeutBouger || (hostile != null && hostile.PeutAttaquer))
+        if(predateur) hostile.TrouverCiblesAPortee();
+        while (migration.PeutBouger || (predateur && hostile.PeutAttaquer))
         {
-            if(predateur && (hostile != null && hostile.PeutAttaquer))
+            if (predateur && hostile.PeutAttaquer)
             {
                 StartCoroutine(hostile.Attaquer());
             }

@@ -65,7 +65,7 @@ public class Migration : MonoBehaviour
             }
 
             //Tant qu'on est pas arrivé à la prochaine tuile, on avance vers elle
-            //simule un Update() avec le WaitForEndOfFrame()
+            //simule un LateUpdate() avec le WaitForEndOfFrame()
             while (!EstArrivePrichaineTuile())
             {
                 SeDeplacerALaProchaineTuile();

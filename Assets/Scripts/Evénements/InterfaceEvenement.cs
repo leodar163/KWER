@@ -264,7 +264,7 @@ public class InterfaceEvenement : MonoBehaviour
 
     private IEnumerator VerifierEvenementFini()
     {
-        for (int i = 0; i < 60; i++)
+        for (int i = 0; i < 20; i++)
         {
             yield return new WaitForEndOfFrame();
         }
