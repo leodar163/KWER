@@ -764,32 +764,35 @@ public class EditeurNiveau : EditorWindow
         GUILayout.Label("Tribus");
         GUILayout.Space(5);
 
-        for (int i = 0; i < InfoTribus.ListeOrdonneeDesTribus.Length; i++)
+        if(InfoTribus.ListeOrdonneeDesTribus != null)
         {
-            DessinerInterfaceTribu(InfoTribus.ListeOrdonneeDesTribus[i]);
-        }
+            for (int i = 0; i < InfoTribus.ListeOrdonneeDesTribus.Length; i++)
+            {
+                DessinerInterfaceTribu(InfoTribus.ListeOrdonneeDesTribus[i]);
+            } 
         
-        if (InfoTribus.ListeOrdonneeDesTribus.Length < InfoTribus.Defaut.nbrTribuMax)
-        {
-            if(typePionAAjouter != null)
+            if (InfoTribus.ListeOrdonneeDesTribus.Length < InfoTribus.Defaut.nbrTribuMax)
             {
-                GUILayoutOption[] options = new GUILayoutOption[2] { GUILayout.Height(40), GUILayout.Width(70) };
-                GUI.backgroundColor = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
-                if (GUILayout.Button("Annuler", options))
+                if(typePionAAjouter != null)
                 {
-                    DesactiverPlacementPion();
+                    GUILayoutOption[] options = new GUILayoutOption[2] { GUILayout.Height(40), GUILayout.Width(70) };
+                    GUI.backgroundColor = ListeCouleurs.Defaut.couleurAlerteTexteInterface;
+                    if (GUILayout.Button("Annuler", options))
+                    {
+                        DesactiverPlacementPion();
+                    }
+                    GUI.backgroundColor = couleurBGDefaut;
                 }
-                GUI.backgroundColor = couleurBGDefaut;
-            }
-            else
-            {
-                GUILayoutOption[] options = new GUILayoutOption[2] { GUILayout.Height(40), GUILayout.Width(40) };
-                GUI.backgroundColor = ListeCouleurs.Defaut.couleurTexteBonus;
-                if(GUILayout.Button("+",options))
+                else
                 {
-                    ActiverPlacementPion(typeof(Tribu));
+                    GUILayoutOption[] options = new GUILayoutOption[2] { GUILayout.Height(40), GUILayout.Width(40) };
+                    GUI.backgroundColor = ListeCouleurs.Defaut.couleurTexteBonus;
+                    if(GUILayout.Button("+",options))
+                    {
+                        ActiverPlacementPion(typeof(Tribu));
+                    }
+                    GUI.backgroundColor = couleurBGDefaut;
                 }
-                GUI.backgroundColor = couleurBGDefaut;
             }
         }
     }

@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -45,14 +44,18 @@ public class Demographie : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        InstancierProduction();
+        AjouterPop();
+    }
 
-    
 
     void Start()
     {
         popParent.SetActive(false);
-        AjouterPop();
-        InstancierProduction();
+        
+        
         InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJBoutonsPop);
         InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJTotalPop);
     }
@@ -115,7 +118,7 @@ public class Demographie : MonoBehaviour
     {
         if(!modePopInfinie)tribu.stockRessources.RessourcesEnStock -= CoutPop;
 
-        GameObject nvPop = Instantiate(popParent, transform);
+        GameObject nvPop = Instantiate(popParent, affichage.transform);
         nvPop.SetActive(true);
         listePopsCampement.Add(nvPop.GetComponent<Pop>());
         tribu.stockRessources.CalculerGain();
@@ -178,6 +181,34 @@ public class Demographie : MonoBehaviour
         return popRetiree;
     }
 
+    public Pop[] DesengagerGuerrier(bool detruir, int nbr)
+    {
+        Pop[] popsRetour = new Pop[nbr];
+        for (int i = 0; i < nbr; i++)
+        {
+            Pop popRetiree = listePopsGuerrier[listePopsGuerrier.Count - 1];
+            listePopsGuerrier.RemoveAt(listePopsGuerrier.Count - 1);
+
+            if (detruir)
+            {
+                Destroy(popRetiree.gameObject);
+                popRetiree = null;
+                tribu.stockRessources.RetirerCapacitePop();
+            }
+            else
+            {
+                listePopsCampement.Add(popRetiree);
+                popRetiree.gameObject.SetActive(true);
+            }
+
+            tribu.stockRessources.CalculerGain();
+            tribu.guerrier.nbrGuerrier--;
+            popsRetour[i] = popRetiree;
+        }
+        AjusterRouePopulation();
+        return popsRetour;
+    }
+
     public Pop RetirerPop( bool detruir)
     {
         Pop popRetiree = listePopsCampement[listePopsCampement.Count - 1];
@@ -217,7 +248,7 @@ public class Demographie : MonoBehaviour
     #region INTERFACE
     public void AfficherIntefacePop(bool afficher)
     {
-        gameObject.SetActive(afficher);
+        affichage.SetActive(afficher);
     }
 
     private void MAJBoutonsPop()

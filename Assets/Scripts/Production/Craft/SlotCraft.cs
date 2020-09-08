@@ -8,6 +8,7 @@ public class SlotCraft : Slot
 {
     public PanelRecette panelRecette;
     private StockRessource stocks;
+    private bool ressourceDepensee = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class SlotCraft : Slot
         stocks = panelRecette.craft.campement.tribu.stockRessources;
         InterfaceRessource.Actuel.EventInterfaceMAJ.AddListener(MAJSlot);
         demo = panelRecette.craft.campement.tribu.demographie;
+        TourParTour.Defaut.eventNouveauTour.AddListener(MAJDepense);
         MAJSlot();
         
     }
@@ -25,6 +27,15 @@ public class SlotCraft : Slot
         
     }
 
+
+    private void MAJDepense()
+    {
+        if (estOccupe)
+        {
+            ressourceDepensee = true;
+        }
+        else ressourceDepensee = false;
+    }
     //Active ou désactive le slot en fonction de s'il y a suffisament de ressource en stock
     private void MAJSlot()
     {
@@ -43,9 +54,7 @@ public class SlotCraft : Slot
                         texteRetour += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">-"
                             + panelRecette.Recette.inputParPop.gains[i] + "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
 
-
-                        if (stocks.ProjectionGain.gains[i] < 0
-                            && stocks.RessourcesEnStock.gains[i] < panelRecette.Recette.inputParPop.gains[i])
+                        if (stocks.RessourcesEnStock.gains[i] < 0)
                         {
                             manqueRessource = true;
                             texteRetour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> (insuffisant)";
@@ -62,8 +71,7 @@ public class SlotCraft : Slot
                     {
                         texteRetour += "\n <color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + ">-"
                             + panelRecette.Recette.inputParPop.gains[i] + "<color=\"white\"> " + ListeRessources.Defaut.listeDesRessources[i].nom;
-                        if (stocks.ProjectionGain.gains[i] < panelRecette.Recette.inputParPop.gains[i]
-                            && stocks.RessourcesEnStock.gains[i] < panelRecette.Recette.inputParPop.gains[i])
+                        if (stocks.RessourcesEnStock.gains[i] < panelRecette.Recette.inputParPop.gains[i])
                         {
                             manqueRessource = true;
                             texteRetour += "<color=#" + ColorUtility.ToHtmlStringRGBA(ListeCouleurs.Defaut.couleurAlerteTexteInterface) + "> (insuffisant)";
@@ -91,20 +99,20 @@ public class SlotCraft : Slot
                                         + ">Pas d'emplacement de consommable disponible<color=\"white\">" + texteRetour);
 
         }
-
     }
 
     public override void CliquerSurSlot()
     {
         base.CliquerSurSlot();
-
         if(pop)
         {
             stocks.RessourcesEnStock -= panelRecette.Recette.inputParPop;
+            
         }
         else
         {
-            stocks.RessourcesEnStock += panelRecette.Recette.inputParPop;
+            if (!ressourceDepensee) stocks.RessourcesEnStock += panelRecette.Recette.inputParPop;
+            ressourceDepensee = false;
         }
 
         panelRecette.AfficherGainRessource();

@@ -98,7 +98,14 @@ public class Hostile : MonoBehaviour
 
         nvCombat.Guerrier = cible.guerrier;
 
-        InterfaceEvenement.Defaut.OuvrirFenetreEvenementCombat(nvCombat);
+        if(OptionsJeu.Defaut.modeCombatsSimplifies)
+        {
+            nvCombat.LancerCombat();
+        }
+        else
+        {
+            InterfaceEvenement.Defaut.OuvrirFenetreEvenementCombat(nvCombat);
+        }
 
         combatEstEnCours = true;
 

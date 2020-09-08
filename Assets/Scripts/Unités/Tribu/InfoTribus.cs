@@ -24,8 +24,10 @@ public class InfoTribus : MonoBehaviour
     {
         get
         {
-            if (ListeOrdonneeDesTribus.Length > 0)
+            if (ListeOrdonneeDesTribus != null && ListeOrdonneeDesTribus != null)
+            {
                 return ListeOrdonneeDesTribus[TourParTour.Defaut.idTribu];
+            }
             else return null;
         }
     }
@@ -38,6 +40,11 @@ public class InfoTribus : MonoBehaviour
             bool tribuMort = false;
             bool nbrTribuChange = false;
             Tribu[] tribus = FindObjectsOfType<Tribu>();
+            if (tribus.Length == 0)
+            {
+                listeOrdonneeTribus = null;
+                return null;
+            }
             if (listeOrdonneeTribus != null)
             {
                 for (int i = 0; i < listeOrdonneeTribus.Length; i++)
@@ -115,7 +122,11 @@ public class InfoTribus : MonoBehaviour
                 listeOrdonneeTribus[i].gameObject.name = "Tribu" + listeOrdonneeTribus[i].idTribu;
             }
         }
-        if (Application.isPlaying) Destroy(tribuARetirer.gameObject);
+        if (Application.isPlaying)
+        {
+            TourParTour.Defaut.idTribu = 0;
+            Destroy(tribuARetirer.gameObject);
+        }
         else DestroyImmediate(tribuARetirer.gameObject);
 
     }

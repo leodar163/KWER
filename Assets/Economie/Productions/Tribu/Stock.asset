@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Stock
   m_EditorClassIdentifier: 
   gains:
-  - 4
-  - 1
-  - 1
   - 2
+  - 1
+  - 1
+  - 0
   - 1

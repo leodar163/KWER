@@ -125,6 +125,10 @@ public class Production : ScriptableObject
         }
         return 0;
     }
+    public float RecupuererGainRessource(Ressource ressource)
+    {
+        return RecupuererGainRessource(ressource.nom);
+    }
 
     public string ToString(bool negatif)
     {

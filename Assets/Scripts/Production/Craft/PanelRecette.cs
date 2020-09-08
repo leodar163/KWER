@@ -68,7 +68,7 @@ public class PanelRecette : MonoBehaviour
 
     private void MiseAJourProduction()
     {
-        if(gameObject.activeSelf)
+        if(recette && gameObject.activeSelf)
         {
             MiseAJourSlots();
             if (recette.typeOutput == Recette.TypeOutput.Consommable)
@@ -175,17 +175,23 @@ public class PanelRecette : MonoBehaviour
 
     private void MAJAffichageRecette()
     {
+        int slotsOccupes = 0;
+        foreach (Slot slot in listeSlots)
+        {
+            if (slot.estOccupe) slotsOccupes++;
+        }
+
         //affiche les couts
         foreach (GainCraft affichage in listeAffichageCout)
         {
-            affichage.montant = Mathf.Abs(GainRessource.gains[ListeRessources.Defaut.TrouverIndexRessource(affichage.Ressource)]);
+            affichage.Montant = recette.inputParPop.RecupuererGainRessource(affichage.Ressource) * slotsOccupes;
         }
         //affiche les gains
         if (recette.typeOutput == Recette.TypeOutput.Ressources)
             foreach (GainCraft affichage in listeAffichageGain)
             {
            
-                affichage.montant = GainRessource.gains[ListeRessources.Defaut.TrouverIndexRessource(affichage.Ressource)]; 
+                affichage.Montant = GainRessource.gains[ListeRessources.Defaut.TrouverIndexRessource(affichage.Ressource)]; 
             }
         else if (recette.typeOutput == Recette.TypeOutput.Consommable)
         {
@@ -194,12 +200,11 @@ public class PanelRecette : MonoBehaviour
                 if(recette.cout.gains[i] > 0)
                 {
                     char pluriel = '\0';
-                    float temps = math.round((recette.cout.gains[i] - investissementConsommable.gains[i]) / math.abs(GainRessource.gains[i]));
-
+                    float temps = math.round((recette.cout.gains[i] - investissementConsommable.gains[i]) / recette.inputParPop.gains[i] * slotsOccupes);
                     if (temps > 1) pluriel = 's';
-
                     if (temps == float.PositiveInfinity) tempsConsommable.text = "";
                     else tempsConsommable.text = temps + " Tour" + pluriel;
+                    break;
                 }
             }
         }

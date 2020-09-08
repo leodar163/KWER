@@ -200,11 +200,11 @@ public class Combat : Interaction
         AfficherInterfaceCombat(entrer);
         if (entrer)
         {
-            boutonInteraction.onClick.AddListener(CommencerCombat);
+            boutonInteraction.onClick.AddListener(CommencerCombatJoueur);
         }
         else
         {
-            boutonInteraction.onClick.RemoveListener(CommencerCombat);
+            boutonInteraction.onClick.RemoveListener(CommencerCombatJoueur);
             boutonInteraction.interactable = true;
             infobulle.texteInfoBulle = hostile.name + "\nCliquer pour ouvrir l'interface de combat";
         }
@@ -215,7 +215,7 @@ public class Combat : Interaction
         interfaceCombat.gameObject.SetActive(afficher);
     }
 
-    private void CommencerCombat()
+    private void CommencerCombatJoueur()
     {
         if(!OptionsJeu.Defaut.modeCombatsSimplifies)
             FenetreValidation.OuvrirFenetreValidation("Êtes-vous sûr de vouloir démarer un combat avec des " + Hostile.name + "s ?"
@@ -247,6 +247,8 @@ public class Combat : Interaction
 
     public void LancerCombat()
     {
+        CameraControle.Actuel.CentrerCamera(transform.position);
+
         hostile.combatEstEnCours = true;
 
         int attaqueGuerrier = 0;
@@ -298,12 +300,7 @@ public class Combat : Interaction
             if (Random.Range(0, 100) <= guerrier.degatMoralTotal - hostile.resistanceMorale) ennemiFuit = true;
         }
 
-        int nbrGuerrierATuer = guerrier.nbrGuerrier > mortsGuerrier ? mortsGuerrier : guerrier.nbrGuerrier;
-        for (int i = 0; i < nbrGuerrierATuer; i++)
-        {
-            guerrier.tribu.demographie.DesengagerGuerrier(true);
-        }
-
+        guerrier.nbrGuerrier -= mortsGuerrier;
         hostile.nbrCombattant = hostile.nbrCombattant > mortsHostile ? hostile.nbrCombattant - mortsHostile : 0;
 
         InterfaceEvenement.Defaut.OuvrirRecapCombat(new RecapCombat(attaqueGuerrier, defenseGuerrier, attaqueHostile, defenseHostile, mortsGuerrier, mortsHostile, ennemiFuit), this);

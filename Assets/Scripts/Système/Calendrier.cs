@@ -39,7 +39,6 @@ public class Calendrier : MonoBehaviour
     public UnityEvent EventChangementDeSaison;
 
     [SerializeField] private float vitesseRotation = 60f;
-    private float differenceRotation;
 
     private void Awake()
     {
@@ -51,22 +50,13 @@ public class Calendrier : MonoBehaviour
     {
         cela = this;
 
-        differenceRotation = roueCalendrier.localEulerAngles.z;
         compteur = GetComponentInChildren<TextMeshProUGUI>();
 
         MiseAJourCalendrier(0);
     }
     void Update()
     {
-        Rotater();   
-    }
 
-    private void Rotater()
-    {
-        if(!(Mathf.Clamp(roueCalendrier.localEulerAngles.z, differenceRotation - 1, differenceRotation + 1) == roueCalendrier.localEulerAngles.z))
-        {
-            roueCalendrier.localEulerAngles += new Vector3(0, 0,  vitesseRotation* Time.deltaTime);
-        }   
     }
 
     public void MiseAJourCalendrier(int nbrTour)
@@ -76,10 +66,22 @@ public class Calendrier : MonoBehaviour
 
     private IEnumerator MettreCalendrierAJour(int nbrTour)
     {
-        differenceRotation += 180 / dureeSaison;
-        if (differenceRotation > 360) differenceRotation -= 360;
+        float difference = roueCalendrier.eulerAngles.z + 180 / dureeSaison;
+        Vector3 rotationCible = roueCalendrier.eulerAngles;
+        rotationCible.z += 180 / dureeSaison;
+        while (!(roueCalendrier.eulerAngles.z > rotationCible.z -1 && roueCalendrier.eulerAngles.z < rotationCible.z + 1)) 
+        {
+            roueCalendrier.eulerAngles = Vector3.Lerp(roueCalendrier.eulerAngles, rotationCible, 4f * Time.deltaTime);
+            if (roueCalendrier.eulerAngles.z > 355)
+            {
+                rotationCible.z -= 360;
+                roueCalendrier.eulerAngles = new Vector3();
+            }
+            
 
-        yield return new WaitUntil(() => Mathf.Clamp(roueCalendrier.localEulerAngles.z, differenceRotation - 1, differenceRotation + 1) == roueCalendrier.localEulerAngles.z);
+
+            yield return new WaitForEndOfFrame();
+        }
 
         MiseAJourCompteurCalendrier(nbrTour);
     }

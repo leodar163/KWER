@@ -7,21 +7,23 @@ public class ProductionTuile : MonoBehaviour
 {
     [SerializeField] private TuileManager tuile;
 
-    private Production production;
+    private Production productionEte;
+    private Production productionHiver;
     private Production bonusOutil;
 
     /// <summary>
     /// Ne pas assigner de valeur à aucune des propriétés de cet assesseur
     /// </summary>
-    [HideInInspector] public Production ProductionTotale
+    public Production ProductionTotale
     {
         get
         {
-            if (production == null) InstancierProduction();
-            return production + tuile.tuileAmenagement.gainAmenagement;
+            if (productionEte == null ||productionHiver == null) InstancierProduction();
+            if (Calendrier.Actuel.Hiver) return productionHiver + tuile.tuileAmenagement.gainAmenagement;
+            else return productionEte + tuile.tuileAmenagement.gainAmenagement;
         }
     }
-    [HideInInspector] public Production BonusOutil
+    public Production BonusOutil
     {
         get
         {
@@ -67,8 +69,11 @@ public class ProductionTuile : MonoBehaviour
         bonusOutil = ScriptableObject.CreateInstance<Production>();
         bonusOutil.gains = (float[])tuile.terrainTuile.bonusOutil.gains.Clone();
 
-        production = ScriptableObject.CreateInstance<Production>();
-        production.gains = (float[])tuile.terrainTuile.production.gains.Clone();
+        productionEte = ScriptableObject.CreateInstance<Production>();
+        productionEte.gains = (float[])tuile.terrainTuile.productionEte.gains.Clone();
+
+        productionHiver = ScriptableObject.CreateInstance<Production>();
+        productionHiver.gains = (float[])tuile.terrainTuile.productionHiver.gains.Clone();
 
         nbrSlot = tuile.terrainTuile.nbrSlot;
     }
@@ -81,14 +86,17 @@ public class ProductionTuile : MonoBehaviour
 
     public void ReinitProd()
     {
-        ProductionTotale.gains = (float[])tuile.terrainTuile.production.gains.Clone();
+        if (productionEte == null || productionHiver == null) InstancierProduction();
+        productionEte.gains = (float[])tuile.terrainTuile.productionEte.gains.Clone();
+        productionHiver.gains = (float[])tuile.terrainTuile.productionHiver.gains.Clone();
     }
 
     public void AjouterProduction(Production prod)
     {
-        for (int i = 0; i < ProductionTotale.gains.Length; i++)
+        for (int i = 0; i < prod.gains.Length; i++)
         {
-            production.gains[i] += prod.gains[i];
+            productionEte.gains[i] += prod.gains[i];
+            productionHiver.gains[i] += prod.gains[i];
         }
     }
 

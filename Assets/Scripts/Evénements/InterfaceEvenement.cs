@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -42,7 +41,8 @@ public class InterfaceEvenement : MonoBehaviour
     public Evenement evenementGameoverTrib;
     public Evenement evenementVictoire;
 
-
+    private Queue<Evenement> evenementsEnAttente = new Queue<Evenement>();
+    private Queue<Evenement> evenementsEnAttenteImmediate = new Queue<Evenement>();
 
     [HideInInspector] public UnityEvent eventFinEvenement;
     [HideInInspector] public bool evenementEnCours = false;
@@ -77,7 +77,8 @@ public class InterfaceEvenement : MonoBehaviour
 
     private IEnumerator OuvrirEvenementChangementSaison()
     {
-        if(Calendrier.Actuel.Hiver)
+        yield return new WaitWhile(() => evenementEnCours);
+        if (Calendrier.Actuel.Hiver)
         {
             evenementHiver.LancerEvenement();
         }
@@ -129,11 +130,13 @@ public class InterfaceEvenement : MonoBehaviour
 
     public void OuvrirRecapCombat(Combat.RecapCombat recap, Combat combat)
     {
+        StartCoroutine(VerifierEvenementFini());
         fondNoir.gameObject.SetActive(true);
         recapCombat.gameObject.SetActive(true);
         Evenement.Choix choix = new Evenement.Choix("","");
         choix.effets.AddListener(FermerFenetreEvenement);
-        if(combat.Hostile.nbrCombattant > 0 && combat.Guerrier.nbrGuerrier > 0)
+        choix.effets.AddListener(() => combat.Guerrier.tribu.demographie.DesengagerGuerrier(true, recap.mortsGuerrier));
+        if (combat.Hostile.nbrCombattant > 0 && combat.Guerrier.nbrGuerrier > 0)
         {
             if(recap.ennemiFuit)
             {
@@ -196,6 +199,31 @@ public class InterfaceEvenement : MonoBehaviour
         StartCoroutine(MAJCanvas());
     }
 
+    public void OuvrirFenetreEvenement(Evenement evenementALancer, bool Immediat)
+    {
+        if(evenementEnCours && !Immediat)
+        {
+            evenementsEnAttente.Enqueue(evenementALancer);
+        }
+        else
+        {
+            if (evenementALancer is EvenementCombat)
+            {
+                OuvrirFenetreEvenementCombat((EvenementCombat)evenementALancer);
+                fenetreCombat.gameObject.SetActive(true);
+            }
+            else
+            {
+                fenetreEvenement.EvenementActuel = evenementALancer;
+                fenetreEvenement.gameObject.SetActive(true);
+            }
+            fondNoir.SetActive(true);
+            evenementEnCours = true;
+            ControleSouris.Actuel.controleEstActif = false;
+            StartCoroutine(MAJCanvas());
+        }
+    }
+
     public void OuvrirFenetreEvenementCombat(Combat combat)
     {
         EvenementCombat eC = ListeEvenementCombat.Defaut.PiocherEvenement(combat);
@@ -225,47 +253,33 @@ public class InterfaceEvenement : MonoBehaviour
     /// </summary>
     public void FermerFenetreEvenement()
     {
+        StopCoroutine(VerifierEvenementFini());
         fondNoir.SetActive(false);
         fenetreEvenement.gameObject.SetActive(false);
         fenetreCombat.gameObject.SetActive(false);
         recapCombat.gameObject.SetActive(false);
 
-        StartCoroutine(VerifierEvenementFini());
+         StartCoroutine(VerifierEvenementFini());
     }
 
     private IEnumerator VerifierEvenementFini()
     {
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
+        for (int i = 0; i < 60; i++)
+        {
+            yield return new WaitForEndOfFrame();
+        }
 
-        if (!fenetreCombat.gameObject.activeSelf && !fenetreCombat.gameObject.activeSelf && !recapCombat.gameObject.activeSelf)
+        if (!fenetreEvenement.gameObject.activeSelf && !fenetreCombat.gameObject.activeSelf && !recapCombat.gameObject.activeSelf)
         {
             eventFinEvenement.Invoke();
             ControleSouris.Actuel.controleEstActif = true;
-            if (Interaction.EnCours && (Interaction.EnCours is Combat || Interaction.EnCours is Anomalie)) Interaction.EnCours.EntrerEnInteraction(false);
+            if (Interaction.EnCours && (Interaction.EnCours is Combat || Interaction.EnCours is Anomalie)) 
+                Interaction.EnCours.EntrerEnInteraction(false);
             print("Evenement terminé");
+            if(evenementsEnAttente.Count > 0) OuvrirFenetreEvenement(evenementsEnAttente.Dequeue(), false);
         }
     }
 
-    public void OuvrirFenetreEvenement(Evenement evenementALancer)
-    {
-        if (evenementALancer is EvenementCombat)
-        {
-            OuvrirFenetreEvenementCombat((EvenementCombat)evenementALancer);
-            fenetreCombat.gameObject.SetActive(true);
-        }
-        else
-        {
-            fenetreEvenement.EvenementActuel = evenementALancer;
-            fenetreEvenement.gameObject.SetActive(true);
-        }
-        fondNoir.SetActive(true);
-        evenementEnCours = true;
-        ControleSouris.Actuel.controleEstActif = false;
-        StartCoroutine(MAJCanvas());
-    }
         
 
     public void OuvrirFenetreEvenementCombat(EvenementCombat evenementALancer)

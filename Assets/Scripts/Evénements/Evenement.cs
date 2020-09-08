@@ -53,9 +53,18 @@ public class Evenement : ScriptableObject
     {
         if (InterfaceEvenement.Defaut)
         {
-            InterfaceEvenement.Defaut.OuvrirFenetreEvenement(this);
+            InterfaceEvenement.Defaut.OuvrirFenetreEvenement(this, false);
         }
         if(InfoTribus.TribukiJoue) InfoTribus.TribukiJoue.interactionTribu.EntrerEnInteraction(false);
+    }
+
+    public void LancerEvenementImmediat()
+    {
+        if (InterfaceEvenement.Defaut)
+        {
+            InterfaceEvenement.Defaut.OuvrirFenetreEvenement(this, true);
+        }
+        if (InfoTribus.TribukiJoue) InfoTribus.TribukiJoue.interactionTribu.EntrerEnInteraction(false);
     }
 
     public string InfoBulleComplete(int index)

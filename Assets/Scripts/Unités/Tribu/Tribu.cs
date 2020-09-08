@@ -55,7 +55,7 @@ public class Tribu : Pion
 
         campement.MonterCampement();
         EntrerCampement(false);
-        StartCoroutine(CheckerGameOver());
+        
     }
 
     // Update is called once per frame
@@ -82,7 +82,7 @@ public class Tribu : Pion
 
         ptsDeplacement = ptsDeplacementDefaut;
         guerrier.jetonAttaque = true;
-
+        TrouverTuileActuelle();
         tuilesAPortee = pathFinder.CreerGrapheTuilesAPortee(tuileActuelle, ptsDeplacement, false);
         interactionTribu.ActiverBouton(true);
         interactionTribu.infobulle.texteInfoBulle = "Cliquez pour entrer en mode campement";
@@ -289,6 +289,6 @@ public class Tribu : Pion
         yield return new WaitUntil(() => demographie.taillePopulation <= 0);
         InterfaceEvenement.Defaut.evenementGameoverTrib.LancerEvenement();
         expedition.RappelerExpeditions();
-        Destroy(gameObject);
+        InfoTribus.RetirerTribu(this);
     }
 }

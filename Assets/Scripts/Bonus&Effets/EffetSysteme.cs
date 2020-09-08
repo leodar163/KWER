@@ -15,9 +15,9 @@ public class EffetSysteme : MonoBehaviour
 
     public void CheckerGameOverGeneral()
     {
-        if (InfoTribus.ListeOrdonneeDesTribus.Length <= OptionsJeu.Defaut.nbrTribuGameOver)
+        if (InfoTribus.ListeOrdonneeDesTribus == null ||InfoTribus.ListeOrdonneeDesTribus.Length <= OptionsJeu.Defaut.nbrTribuGameOver )
         {
-            InterfaceEvenement.Defaut.evenementGameoverGen.LancerEvenement();
+            InterfaceEvenement.Defaut.evenementGameoverGen.LancerEvenementImmediat();
         }
     }
 }

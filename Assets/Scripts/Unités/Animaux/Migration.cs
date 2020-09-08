@@ -140,16 +140,19 @@ public class Migration : MonoBehaviour
             {
                 if (!tuilesParcourues.Contains(tuile))
                 {
-                    if(!troupeau.predateur)
+                    if(!tuile.terrainTuile.ettendueEau)
                     {
-                        if (tuile.terrainTuile.nom == "Plaine")
+                        if(!troupeau.predateur)
+                        {
+                            if (tuile.terrainTuile.nom == "Plaine")
+                            {
+                                directionPossibles.Add(tuile);
+                            }
+                        }
+                        else
                         {
                             directionPossibles.Add(tuile);
                         }
-                    }
-                    else
-                    {
-                        directionPossibles.Add(tuile);
                     }
                 }
             }

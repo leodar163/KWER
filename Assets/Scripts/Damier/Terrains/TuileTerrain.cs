@@ -15,6 +15,7 @@ public abstract class TuileTerrain : MonoBehaviour
 
     [Header("Production")]
     public int nbrSlot;
-    public Production production;
+    public Production productionEte;
+    public Production productionHiver;
     public Production bonusOutil;
 }

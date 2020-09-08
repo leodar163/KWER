@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -56,6 +55,13 @@ public class TourParTour : MonoBehaviour
             foreach(Tribu tribu in tribus)
             {
                 tribu.DebutTour();
+            }
+        }
+        else if (nbrTour == 0)
+        {
+            foreach (Tribu tribu in tribus)
+            {
+                tribu.StartCoroutine(tribu.CheckerGameOver());
             }
         }
 

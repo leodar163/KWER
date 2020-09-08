@@ -502,7 +502,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2573456614893114323}
+      - m_Target: {fileID: 1864241659292486143}
         m_MethodName: SupprimerPop
         m_Mode: 1
         m_Arguments:
@@ -609,9 +609,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1190294052928454321}
-  - component: {fileID: 2573456614893114323}
   m_Layer: 9
-  m_Name: Demographie
+  m_Name: InterfaceDemographie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -639,29 +638,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2573456614893114323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465690624769101645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2413d6efc239c4a807e7cf07048545, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popParent: {fileID: 5172677523249622558}
-  tribu: {fileID: 1618904120558817127}
-  affichage: {fileID: 1062186752523472291}
-  boutonAjout: {fileID: 1144597418313827221}
-  boutonSuppression: {fileID: 4869641270622538698}
-  texteTotalPop: {fileID: 1668051937684538637}
-  coutPop: {fileID: 11400000, guid: 4eaa644a14238454e8e8b08db01b89bb, type: 2}
-  GainSacrificePop: {fileID: 11400000, guid: 527a73f2deb42f34b80e35d8ce588a02, type: 2}
-  listePopsCampement: []
-  listePopsExpedition: []
-  listePopsGuerrier: []
 --- !u!1 &1528107149241721293
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +730,7 @@ GameObject:
   - component: {fileID: 4469811351211270403}
   - component: {fileID: 8044188089232333488}
   - component: {fileID: 1380142630860522206}
+  - component: {fileID: 1864241659292486143}
   m_Layer: 9
   m_Name: Tribu
   m_TagString: Unite
@@ -887,7 +864,7 @@ MonoBehaviour:
   tuilesAPortee: []
   expedition: {fileID: 5645824234354430084}
   stockRessources: {fileID: 51998110753543547}
-  demographie: {fileID: 2573456614893114323}
+  demographie: {fileID: 1864241659292486143}
   banniere: {fileID: 6343172449743224675}
   campement: {fileID: 346511199273669100}
   interactionTribu: {fileID: 8044188089232333488}
@@ -1001,6 +978,29 @@ MonoBehaviour:
   bonusMultProdPeau: 1
   bonusMultProdPigment: 1
   bonusPointDeplacement: 0
+--- !u!114 &1864241659292486143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770215730859688538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2413d6efc239c4a807e7cf07048545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popParent: {fileID: 5172677523249622558}
+  tribu: {fileID: 1618904120558817127}
+  affichage: {fileID: 1465690624769101645}
+  boutonAjout: {fileID: 1144597418313827221}
+  boutonSuppression: {fileID: 4869641270622538698}
+  texteTotalPop: {fileID: 1668051937684538637}
+  coutPop: {fileID: 11400000, guid: 4eaa644a14238454e8e8b08db01b89bb, type: 2}
+  GainSacrificePop: {fileID: 11400000, guid: 527a73f2deb42f34b80e35d8ce588a02, type: 2}
+  listePopsCampement: []
+  listePopsExpedition: []
+  listePopsGuerrier: []
 --- !u!1 &1851803354221569983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2779,7 +2779,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2573456614893114323}
+      - m_Target: {fileID: 1864241659292486143}
         m_MethodName: AjouterPop
         m_Mode: 1
         m_Arguments:

@@ -1,12 +1,5 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using TMPro;
-using UnityEditorInternal;
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(Image),typeof(Button),typeof(InfoBulle))]

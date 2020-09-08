@@ -13,7 +13,7 @@ public class GainCraft : MonoBehaviour
 
     private Ressource ressource;
 
-    public float montant
+    public float Montant
     {
         get
         {
@@ -42,7 +42,7 @@ public class GainCraft : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        montant = 0;
+        Montant = 0;
     }
 
     // Update is called once per frame
