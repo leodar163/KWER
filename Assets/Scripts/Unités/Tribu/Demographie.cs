@@ -63,11 +63,13 @@ public class Demographie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if UNITY_EDITOR
         if(Input.GetKeyUp(KeyCode.P))
         {
             modePopInfinie = !modePopInfinie;
             MAJBoutonsPop();
         }
+#endif
     }
 
     private void MAJTotalPop()
@@ -175,7 +177,9 @@ public class Demographie : MonoBehaviour
         tribu.stockRessources.CalculerGain();
         tribu.guerrier.nbrGuerrier--;
 
+
         
+
         AjusterRouePopulation();
 
         return popRetiree;
@@ -183,6 +187,8 @@ public class Demographie : MonoBehaviour
 
     public Pop[] DesengagerGuerrier(bool detruir, int nbr)
     {
+        print(nbr);
+
         Pop[] popsRetour = new Pop[nbr];
         for (int i = 0; i < nbr; i++)
         {
@@ -206,6 +212,9 @@ public class Demographie : MonoBehaviour
             popsRetour[i] = popRetiree;
         }
         AjusterRouePopulation();
+
+        print(tribu.guerrier.nbrGuerrier);
+
         return popsRetour;
     }
 

@@ -53,6 +53,7 @@ public class Guerrier : MonoBehaviour
 
     public void DesengagementGeneral()
     {
+        
         int nbrGuerriers = nbrGuerrier;
         for (int i = 0; i < nbrGuerriers; i++)
         {

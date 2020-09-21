@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 using UnityEngine.UI;
 
@@ -34,7 +35,7 @@ public class FenetreRecapCombat : MonoBehaviour
     [Header("Mode Simplifié")]
     [SerializeField] private Button choixFuite;
 
-    public void AfficherRecap(Combat.RecapCombat recap, Combat combat, Evenement.Choix choix)
+    public void AfficherRecap(Combat.RecapCombat recap, Combat combat, Evenement.Choix choix, UnityAction fonctionFuite)
     {
 
         if (!infoBulleBanniereJoueur)
@@ -61,6 +62,8 @@ public class FenetreRecapCombat : MonoBehaviour
 
         if (OptionsJeu.Defaut.modeCombatsSimplifies && combat.Hostile.nbrCombattant > 0 && combat.Guerrier.nbrGuerrier > 0)
         {
+            choixFuite.onClick.RemoveAllListeners();
+            choixFuite.onClick.AddListener(fonctionFuite);
             choixFuite.onClick.AddListener(InterfaceEvenement.Defaut.FermerFenetreEvenement);
             choixFuite.onClick.AddListener(combat.joueurFuit);
             choixFuite.gameObject.SetActive(true);

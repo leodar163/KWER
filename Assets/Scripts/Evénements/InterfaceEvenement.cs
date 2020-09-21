@@ -195,7 +195,7 @@ public class InterfaceEvenement : MonoBehaviour
             recapCombat.illustration.sprite = illuMegaFaune;
         }
 
-        recapCombat.AfficherRecap(recap, combat, choix);
+        recapCombat.AfficherRecap(recap, combat, choix, () => combat.Guerrier.tribu.demographie.DesengagerGuerrier(true, recap.mortsGuerrier));
         StartCoroutine(MAJCanvas());
     }
 
@@ -264,7 +264,7 @@ public class InterfaceEvenement : MonoBehaviour
 
     private IEnumerator VerifierEvenementFini()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
             yield return new WaitForEndOfFrame();
         }

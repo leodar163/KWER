@@ -300,7 +300,6 @@ public class Combat : Interaction
             if (Random.Range(0, 100) <= guerrier.degatMoralTotal - hostile.resistanceMorale) ennemiFuit = true;
         }
 
-        guerrier.nbrGuerrier -= mortsGuerrier;
         hostile.nbrCombattant = hostile.nbrCombattant > mortsHostile ? hostile.nbrCombattant - mortsHostile : 0;
 
         InterfaceEvenement.Defaut.OuvrirRecapCombat(new RecapCombat(attaqueGuerrier, defenseGuerrier, attaqueHostile, defenseHostile, mortsGuerrier, mortsHostile, ennemiFuit), this);

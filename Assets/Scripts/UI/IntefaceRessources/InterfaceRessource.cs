@@ -49,19 +49,24 @@ public class InterfaceRessource : MonoBehaviour
 
     private IEnumerator MAJInterfaceRessource()
     {
-        if(InfoTribus.TribukiJoue)
+
+        while(true)
         {
-            MiseAJourCapacite(InfoTribus.TribukiJoue.stockRessources.CapaciteDeStockage);
-            MiseAjourGain(InfoTribus.TribukiJoue.stockRessources.ProjectionGain);
-            MiseAJourStock(InfoTribus.TribukiJoue.stockRessources.RessourcesEnStock);
-            MiseAJourConsommables();
-        }
+            if(InfoTribus.TribukiJoue)
+            {
+                MiseAJourCapacite(InfoTribus.TribukiJoue.stockRessources.CapaciteDeStockage);
+                MiseAjourGain(InfoTribus.TribukiJoue.stockRessources.ProjectionGain);
+                MiseAJourStock(InfoTribus.TribukiJoue.stockRessources.RessourcesEnStock);
+                MiseAJourConsommables();
+            }
         
 
-        yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
 
-        StartCoroutine(MAJInterfaceRessource());
-        EventInterfaceMAJ.Invoke();
+            EventInterfaceMAJ.Invoke();
+        }
     }
 
     private void GenererPanelsInfo()
